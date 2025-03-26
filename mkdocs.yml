@@ -21,3 +21,9 @@ markdown_extensions:
   - admonition  # Adds note/warning/info boxes
   - toc:  # Table of contents
       permalink: true
+      
+# Configuration
+theme:
+  highlightjs: true
+  name: 'material'
+
