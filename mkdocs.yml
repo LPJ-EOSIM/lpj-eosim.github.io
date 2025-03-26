@@ -10,6 +10,7 @@ nav:
       - Forecasts: forecasts.md
   - Newsletter: newsletter.md
   - About: about.md
+  - Publications: publications.md
 
 plugins:
   - search  # Enables site search
