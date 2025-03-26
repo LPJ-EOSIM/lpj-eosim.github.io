@@ -7,9 +7,9 @@ nav:
   - Installation: install.md
   - Usage:
       - Simulations: simulations.md
-  #     - Forecasts: forecasts.md
-  # - Newsletter: newsletter.md
-  # - About: about.md
+      - Forecasts: forecasts.md
+  - Newsletter: newsletter.md
+  - About: about.md
 
 plugins:
   - search  # Enables site search
