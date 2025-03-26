@@ -26,4 +26,5 @@ markdown_extensions:
 theme:
   highlightjs: true
   name: 'material'
+  repo_url: null 
 
