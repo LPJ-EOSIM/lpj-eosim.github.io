@@ -1,0 +1,28 @@
+site_name: LPJ EOSIM
+site_url: https://lpj-eosim.github.io
+repo_url: https://github.com/LPJ-EOSIM/lpj-eosim.github.io
+
+nav:
+  - Home: index.md
+  - Installation: install.md
+  - Usage:
+      - Simulations: simulations.md
+      - Forecasts: forecasts.md
+  - Newsletter: newsletter.md
+  - About: about.md
+
+plugins:
+  - search  # Enables site search
+  - mkdocstrings  # Generates API docs from docstrings
+
+markdown_extensions:
+  - admonition  # Adds note/warning/info boxes
+  - toc:  # Table of contents
+      permalink: true
+      
+# Configuration
+theme:
+  highlightjs: true
+  name: 'material'
+  repo_url: null 
+
