@@ -1,17 +1,15 @@
 site_name: LPJ EOSIM
 site_url: https://lpj-eosim.github.io
 repo_url: https://github.com/LPJ-EOSIM/lpj-eosim.github.io
-theme:
-  name: material  # Uses the popular Material theme
 
 nav:
   - Home: index.md
   - Installation: install.md
   - Usage:
-      - Simulations: usage/simulations.md
-      - Forecasts: usage/forecasts.md
-  - Newsletter: newsletter.md
-  - About: about.md
+      - Simulations: simulations.md
+  #     - Forecasts: forecasts.md
+  # - Newsletter: newsletter.md
+  # - About: about.md
 
 plugins:
   - search  # Enables site search
