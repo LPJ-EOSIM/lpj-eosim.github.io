@@ -8,6 +8,8 @@ nav:
   - Usage:
       - Simulations: simulations.md
       - Forecasts: forecasts.md
+  - Benchmarks:
+      - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
   - Newsletter: newsletter.md
   - About: about.md
   - Publications: publications.md
@@ -26,4 +28,3 @@ theme:
   highlightjs: true
   name: 'material'
   repo_url: null 
-
