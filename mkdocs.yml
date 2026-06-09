@@ -4,14 +4,10 @@ repo_url: https://github.com/LPJ-EOSIM/lpj-eosim.github.io
 
 nav:
   - Home: index.md
-  - Installation: install.md
   - Usage:
       - Simulations: simulations.md
-      - Forecasts: forecasts.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
-  - Newsletter: newsletter.md
-  - About: about.md
   - Publications: publications.md
 
 plugins:
