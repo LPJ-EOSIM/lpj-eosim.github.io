@@ -1,556 +1,580 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
+<html>
   <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-        <link rel="canonical" href="https://lpj-eosim.github.io/results/pr-412/">
-      
-      
-        <link rel="prev" href="../../simulations/">
-      
-      
-        <link rel="next" href="../../publications/">
-      
-      
-        
-      
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
-    
-    
-      
-        <title>Incorporating a nitrogen cycle in LPJ-EOSIM - LPJ EOSIM</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
-      
-      
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript">
 
 
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
-    
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
+ $(document).ready(function(){
+	  function getH2Children($row) {
+	      var children = [];
+	      while($row.next().hasClass('child_dataset')) {
+		  children.push($row.next());
+		  $row = $row.next();
+	      }
+	      return children;
+	  }
+	  function getH1Children($row) {
+	      var children = [];
+	      var turning_on = $row.next().is(":hidden");
+	      while($row.next().hasClass('child_dataset') ||
+		    $row.next().hasClass('child_variable')) {
+		  if(turning_on){
+		      if( ($row.next().is(":hidden")) &&
+			  ($row.next().hasClass('child_variable'))) children.push($row.next());
+		  }else{
+		      if(!($row.next().is(":hidden"))) children.push($row.next());
+		  }
+		  $row = $row.next();
+	      }
+	      return children;
+	  }
+	  $('.parent').on('click', function() {
+	      var children = getH1Children($(this));
+	      $.each(children, function() {
+		  $(this).toggle();
+	      })
+	  });
+	  $('.child_variable').on('click', function() {
+	      var children = getH2Children($(this));
+	      $.each(children, function() {
+		  $(this).toggle();
+	      })
+	  });
+	  $('.child_dataset').toggle();
+      });
 
-    
-    
+      function pageLoad() {
+
+	  $("table").delegate('td','mouseover mouseleave', function(e) {
+	      var table = document.getElementById("scoresTable");
+	      if (e.type == 'mouseover') {
+		  $(this).parent().addClass("hover");
+		  table.rows[0].cells[$(this).index()].style.fontWeight = "bolder";
+	      }
+	      else {
+		  $(this).parent().removeClass("hover");
+		  table.rows[0].cells[$(this).index()].style.fontWeight = "normal";
+	      }
+	  });
+
+	  colorTable();
+      }
+
+      function printRow(table,row,array,cmap) {
+	  if(typeof array == 'undefined'){
+	      for(var i = 1, col; col = table.rows[row].cells[i]; i++) {
+		  col.style.backgroundColor = "#808080";
+	      }
+	      return;
+	  }
+	  var nc = cmap.length;
+	  for(var col=0;col<array.length;col++){
+	      var clr = "#808080";
+	      if(array[col] > -900){
+                  var ae = Math.abs(array[col]);
+                  var ind;
+                  if(ae>=0.25){
+                     ind = Math.round(2*array[col]+4);
+                  }else{
+                     ind = Math.round(4*array[col]+4);
+                  }
+		  ind = Math.min(Math.max(ind,0),nc-1);
+		  clr = cmap[ind];
+	      }
+	      table.rows[row].cells[col+1].style.backgroundColor = clr;
+	  }
+      }
+
+      function colorTable() {
+
+        $.getJSON("scalars.json", function(data) {
+          var scalars = data;
+	  var scalar_option = document.getElementById("ScalarOption");
+          var region_option = document.getElementById("RegionOption");
+	  var scalar_name   = scalar_option.options[scalar_option.selectedIndex].value;
+	  scalar_name  += " " + region_option.options[region_option.selectedIndex].value;
+
+	  var PuOr = ['#b35806','#e08214','#fdb863','#fee0b6','#f7f7f7','#d8daeb','#b2abd2','#8073ac','#542788'];
+	  var GnRd = ['#b2182b','#d6604d','#f4a582','#fddbc7','#f7f7f7','#d9f0d3','#a6dba0','#5aae61','#1b7837'];
+	  var cmap = GnRd;
+	  if(document.getElementById("colorblind").checked) cmap = PuOr;
+
+	  var row = 1;
+	  var tab = "";
+	  var table = document.getElementById("scoresTable");
+	  for(let h1 in scalars){
+	      printRow(table,row,scalars[h1][scalar_name],cmap);
+	      row += 1;
+	      H1 = scalars[h1]["children"]
+	      for(let h2 in H1){
+		  printRow(table,row,H1[h2][scalar_name],cmap);
+		  row += 1;
+		  H2 = H1[h2]["children"]
+		  for(let v in H2){
+	              var s_name = scalar_name;
+                      if(h1 == "Relationships") {
+                        s_name = v.replace("/","|") + " Score " + region_option.options[region_option.selectedIndex].value;
+                      }
+		      printRow(table,row,H2[v][s_name],cmap);
+		      row += 1;
+		  }
+	      }
+	  }
+
+	  table = document.getElementById("scoresLegend");
+	  row = 0;
+	  for(var col=0;col<cmap.length;col++){
+	      table.rows[row].cells[col].style.backgroundColor = cmap[col];
+	  }
+	});
+      }
+    </script>
+    <style type="text/css">
+      .parent{
+      }
+      .child_variable{
+      }
+      .child_dataset{
+      }
+      table.table-header-rotated {
+          border-collapse: collapse;
+      }
+      th.rotate {
+          height: 248px;
+          white-space: nowrap;
+	  font-weight: normal;
+      }
+      th.rotate > div {
+          transform: translate(10px, 119px) rotate(-45deg);
+          width: 0px;
+      }
+      th.rotate > div > span {
+      }
+      td {
+	  height: 25px;
+	  width: 25px;
+	  border: 1px solid;
+      }
+      td.row-label {
+	  width: 325px;
+      }
+      a {
+	  display:block;
+	  text-decoration: none;
+      }
+      .hover {
+	  font-weight: bold;
+          border: 2px solid;
+      }
+    </style>
+
   </head>
-  
-  
-    <body dir="ltr">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#pr-412" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
+  <body onload="pageLoad()">
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="LPJ EOSIM" class="md-header__button md-logo" aria-label="LPJ EOSIM" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            LPJ EOSIM
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Incorporating a nitrogen cycle in LPJ-EOSIM
-            
-          </span>
-        </div>
+    <div data-role="page" id="MeanState">
+      <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <h1>ILAMB Benchmarking</h1>
       </div>
-    </div>
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
+
+      <select id="ScalarOption" onchange="colorTable()">
+        <option value="Spatial Distribution Score">Spatial Distribution Score</option>
+        <option value="Bias Score">Bias Score</option>
+        <option value="Overall Score" selected="selected">Overall Score</option>
+        <option value="Seasonal Cycle Score">Seasonal Cycle Score</option>
+        <option value="RMSE Score">RMSE Score</option>
+        <option value="Difference Score">Difference Score</option>
+        <option value="Trajectory Score">Trajectory Score</option>
+        <option value="Temporal Distribution Score">Temporal Distribution Score</option>
+        <option value="Amplitude Score">Amplitude Score</option>
+        <option value="Interannual Variability Score">Interannual Variability Score</option>
+        <option value="Max Phase Score">Max Phase Score</option>
+        <option value="Min Phase Score">Min Phase Score</option>
+        <option value="Distribution Score">Distribution Score</option>
+        <option value="Evapotranspiration|GLEAMv3.3a Score">Evapotranspiration|GLEAMv3.3a Score</option>
+        <option value="Precipitation|GPCPv2.3 Score">Precipitation|GPCPv2.3 Score</option>
+      </select>
+      <select id="RegionOption" onchange="colorTable()">
+          <option value='global' selected="selected">Global - Land</option>
+      </select>
+
+      <form>
+	<fieldset data-role="controlgroup" data-type="horizontal" data-mini="True">
+	  <input type="checkbox" name="colorblind" id="colorblind" checked onchange="colorTable()">
+	  <label for="colorblind" >Colorblind colors</label>
+	</fieldset>
+      </form>
+
+      <center>
+	<table class="table-header-rotated" id="scoresTable">
+	  <thead>
+            <tr>
+              <th></th>
+              <th class="rotate"><div>CRUJRA_CRUJRA-S3-main</div></th>
+              <th class="rotate"><div>CRUJRA_CRUJRA-S3-nitrogen</div></th>
+              <th class="rotate"><div>CRUJRA_CRUJRA-S3-nitrogen-ropt</div></th>
+              <th class="rotate"><div>CRUJRA_CRUJRA-S3-nonlim</div></th>
+              <th class="rotate"><div>TRENDYv13_S3</div></th>
+            </tr>
+	  </thead>
+	  <tbody>
+	    <tr class="parent" bgcolor="#ECFFE6">
+              <td class="row-label">Ecosystem and Carbon Cycle</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_variable" bgcolor="#ECFFE6">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Biomass</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/Biomass/Saatchi/Saatchi.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Saatchi</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/Saatchi/Saatchi.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/Saatchi/Saatchi.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/Saatchi/Saatchi.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/Saatchi/Saatchi.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/Saatchi/Saatchi.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/Biomass/Thurner/Thurner.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thurner</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/Thurner/Thurner.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/Thurner/Thurner.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/Thurner/Thurner.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/Thurner/Thurner.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/Thurner/Thurner.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/Biomass/ESACCI/ESACCI.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ESACCI</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/ESACCI/ESACCI.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/ESACCI/ESACCI.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/ESACCI/ESACCI.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/ESACCI/ESACCI.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/ESACCI/ESACCI.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/Biomass/XuSaatchi/XuSaatchi.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XuSaatchi</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/XuSaatchi/XuSaatchi.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/XuSaatchi/XuSaatchi.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/XuSaatchi/XuSaatchi.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/XuSaatchi/XuSaatchi.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/Biomass/XuSaatchi/XuSaatchi.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#ECFFE6">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Gross Primary Productivity</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXNET2015/FLUXNET2015.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FLUXNET2015</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXNET2015/FLUXNET2015.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXNET2015/FLUXNET2015.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXNET2015/FLUXNET2015.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXNET2015/FLUXNET2015.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXNET2015/FLUXNET2015.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FLUXCOM</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/GrossPrimaryProductivity/WECANN/WECANN.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WECANN</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/WECANN/WECANN.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/WECANN/WECANN.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/WECANN/WECANN.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/WECANN/WECANN.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/WECANN/WECANN.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#ECFFE6">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Leaf Area Index</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AVH15C1</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIS</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#ECFFE6">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Global Net Ecosystem Carbon Balance</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/GCP/GCP.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GCP</a></td>
+              <td><a href="EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/GCP/GCP.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/GCP/GCP.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/GCP/GCP.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/GCP/GCP.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/GCP/GCP.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/Hoffman/Hoffman.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hoffman</a></td>
+              <td><a href="EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/Hoffman/Hoffman.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/Hoffman/Hoffman.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/Hoffman/Hoffman.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/Hoffman/Hoffman.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GlobalNetEcosystemCarbonBalance/Hoffman/Hoffman.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#ECFFE6">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Carbon Dioxide</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/CarbonDioxide/NOAA.Emulated/NOAA.Emulated.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOAA.Emulated</a></td>
+              <td><a href="EcosystemandCarbonCycle/CarbonDioxide/NOAA.Emulated/NOAA.Emulated.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/CarbonDioxide/NOAA.Emulated/NOAA.Emulated.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/CarbonDioxide/NOAA.Emulated/NOAA.Emulated.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/CarbonDioxide/NOAA.Emulated/NOAA.Emulated.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/CarbonDioxide/NOAA.Emulated/NOAA.Emulated.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#ECFFE6">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Soil Carbon Extended</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/SoilCarbonExtended/Koven/Koven.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Koven</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbonExtended/Koven/Koven.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbonExtended/Koven/Koven.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbonExtended/Koven/Koven.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbonExtended/Koven/Koven.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbonExtended/Koven/Koven.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#ECFFE6">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Ecosystem Respiration</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/EcosystemRespiration/FLUXNET2015/FLUXNET2015.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FLUXNET2015</a></td>
+              <td><a href="EcosystemandCarbonCycle/EcosystemRespiration/FLUXNET2015/FLUXNET2015.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/EcosystemRespiration/FLUXNET2015/FLUXNET2015.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/EcosystemRespiration/FLUXNET2015/FLUXNET2015.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/EcosystemRespiration/FLUXNET2015/FLUXNET2015.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/EcosystemRespiration/FLUXNET2015/FLUXNET2015.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/EcosystemRespiration/FLUXCOM/FLUXCOM.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FLUXCOM</a></td>
+              <td><a href="EcosystemandCarbonCycle/EcosystemRespiration/FLUXCOM/FLUXCOM.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/EcosystemRespiration/FLUXCOM/FLUXCOM.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/EcosystemRespiration/FLUXCOM/FLUXCOM.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/EcosystemRespiration/FLUXCOM/FLUXCOM.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/EcosystemRespiration/FLUXCOM/FLUXCOM.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#ECFFE6">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Soil Carbon</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/SoilCarbon/HWSD/HWSD.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HWSD</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbon/HWSD/HWSD.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbon/HWSD/HWSD.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbon/HWSD/HWSD.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbon/HWSD/HWSD.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbon/HWSD/HWSD.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#ECFFE6">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/SoilCarbon/NCSCDV22/NCSCDV22.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NCSCDV22</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbon/NCSCDV22/NCSCDV22.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbon/NCSCDV22/NCSCDV22.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbon/NCSCDV22/NCSCDV22.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbon/NCSCDV22/NCSCDV22.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/SoilCarbon/NCSCDV22/NCSCDV22.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="parent" bgcolor="#E6F9FF">
+              <td class="row-label">Hydrology Cycle</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_variable" bgcolor="#E6F9FF">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Evapotranspiration</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#E6F9FF">
+              <td class="row-label"><a href="./HydrologyCycle/Evapotranspiration/GLEAMv3.3a/GLEAMv3.3a.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GLEAMv3.3a</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/GLEAMv3.3a/GLEAMv3.3a.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/GLEAMv3.3a/GLEAMv3.3a.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/GLEAMv3.3a/GLEAMv3.3a.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/GLEAMv3.3a/GLEAMv3.3a.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/GLEAMv3.3a/GLEAMv3.3a.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#E6F9FF">
+              <td class="row-label"><a href="./HydrologyCycle/Evapotranspiration/MODIS/MODIS.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIS</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/MODIS/MODIS.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/MODIS/MODIS.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/MODIS/MODIS.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/MODIS/MODIS.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/MODIS/MODIS.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#E6F9FF">
+              <td class="row-label"><a href="./HydrologyCycle/Evapotranspiration/MOD16A2/MOD16A2.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOD16A2</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/MOD16A2/MOD16A2.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/MOD16A2/MOD16A2.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/MOD16A2/MOD16A2.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/MOD16A2/MOD16A2.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Evapotranspiration/MOD16A2/MOD16A2.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#E6F9FF">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Runoff</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#E6F9FF">
+              <td class="row-label"><a href="./HydrologyCycle/Runoff/Dai/Dai.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dai</a></td>
+              <td><a href="HydrologyCycle/Runoff/Dai/Dai.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/Dai/Dai.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/Dai/Dai.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/Dai/Dai.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/Dai/Dai.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#E6F9FF">
+              <td class="row-label"><a href="./HydrologyCycle/Runoff/LORA/LORA.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LORA</a></td>
+              <td><a href="HydrologyCycle/Runoff/LORA/LORA.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/LORA/LORA.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/LORA/LORA.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/LORA/LORA.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/LORA/LORA.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_dataset" bgcolor="#E6F9FF">
+              <td class="row-label"><a href="./HydrologyCycle/Runoff/CLASS/CLASS.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLASS</a></td>
+              <td><a href="HydrologyCycle/Runoff/CLASS/CLASS.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/CLASS/CLASS.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/CLASS/CLASS.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/CLASS/CLASS.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="HydrologyCycle/Runoff/CLASS/CLASS.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="parent" bgcolor="#EDEDED">
+              <td class="row-label">Forcings</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_variable" bgcolor="#EDEDED">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Surface Air Temperature</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#EDEDED">
+              <td class="row-label"><a href="./Forcings/SurfaceAirTemperature/CRU4.02/CRU4.02.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CRU4.02</a></td>
+              <td><a href="Forcings/SurfaceAirTemperature/CRU4.02/CRU4.02.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="Forcings/SurfaceAirTemperature/CRU4.02/CRU4.02.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="Forcings/SurfaceAirTemperature/CRU4.02/CRU4.02.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="Forcings/SurfaceAirTemperature/CRU4.02/CRU4.02.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="Forcings/SurfaceAirTemperature/CRU4.02/CRU4.02.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#EDEDED">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;Precipitation</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#EDEDED">
+              <td class="row-label"><a href="./Forcings/Precipitation/GPCPv2.3/GPCPv2.3.html" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPCPv2.3</a></td>
+              <td><a href="Forcings/Precipitation/GPCPv2.3/GPCPv2.3.html?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="Forcings/Precipitation/GPCPv2.3/GPCPv2.3.html?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="Forcings/Precipitation/GPCPv2.3/GPCPv2.3.html?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="Forcings/Precipitation/GPCPv2.3/GPCPv2.3.html?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="Forcings/Precipitation/GPCPv2.3/GPCPv2.3.html?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="parent" bgcolor="#fff2e5">
+              <td class="row-label">Relationships</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_variable" bgcolor="#fff2e5">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;GrossPrimaryProductivity/FLUXCOM</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#fff2e5">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html#Relationships" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Evapotranspiration/GLEAMv3.3a</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html#Relationships?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html#Relationships?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html#Relationships?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html#Relationships?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/GrossPrimaryProductivity/FLUXCOM/FLUXCOM.html#Relationships?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#fff2e5">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;LeafAreaIndex/AVH15C1</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#fff2e5">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html#Relationships" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precipitation/GPCPv2.3</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html#Relationships?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html#Relationships?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html#Relationships?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html#Relationships?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/AVH15C1/AVH15C1.html#Relationships?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	    <tr class="child_variable" bgcolor="#fff2e5">
+              <td class="row-label">&nbsp;&nbsp;&nbsp;&nbsp;LeafAreaIndex/MODIS</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+	    <tr class="child_dataset" bgcolor="#fff2e5">
+              <td class="row-label"><a href="./EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html#Relationships" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Precipitation/GPCPv2.3</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html#Relationships?model=CRUJRA_CRUJRA-S3-main" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html#Relationships?model=CRUJRA_CRUJRA-S3-nitrogen" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html#Relationships?model=CRUJRA_CRUJRA-S3-nitrogen-ropt" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html#Relationships?model=CRUJRA_CRUJRA-S3-nonlim" target="_blank">&nbsp;</a></td>
+              <td><a href="EcosystemandCarbonCycle/LeafAreaIndex/MODIS/MODIS.html#Relationships?model=TRENDYv13_S3" target="_blank">&nbsp;</a></td>
+	  </tbody>
+	</table>
+
+
+	<p>Relative Scale
+	<table class="table-header-rotated" id="scoresLegend">
+	  <tbody>
+            <tr>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+	    </tr>
+	  </tbody>
+	</table>
+	Worse Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Better Value
+	<table class="table-header-rotated" id="missingLegend">
+	  <tbody>
+            <tr>
+              <td bgcolor="#808080"></td>
+	    </tr>
+	  </tbody>
+	</table>Missing Data or Error
+      </center>
+
+      <div data-role="footer">
+        <center>ILAMB 2.7.3</center>
       </div>
-    </div>
-  </div>
-</div>
-      
-    
-    
-      <div class="md-header__source">
-        <a href="https://github.com/LPJ-EOSIM/lpj-eosim.github.io" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="LPJ EOSIM" class="md-nav__button md-logo" aria-label="LPJ EOSIM" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
-
-    </a>
-    LPJ EOSIM
-  </label>
-  
-    <div class="md-nav__source">
-      <a href="https://github.com/LPJ-EOSIM/lpj-eosim.github.io" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Usage
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Usage
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../simulations/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Simulations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Benchmarks
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Benchmarks
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Incorporating a nitrogen cycle in LPJ-EOSIM
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../publications/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Publications
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-  
-  
-
-
-<h1 id="pr-412">PR #412<a class="headerlink" href="#pr-412" title="Permanent link">&para;</a></h1>
-<p>Model source: <a href="https://github.com/LPJ-EOSIM/LPJ/pull/412">LPJ PR #412</a></p>
-<p>Available results for this revision:</p>
-<ul>
-<li><a href="../ilamb/">ILAMB benchmark</a></li>
-</ul>
-<p><iframe
-  src="../ilamb/"
-  title="LPJ-EOSIM ILAMB results for PR #412"
-  style="width: 100%; min-height: 960px; border: 1px solid #d7dce2; border-radius: 0.2rem;"
-></iframe>
-</p>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
-<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-    </div>
-  </div>
-</footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-    
-      
-      
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-    
-  </body>
+    </body>
 </html>
