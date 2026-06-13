@@ -6,431 +6,193 @@
 [INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/cf_units (3.3.1)
 [INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/sympy (1.14.0)
 [INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/mpi4py (4.1.2)
-[INFO][0][<module>] 2026-06-13 13:24:56.333270
-[DEBUG][1][extractTimeSeries][S3_Spit_noN] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][extractTimeSeries][S3_noSpit_N] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][1][WorkConfront][Biomass/Thurner][S3_Spit_noN]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][WorkConfront][Biomass/Saatchi][S3_noSpit_N]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][1][extractTimeSeries][S3_Spit_N_ropt] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][extractTimeSeries][S3_noSpit_noN] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][1][WorkConfront][Biomass/Thurner][S3_Spit_N_ropt]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][WorkConfront][Biomass/Saatchi][S3_noSpit_noN]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][extractTimeSeries][S3_noSpit_N_ropt] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][1][extractTimeSeries][TRENDYv13_S3] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][WorkConfront][Biomass/Saatchi][S3_noSpit_N_ropt]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][1][WorkConfront][Biomass/Thurner][TRENDYv13_S3]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][extractTimeSeries][S3_Spit_N] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][WorkConfront][Biomass/Saatchi][S3_Spit_N]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][extractTimeSeries][S3_Spit_noN] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][WorkConfront][Biomass/Saatchi][S3_Spit_noN]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][extractTimeSeries][S3_Spit_N_ropt] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][WorkConfront][Biomass/Saatchi][S3_Spit_N_ropt]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][extractTimeSeries][TRENDYv13_S3] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][WorkConfront][Biomass/Saatchi][TRENDYv13_S3]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][extractTimeSeries][S3_noSpit_N] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][WorkConfront][Biomass/Thurner][S3_noSpit_N]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][extractTimeSeries][S3_noSpit_noN] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][WorkConfront][Biomass/Thurner][S3_noSpit_noN]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][extractTimeSeries][S3_noSpit_N_ropt] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][WorkConfront][Biomass/Thurner][S3_noSpit_N_ropt]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
-[DEBUG][0][extractTimeSeries][S3_Spit_N] Could not find [biomass,cVeg, vegc] in the model results
-[DEBUG][0][WorkConfront][Biomass/Thurner][S3_Spit_N]
-Traceback (most recent call last):
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
-    c.confront(m)
-    ~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
-    obs, mod = self.stageData(m)
-               ~~~~~~~~~~~~~~^^^
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
-    mod = m.extractTimeSeries(
-        self.variable,
-    ...<5 lines>...
-        lons=None if obs.spatial else obs.lon,
-    )
-  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
-    raise il.VarNotInModel()
-ILAMB.ilamblib.VarNotInModel: VarNotInModel
-
+[INFO][0][<module>] 2026-06-13 13:55:19.190372
 [INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_noSpit_noN] Success
-[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N] Success
 [INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_noSpit_N_ropt] Success
-[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_noN] Success
 [INFO][7][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
 [INFO][7][confront][SoilCarbon/NCSCDV22][S3_Spit_N] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][S3_noSpit_N] Success
 [INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][confront][Biomass/Thurner][S3_Spit_noN] Success
 [INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_Spit_N] Success
-[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N_ropt] Success
 [INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_Spit_noN] Success
-[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N] Success
 [INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
-[INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_Spit_N_ropt] Success
-[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_noN] Success
 [INFO][7][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
 [INFO][7][confront][SoilCarbon/NCSCDV22][S3_Spit_noN] Success
+[INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_Spit_N_ropt] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][S3_noSpit_noN] Success
 [INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXNET2015][TRENDYv13_S3] Success
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][confront][Biomass/Thurner][S3_Spit_N_ropt] Success
+[INFO][7][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][7][confront][SoilCarbon/NCSCDV22][S3_Spit_N_ropt] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][S3_noSpit_N_ropt] Success
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][confront][Biomass/Thurner][TRENDYv13_S3] Success
+[INFO][7][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][7][confront][SoilCarbon/NCSCDV22][TRENDYv13_S3] Success
+[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N] Success
+[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_noN] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][S3_Spit_N] Success
+[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N_ropt] Success
+[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N] Success
+[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_noN] Success
 [INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
 [INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
 [INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N_ropt] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][S3_Spit_noN] Success
 [INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
 [INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
 [INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][TRENDYv13_S3] Success
-[INFO][7][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][7][confront][SoilCarbon/NCSCDV22][S3_Spit_N_ropt] Success
-[INFO][7][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][7][confront][SoilCarbon/NCSCDV22][TRENDYv13_S3] Success
-[INFO][6][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][S3_Spit_N_ropt] Success
 [INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
-[INFO][6][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
-[INFO][6][confront][EcosystemRespiration/FLUXCOM][S3_Spit_N_ropt] Success
+[INFO][6][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
 [INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][TRENDYv13_S3] Success
+[INFO][6][confront][EcosystemRespiration/FLUXCOM][S3_Spit_N_ropt] Success
 [INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
 [INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N_ropt] Success
+[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
 [INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][3][confront][LeafAreaIndex/AVH15C1][TRENDYv13_S3] Success
-[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Thurner][S3_noSpit_N] Success
 [INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_noSpit_N] Success
-[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N] Success
+[INFO][0][confront][Biomass/Thurner][S3_noSpit_noN] Success
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][S3_noSpit_N] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Thurner][S3_noSpit_N_ropt] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Thurner][S3_Spit_N] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
 [INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][3][confront][LeafAreaIndex/MODIS][S3_noSpit_N] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N] Success
 [INFO][6][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
 [INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
 [INFO][6][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
 [INFO][6][confront][EcosystemRespiration/FLUXCOM][TRENDYv13_S3] Success
 [INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
 [INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N] Success
+[INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
 [INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
 [INFO][6][confront][SoilCarbon/HWSD][S3_noSpit_N] Success
 [INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
-[INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/HWSD][S3_noSpit_noN] Success
-[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
-[INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
-[INFO][3][confront][LeafAreaIndex/MODIS][S3_noSpit_noN] Success
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
-[INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][S3_noSpit_noN] Success
+[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
+[INFO][6][confront][SoilCarbon/HWSD][S3_noSpit_noN] Success
+[INFO][3][confront][LeafAreaIndex/MODIS][S3_noSpit_noN] Success
+[INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_noSpit_noN] Success
 [INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
 [INFO][6][confront][SoilCarbon/HWSD][S3_noSpit_N_ropt] Success
-[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_noN] Success
 [INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
 [INFO][6][confront][SoilCarbon/HWSD][S3_Spit_N] Success
 [INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
 [INFO][6][confront][SoilCarbon/HWSD][S3_Spit_noN] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
 [INFO][6][confront][SoilCarbon/HWSD][S3_Spit_N_ropt] Success
-[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_noN] Success
 [INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][3][confront][LeafAreaIndex/MODIS][S3_noSpit_N_ropt] Success
 [INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
 [INFO][6][confront][SoilCarbon/HWSD][TRENDYv13_S3] Success
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/NCSCDV22][S3_noSpit_N] Success
 [INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
 [INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/NCSCDV22][S3_noSpit_noN] Success
+[INFO][6][confront][SoilCarbon/NCSCDV22][S3_noSpit_N] Success
 [INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][6][confront][SoilCarbon/NCSCDV22][S3_noSpit_noN] Success
 [INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
 [INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][S3_Spit_noN] Success
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/NCSCDV22][S3_noSpit_N_ropt] Success
-[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][S3_noSpit_N_ropt] Success
+[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][6][confront][SoilCarbon/NCSCDV22][S3_noSpit_N_ropt] Success
 [INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_noSpit_N_ropt] Success
 [INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][3][confront][LeafAreaIndex/MODIS][S3_Spit_N] Success
 [INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
 [INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][3][confront][LeafAreaIndex/MODIS][S3_Spit_noN] Success
-[INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
 [INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][S3_Spit_N] Success
-[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
 [INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
 [INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N_ropt] Success
-[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_Spit_N] Success
+[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][3][confront][LeafAreaIndex/MODIS][S3_Spit_N_ropt] Success
-[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
-[INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
-[INFO][3][confront][LeafAreaIndex/MODIS][TRENDYv13_S3] Success
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][S3_Spit_noN] Success
+[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
-[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
+[INFO][3][confront][LeafAreaIndex/MODIS][TRENDYv13_S3] Success
 [INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
 [INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][TRENDYv13_S3] Success
+[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_Spit_noN] Success
 [INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][S3_Spit_N_ropt] Success
 [INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
-[INFO][4][AnalysisMeanStateSites][reco] Bias scored using Collier2018
-[INFO][4][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
-[INFO][4][confront][EcosystemRespiration/FLUXNET2015][S3_noSpit_N] Success
 [INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][2][confront][LeafAreaIndex/AVH15C1][S3_noSpit_N] Success
 [INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][4][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][4][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][4][confront][EcosystemRespiration/FLUXNET2015][S3_noSpit_N] Success
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][TRENDYv13_S3] Success
 [INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
@@ -451,88 +213,102 @@ ILAMB.ilamblib.VarNotInModel: VarNotInModel
 [INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_Spit_noN] Success
 [INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_Spit_N_ropt] Success
 [INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][TRENDYv13_S3] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_noSpit_N] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_noSpit_noN] Success
 [INFO][7][modelPlots][SoilCarbon/NCSCDV22][S3_Spit_N] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_noSpit_noN] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_noSpit_N_ropt] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N] Success
-[INFO][7][modelPlots][SoilCarbon/NCSCDV22][S3_Spit_noN] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_Spit_N] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_Spit_noN] Success
-[INFO][7][modelPlots][SoilCarbon/NCSCDV22][S3_Spit_N_ropt] Success
-[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N_ropt] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_Spit_N_ropt] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_noSpit_N_ropt] Success
-[INFO][6][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_N_ropt] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_noN] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][TRENDYv13_S3] Success
-[INFO][7][modelPlots][SoilCarbon/NCSCDV22][TRENDYv13_S3] Success
+[INFO][1][modelPlots][Biomass/Thurner][S3_Spit_noN] Success
+[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_noSpit_N] Success
 [INFO][3][modelPlots][LeafAreaIndex/AVH15C1][TRENDYv13_S3] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_N] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N_ropt] Success
-[INFO][4][modelPlots][EcosystemRespiration/FLUXNET2015][S3_noSpit_N] Success
-[INFO][6][modelPlots][EcosystemRespiration/FLUXCOM][TRENDYv13_S3] Success
-[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_noN] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_noSpit_N] Success
+[INFO][0][modelPlots][Biomass/Saatchi][S3_noSpit_N] Success
+[INFO][7][modelPlots][SoilCarbon/NCSCDV22][S3_Spit_noN] Success
+[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_noSpit_noN] Success
+[INFO][1][modelPlots][Biomass/Thurner][S3_Spit_N_ropt] Success
+[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_noSpit_N_ropt] Success
+[INFO][6][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_N_ropt] Success
+[INFO][1][modelPlots][Biomass/Thurner][TRENDYv13_S3] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_noSpit_noN] Success
+[INFO][0][modelPlots][Biomass/Saatchi][S3_noSpit_noN] Success
+[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_Spit_N] Success
+[INFO][7][modelPlots][SoilCarbon/NCSCDV22][S3_Spit_N_ropt] Success
+[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_Spit_noN] Success
+[INFO][0][modelPlots][Biomass/Saatchi][S3_noSpit_N_ropt] Success
+[INFO][7][modelPlots][SoilCarbon/NCSCDV22][TRENDYv13_S3] Success
+[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_Spit_N_ropt] Success
+[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][TRENDYv13_S3] Success
+[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N_ropt] Success
+[INFO][0][modelPlots][Biomass/Saatchi][S3_Spit_N] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_noSpit_N_ropt] Success
 [INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_noSpit_N] Success
+[INFO][0][modelPlots][Biomass/Saatchi][S3_Spit_noN] Success
+[INFO][6][modelPlots][EcosystemRespiration/FLUXCOM][TRENDYv13_S3] Success
+[INFO][0][modelPlots][Biomass/Saatchi][S3_Spit_N_ropt] Success
 [INFO][6][modelPlots][SoilCarbon/HWSD][S3_noSpit_N] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXNET2015][S3_noSpit_N] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_noN] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_N] Success
+[INFO][0][modelPlots][Biomass/Saatchi][TRENDYv13_S3] Success
+[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_noSpit_N] Success
 [INFO][6][modelPlots][SoilCarbon/HWSD][S3_noSpit_noN] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_N_ropt] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][S3_noSpit_N_ropt] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_noN] Success
-[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_noN] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][TRENDYv13_S3] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_N] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_noSpit_noN] Success
+[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N] Success
+[INFO][0][modelPlots][Biomass/Thurner][S3_noSpit_N] Success
 [INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_noSpit_noN] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N_ropt] Success
+[INFO][6][modelPlots][SoilCarbon/HWSD][S3_noSpit_N_ropt] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N_ropt] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_noN] Success
+[INFO][0][modelPlots][Biomass/Thurner][S3_noSpit_noN] Success
+[INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_N] Success
+[INFO][0][modelPlots][Biomass/Thurner][S3_noSpit_N_ropt] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_N_ropt] Success
+[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_noSpit_noN] Success
 [INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_noN] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_N_ropt] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][TRENDYv13_S3] Success
-[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N_ropt] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][TRENDYv13_S3] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_noSpit_N] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_noSpit_N_ropt] Success
+[INFO][0][modelPlots][Biomass/Thurner][S3_Spit_N] Success
+[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_noN] Success
 [INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_noSpit_N_ropt] Success
+[INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_N_ropt] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_noN] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][TRENDYv13_S3] Success
+[INFO][6][modelPlots][SoilCarbon/HWSD][TRENDYv13_S3] Success
+[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_noSpit_N_ropt] Success
 [INFO][6][modelPlots][SoilCarbon/NCSCDV22][S3_noSpit_N] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N_ropt] Success
 [INFO][6][modelPlots][SoilCarbon/NCSCDV22][S3_noSpit_noN] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N] Success
-[INFO][6][modelPlots][SoilCarbon/NCSCDV22][S3_noSpit_N_ropt] Success
-[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][TRENDYv13_S3] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_noSpit_noN] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_N] Success
 [INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_Spit_N] Success
+[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N_ropt] Success
+[INFO][6][modelPlots][SoilCarbon/NCSCDV22][S3_noSpit_N_ropt] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_noSpit_N] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][TRENDYv13_S3] Success
+[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_N] Success
+[INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_Spit_noN] Success
+[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][TRENDYv13_S3] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_noSpit_noN] Success
+[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_noN] Success
+[INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_Spit_N_ropt] Success
 [INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_noN] Success
 [INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_noSpit_N] Success
 [INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_noSpit_N_ropt] Success
-[INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_Spit_noN] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_noN] Success
-[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_noSpit_noN] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_N] Success
-[INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_Spit_N_ropt] Success
 [INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_N_ropt] Success
-[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_noSpit_N_ropt] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_noN] Success
 [INFO][3][modelPlots][LeafAreaIndex/MODIS][TRENDYv13_S3] Success
+[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_noSpit_noN] Success
 [INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_noSpit_N] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_N] Success
 [INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_noSpit_noN] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][TRENDYv13_S3] Success
 [INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_noSpit_N_ropt] Success
 [INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_Spit_N] Success
+[INFO][7][modelPlots][BurnedArea/GFED4.1S][TRENDYv13_S3] Success
+[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_noSpit_N_ropt] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_noN] Success
 [INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_Spit_N] Success
 [INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_Spit_noN] Success
 [INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_Spit_N_ropt] Success
-[INFO][0][<module>][process time] 0.0 s
-[INFO][6][<module>][process time] 153.4 s
-[INFO][7][<module>][process time] 318.4 s
-[INFO][3][<module>][process time] 332.6 s
-[INFO][1][<module>][process time] 129.1 s
-[INFO][4][<module>][process time] 257.2 s
-[INFO][5][<module>][process time] 261.6 s
-[INFO][2][<module>][process time] 528.0 s
-[INFO][0][<module>][total time] 600.4 s
-[INFO][0][<module>][process balance] 24647.17
-[INFO][0][<module>][parallel efficiency] 41%
+[INFO][6][<module>][process time] 154.9 s
+[INFO][1][<module>][process time] 147.9 s
+[INFO][2][<module>][process time] 511.6 s
+[INFO][0][<module>][process time] 81.7 s
+[INFO][7][<module>][process time] 306.5 s
+[INFO][5][<module>][process time] 255.2 s
+[INFO][3][<module>][process time] 348.3 s
+[INFO][4][<module>][process time] 264.4 s
+[INFO][0][<module>][total time] 590.5 s
+[INFO][0][<module>][process balance] 6.26
+[INFO][0][<module>][parallel efficiency] 44%
