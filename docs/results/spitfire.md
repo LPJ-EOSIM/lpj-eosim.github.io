@@ -1,4 +1,6 @@
-# SPITFIRE in LPJ-EOSIM (CRUJRA)
+# SPITFIRE integration — PR #421
+
+Model source: [LPJ PR #421](https://github.com/LPJ-EOSIM/LPJ/pull/421)
 
 Integration of the **SPITFIRE** fire model into LPJ-EOSIM, run globally with the
 **CRUJRA** driver. We sweep the S2/S3 sim type against the

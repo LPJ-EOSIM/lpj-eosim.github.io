@@ -8,8 +8,7 @@ nav:
       - Simulations: simulations.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
-      - "PR #421": results/pr-421.md
-      - "SPITFIRE in LPJ-EOSIM (CRUJRA)": results/spitfire.md
+      - "SPITFIRE integration - pr 421": results/spitfire.md
       - "ERA5 low-latency runs": results/era5.md
   - Publications: publications.md
 
