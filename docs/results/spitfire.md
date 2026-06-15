@@ -100,6 +100,16 @@ Quantitative benchmark of all six CRUJRA SPITFIRE runs against **GFED4.1s**
 the 14 GFED basis regions, plus a peer comparison against **LPJ-GUESS-SPITFIRE**
 fire C. Model fields are the GFED-aligned multi-year means.
 
+### Global summary vs literature
+
+Global stocks and fluxes for all six runs against literature reference values
+(30-yr mean, 1995–2024). Cell colour = % deviation (blue under, red over); the
+composite score is the fire-weighted mean absolute deviation (lower = better).
+Fire C lands within ±19% of GFED across all runs; burned area is systematically
+high (+26–67%). **S3-spitfire-N** is the best overall (composite 15.8%).
+
+![global scorecard vs literature](img/spitfire/bench_global_scorecard.png)
+
 ### Skill summary
 
 `model`/`GFED`/`bias` are global means (firef = area-weighted %/yr; firec =
