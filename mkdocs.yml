@@ -8,6 +8,7 @@ nav:
       - Simulations: simulations.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
+      - "PR #421": results/pr-421.md
   - Publications: publications.md
 
 plugins:
