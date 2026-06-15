@@ -19,6 +19,7 @@
     <script type='text/javascript'>
         function pageLoad() {
            pageLoadMeanState();
+           pageLoadRelationships();
         }
     </script>
     <script type='text/javascript'>
@@ -147,6 +148,117 @@
             }
             updateImagesAndHeadersMeanState();
         }
+
+        function updateImagesAndHeadersRelationships(){
+            var rsel  = document.getElementById("RelationshipsRegion");
+            var msel  = document.getElementById("RelationshipsModel");
+            var rid   = rsel.selectedIndex;
+            var mid   = msel.selectedIndex;
+            var RNAME = rsel.options[rid].value;
+            var MNAME = msel.options[mid].value;
+            var CNAME = "LeafAreaIndex / AVH15C1 / 1981-2020";
+            var head  = "CNAME / RNAME / MNAME";
+            head      = head.replace("CNAME",CNAME).replace("RNAME",RNAME).replace("MNAME",MNAME);
+            $("#RelationshipsHead").text(head);
+            
+          document.getElementById('benchmark_rel_Precipitation').src =  'Benchmark_' + RNAME + '_rel_Precipitation.png'
+          document.getElementById('rel_Precipitation').src =  MNAME + '_' + RNAME + '_rel_Precipitation.png'
+          document.getElementById('rel_func_Precipitation').src =  MNAME + '_' + RNAME + '_rel_func_Precipitation.png'
+        }
+
+        function highlightRowRelationships(cell) {
+            var select = document.getElementById("RelationshipsRegion");
+            for (var i = 0; i < select.length; i++){
+                var table = document.getElementById("Relationships_table_" + select.options[i].value);
+                var rows  = table.getElementsByTagName("tr");
+                for (var r = 1; r < rows.length; r++) {
+                    for (var c = 0; c < rows[r].cells.length-3; c++) {
+                        rows[r].cells[c].style.backgroundColor = "#ffffff";
+                    }
+                }
+                var r = cell.closest("tr").rowIndex;
+                document.getElementById("RelationshipsModel").selectedIndex = r-1;
+                for (var c = 0; c < rows[r].cells.length-3; c++) {
+                    rows[r].cells[c].style.backgroundColor = "#c1c1c1";
+                }
+            }
+            updateImagesAndHeadersRelationships();
+        }
+
+        function paintScoreCellsRelationships(RNAME) {
+
+	    var PuOr = ['#b35806','#e08214','#fdb863','#fee0b6','#f7f7f7','#d8daeb','#b2abd2','#8073ac','#542788'];
+	    var GnRd = ['#b2182b','#d6604d','#f4a582','#fddbc7','#f7f7f7','#d9f0d3','#a6dba0','#5aae61','#1b7837'];
+	    var colors = GnRd;
+            var nc = colors.length;
+            var table  = document.getElementById("Relationships_table_" + RNAME);
+            var rows   = table.getElementsByTagName("tr");
+            for (var c = rows[0].cells.length-2; c < rows[0].cells.length; c++) {
+                var scores = [];
+                for (var r = 1; r < rows.length; r++) {
+                    val = rows[r].cells[c].innerHTML;
+                    if (val=="") {
+                      scores[r-1] = 0;
+                    }else{
+                      scores[r-1] = parseFloat(val);
+                    }
+                }
+                var mean = math.mean(scores);
+                var std  = math.max(0.02,math.std(scores));
+                for (var r = 1; r < rows.length; r++) {
+                    scores[r-1] = Math.min(+2,Math.max(-2,(scores[r-1]-mean)/std));
+                }
+                for (var r = 1; r < rows.length; r++) {
+		    var e  = scores[r-1];
+                    var ae = Math.abs(e);
+                    var clr;
+                    if(ae >= 0.25){
+                      clr = math.round(2*e+4);
+                    }else{
+		      clr = math.round(4*e+4);
+                    }
+                    clr = math.min(math.max(0,clr),8);
+                    rows[r].cells[c].style.backgroundColor = colors[clr];
+                }
+            }
+        }
+
+        function pageLoadRelationships() {
+            var select = document.getElementById("RelationshipsRegion");
+            var region = getQueryVariable("region");
+            var model  = getQueryVariable("model");
+            if (region) {
+                for (var i = 0; i < select.length; i++){
+                    if (select.options[i].value == region) select.selectedIndex = i;
+                }
+            }
+            var table = document.getElementById("Relationships_table_" + select.options[select.selectedIndex].value);
+            var rows  = table.getElementsByTagName("tr");
+            if (model) {
+                for (var r = 0; r < rows.length; r++) {
+                    if(rows[r].cells[0].innerHTML==model) highlightRowRelationships(rows[r].cells[0]);
+                }
+            }else{
+                highlightRowRelationships(rows[1]);
+            }
+            for (var i = 0; i < select.length; i++){
+                paintScoreCellsRelationships(select.options[i].value);
+            }
+            changeRegionRelationships();
+        }
+
+        function changeRegionRelationships() {
+            var select = document.getElementById("RelationshipsRegion");
+            for (var i = 0; i < select.length; i++){
+                RNAME = select.options[i].value;
+                if (i == select.selectedIndex) {
+                    document.getElementById("Relationships_table_" + RNAME).style.display = "table";
+                }else{
+                    document.getElementById("Relationships_table_" + RNAME).style.display = "none";
+                }
+            }
+            updateImagesAndHeadersRelationships();
+        }
       function AllSelect() {
         var header = "CNAME / RNAME / MNAME";
         var CNAME  = "LeafAreaIndex / AVH15C1 / 1981-2020";
@@ -157,38 +269,42 @@
         var PNAME  = document.getElementById("AllModelsPlot").options[pid].value;
         header     = header.replace("RNAME",RNAME);
         $("#AllModelsHead").text(header);
-        if(PNAME == "shift" || PNAME == "shiftscore" || PNAME == "bias" || PNAME == "biasscore" || PNAME == "rmse" || PNAME == "rmsescore" || PNAME == "cycle" || PNAME == "dtcycle" || PNAME == "spaceint"){
+        if(PNAME == "shift" || PNAME == "shiftscore" || PNAME == "bias" || PNAME == "biasscore" || PNAME == "rmse" || PNAME == "rmsescore" || PNAME == "cycle" || PNAME == "dtcycle" || PNAME == "spaceint" || PNAME == "rel_func_Precipitation"){
           document.getElementById("Benchmark_div").style.display = 'none';
         }else{
           document.getElementById("Benchmark_div").style.display = 'inline';
         }
-        if(PNAME == "cycle" || PNAME == "dtcycle" || PNAME == "spaceint"){
+        if(PNAME == "cycle" || PNAME == "dtcycle" || PNAME == "spaceint" || PNAME == "rel_Precipitation" || PNAME == "rel_func_Precipitation"){
           document.getElementById("Benchmark_legend").style.display = 'none';
-          document.getElementById("BASELINE_legend").style.display = 'none';
-          document.getElementById("NITROGEN_legend").style.display = 'none';
-          document.getElementById("NITROGEN-ALPHA7_legend").style.display = 'none';
+          document.getElementById("CRUJRA_CRUJRA-S3-main_legend").style.display = 'none';
+          document.getElementById("CRUJRA_CRUJRA-S3-nitrogen_legend").style.display = 'none';
+          document.getElementById("CRUJRA_CRUJRA-S3-nitrogen-ropt_legend").style.display = 'none';
+          document.getElementById("CRUJRA_CRUJRA-S3-nitrogen-ropt-foley_legend").style.display = 'none';
+          document.getElementById("CRUJRA_CRUJRA-S3-nonlim_legend").style.display = 'none';
           document.getElementById("TRENDYv13_S3_legend").style.display = 'none';
-          document.getElementById("TRENDYv14_S3_legend").style.display = 'none';
         }else{
           document.getElementById("Benchmark_legend").style.display = 'inline';
-          document.getElementById("BASELINE_legend").style.display = 'inline';
-          document.getElementById("NITROGEN_legend").style.display = 'inline';
-          document.getElementById("NITROGEN-ALPHA7_legend").style.display = 'inline';
+          document.getElementById("CRUJRA_CRUJRA-S3-main_legend").style.display = 'inline';
+          document.getElementById("CRUJRA_CRUJRA-S3-nitrogen_legend").style.display = 'inline';
+          document.getElementById("CRUJRA_CRUJRA-S3-nitrogen-ropt_legend").style.display = 'inline';
+          document.getElementById("CRUJRA_CRUJRA-S3-nitrogen-ropt-foley_legend").style.display = 'inline';
+          document.getElementById("CRUJRA_CRUJRA-S3-nonlim_legend").style.display = 'inline';
           document.getElementById("TRENDYv13_S3_legend").style.display = 'inline';
-          document.getElementById("TRENDYv14_S3_legend").style.display = 'inline';
         }
         document.getElementById('Benchmark').src = 'Benchmark_' + RNAME + '_' + PNAME + '.png';
         document.getElementById('Benchmark_legend').src = 'legend_' + PNAME + '.png';
-        document.getElementById('BASELINE').src = 'BASELINE_' + RNAME + '_' + PNAME + '.png';
-        document.getElementById('BASELINE_legend').src = 'legend_' + PNAME + '.png';
-        document.getElementById('NITROGEN').src = 'NITROGEN_' + RNAME + '_' + PNAME + '.png';
-        document.getElementById('NITROGEN_legend').src = 'legend_' + PNAME + '.png';
-        document.getElementById('NITROGEN-ALPHA7').src = 'NITROGEN-ALPHA7_' + RNAME + '_' + PNAME + '.png';
-        document.getElementById('NITROGEN-ALPHA7_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('CRUJRA_CRUJRA-S3-main').src = 'CRUJRA_CRUJRA-S3-main_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('CRUJRA_CRUJRA-S3-main_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('CRUJRA_CRUJRA-S3-nitrogen').src = 'CRUJRA_CRUJRA-S3-nitrogen_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('CRUJRA_CRUJRA-S3-nitrogen_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('CRUJRA_CRUJRA-S3-nitrogen-ropt').src = 'CRUJRA_CRUJRA-S3-nitrogen-ropt_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('CRUJRA_CRUJRA-S3-nitrogen-ropt_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('CRUJRA_CRUJRA-S3-nitrogen-ropt-foley').src = 'CRUJRA_CRUJRA-S3-nitrogen-ropt-foley_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('CRUJRA_CRUJRA-S3-nitrogen-ropt-foley_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('CRUJRA_CRUJRA-S3-nonlim').src = 'CRUJRA_CRUJRA-S3-nonlim_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('CRUJRA_CRUJRA-S3-nonlim_legend').src = 'legend_' + PNAME + '.png';
         document.getElementById('TRENDYv13_S3').src = 'TRENDYv13_S3_' + RNAME + '_' + PNAME + '.png';
         document.getElementById('TRENDYv13_S3_legend').src = 'legend_' + PNAME + '.png';
-        document.getElementById('TRENDYv14_S3').src = 'TRENDYv14_S3_' + RNAME + '_' + PNAME + '.png';
-        document.getElementById('TRENDYv14_S3_legend').src = 'legend_' + PNAME + '.png';
       }
 
       $(document).on('pageshow', '[data-role="page"]', function(){
@@ -248,22 +364,24 @@
         <div data-role="navbar">
           <ul>
             <li><a href='#MeanState' class=ui-btn-active ui-state-persist>Mean State</a></li>
+            <li><a href='#Relationships'>Relationships</a></li>
             <li><a href='#AllModels'>All Models</a></li>
             <li><a href='#DataInformation'>Data Information</a></li>
           </ul>
         </div>
       </div>
       <select id="MeanStateRegion" onchange="changeRegionMeanState()">
-        <option value='global' selected="selected">Globe</option>
+        <option value='global' selected="selected">Global - Land</option>
       </select>
       <div style="display:none">
       <select id="MeanStateModel">
         <option value='Benchmark'>Benchmark</option>
-        <option value='BASELINE' selected="selected">BASELINE</option>
-        <option value='NITROGEN'>NITROGEN</option>
-        <option value='NITROGEN-ALPHA7'>NITROGEN-ALPHA7</option>
+        <option value='CRUJRA_CRUJRA-S3-main' selected="selected">CRUJRA_CRUJRA-S3-main</option>
+        <option value='CRUJRA_CRUJRA-S3-nitrogen'>CRUJRA_CRUJRA-S3-nitrogen</option>
+        <option value='CRUJRA_CRUJRA-S3-nitrogen-ropt'>CRUJRA_CRUJRA-S3-nitrogen-ropt</option>
+        <option value='CRUJRA_CRUJRA-S3-nitrogen-ropt-foley'>CRUJRA_CRUJRA-S3-nitrogen-ropt-foley</option>
+        <option value='CRUJRA_CRUJRA-S3-nonlim'>CRUJRA_CRUJRA-S3-nonlim</option>
         <option value='TRENDYv13_S3'>TRENDYv13_S3</option>
-        <option value='TRENDYv14_S3'>TRENDYv14_S3</option>
       </select>
       </div>
         <center>
@@ -293,7 +411,7 @@
              <tr>
                <td class="row-header">Benchmark</td>
                <td><a href="AVH15C1_Benchmark.nc" download>[-]</a></td>
-               <td>1.24</td>
+               <td>1.23</td>
                <td></td>
                <td></td>
                <td></td>
@@ -310,61 +428,99 @@
                <td></td>
              </tr>
              <tr>
-               <td onclick="highlightRowMeanState(this)" class="row-header">BASELINE</td>
-               <td onclick="highlightRowMeanState(this)"><a href="AVH15C1_BASELINE.nc" download>[-]</a></td>
-               <td onclick="highlightRowMeanState(this)">3.29</td>
-               <td onclick="highlightRowMeanState(this)">3.29</td>
+               <td onclick="highlightRowMeanState(this)" class="row-header">CRUJRA_CRUJRA-S3-main</td>
+               <td onclick="highlightRowMeanState(this)"><a href="AVH15C1_CRUJRA_CRUJRA-S3-main.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">2.03</td>
+               <td onclick="highlightRowMeanState(this)">2.04</td>
                <td onclick="highlightRowMeanState(this)">1.22</td>
-               <td onclick="highlightRowMeanState(this)">2.06</td>
-               <td onclick="highlightRowMeanState(this)">1.52</td>
+               <td onclick="highlightRowMeanState(this)">0.369</td>
+               <td onclick="highlightRowMeanState(this)">1.41</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">2.07</td>
-               <td onclick="highlightRowMeanState(this)">2.47</td>
-               <td onclick="highlightRowMeanState(this)">1.90</td>
+               <td onclick="highlightRowMeanState(this)">0.816</td>
+               <td onclick="highlightRowMeanState(this)">1.12</td>
+               <td onclick="highlightRowMeanState(this)">1.64</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">0.154</td>
-               <td onclick="highlightRowMeanState(this)">0.406</td>
+               <td onclick="highlightRowMeanState(this)">0.246</td>
+               <td onclick="highlightRowMeanState(this)">0.550</td>
                <td onclick="highlightRowMeanState(this)">0.727</td>
-               <td onclick="highlightRowMeanState(this)">0.392</td>
-               <td onclick="highlightRowMeanState(this)">0.417</td>
+               <td onclick="highlightRowMeanState(this)">0.785</td>
+               <td onclick="highlightRowMeanState(this)">0.572</td>
              </tr>
              <tr>
-               <td onclick="highlightRowMeanState(this)" class="row-header">NITROGEN</td>
-               <td onclick="highlightRowMeanState(this)"><a href="AVH15C1_NITROGEN.nc" download>[-]</a></td>
-               <td onclick="highlightRowMeanState(this)">2.41</td>
-               <td onclick="highlightRowMeanState(this)">2.42</td>
+               <td onclick="highlightRowMeanState(this)" class="row-header">CRUJRA_CRUJRA-S3-nitrogen</td>
+               <td onclick="highlightRowMeanState(this)"><a href="AVH15C1_CRUJRA_CRUJRA-S3-nitrogen.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">1.82</td>
+               <td onclick="highlightRowMeanState(this)">1.82</td>
                <td onclick="highlightRowMeanState(this)">1.22</td>
-               <td onclick="highlightRowMeanState(this)">1.48</td>
-               <td onclick="highlightRowMeanState(this)">1.52</td>
+               <td onclick="highlightRowMeanState(this)">0.288</td>
+               <td onclick="highlightRowMeanState(this)">1.41</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">1.20</td>
-               <td onclick="highlightRowMeanState(this)">1.63</td>
-               <td onclick="highlightRowMeanState(this)">1.91</td>
+               <td onclick="highlightRowMeanState(this)">0.604</td>
+               <td onclick="highlightRowMeanState(this)">0.967</td>
+               <td onclick="highlightRowMeanState(this)">1.69</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">0.208</td>
-               <td onclick="highlightRowMeanState(this)">0.457</td>
-               <td onclick="highlightRowMeanState(this)">0.726</td>
-               <td onclick="highlightRowMeanState(this)">0.546</td>
-               <td onclick="highlightRowMeanState(this)">0.479</td>
+               <td onclick="highlightRowMeanState(this)">0.309</td>
+               <td onclick="highlightRowMeanState(this)">0.553</td>
+               <td onclick="highlightRowMeanState(this)">0.725</td>
+               <td onclick="highlightRowMeanState(this)">0.831</td>
+               <td onclick="highlightRowMeanState(this)">0.594</td>
              </tr>
              <tr>
-               <td onclick="highlightRowMeanState(this)" class="row-header">NITROGEN-ALPHA7</td>
-               <td onclick="highlightRowMeanState(this)"><a href="AVH15C1_NITROGEN-ALPHA7.nc" download>[-]</a></td>
-               <td onclick="highlightRowMeanState(this)">2.75</td>
-               <td onclick="highlightRowMeanState(this)">2.75</td>
+               <td onclick="highlightRowMeanState(this)" class="row-header">CRUJRA_CRUJRA-S3-nitrogen-ropt</td>
+               <td onclick="highlightRowMeanState(this)"><a href="AVH15C1_CRUJRA_CRUJRA-S3-nitrogen-ropt.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">2.00</td>
+               <td onclick="highlightRowMeanState(this)">2.00</td>
                <td onclick="highlightRowMeanState(this)">1.22</td>
-               <td onclick="highlightRowMeanState(this)">1.79</td>
-               <td onclick="highlightRowMeanState(this)">1.52</td>
+               <td onclick="highlightRowMeanState(this)">0.286</td>
+               <td onclick="highlightRowMeanState(this)">1.41</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">1.53</td>
+               <td onclick="highlightRowMeanState(this)">0.778</td>
+               <td onclick="highlightRowMeanState(this)">1.09</td>
+               <td onclick="highlightRowMeanState(this)">1.68</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.248</td>
+               <td onclick="highlightRowMeanState(this)">0.552</td>
+               <td onclick="highlightRowMeanState(this)">0.725</td>
+               <td onclick="highlightRowMeanState(this)">0.796</td>
+               <td onclick="highlightRowMeanState(this)">0.575</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">CRUJRA_CRUJRA-S3-nitrogen-ropt-foley</td>
+               <td onclick="highlightRowMeanState(this)"><a href="AVH15C1_CRUJRA_CRUJRA-S3-nitrogen-ropt-foley.nc" download>[-]</a></td>
                <td onclick="highlightRowMeanState(this)">1.99</td>
-               <td onclick="highlightRowMeanState(this)">1.92</td>
+               <td onclick="highlightRowMeanState(this)">1.99</td>
+               <td onclick="highlightRowMeanState(this)">1.22</td>
+               <td onclick="highlightRowMeanState(this)">0.286</td>
+               <td onclick="highlightRowMeanState(this)">1.41</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">0.188</td>
-               <td onclick="highlightRowMeanState(this)">0.437</td>
-               <td onclick="highlightRowMeanState(this)">0.723</td>
-               <td onclick="highlightRowMeanState(this)">0.434</td>
-               <td onclick="highlightRowMeanState(this)">0.444</td>
+               <td onclick="highlightRowMeanState(this)">0.770</td>
+               <td onclick="highlightRowMeanState(this)">1.08</td>
+               <td onclick="highlightRowMeanState(this)">1.68</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.249</td>
+               <td onclick="highlightRowMeanState(this)">0.553</td>
+               <td onclick="highlightRowMeanState(this)">0.725</td>
+               <td onclick="highlightRowMeanState(this)">0.796</td>
+               <td onclick="highlightRowMeanState(this)">0.575</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">CRUJRA_CRUJRA-S3-nonlim</td>
+               <td onclick="highlightRowMeanState(this)"><a href="AVH15C1_CRUJRA_CRUJRA-S3-nonlim.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">1.77</td>
+               <td onclick="highlightRowMeanState(this)">1.77</td>
+               <td onclick="highlightRowMeanState(this)">1.22</td>
+               <td onclick="highlightRowMeanState(this)">0.306</td>
+               <td onclick="highlightRowMeanState(this)">1.41</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.548</td>
+               <td onclick="highlightRowMeanState(this)">0.896</td>
+               <td onclick="highlightRowMeanState(this)">1.65</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.313</td>
+               <td onclick="highlightRowMeanState(this)">0.561</td>
+               <td onclick="highlightRowMeanState(this)">0.726</td>
+               <td onclick="highlightRowMeanState(this)">0.842</td>
+               <td onclick="highlightRowMeanState(this)">0.601</td>
              </tr>
              <tr>
                <td onclick="highlightRowMeanState(this)" class="row-header">TRENDYv13_S3</td>
@@ -372,37 +528,18 @@
                <td onclick="highlightRowMeanState(this)">3.07</td>
                <td onclick="highlightRowMeanState(this)">3.07</td>
                <td onclick="highlightRowMeanState(this)">1.22</td>
-               <td onclick="highlightRowMeanState(this)">1.92</td>
-               <td onclick="highlightRowMeanState(this)">1.52</td>
+               <td onclick="highlightRowMeanState(this)">0.429</td>
+               <td onclick="highlightRowMeanState(this)">1.41</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
                <td onclick="highlightRowMeanState(this)">1.85</td>
                <td onclick="highlightRowMeanState(this)">2.27</td>
-               <td onclick="highlightRowMeanState(this)">1.82</td>
+               <td onclick="highlightRowMeanState(this)">1.81</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">0.178</td>
-               <td onclick="highlightRowMeanState(this)">0.421</td>
-               <td onclick="highlightRowMeanState(this)">0.739</td>
-               <td onclick="highlightRowMeanState(this)">0.418</td>
-               <td onclick="highlightRowMeanState(this)">0.435</td>
-             </tr>
-             <tr>
-               <td onclick="highlightRowMeanState(this)" class="row-header">TRENDYv14_S3</td>
-               <td onclick="highlightRowMeanState(this)"><a href="AVH15C1_TRENDYv14_S3.nc" download>[-]</a></td>
-               <td onclick="highlightRowMeanState(this)">3.37</td>
-               <td onclick="highlightRowMeanState(this)">3.37</td>
-               <td onclick="highlightRowMeanState(this)">1.22</td>
-               <td onclick="highlightRowMeanState(this)">2.17</td>
-               <td onclick="highlightRowMeanState(this)">1.52</td>
-               <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">2.15</td>
-               <td onclick="highlightRowMeanState(this)">2.53</td>
-               <td onclick="highlightRowMeanState(this)">1.80</td>
-               <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">0.166</td>
-               <td onclick="highlightRowMeanState(this)">0.406</td>
-               <td onclick="highlightRowMeanState(this)">0.744</td>
-               <td onclick="highlightRowMeanState(this)">0.377</td>
-               <td onclick="highlightRowMeanState(this)">0.420</td>
+               <td onclick="highlightRowMeanState(this)">0.124</td>
+               <td onclick="highlightRowMeanState(this)">0.488</td>
+               <td onclick="highlightRowMeanState(this)">0.704</td>
+               <td onclick="highlightRowMeanState(this)">0.417</td>
+               <td onclick="highlightRowMeanState(this)">0.444</td>
              </tr>
           </tbody>
         </table>
@@ -524,19 +661,127 @@
         </div>
         </div>
     </div>
+    <div data-role="page" id="Relationships">
+      <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <h1 id="RelationshipsHead">Relationships</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href='#MeanState'>Mean State</a></li>
+            <li><a href='#Relationships' class=ui-btn-active ui-state-persist>Relationships</a></li>
+            <li><a href='#AllModels'>All Models</a></li>
+            <li><a href='#DataInformation'>Data Information</a></li>
+          </ul>
+        </div>
+      </div>
+      <select id="RelationshipsRegion" onchange="changeRegionRelationships()">
+        <option value='global' selected="selected">Global - Land</option>
+      </select>
+      <div style="display:none">
+      <select id="RelationshipsModel">
+        <option value='CRUJRA_CRUJRA-S3-main'>CRUJRA_CRUJRA-S3-main</option>
+        <option value='CRUJRA_CRUJRA-S3-nitrogen' selected="selected">CRUJRA_CRUJRA-S3-nitrogen</option>
+        <option value='CRUJRA_CRUJRA-S3-nitrogen-ropt'>CRUJRA_CRUJRA-S3-nitrogen-ropt</option>
+        <option value='CRUJRA_CRUJRA-S3-nitrogen-ropt-foley'>CRUJRA_CRUJRA-S3-nitrogen-ropt-foley</option>
+        <option value='CRUJRA_CRUJRA-S3-nonlim'>CRUJRA_CRUJRA-S3-nonlim</option>
+        <option value='TRENDYv13_S3'>TRENDYv13_S3</option>
+      </select>
+      </div>
+        <center>
+        <table class="table-header-rotated" id="Relationships_table_global">
+           <thead>
+             <tr>
+               <th></th>
+               <th class="rotate"><div><span>Download Data</span></div></th>
+               <th class="rotate"><div><span>Precipitation|GPCPv2.3 Hellinger Distance [1]</span></div></th>
+               <th></th>
+               <th class="rotate"><div><span>Precipitation|GPCPv2.3 Score [1]</span></div></th>
+               <th class="rotate"><div><span>Overall Score [1]</span></div></th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td onclick="highlightRowRelationships(this)" class="row-header">CRUJRA_CRUJRA-S3-main</td>
+               <td onclick="highlightRowRelationships(this)"><a href="AVH15C1_CRUJRA_CRUJRA-S3-main.nc" download>[-]</a></td>
+               <td onclick="highlightRowRelationships(this)">0.585</td>
+               <td onclick="highlightRowRelationships(this)" class="divider"></td>
+               <td onclick="highlightRowRelationships(this)">0.588</td>
+               <td onclick="highlightRowRelationships(this)">0.588</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowRelationships(this)" class="row-header">CRUJRA_CRUJRA-S3-nitrogen</td>
+               <td onclick="highlightRowRelationships(this)"><a href="AVH15C1_CRUJRA_CRUJRA-S3-nitrogen.nc" download>[-]</a></td>
+               <td onclick="highlightRowRelationships(this)">0.626</td>
+               <td onclick="highlightRowRelationships(this)" class="divider"></td>
+               <td onclick="highlightRowRelationships(this)">0.668</td>
+               <td onclick="highlightRowRelationships(this)">0.668</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowRelationships(this)" class="row-header">CRUJRA_CRUJRA-S3-nitrogen-ropt</td>
+               <td onclick="highlightRowRelationships(this)"><a href="AVH15C1_CRUJRA_CRUJRA-S3-nitrogen-ropt.nc" download>[-]</a></td>
+               <td onclick="highlightRowRelationships(this)">0.597</td>
+               <td onclick="highlightRowRelationships(this)" class="divider"></td>
+               <td onclick="highlightRowRelationships(this)">0.594</td>
+               <td onclick="highlightRowRelationships(this)">0.594</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowRelationships(this)" class="row-header">CRUJRA_CRUJRA-S3-nitrogen-ropt-foley</td>
+               <td onclick="highlightRowRelationships(this)"><a href="AVH15C1_CRUJRA_CRUJRA-S3-nitrogen-ropt-foley.nc" download>[-]</a></td>
+               <td onclick="highlightRowRelationships(this)">0.599</td>
+               <td onclick="highlightRowRelationships(this)" class="divider"></td>
+               <td onclick="highlightRowRelationships(this)">0.595</td>
+               <td onclick="highlightRowRelationships(this)">0.595</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowRelationships(this)" class="row-header">CRUJRA_CRUJRA-S3-nonlim</td>
+               <td onclick="highlightRowRelationships(this)"><a href="AVH15C1_CRUJRA_CRUJRA-S3-nonlim.nc" download>[-]</a></td>
+               <td onclick="highlightRowRelationships(this)">0.640</td>
+               <td onclick="highlightRowRelationships(this)" class="divider"></td>
+               <td onclick="highlightRowRelationships(this)">0.666</td>
+               <td onclick="highlightRowRelationships(this)">0.666</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowRelationships(this)" class="row-header">TRENDYv13_S3</td>
+               <td onclick="highlightRowRelationships(this)"><a href="AVH15C1_TRENDYv13_S3.nc" download>[-]</a></td>
+               <td onclick="highlightRowRelationships(this)">0.540</td>
+               <td onclick="highlightRowRelationships(this)" class="divider"></td>
+               <td onclick="highlightRowRelationships(this)">0.269</td>
+               <td onclick="highlightRowRelationships(this)">0.269</td>
+             </tr>
+          </tbody>
+        </table>
+        </center>
+        <div data-role="collapsible" data-collapsed="false"><h1>Precipitation/GPCPv2.3</h1>
+        <div class="container" id="benchmark_rel_Precipitation_div">
+          <div class="child">
+          <img src="" id="benchmark_rel_Precipitation" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="rel_Precipitation_div">
+          <div class="child">
+          <img src="" id="rel_Precipitation" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="rel_func_Precipitation_div">
+          <div class="child">
+          <img src="" id="rel_func_Precipitation" alt="Data not available" ></img>
+          </div>
+        </div>
+        </div>
+    </div>
     <div data-role="page" id="AllModels">
       <div data-role="header" data-position="fixed" data-tap-toggle="false">
         <h1 id="AllModelsHead">All Models</h1>
         <div data-role="navbar">
           <ul>
             <li><a href='#MeanState'>Mean State</a></li>
+            <li><a href='#Relationships'>Relationships</a></li>
             <li><a href='#AllModels' class=ui-btn-active ui-state-persist>All Models</a></li>
             <li><a href='#DataInformation'>Data Information</a></li>
           </ul>
         </div>
       </div>
       <select id="AllModelsRegion" onchange="AllSelect()">
-        <option value='global' selected="selected">Globe</option>
+        <option value='global' selected="selected">Global - Land</option>
       </select>
       <select id="AllModelsPlot" onchange="AllSelect()">
         <option value='timeint' selected="selected">Temporally integrated period mean</option>
@@ -550,6 +795,8 @@
         <option value='cycle'>Spatially integrated regional mean cycle</option>
         <option value='dtcycle'>Spatially integrated regional mean detrended cycle</option>
         <option value='spaceint'>Spatially integrated regional mean</option>
+        <option value='rel_Precipitation'>Relationship with Precipitation</option>
+        <option value='rel_func_Precipitation'>Relationship with func_Precipitation</option>
       </select>
         <div class="container" id="Benchmark_div">
           <div class="child">
@@ -558,25 +805,39 @@
           <center><img src="legend_Benchmark.png" id="Benchmark_legend"  alt="Data not available" ></img></center>
           </div>
         </div>
-        <div class="container" id="BASELINE_div">
+        <div class="container" id="CRUJRA_CRUJRA-S3-main_div">
           <div class="child">
-          <center>BASELINE</center>
-          <img src="" id="BASELINE" alt="Data not available" ></img>
-          <center><img src="legend_BASELINE.png" id="BASELINE_legend"  alt="Data not available" ></img></center>
+          <center>CRUJRA_CRUJRA-S3-main</center>
+          <img src="" id="CRUJRA_CRUJRA-S3-main" alt="Data not available" ></img>
+          <center><img src="legend_CRUJRA_CRUJRA-S3-main.png" id="CRUJRA_CRUJRA-S3-main_legend"  alt="Data not available" ></img></center>
           </div>
         </div>
-        <div class="container" id="NITROGEN_div">
+        <div class="container" id="CRUJRA_CRUJRA-S3-nitrogen_div">
           <div class="child">
-          <center>NITROGEN</center>
-          <img src="" id="NITROGEN" alt="Data not available" ></img>
-          <center><img src="legend_NITROGEN.png" id="NITROGEN_legend"  alt="Data not available" ></img></center>
+          <center>CRUJRA_CRUJRA-S3-nitrogen</center>
+          <img src="" id="CRUJRA_CRUJRA-S3-nitrogen" alt="Data not available" ></img>
+          <center><img src="legend_CRUJRA_CRUJRA-S3-nitrogen.png" id="CRUJRA_CRUJRA-S3-nitrogen_legend"  alt="Data not available" ></img></center>
           </div>
         </div>
-        <div class="container" id="NITROGEN-ALPHA7_div">
+        <div class="container" id="CRUJRA_CRUJRA-S3-nitrogen-ropt_div">
           <div class="child">
-          <center>NITROGEN-ALPHA7</center>
-          <img src="" id="NITROGEN-ALPHA7" alt="Data not available" ></img>
-          <center><img src="legend_NITROGEN-ALPHA7.png" id="NITROGEN-ALPHA7_legend"  alt="Data not available" ></img></center>
+          <center>CRUJRA_CRUJRA-S3-nitrogen-ropt</center>
+          <img src="" id="CRUJRA_CRUJRA-S3-nitrogen-ropt" alt="Data not available" ></img>
+          <center><img src="legend_CRUJRA_CRUJRA-S3-nitrogen-ropt.png" id="CRUJRA_CRUJRA-S3-nitrogen-ropt_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="CRUJRA_CRUJRA-S3-nitrogen-ropt-foley_div">
+          <div class="child">
+          <center>CRUJRA_CRUJRA-S3-nitrogen-ropt-foley</center>
+          <img src="" id="CRUJRA_CRUJRA-S3-nitrogen-ropt-foley" alt="Data not available" ></img>
+          <center><img src="legend_CRUJRA_CRUJRA-S3-nitrogen-ropt-foley.png" id="CRUJRA_CRUJRA-S3-nitrogen-ropt-foley_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="CRUJRA_CRUJRA-S3-nonlim_div">
+          <div class="child">
+          <center>CRUJRA_CRUJRA-S3-nonlim</center>
+          <img src="" id="CRUJRA_CRUJRA-S3-nonlim" alt="Data not available" ></img>
+          <center><img src="legend_CRUJRA_CRUJRA-S3-nonlim.png" id="CRUJRA_CRUJRA-S3-nonlim_legend"  alt="Data not available" ></img></center>
           </div>
         </div>
         <div class="container" id="TRENDYv13_S3_div">
@@ -586,13 +847,6 @@
           <center><img src="legend_TRENDYv13_S3.png" id="TRENDYv13_S3_legend"  alt="Data not available" ></img></center>
           </div>
         </div>
-        <div class="container" id="TRENDYv14_S3_div">
-          <div class="child">
-          <center>TRENDYv14_S3</center>
-          <img src="" id="TRENDYv14_S3" alt="Data not available" ></img>
-          <center><img src="legend_TRENDYv14_S3.png" id="TRENDYv14_S3_legend"  alt="Data not available" ></img></center>
-          </div>
-        </div>
     </div>
     <div data-role="page" id="DataInformation">
       <div data-role="header" data-position="fixed" data-tap-toggle="false">
@@ -600,6 +854,7 @@
         <div data-role="navbar">
           <ul>
             <li><a href='#MeanState'>Mean State</a></li>
+            <li><a href='#Relationships'>Relationships</a></li>
             <li><a href='#AllModels'>All Models</a></li>
             <li><a href='#DataInformation' class=ui-btn-active ui-state-persist>Data Information</a></li>
           </ul>
