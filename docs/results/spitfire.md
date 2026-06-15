@@ -45,6 +45,14 @@ difference ≈ −0.015 kg C m⁻² yr⁻¹:
 
 ![2016 NBP diff spitfire-N vs TRENDYv13](img/spitfire/nbp_diff_2016.png)
 
+### Latitudinal NBP
+
+Annual NBP summed over latitude bands — South (90°S–30°S), Tropics (30°S–30°N),
+North (30°N–60°N), Boreal (60°N–90°N) — 2000–present, PgC/yr (+ = sink),
+with TRENDYv13 S3 for reference.
+
+![latitudinal NBP](img/spitfire/nbp_latbands.png)
+
 ## All stocks & fluxes
 
 Global GPP/NPP/NBP/Rh (PgC/yr), Veg/Soil/Litter C (PgC), Fire C (PgC/yr),
