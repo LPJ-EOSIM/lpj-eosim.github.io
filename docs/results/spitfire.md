@@ -150,12 +150,6 @@ r²/NSE/RMSE/bias annotated.
 
 ![regional R2 fire C](img/spitfire/bench_scatter_firec.png)
 
-### Regional grouped bars
-
-GFED vs all six runs across the 14 regions (burned fraction and fire C).
-
-![regional summary bars](img/spitfire/bench_regional_summary.png)
-
 ### Maps — model and model − GFED
 
 Burned fraction (absolute, then bias):
@@ -196,6 +190,12 @@ LPJ-GUESS peer does (mean EOSIM−GFED −2.5, LPJ-GUESS−GFED −2.3, EOSIM−
 LPJ-GUESS-SPITFIRE minus GFED4.1s:
 
 ![LPJ-GUESS minus GFED fire C](img/spitfire/bench_lpjguess_bias_firec.png)
+
+Regional obs-vs-pred of EOSIM fire C against the LPJ-GUESS-SPITFIRE peer (same
+format as the GFED scatter above — one panel per run, 14 GFED basis regions,
+1:1 line, r²/NSE/RMSE/bias):
+
+![EOSIM vs LPJ-GUESS regional fire C scatter](img/spitfire/bench_scatter_firec_vs_lpjguess.png)
 
 ## ILAMB benchmark
 
