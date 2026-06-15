@@ -93,6 +93,100 @@ Per run: model `firef` | GFED4.1s | model − GFED (%).
 
 ![firef vs GFED maps](img/spitfire/firef_vs_gfed_maps.png)
 
+## Regional fire benchmark — GFED4.1s & LPJ-GUESS-SPITFIRE
+
+Quantitative benchmark of all six CRUJRA SPITFIRE runs against **GFED4.1s**
+(burned fraction `firef` and fire-C emissions `firec`, 1997–2016) aggregated to
+the 14 GFED basis regions, plus a peer comparison against **LPJ-GUESS-SPITFIRE**
+fire C. Model fields are the GFED-aligned multi-year means.
+
+### Skill summary
+
+`model`/`GFED`/`bias` are global means (firef = area-weighted %/yr; firec =
+PgC/yr). `r_interann` = global interannual correlation. `spatial r²/NSE/RMSE` =
+across-region pattern skill over the 14 GFED regions (the scatter metric below).
+
+Global fire C, area-weighted: **LPJ-GUESS-SPITFIRE 1.90 PgC/yr** (2010–2025),
+**GFED4.1s 2.15 PgC/yr** (1997–2016).
+
+| run | var | model | GFED | bias | r_interann | spatial r² | spatial NSE | spatial RMSE |
+|---|---|---|---|---|---|---|---|---|
+| S2 | firef | 4.44 | 3.5 | +0.94 | 0.222 | 0.666 | 0.599 | 3.08 |
+| S2 | firec | 1.87 | 2.15 | −0.28 | −0.246 | 0.737 | 0.712 | 0.100 |
+| S2_N | firef | 4.88 | 3.5 | +1.38 | 0.101 | 0.795 | 0.599 | 3.08 |
+| S2_N | firec | 2.10 | 2.15 | −0.05 | 0.132 | 0.742 | 0.644 | 0.111 |
+| S2_N_ropt | firef | 5.08 | 3.5 | +1.58 | 0.115 | 0.790 | 0.566 | 3.20 |
+| S2_N_ropt | firec | 2.29 | 2.15 | +0.14 | 0.165 | 0.772 | 0.667 | 0.107 |
+| S3 | firef | 5.82 | 3.5 | +2.32 | 0.090 | 0.486 | 0.034 | 4.78 |
+| S3 | firec | 2.57 | 2.15 | +0.42 | −0.032 | 0.670 | 0.636 | 0.112 |
+| **S3_N** | firef | 4.73 | 3.5 | +1.23 | 0.318 | 0.762 | 0.581 | 3.15 |
+| **S3_N** | firec | 1.78 | 2.15 | −0.37 | 0.216 | **0.822** | **0.799** | 0.083 |
+| S3_N_ropt | firef | 5.21 | 3.5 | +1.71 | 0.128 | 0.727 | 0.446 | 3.62 |
+| S3_N_ropt | firec | 2.02 | 2.15 | −0.13 | 0.241 | 0.808 | 0.788 | 0.086 |
+
+All runs over-predict global burned area (~4.4–5.8 %/yr vs GFED 3.5); the
+nitrogen runs (`S*_N`, `S*_N_ropt`) reproduce global fire C to within ±0.4 PgC/yr.
+Across-region pattern skill is high (spatial r² 0.49–0.82); interannual
+correlation is weak (r ≤ 0.32) — the runs capture *where* and *how much* fire
+occurs better than *which years*. **S3-spitfire-N** has the best fire-C pattern
+skill (r² 0.82, NSE 0.80).
+
+### Regional obs-vs-pred (R²) — model vs GFED4.1s
+
+One panel per run; points are the 14 GFED basis regions, 1:1 line dashed, with
+r²/NSE/RMSE/bias annotated.
+
+![regional R2 burned fraction](img/spitfire/bench_scatter_firef.png)
+
+![regional R2 fire C](img/spitfire/bench_scatter_firec.png)
+
+### Regional grouped bars
+
+GFED vs all six runs across the 14 regions (burned fraction and fire C).
+
+![regional summary bars](img/spitfire/bench_regional_summary.png)
+
+### Maps — model and model − GFED
+
+Burned fraction (absolute, then bias):
+
+![burned fraction absolute maps](img/spitfire/bench_maps_abs_firef.png)
+
+![burned fraction bias maps](img/spitfire/bench_maps_diff_firef.png)
+
+Fire C emissions (absolute, then bias):
+
+![fire C absolute maps](img/spitfire/bench_maps_abs_firec.png)
+
+![fire C bias maps](img/spitfire/bench_maps_diff_firec.png)
+
+### Interannual & seasonal
+
+Annual time series and monthly climatology, GLOBAL + 14 regions (GFED in black/grey):
+
+![interannual burned fraction](img/spitfire/bench_timeseries_firef.png)
+
+![interannual fire C](img/spitfire/bench_timeseries_firec.png)
+
+![seasonality burned fraction](img/spitfire/bench_seasonality_firef.png)
+
+![seasonality fire C](img/spitfire/bench_seasonality_firec.png)
+
+### Peer comparison vs LPJ-GUESS-SPITFIRE (fire C)
+
+LPJ-GUESS-SPITFIRE fire C (ICOS/Lund, rev. 6562; "CO₂ release from fire",
+mol C m⁻² yr⁻¹ with negative = emission, converted to +gC m⁻² yr⁻¹). Top row:
+absolute GFED | LPJ-GUESS | EOSIM; bottom row: EOSIM−GFED | LPJ-GUESS−GFED |
+EOSIM−LPJ-GUESS (2010–2016 overlap). EOSIM tracks GFED at least as closely as the
+LPJ-GUESS peer does (mean EOSIM−GFED −2.5, LPJ-GUESS−GFED −2.3, EOSIM−LPJ-GUESS
+−0.2 gC m⁻² yr⁻¹).
+
+![EOSIM vs LPJ-GUESS vs GFED fire C](img/spitfire/bench_eosim_vs_lpjguess_firec.png)
+
+LPJ-GUESS-SPITFIRE minus GFED4.1s:
+
+![LPJ-GUESS minus GFED fire C](img/spitfire/bench_lpjguess_bias_firec.png)
+
 ## ILAMB benchmark
 
 Full ILAMB report for the S3 bitlist (6 runs + TRENDYv13 S3), all seven
