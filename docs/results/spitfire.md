@@ -3,8 +3,7 @@
 Model source: [LPJ PR #421](https://github.com/LPJ-EOSIM/LPJ/pull/421)
 
 Integration of the **SPITFIRE** fire model into LPJ-EOSIM, run globally with the
-**CRUJRA** driver. We sweep the S2/S3 sim type against the
-**spitfire × nitrogen × resp-opt** "bitlist" (six runs):
+**CRUJRA** driver. The following figures include LPJ runs with the following flag combinations:
 
 | run | spitfire | nitrogen | RESP_OPT/M10DAYR |
 |---|:--:|:--:|:--:|
@@ -12,36 +11,30 @@ Integration of the **SPITFIRE** fire model into LPJ-EOSIM, run globally with the
 | `S2/S3-spitfire-N` | ✓ | ✓ | – |
 | `S2/S3-spitfire-N-ropt` | ✓ | ✓ | ✓ |
 
-All runs: 1000-yr nat-veg spin-up → 398-yr land-use spin-up → 1700–2024 transient,
-CRUJRA climate from 1901, on a 0.5° grid.
+All runs follow the standard LPJ-EOSIM protocol:
+1000-yr nat-veg spin-up; 398-yr land-use spin-up; 1700–2024 transient, using CRUJRA climate forcing
+on a 0.5° grid.
 
-## Net Biome Production (topline)
+
+## Net Biome Production 
 
 Global annual NBP. Under CRUJRA the **S2↔S3 split is large** (~1.5 PgC/yr lower
 for S3, the transient-land-use drawdown), nitrogen lowers the sink, and resp-opt
-nudges it back up.
+nudges it back up. Resp opt simulates thermal acclimation of leaf respiration.
 
 ![NBP](img/spitfire/nbp.png)
 
-**Mean NBP 1980–2024 (PgC/yr):**
-
-| run | S2 | S3 |
-|---|---|---|
-| spitfire | 2.48 | 0.94 |
-| spitfire-N | 1.77 | 0.87 |
-| spitfire-N-ropt | 2.05 | 1.04 |
-
 ### O₂/N₂ land-sink constraint (2014–2023 mean ∈ 0.2–1.8 PgC/yr)
+Numbers from some guidance (that was subsequently discarded) from TRENDYv14.
 
-All S3 runs vs the atmospheric O₂/N₂ constraint (TRENDYv13 S3 for reference).
+Figure below includes all S3 runs vs the atmospheric O₂/N₂ constraint. TRENDYv13 is included as a reference.
 **Satisfying:** `spitfire-N` (1.41), `spitfire-N-ropt` (1.66) — the nitrogen runs
 fall inside; the no-N `spitfire` (1.83) and `main` overshoot, as does TRENDYv13 S3 (1.94).
+No model permutation gives unrealistic results.
 
 ![NBP O2/N2 constraint](img/spitfire/nbp_o2n2_constraint.png)
-
-Spatial NBP comparison for **2016** — `spitfire-N` vs TRENDYv13 S3 and their
-difference (spitfire-N − TRENDYv13, + = stronger sink); global-mean per-cell
-difference ≈ −0.015 kg C m⁻² yr⁻¹:
+For 2015/16 there's a big NBP difference between TRENDYv13 and the rest of the ensemble. Difference maps are below.
+Note that TRENDYv13 is run on monthly interpolated CRU data while the rest of the runs use daily CRUJRA.
 
 ![2016 NBP diff spitfire-N vs TRENDYv13](img/spitfire/nbp_diff_2016.png)
 
@@ -49,18 +42,22 @@ difference ≈ −0.015 kg C m⁻² yr⁻¹:
 
 Annual NBP summed over latitude bands — South (90°S–30°S), Tropics (30°S–30°N),
 North (30°N–60°N), Boreal (60°N–90°N) — 2000–present, PgC/yr (+ = sink),
-with TRENDYv13 S3 for reference.
+with TRENDYv13 S3 for reference. All newer models show the tropics as a significant source compared
+to TRENDYv13. This potentially aligns with the 2015/2016 El Nino event.
 
 ![latitudinal NBP](img/spitfire/nbp_latbands.png)
 
-## All stocks & fluxes
+## All stocks & fluxes on the same figure
 
 Global GPP/NPP/NBP/Rh (PgC/yr), Veg/Soil/Litter C (PgC), Fire C (PgC/yr),
-burned area (Mha/yr) and soil N₂O (TgN/yr, N runs).
+burned area (Mha/yr) and soil N₂O (TgN/yr, N runs). All generally show the same IAV and range of parameters, though 
+soil carbon is a bit higher than the rest for the spitfire-n-ropt runs.
 
 ![stocks and fluxes 1980-present](img/spitfire/stocks_fluxes_1980.png)
 
-Full transient (1700–present):
+Full transient (1700–present) shows aligned temporal resolution. The effect of fertilizer can
+clearly be seen in the N2O plot.
+
 
 ![stocks and fluxes 1700-present](img/spitfire/stocks_fluxes_1700.png)
 
@@ -73,18 +70,6 @@ Full transient (1700–present):
 **Mean global fire C 1980–2024 (PgC/yr)** — all runs sit around/below the GFED4.1s
 reference (~2.2); TRENDYv13 shown for context:
 
-| run | fire C (PgC/yr) |
-|---|---|
-| CRUJRA-S2-spitfire | 1.85 |
-| CRUJRA-S3-spitfire | 2.51 |
-| CRUJRA-S2-spitfire-N | 2.07 |
-| CRUJRA-S3-spitfire-N | 1.76 |
-| CRUJRA-S2-spitfire-N-ropt | 2.24 |
-| CRUJRA-S3-spitfire-N-ropt | 2.00 |
-| TRENDYv13 S2 (ref) | 3.36 |
-| TRENDYv13 S3 (ref) | 2.50 |
-| GFED4.1s (obs) | ~2.2 |
-
 Globally the model burns ~600 Mha/yr vs GFED's ~453 Mha/yr (~30% high).
 
 ### Burned fraction maps vs GFED4.1s (1996–2016 climatology)
@@ -93,12 +78,6 @@ Per run: model `firef` | GFED4.1s | model − GFED (%).
 
 ![firef vs GFED maps](img/spitfire/firef_vs_gfed_maps.png)
 
-## Regional fire benchmark — GFED4.1s & LPJ-GUESS-SPITFIRE
-
-Quantitative benchmark of all six CRUJRA SPITFIRE runs against **GFED4.1s**
-(burned fraction `firef` and fire-C emissions `firec`, 1997–2016) aggregated to
-the 14 GFED basis regions, plus a peer comparison against **LPJ-GUESS-SPITFIRE**
-fire C. Model fields are the GFED-aligned multi-year means.
 
 ### Global summary vs literature
 
@@ -115,24 +94,6 @@ high (+26–67%). **S3-spitfire-N** is the best overall (composite 15.8%).
 `model`/`GFED`/`bias` are global means (firef = area-weighted %/yr; firec =
 PgC/yr). `r_interann` = global interannual correlation. `spatial r²/NSE/RMSE` =
 across-region pattern skill over the 14 GFED regions (the scatter metric below).
-
-Global fire C, area-weighted: **LPJ-GUESS-SPITFIRE 1.90 PgC/yr** (2010–2025),
-**GFED4.1s 2.15 PgC/yr** (1997–2016).
-
-| run | var | model | GFED | bias | r_interann | spatial r² | spatial NSE | spatial RMSE |
-|---|---|---|---|---|---|---|---|---|
-| S2 | firef | 4.44 | 3.5 | +0.94 | 0.222 | 0.666 | 0.599 | 3.08 |
-| S2 | firec | 1.87 | 2.15 | −0.28 | −0.246 | 0.737 | 0.712 | 0.100 |
-| S2_N | firef | 4.88 | 3.5 | +1.38 | 0.101 | 0.795 | 0.599 | 3.08 |
-| S2_N | firec | 2.10 | 2.15 | −0.05 | 0.132 | 0.742 | 0.644 | 0.111 |
-| S2_N_ropt | firef | 5.08 | 3.5 | +1.58 | 0.115 | 0.790 | 0.566 | 3.20 |
-| S2_N_ropt | firec | 2.29 | 2.15 | +0.14 | 0.165 | 0.772 | 0.667 | 0.107 |
-| S3 | firef | 5.82 | 3.5 | +2.32 | 0.090 | 0.486 | 0.034 | 4.78 |
-| S3 | firec | 2.57 | 2.15 | +0.42 | −0.032 | 0.670 | 0.636 | 0.112 |
-| **S3_N** | firef | 4.73 | 3.5 | +1.23 | 0.318 | 0.762 | 0.581 | 3.15 |
-| **S3_N** | firec | 1.78 | 2.15 | −0.37 | 0.216 | **0.822** | **0.799** | 0.083 |
-| S3_N_ropt | firef | 5.21 | 3.5 | +1.71 | 0.128 | 0.727 | 0.446 | 3.62 |
-| S3_N_ropt | firec | 2.02 | 2.15 | −0.13 | 0.241 | 0.808 | 0.788 | 0.086 |
 
 All runs over-predict global burned area (~4.4–5.8 %/yr vs GFED 3.5); the
 nitrogen runs (`S*_N`, `S*_N_ropt`) reproduce global fire C to within ±0.4 PgC/yr.
