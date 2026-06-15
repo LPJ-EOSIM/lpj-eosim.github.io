@@ -39,6 +39,12 @@ fall inside; the no-N `spitfire` (1.83) and `main` overshoot, as does TRENDYv13 
 
 ![NBP O2/N2 constraint](img/spitfire/nbp_o2n2_constraint.png)
 
+Spatial NBP comparison for **2016** — `spitfire-N` vs TRENDYv13 S3 and their
+difference (spitfire-N − TRENDYv13, + = stronger sink); global-mean per-cell
+difference ≈ −0.015 kg C m⁻² yr⁻¹:
+
+![2016 NBP diff spitfire-N vs TRENDYv13](img/spitfire/nbp_diff_2016.png)
+
 ## All stocks & fluxes
 
 Global GPP/NPP/NBP/Rh (PgC/yr), Veg/Soil/Litter C (PgC), Fire C (PgC/yr),
