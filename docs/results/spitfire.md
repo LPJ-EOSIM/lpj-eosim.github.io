@@ -18,7 +18,7 @@ on a 0.5° grid.
 
 ## Net Biome Production 
 
-Global annual NBP. Under CRUJRA the **S2↔S3 split is large** (~1.5 PgC/yr lower
+Global annual NBP. Under CRUJRA the **S2↔S3 split is large** (~1.0–1.4 PgC/yr lower
 for S3, the transient-land-use drawdown), nitrogen lowers the sink, and resp-opt
 nudges it back up. Resp opt simulates thermal acclimation of leaf respiration.
 
@@ -28,9 +28,9 @@ nudges it back up. Resp opt simulates thermal acclimation of leaf respiration.
 Numbers from some guidance (that was subsequently discarded) from TRENDYv14.
 
 Figure below includes all S3 runs vs the atmospheric O₂/N₂ constraint. TRENDYv13 is included as a reference.
-**Satisfying:** `spitfire-N` (1.41), `spitfire-N-ropt` (1.66) — the nitrogen runs
-fall inside; the no-N `spitfire` (1.83) and `main` overshoot, as does TRENDYv13 S3 (1.94).
-No model permutation gives unrealistic results.
+**Satisfying:** `spitfire-N` (1.34), `spitfire-N-ropt` (1.60) — and now even the no-N
+`spitfire` (1.70) — all fall inside; the non-fire `main` (1.96) and TRENDYv13 S3 (1.94)
+overshoot. No model permutation gives unrealistic results.
 
 ![NBP O2/N2 constraint](img/spitfire/nbp_o2n2_constraint.png)
 For 2015/16 there's a big NBP difference between TRENDYv13 and the rest of the ensemble. Difference maps are below.
@@ -67,10 +67,11 @@ clearly be seen in the N2O plot.
 
 ![firec](img/spitfire/firec.png)
 
-**Mean global fire C 1980–2024 (PgC/yr)** — all runs sit around/below the GFED4.1s
-reference (~2.2); TRENDYv13 shown for context:
+**Mean global fire C (PgC/yr)** — runs span ~2.0–3.0 PgC/yr around the GFED4.1s
+reference (~2.2); the S3 nitrogen runs are closest (S3-spitfire-N 2.0, S3-spitfire-N-ropt 2.3),
+while the no-N and S2 runs sit higher. TRENDYv13 shown for context:
 
-Globally the model burns ~600 Mha/yr vs GFED's ~453 Mha/yr (~30% high).
+Globally the model burns ~640–840 Mha/yr (run-dependent) vs GFED's ~475 Mha/yr (≈35–75% high).
 
 ### Burned fraction maps vs GFED4.1s (1996–2016 climatology)
 
@@ -84,8 +85,8 @@ Per run: model `firef` | GFED4.1s | model − GFED (%).
 Global stocks and fluxes for all six runs against literature reference values
 (30-yr mean, 1995–2024). Cell colour = % deviation (blue under, red over); the
 composite score is the fire-weighted mean absolute deviation (lower = better).
-Fire C lands within ±19% of GFED across all runs; burned area is systematically
-high (+26–67%). **S3-spitfire-N** is the best overall (composite 15.8%).
+Fire C lands within −11% to +37% of GFED (S3-spitfire-N closest, −11%); burned area is
+systematically high (+35–76%). **S3-spitfire-N** is the best overall (composite 16.6%).
 
 ![global scorecard vs literature](img/spitfire/bench_global_scorecard.png)
 
@@ -95,12 +96,12 @@ high (+26–67%). **S3-spitfire-N** is the best overall (composite 15.8%).
 PgC/yr). `r_interann` = global interannual correlation. `spatial r²/NSE/RMSE` =
 across-region pattern skill over the 14 GFED regions (the scatter metric below).
 
-All runs over-predict global burned area (~4.4–5.8 %/yr vs GFED 3.5); the
-nitrogen runs (`S*_N`, `S*_N_ropt`) reproduce global fire C to within ±0.4 PgC/yr.
-Across-region pattern skill is high (spatial r² 0.49–0.82); interannual
-correlation is weak (r ≤ 0.32) — the runs capture *where* and *how much* fire
+All runs over-predict global burned area (~4.7–6.2 %/yr vs GFED 3.5); the
+S3 nitrogen runs (`S3_N`, `S3_N_ropt`) reproduce global fire C to within ±0.2 PgC/yr.
+Across-region pattern skill is high (firec spatial r² 0.79–0.87); interannual
+correlation is weak (|r| ≤ 0.35, several negative) — the runs capture *where* and *how much* fire
 occurs better than *which years*. **S3-spitfire-N** has the best fire-C pattern
-skill (r² 0.82, NSE 0.80).
+skill (r² 0.86, NSE 0.83).
 
 ### Regional obs-vs-pred (R²) — model vs GFED4.1s
 
@@ -143,8 +144,8 @@ LPJ-GUESS-SPITFIRE fire C (ICOS/Lund, rev. 6562; "CO₂ release from fire",
 mol C m⁻² yr⁻¹ with negative = emission, converted to +gC m⁻² yr⁻¹). Top row:
 absolute GFED | LPJ-GUESS | EOSIM; bottom row: EOSIM−GFED | LPJ-GUESS−GFED |
 EOSIM−LPJ-GUESS (2010–2016 overlap). EOSIM tracks GFED at least as closely as the
-LPJ-GUESS peer does (mean EOSIM−GFED −2.5, LPJ-GUESS−GFED −2.3, EOSIM−LPJ-GUESS
-−0.2 gC m⁻² yr⁻¹).
+LPJ-GUESS peer does (mean EOSIM−GFED −1.3, LPJ-GUESS−GFED −2.3, EOSIM−LPJ-GUESS
++1.0 gC m⁻² yr⁻¹).
 
 ![EOSIM vs LPJ-GUESS vs GFED fire C](img/spitfire/bench_eosim_vs_lpjguess_firec.png)
 
@@ -162,7 +163,7 @@ format as the GFED scatter above — one panel per run, 14 GFED basis regions,
 
 Full ILAMB report for the S3 bitlist (6 runs + TRENDYv13 S3), all seven
 confrontations. SPITFIRE markedly improves the **Burned Area** score
-(~0.63 vs ~0.52 without) at no cost to the other carbon-cycle metrics.
+(~0.65 vs ~0.52 without) at no cost to the other carbon-cycle metrics.
 
 - <a href="../ilamb-crujra-s3/">ILAMB benchmark (CRUJRA S3 bitlist)</a>
 
