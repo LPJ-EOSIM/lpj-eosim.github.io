@@ -28,7 +28,7 @@ Shown in the files' native (unconverted) units.
 ![downward longwave](img/wiemip/dlwrf.png)
 
 ### Wind speed
-Coverage is partial: CRUJRA 1898–2023, WIEMIP CRUJRA 1850–1904.
+CRUJRA covers 1898–2023; WIEMIP CRUJRA covers 1850–2023.
 ![wind speed](img/wiemip/wind.png)
 
 ## LPJ-EOSIM performance
