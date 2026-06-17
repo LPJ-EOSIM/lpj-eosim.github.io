@@ -8,6 +8,11 @@ forcing, and the resulting LPJ-EOSIM runs.
 Annual means, 1850–2024 (daily files aggregated per year). Blue = CRUJRA,
 red = WIEMIP CRUJRA.
 
+CRUJRA is flat because its per-year annual mean is held constant across the
+whole record (a detrended, constant-mean recycled climatology — daily
+variability still differs year to year). WIEMIP CRUJRA carries the real
+transient trend.
+
 ### Air temperature
 ![temperature](img/wiemip/tmp.png)
 
@@ -33,7 +38,7 @@ Only 1850–1891 is available in these files.
 
 ## LPJ-EOSIM performance
 
-Global stocks & fluxes — WIEMIP CRUJRA (overshoot) vs regular CRUJRA (S3).
+Global stocks & fluxes — WIEMIP CRUJRA (overshoot, S2) vs regular CRUJRA (S3).
 Note the two runs use different scenarios, so this is not a like-for-like
 comparison.
 
