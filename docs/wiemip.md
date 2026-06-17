@@ -5,13 +5,8 @@ forcing, and the resulting LPJ-EOSIM runs.
 
 ## Forcing variables
 
-Annual means, 1850–2024 (daily files aggregated per year). Blue = CRUJRA,
-red = WIEMIP CRUJRA.
-
-CRUJRA is flat because its per-year annual mean is held constant across the
-whole record (a detrended, constant-mean recycled climatology — daily
-variability still differs year to year). WIEMIP CRUJRA carries the real
-transient trend.
+Annual means (daily files aggregated per year). Blue = CRUJRA,
+red = WIEMIP CRUJRA. CRUJRA covers 1901–2023; WIEMIP CRUJRA covers 1850–2024.
 
 ### Air temperature
 ![temperature](img/wiemip/tmp.png)
@@ -33,7 +28,7 @@ Shown in the files' native (unconverted) units.
 ![downward longwave](img/wiemip/dlwrf.png)
 
 ### Wind speed
-Only 1850–1891 is available in these files.
+Coverage is partial: CRUJRA 1898–2023, WIEMIP CRUJRA 1850–1904.
 ![wind speed](img/wiemip/wind.png)
 
 ## LPJ-EOSIM performance
