@@ -77,6 +77,12 @@ just over GFED). TRENDYv13 (2.5) shown for context.
 
 Globally the model burns ~445–615 Mha/yr (run-dependent) vs GFED's ~475 Mha/yr (≈−6% to +30%).
 
+S3 runs against GFED4.1s annual totals (1997–2016 overlap; GFED mean 2.16 PgC/yr):
+`spitfire-N-ropt` (1.97) tracks GFED's magnitude and interannual swings most
+closely, with `spitfire-N` (1.65) and `spitfire` (1.52) lower.
+
+![S3 firec vs GFED totals](img/spitfire/s3_firec_vs_gfed_line.png)
+
 ### Burned fraction maps vs GFED4.1s (1996–2016 climatology)
 
 Per run: model `firef` | GFED4.1s | model − GFED (%).
