@@ -45,3 +45,20 @@ skill (r² 0.71, bias −0.6 PgC/yr); the no-N run under-burns broadly.
 | **S3-spitfire-N-ropt** | **1.94** | **0.71** | **0.69** | **−0.6** |
 
 ![regional fire C scatter vs GFED](img/spitfire/s3_firec_scatter_vs_gfed.png)
+
+## NBP — O₂/N₂ land-sink constraint
+
+Global net biome production vs the atmospheric O₂/N₂ land-sink constraint
+(mean NBP **0.2–1.8 PgC/yr over 2014–2023**, green band; averaging window in
+grey). `spitfire-N` (1.31) and `spitfire-N-ropt` (1.58) fall inside the
+constraint; the no-nitrogen `spitfire` run (1.85) sits just above it, and
+TRENDYv13 S3 (1.94) overshoots.
+
+| run | 2014–2023 NBP (PgC/yr) | in constraint? |
+|---|:--:|:--:|
+| S3-spitfire | 1.85 | ✗ (just over) |
+| S3-spitfire-N | 1.31 | ✓ |
+| **S3-spitfire-N-ropt** | **1.58** | **✓** |
+| TRENDYv13 S3 | 1.94 | ✗ |
+
+![NBP O2/N2 constraint](img/spitfire/s3_nbp_o2n2_constraint.png)
