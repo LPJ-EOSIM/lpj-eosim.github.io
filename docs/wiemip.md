@@ -39,11 +39,22 @@ prepended for context. Three GCM drivers — **IPSL-CM6A-LR**, **GFDL-ESM4**,
 **UKESM1-0-LL** — and eight overshoot scenarios: Very low (VL), Low (L),
 Medium-low (ML), Medium (M) and High (HL), plus the `-CF` variants.
 
-These are **raw** annual means: no smoothing, no masking, no gap-filling. Where
-files are missing the lines simply break; a handful of points are exactly zero
-(a source NaN coerced to 0) and show up as spikes-to-zero. Every missing,
-NaN and zero value is itemised in the
-[data-integrity report](img/wiemip/overshoot/missing_and_nan_report.txt).
+These are **raw** annual means: no smoothing, no value-masking. The CSVs were
+regenerated directly from the source NetCDFs (the GFDL↔IPSL labels were
+accidentally switched at write time and are corrected here). Where a year has no
+usable source data the line breaks (NaN gap). A handful of years remain whose
+source is missing 6-hourly **timesteps** (e.g. dropped nighttime steps inflate
+shortwave into visible spikes); these are left **raw** and documented, not
+altered.
+
+Data-integrity reports:
+
+- [Missing / NaN values](img/wiemip/overshoot/missing_and_nan_report.txt) —
+  what appears as a gap in the figures.
+- [Source timestep-completeness](img/wiemip/overshoot/source_completeness_report.txt)
+  — 43 source-years (verified against the `.nc` source) with incomplete
+  6-hourly data, biasing those annual means; 11 are fully empty and shown as NaN
+  gaps.
 
 ### By driver — all variables
 

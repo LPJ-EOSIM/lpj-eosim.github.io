@@ -1,41 +1,17 @@
 WIEMIP overshoot data integrity report
-  missing files      : 1557
-  NaN values         : 0
-  zero values (bad)  : 11  (global mean == 0.0 -> source NaN coerced to 0)
-  affected series    : 16
+  missing files      : 3
+  NaN values         : 11
+  zero values (bad)  : 0  (global mean == 0.0 -> source NaN coerced to 0)
+  affected series    : 4
 Expected projection years 2024-2300; CRUJRA 1850-2023. Raw data are
 plotted untouched: gaps appear where files are missing/NaN, and zero
 values appear as spikes-to-zero (not removed).
 
-GFDL HL pre  (present: 277)
-    ZERO    (1): 2284
-GFDL HL spfh  (present: 109)
-    MISSING (168): 2133-2300
-GFDL HL tmp  (present: 267)
-    MISSING (10): 2291-2300
-GFDL HL wind  (present: 235)
-    MISSING (42): 2259-2300
-GFDL L dswrf  (present: 190)
-    MISSING (87): 2214-2300
-GFDL L tmp  (present: 277)
-    ZERO    (6): 2284, 2286, 2288, 2294, 2299-2300
-GFDL L wind  (present: 134)
-    MISSING (143): 2158-2300
-IPSL HL dswrf  (present: 29)
-    MISSING (248): 2053-2300
-IPSL HL tmp  (present: 119)
-    MISSING (158): 2143-2300
-IPSL M dlwrf  (present: 217)
-    MISSING (60): 2241-2300
-IPSL ML-CF pre  (present: 112)
-    MISSING (165): 2136-2300
-IPSL ML-CF tmp  (present: 18)
-    MISSING (259): 2042-2300
-IPSL ML-CF wind  (present: 63)
-    MISSING (214): 2087-2300
-IPSL VL pre  (present: 277)
-    ZERO    (3): 2283, 2292, 2299
-IPSL VL wind  (present: 277)
-    ZERO    (1): 2291
+IPSL HL pre  (present: 277)
+    NaN     (1): 2284
+IPSL HL spfh  (present: 277)
+    NaN     (8): 2285-2286, 2288-2289, 2291, 2294, 2298, 2300
+IPSL HL wind  (present: 277)
+    NaN     (2): 2293, 2297
 UKESM HL-CF spfh  (present: 274)
     MISSING (3): 2287-2288, 2290
