@@ -52,9 +52,11 @@ Data-integrity reports:
 - [Missing / NaN values](img/wiemip/overshoot/missing_and_nan_report.txt) —
   what appears as a gap in the figures.
 - [Source timestep-completeness](img/wiemip/overshoot/source_completeness_report.txt)
-  — 43 source-years (verified against the `.nc` source) with incomplete
-  6-hourly data, biasing those annual means; 11 are fully empty and shown as NaN
-  gaps.
+  — an **exhaustive** sweep of every source-year for all three drivers (2024–2300,
+  verified against the `.nc`). Found 1 missing file and 45 years with incomplete
+  6-hourly data (11 fully empty → NaN gaps; the rest biased and left raw). All
+  affected years are in **GFDL-ESM4** and **IPSL-CM6A-LR**; **UKESM1-0-LL is
+  completely clean**.
 
 ### By driver — all variables
 
