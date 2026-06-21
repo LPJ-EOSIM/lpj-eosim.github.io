@@ -105,3 +105,15 @@ Note the two runs use different scenarios, so this is not a like-for-like
 comparison.
 
 ![WIEMIP vs regular CRUJRA stocks & fluxes](img/wiemip/crujra_wiemip_vs_regular.png)
+
+### Overshoot scenario output — all variables
+
+Global diagnostics for the four completed WIEMIP **overshoot** LPJ-EOSIM runs
+(**HL**, **M**, **HL_CF**, **L**; 2024–2300), with the WIEMIP-CRUJRA historical
+record (1850–2023, black) prepended. Each panel is one output variable; the
+value is the **area-weighted global mean** in the variable's native units
+(monthly variables are averaged to annual). This is a uniform diagnostic to show
+global trajectories, not a carbon-budget integral. The dotted line marks 2024
+(historical → scenario handoff).
+
+![WIEMIP overshoot LPJ-EOSIM all-variable diagnostics](img/wiemip/overshoot_lpj/all_variables_diagnostics.png)
