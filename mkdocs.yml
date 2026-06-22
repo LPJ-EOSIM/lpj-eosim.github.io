@@ -10,6 +10,7 @@ nav:
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
       - "SPITFIRE integration - pr 421": results/spitfire.md
+      - "SPITFIRE tuning sweep - fire diagnostics": results/spitfire_sweep.md
       - "ERA5 low-latency runs": results/era5.md
       - "Tuning a no-fire permutation to the baseline": results/tuned_nofire.md
   - Publications: publications.md
