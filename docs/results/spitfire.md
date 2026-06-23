@@ -89,8 +89,9 @@ closely, with `spitfire-N` (1.67) and `spitfire` (1.56) lower.
 ### Latitudinal fire C vs GFED4.1s
 
 Zonal-mean fire C (TgC/yr per 0.5° latitude band, 1997–2016 climatology) for the
-three SPITFIRE S3 runs against GFED4.1s, showing how the latitudinal distribution
-of fire emissions compares to observations.
+three SPITFIRE S3 runs against GFED4.1s, with TRENDYv13 S3 (grey dashed) as a model
+reference, showing how the latitudinal distribution of fire emissions compares to
+observations.
 
 ![S3 latitudinal fire C vs GFED](img/spitfire/s3_firec_zonal_vs_gfed.png)
 
