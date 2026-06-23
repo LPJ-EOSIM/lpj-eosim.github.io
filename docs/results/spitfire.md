@@ -53,8 +53,11 @@ to TRENDYv13. This potentially aligns with the 2015/2016 El Nino event.
 ## All stocks & fluxes on the same figure
 
 Global GPP/NPP/NBP/Rh (PgC/yr), Veg/Soil/Litter C (PgC), Fire C (PgC/yr),
-burned area (Mha/yr) and soil N₂O (TgN/yr, N runs). All generally show the same IAV and range of parameters, though 
-soil carbon is a bit higher than the rest for the spitfire-n-ropt runs.
+burned area (Mha/yr) and soil N₂O (TgN/yr, N runs), with **TRENDYv13 S3** (black
+dotted) overlaid as a reference on every panel except burned area (TRENDY's
+burnt-area variable uses a different convention). All generally show the same IAV
+and range of parameters, though soil carbon is a bit higher than the rest for the
+spitfire-n-ropt runs.
 
 ![stocks and fluxes 1980-present](img/spitfire/stocks_fluxes_1980.png)
 

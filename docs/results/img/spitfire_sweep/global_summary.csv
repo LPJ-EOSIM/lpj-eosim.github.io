@@ -1,9 +1,0 @@
-run,fireC_PgC_yr,fireC_bias_pct,burnedArea_Mha_yr,BA_bias_pct
-N-ropt wvpd,1.90,-12,138,-71
-wvpd fixdur,5.58,+158,1050,+120
-wvpd ign,3.50,+62,534,+12
-wvpd lpjml,4.19,+94,730,+53
-noN wvpd,3.60,+66,493,+4
-noN wvpd gwfix,3.09,+43,452,-5
-noN wvpd GSWP3,3.42,+58,515,+8
-GFED4.1s obs,2.16,+0,476,+0
