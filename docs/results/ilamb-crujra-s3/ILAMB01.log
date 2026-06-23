@@ -1,4 +1,4 @@
-[INFO][0][<module>] Linux hggpu9-10 4.18.0-553.8.1.el8_10.x86_64 #1 SMP Tue Jul 2 17:10:26 UTC 2024 x86_64 x86_64
+[INFO][0][<module>] Linux hggpu9-7 4.18.0-553.8.1.el8_10.x86_64 #1 SMP Tue Jul 2 17:10:26 UTC 2024 x86_64 x86_64
 [INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB (2.7.3)
 [INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/numpy (2.4.6)
 [INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/matplotlib (3.10.9)
@@ -6,201 +6,111 @@
 [INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/cf_units (3.3.1)
 [INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/sympy (1.14.0)
 [INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/mpi4py (4.1.2)
-[INFO][0][<module>] 2026-06-18 22:13:34.220498
-[INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
-[INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
-[INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_noSpit_noN] Success
-[INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
-[INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
-[INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_noSpit_N_ropt] Success
-[INFO][7][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][7][confront][SoilCarbon/NCSCDV22][S3_Spit_N] Success
-[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][0][confront][Biomass/Saatchi][S3_noSpit_N] Success
-[INFO][1][confront][Biomass/Thurner][S3_Spit_noN] Success
+[INFO][0][<module>] 2026-06-23 15:26:30.968480
 [INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_Spit_N] Success
 [INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_Spit_noN] Success
-[INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
-[INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
-[INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_Spit_N_ropt] Success
-[INFO][7][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][7][confront][SoilCarbon/NCSCDV22][S3_Spit_noN] Success
-[INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
-[INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
-[INFO][5][confront][EcosystemRespiration/FLUXNET2015][TRENDYv13_S3] Success
-[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][0][confront][Biomass/Saatchi][S3_noSpit_noN] Success
-[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][1][confront][Biomass/Thurner][S3_Spit_N_ropt] Success
 [INFO][7][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
 [INFO][7][confront][SoilCarbon/NCSCDV22][S3_Spit_N_ropt] Success
 [INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][S3_Spit_N] Success
+[INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][5][confront][EcosystemRespiration/FLUXNET2015][S3_Spit_N_ropt] Success
 [INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][0][confront][Biomass/Saatchi][S3_noSpit_N_ropt] Success
-[INFO][1][confront][Biomass/Thurner][TRENDYv13_S3] Success
-[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][1][confront][Biomass/Thurner][S3_Spit_N_ropt] Success
+[INFO][5][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][5][confront][EcosystemRespiration/FLUXNET2015][TRENDYv13_S3] Success
 [INFO][7][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
 [INFO][7][confront][SoilCarbon/NCSCDV22][TRENDYv13_S3] Success
-[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N] Success
-[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_noN] Success
-[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N_ropt] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][S3_Spit_noN] Success
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][confront][Biomass/Thurner][TRENDYv13_S3] Success
 [INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
 [INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
 [INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N] Success
-[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][0][confront][Biomass/Saatchi][S3_Spit_N] Success
 [INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
 [INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
 [INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_noN] Success
 [INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
 [INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
 [INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N_ropt] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][S3_Spit_N_ropt] Success
 [INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
 [INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
 [INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][TRENDYv13_S3] Success
-[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][0][confront][Biomass/Saatchi][S3_Spit_noN] Success
-[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][0][confront][Biomass/Saatchi][S3_Spit_N_ropt] Success
-[INFO][6][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
-[INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
-[INFO][6][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
-[INFO][6][confront][EcosystemRespiration/FLUXCOM][S3_Spit_N_ropt] Success
+[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
 [INFO][0][confront][Biomass/Saatchi][TRENDYv13_S3] Success
-[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
-[INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
-[INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N_ropt] Success
-[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
-[INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
-[INFO][3][confront][LeafAreaIndex/AVH15C1][TRENDYv13_S3] Success
-[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][0][confront][Biomass/Thurner][S3_noSpit_N] Success
-[INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
-[INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
-[INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_noSpit_N] Success
-[INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
-[INFO][7][confront][BurnedArea/GFED4.1S][S3_noSpit_N] Success
-[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][0][confront][Biomass/Thurner][S3_noSpit_noN] Success
-[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][0][confront][Biomass/Thurner][S3_noSpit_N_ropt] Success
-[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
-[INFO][0][confront][Biomass/Thurner][S3_Spit_N] Success
-[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
-[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
-[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N] Success
-[INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
-[INFO][3][confront][LeafAreaIndex/MODIS][S3_noSpit_N] Success
-[INFO][6][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
-[INFO][6][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
-[INFO][6][confront][EcosystemRespiration/FLUXCOM][TRENDYv13_S3] Success
-[INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
-[INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/HWSD][S3_noSpit_N] Success
-[INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
-[INFO][7][confront][BurnedArea/GFED4.1S][S3_noSpit_noN] Success
-[INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
-[INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N] Success
-[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/HWSD][S3_noSpit_noN] Success
-[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
-[INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
-[INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_noSpit_noN] Success
-[INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][3][confront][LeafAreaIndex/MODIS][S3_noSpit_noN] Success
-[INFO][6][confront][SoilCarbon/HWSD][S3_noSpit_N_ropt] Success
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/HWSD][S3_Spit_N] Success
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/HWSD][S3_Spit_noN] Success
-[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/HWSD][S3_Spit_N_ropt] Success
-[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
-[INFO][1][confront][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_noN] Success
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/HWSD][TRENDYv13_S3] Success
-[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
-[INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/NCSCDV22][S3_noSpit_N] Success
-[INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
-[INFO][3][confront][LeafAreaIndex/MODIS][S3_noSpit_N_ropt] Success
-[INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
-[INFO][7][confront][BurnedArea/GFED4.1S][S3_noSpit_N_ropt] Success
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/NCSCDV22][S3_noSpit_noN] Success
-[INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
-[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
-[INFO][6][confront][SoilCarbon/NCSCDV22][S3_noSpit_N_ropt] Success
-[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
-[INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
-[INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][S3_Spit_noN] Success
-[INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
-[INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_noSpit_N_ropt] Success
-[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][3][confront][LeafAreaIndex/MODIS][S3_Spit_N] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Thurner][S3_Spit_N] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Thurner][S3_Spit_noN] Success
+[INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
 [INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][S3_Spit_noN] Success
+[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][S3_Spit_N] Success
-[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][6][confront][EcosystemRespiration/FLUXCOM][TRENDYv13_S3] Success
 [INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][3][confront][LeafAreaIndex/MODIS][S3_Spit_noN] Success
-[INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
-[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
-[INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
-[INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N_ropt] Success
 [INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_Spit_N] Success
-[INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][6][confront][SoilCarbon/HWSD][S3_Spit_N] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][6][confront][SoilCarbon/HWSD][S3_Spit_noN] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N] Success
+[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][6][confront][SoilCarbon/HWSD][S3_Spit_N_ropt] Success
 [INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][6][confront][SoilCarbon/HWSD][TRENDYv13_S3] Success
 [INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][3][confront][LeafAreaIndex/MODIS][S3_Spit_N_ropt] Success
+[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][6][confront][SoilCarbon/NCSCDV22][S3_Spit_N] Success
+[INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][S3_Spit_noN] Success
-[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][6][confront][SoilCarbon/NCSCDV22][S3_Spit_noN] Success
 [INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N_ropt] Success
+[INFO][3][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
 [INFO][3][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][3][confront][LeafAreaIndex/MODIS][TRENDYv13_S3] Success
-[INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
-[INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][TRENDYv13_S3] Success
 [INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
 [INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_Spit_noN] Success
 [INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][S3_Spit_N_ropt] Success
-[INFO][4][AnalysisMeanStateSites][reco] Bias scored using Collier2018
-[INFO][4][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
-[INFO][4][confront][EcosystemRespiration/FLUXNET2015][S3_noSpit_N] Success
+[INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][2][confront][GrossPrimaryProductivity/FLUXCOM][TRENDYv13_S3] Success
+[INFO][5][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][5][confront][EcosystemRespiration/FLUXCOM][S3_Spit_N_ropt] Success
 [INFO][7][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
-[INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][7][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
 [INFO][7][confront][BurnedArea/GFED4.1S][TRENDYv13_S3] Success
-[INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
-[INFO][2][confront][LeafAreaIndex/AVH15C1][S3_noSpit_N] Success
-[INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
-[INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
-[INFO][2][confront][LeafAreaIndex/AVH15C1][S3_noSpit_noN] Success
-[INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
-[INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
-[INFO][2][confront][LeafAreaIndex/AVH15C1][S3_noSpit_N_ropt] Success
 [INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][2][confront][LeafAreaIndex/AVH15C1][S3_Spit_N] Success
@@ -210,105 +120,69 @@
 [INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
 [INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
 [INFO][2][confront][LeafAreaIndex/AVH15C1][S3_Spit_N_ropt] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_Spit_noN] Success
+[INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
+[INFO][2][confront][LeafAreaIndex/AVH15C1][TRENDYv13_S3] Success
 [INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_Spit_N_ropt] Success
 [INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][TRENDYv13_S3] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_noSpit_N] Success
-[INFO][1][modelPlots][Biomass/Thurner][S3_Spit_noN] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_noSpit_noN] Success
-[INFO][0][modelPlots][Biomass/Saatchi][S3_noSpit_N] Success
-[INFO][7][modelPlots][SoilCarbon/NCSCDV22][S3_Spit_N] Success
-[INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_noSpit_N_ropt] Success
-[INFO][1][modelPlots][Biomass/Thurner][S3_Spit_N_ropt] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_noSpit_noN] Success
 [INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_Spit_N] Success
-[INFO][0][modelPlots][Biomass/Saatchi][S3_noSpit_noN] Success
-[INFO][7][modelPlots][SoilCarbon/NCSCDV22][S3_Spit_noN] Success
 [INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_Spit_noN] Success
-[INFO][1][modelPlots][Biomass/Thurner][TRENDYv13_S3] Success
 [INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][S3_Spit_N_ropt] Success
-[INFO][6][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_N_ropt] Success
-[INFO][3][modelPlots][LeafAreaIndex/AVH15C1][TRENDYv13_S3] Success
-[INFO][0][modelPlots][Biomass/Saatchi][S3_noSpit_N_ropt] Success
 [INFO][7][modelPlots][SoilCarbon/NCSCDV22][S3_Spit_N_ropt] Success
+[INFO][1][modelPlots][Biomass/Thurner][S3_Spit_N_ropt] Success
 [INFO][4][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][TRENDYv13_S3] Success
-[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N_ropt] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_noSpit_N_ropt] Success
 [INFO][0][modelPlots][Biomass/Saatchi][S3_Spit_N] Success
 [INFO][7][modelPlots][SoilCarbon/NCSCDV22][TRENDYv13_S3] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N] Success
-[INFO][0][modelPlots][Biomass/Saatchi][S3_Spit_noN] Success
+[INFO][1][modelPlots][Biomass/Thurner][TRENDYv13_S3] Success
 [INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_N] Success
-[INFO][4][modelPlots][EcosystemRespiration/FLUXNET2015][S3_noSpit_N] Success
+[INFO][0][modelPlots][Biomass/Saatchi][S3_Spit_noN] Success
 [INFO][6][modelPlots][EcosystemRespiration/FLUXCOM][TRENDYv13_S3] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_noN] Success
 [INFO][0][modelPlots][Biomass/Saatchi][S3_Spit_N_ropt] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][S3_noSpit_N] Success
-[INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_noSpit_N] Success
-[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_noN] Success
-[INFO][0][modelPlots][Biomass/Saatchi][TRENDYv13_S3] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_noSpit_N] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_noSpit_N_ropt] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][S3_noSpit_noN] Success
-[INFO][0][modelPlots][Biomass/Thurner][S3_noSpit_N] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][S3_noSpit_N_ropt] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_N_ropt] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N] Success
-[INFO][0][modelPlots][Biomass/Thurner][S3_noSpit_noN] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_N] Success
-[INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_noSpit_noN] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][TRENDYv13_S3] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_noSpit_noN] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_noN] Success
-[INFO][0][modelPlots][Biomass/Thurner][S3_noSpit_N_ropt] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_noN] Success
-[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_noN] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_N_ropt] Success
-[INFO][0][modelPlots][Biomass/Thurner][S3_Spit_N] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N_ropt] Success
-[INFO][6][modelPlots][SoilCarbon/HWSD][TRENDYv13_S3] Success
-[INFO][6][modelPlots][SoilCarbon/NCSCDV22][S3_noSpit_N] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_noSpit_N] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_noSpit_N_ropt] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][TRENDYv13_S3] Success
-[INFO][6][modelPlots][SoilCarbon/NCSCDV22][S3_noSpit_noN] Success
-[INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_noSpit_N_ropt] Success
-[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N_ropt] Success
-[INFO][6][modelPlots][SoilCarbon/NCSCDV22][S3_noSpit_N_ropt] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_N] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_noSpit_noN] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_N] Success
 [INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_Spit_N] Success
-[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][TRENDYv13_S3] Success
-[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_noSpit_noN] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_noSpit_N_ropt] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_noN] Success
+[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_noN] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N] Success
+[INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_N] Success
+[INFO][0][modelPlots][Biomass/Saatchi][TRENDYv13_S3] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_noN] Success
+[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_N] Success
+[INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_noN] Success
+[INFO][0][modelPlots][Biomass/Thurner][S3_Spit_N] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_noN] Success
+[INFO][6][modelPlots][SoilCarbon/HWSD][S3_Spit_N_ropt] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][S3_Spit_N_ropt] Success
+[INFO][0][modelPlots][Biomass/Thurner][S3_Spit_noN] Success
 [INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_Spit_noN] Success
-[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_noSpit_N] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_N] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_N_ropt] Success
+[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N_ropt] Success
+[INFO][6][modelPlots][SoilCarbon/HWSD][TRENDYv13_S3] Success
+[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_noN] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][S3_Spit_N_ropt] Success
+[INFO][6][modelPlots][SoilCarbon/NCSCDV22][S3_Spit_N] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXNET2015][TRENDYv13_S3] Success
+[INFO][6][modelPlots][SoilCarbon/NCSCDV22][S3_Spit_noN] Success
 [INFO][3][modelPlots][LeafAreaIndex/MODIS][S3_Spit_N_ropt] Success
-[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_noN] Success
-[INFO][7][modelPlots][BurnedArea/GFED4.1S][TRENDYv13_S3] Success
-[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_noSpit_noN] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][TRENDYv13_S3] Success
+[INFO][2][modelPlots][GrossPrimaryProductivity/FLUXCOM][TRENDYv13_S3] Success
+[INFO][7][modelPlots][BurnedArea/GFED4.1S][S3_Spit_N_ropt] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_N] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][S3_Spit_N] Success
 [INFO][3][modelPlots][LeafAreaIndex/MODIS][TRENDYv13_S3] Success
-[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_noSpit_N] Success
-[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_noSpit_noN] Success
-[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_noSpit_N_ropt] Success
-[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_noSpit_N_ropt] Success
 [INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_Spit_N] Success
 [INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_Spit_N] Success
+[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][S3_Spit_noN] Success
+[INFO][7][modelPlots][BurnedArea/GFED4.1S][TRENDYv13_S3] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_noN] Success
 [INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_Spit_noN] Success
+[INFO][5][modelPlots][EcosystemRespiration/FLUXCOM][S3_Spit_N_ropt] Success
 [INFO][2][modelPlots][LeafAreaIndex/AVH15C1][S3_Spit_N_ropt] Success
-[INFO][6][<module>][process time] 121.2 s
-[INFO][5][<module>][process time] 206.0 s
-[INFO][2][<module>][process time] 431.8 s
-[INFO][4][<module>][process time] 203.6 s
-[INFO][0][<module>][process time] 68.1 s
-[INFO][7][<module>][process time] 238.6 s
-[INFO][3][<module>][process time] 283.9 s
-[INFO][0][<module>][total time] 488.8 s
-[INFO][1][<module>][process time] 115.4 s
-[INFO][0][<module>][process balance] 6.35
-[INFO][0][<module>][parallel efficiency] 43%
+[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][TRENDYv13_S3] Success
+[INFO][7][<module>][process time] 137.2 s
+[INFO][3][<module>][process time] 135.2 s
+[INFO][5][<module>][process time] 138.4 s
+[INFO][2][<module>][process time] 281.1 s
+[INFO][0][<module>][process time] 38.8 s
+[INFO][1][<module>][process time] 66.1 s
+[INFO][6][<module>][process time] 77.3 s
+[INFO][0][<module>][total time] 342.4 s
+[INFO][4][<module>][process time] 119.8 s
+[INFO][0][<module>][process balance] 7.25
+[INFO][0][<module>][parallel efficiency] 36%

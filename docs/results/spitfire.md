@@ -21,10 +21,10 @@ on a 0.5° grid. (S2 runs branch the transient off the matching S3 spin-up.)
 
 ## Net Biome Production 
 
-Global annual NBP. Under CRUJRA the **S2↔S3 split is large** (S3 ~1.2–1.5 PgC/yr
+Global annual NBP. Under CRUJRA the **S2↔S3 split is large** (S3 ~1.1–1.5 PgC/yr
 lower — the transient-land-use drawdown), nitrogen lowers the sink, and resp-opt
 nudges it back up. 1980–2024 means: S3-spitfire 0.94, S3-spitfire-N 0.71,
-S3-spitfire-N-ropt 0.85 PgC/yr (S2 counterparts 2.48 / 1.85 / 2.08).
+S3-spitfire-N-ropt 0.85 PgC/yr (S2 counterparts 2.48 / 1.85 / 2.09).
 
 ![NBP](img/spitfire/nbp.png)
 
@@ -73,13 +73,13 @@ clearly be seen in the N2O plot.
 **Mean global fire C (PgC/yr)** — with the boreal-fire fix the runs span
 **~1.5–2.5 PgC/yr** around the GFED4.1s reference (~2.2): S3-spitfire lowest (1.5),
 the S3 nitrogen runs 1.6–2.0, and the S2 runs 1.7–2.5 (S2-spitfire-N-ropt highest,
-just over GFED). TRENDYv13 (2.5) shown for context.
+above GFED). TRENDYv13 (2.5) shown for context.
 
-Globally the model burns ~445–615 Mha/yr (run-dependent) vs GFED's ~475 Mha/yr (≈−6% to +30%).
+Globally the model burns ~505–680 Mha/yr (run-dependent) vs GFED's ~475 Mha/yr (≈+6% to +43%).
 
 S3 runs against GFED4.1s annual totals (1997–2016 overlap; GFED mean 2.16 PgC/yr):
-`spitfire-N-ropt` (1.97) tracks GFED's magnitude and interannual swings most
-closely, with `spitfire-N` (1.65) and `spitfire` (1.52) lower.
+`spitfire-N-ropt` (1.99) tracks GFED's magnitude and interannual swings most
+closely, with `spitfire-N` (1.67) and `spitfire` (1.56) lower.
 
 ![S3 firec vs GFED totals](img/spitfire/s3_firec_vs_gfed_line.png)
 
@@ -103,8 +103,8 @@ Per run: model `firef` | GFED4.1s | model − GFED (%).
 Global stocks and fluxes for all six runs against literature reference values
 (30-yr mean, 1995–2024). Cell colour = % deviation (blue under, red over); the
 composite score is the fire-weighted mean absolute deviation (lower = better).
-Fire C lands **−31% to +13%** of GFED (S2-spitfire-N closest at −6%); burned area
-**−6% to +30%**. The S2-spitfire-N / S3-spitfire-N-ropt runs balance fire C and
+Fire C lands **−30% to +14%** of GFED (S2-spitfire-N closest at −5%); burned area
+**+6% to +43%**. The S2-spitfire-N / S3-spitfire-N-ropt runs balance fire C and
 burned area best.
 
 ![global scorecard vs literature](img/spitfire/bench_global_scorecard.png)
@@ -115,10 +115,10 @@ burned area best.
 PgC/yr). `r_interann` = global interannual correlation. `spatial r²/NSE/RMSE` =
 across-region pattern skill over the 14 GFED regions (the scatter metric below).
 
-Global burned area brackets GFED (S3 runs ~3.3–3.8 %/yr vs 3.5); global fire C sits
-below GFED with the S3 bias narrowing from −0.65 (spitfire) to **−0.21 PgC/yr**
+Global burned area sits at/above GFED (S3 runs ~3.7–4.2 %/yr vs 3.5); global fire C sits
+below GFED with the S3 bias narrowing from −0.62 (spitfire) to **−0.19 PgC/yr**
 (spitfire-N-ropt, the best). Across-region pattern skill is captured in the scatter
-panels below; interannual correlation is weak (|r| ≤ 0.25, several negative) — the
+panels below; interannual correlation is weak (|r| ≲ 0.27, several negative) — the
 runs capture *where* and *how much* fire occurs better than *which years*.
 
 ### Regional obs-vs-pred (R²) — model vs GFED4.1s
@@ -179,10 +179,10 @@ format as the GFED scatter above — one panel per run, 14 GFED basis regions,
 
 ## ILAMB benchmark
 
-Full ILAMB report for the S3 bitlist (6 runs + TRENDYv13 S3), all seven
-confrontations: the three boreal-fire-fix SPITFIRE S3 runs alongside the
-non-SPITFIRE reference runs and TRENDYv13. SPITFIRE adds the **Burned Area**
-confrontation at no cost to the other carbon-cycle metrics.
+Full ILAMB report for the three boreal-fire-fix SPITFIRE S3 runs
+(`spitfire` / `spitfire-N` / `spitfire-N-ropt`) with TRENDYv13 S3 as the reference,
+across all seven confrontations. SPITFIRE adds the **Burned Area** confrontation at
+no cost to the other carbon-cycle metrics.
 
 - <a href="../ilamb-crujra-s3/">ILAMB benchmark (CRUJRA S3 bitlist)</a>
 

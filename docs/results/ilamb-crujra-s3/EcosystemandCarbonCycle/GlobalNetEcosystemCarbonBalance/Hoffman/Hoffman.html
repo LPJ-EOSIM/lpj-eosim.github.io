@@ -152,18 +152,12 @@
         }
         if(PNAME == "spaceint" || PNAME == "accumulate" || PNAME == "compaccumulation" || PNAME == "compdaccumulation"){
           document.getElementById("Benchmark_legend").style.display = 'none';
-          document.getElementById("S3_noSpit_N_legend").style.display = 'none';
-          document.getElementById("S3_noSpit_N_ropt_legend").style.display = 'none';
-          document.getElementById("S3_noSpit_noN_legend").style.display = 'none';
           document.getElementById("S3_Spit_N_legend").style.display = 'none';
           document.getElementById("S3_Spit_N_ropt_legend").style.display = 'none';
           document.getElementById("S3_Spit_noN_legend").style.display = 'none';
           document.getElementById("TRENDYv13_S3_legend").style.display = 'none';
         }else{
           document.getElementById("Benchmark_legend").style.display = 'inline';
-          document.getElementById("S3_noSpit_N_legend").style.display = 'inline';
-          document.getElementById("S3_noSpit_N_ropt_legend").style.display = 'inline';
-          document.getElementById("S3_noSpit_noN_legend").style.display = 'inline';
           document.getElementById("S3_Spit_N_legend").style.display = 'inline';
           document.getElementById("S3_Spit_N_ropt_legend").style.display = 'inline';
           document.getElementById("S3_Spit_noN_legend").style.display = 'inline';
@@ -171,12 +165,6 @@
         }
         document.getElementById('Benchmark').src = 'Benchmark_' + RNAME + '_' + PNAME + '.png';
         document.getElementById('Benchmark_legend').src = 'legend_' + PNAME + '.png';
-        document.getElementById('S3_noSpit_N').src = 'S3_noSpit_N_' + RNAME + '_' + PNAME + '.png';
-        document.getElementById('S3_noSpit_N_legend').src = 'legend_' + PNAME + '.png';
-        document.getElementById('S3_noSpit_N_ropt').src = 'S3_noSpit_N_ropt_' + RNAME + '_' + PNAME + '.png';
-        document.getElementById('S3_noSpit_N_ropt_legend').src = 'legend_' + PNAME + '.png';
-        document.getElementById('S3_noSpit_noN').src = 'S3_noSpit_noN_' + RNAME + '_' + PNAME + '.png';
-        document.getElementById('S3_noSpit_noN_legend').src = 'legend_' + PNAME + '.png';
         document.getElementById('S3_Spit_N').src = 'S3_Spit_N_' + RNAME + '_' + PNAME + '.png';
         document.getElementById('S3_Spit_N_legend').src = 'legend_' + PNAME + '.png';
         document.getElementById('S3_Spit_N_ropt').src = 'S3_Spit_N_ropt_' + RNAME + '_' + PNAME + '.png';
@@ -255,10 +243,7 @@
       <div style="display:none">
       <select id="MeanStateModel">
         <option value='Benchmark'>Benchmark</option>
-        <option value='S3_noSpit_N' selected="selected">S3_noSpit_N</option>
-        <option value='S3_noSpit_N_ropt'>S3_noSpit_N_ropt</option>
-        <option value='S3_noSpit_noN'>S3_noSpit_noN</option>
-        <option value='S3_Spit_N'>S3_Spit_N</option>
+        <option value='S3_Spit_N' selected="selected">S3_Spit_N</option>
         <option value='S3_Spit_N_ropt'>S3_Spit_N_ropt</option>
         <option value='S3_Spit_noN'>S3_Spit_noN</option>
         <option value='TRENDYv13_S3'>TRENDYv13_S3</option>
@@ -290,63 +275,33 @@
                <td></td>
              </tr>
              <tr>
-               <td onclick="highlightRowMeanState(this)" class="row-header">S3_noSpit_N</td>
-               <td onclick="highlightRowMeanState(this)"><a href="Hoffman_S3_noSpit_N.nc" download>[-]</a></td>
-               <td onclick="highlightRowMeanState(this)">-28.9</td>
-               <td onclick="highlightRowMeanState(this)">-37.0</td>
-               <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">0.778</td>
-               <td onclick="highlightRowMeanState(this)">0.255</td>
-               <td onclick="highlightRowMeanState(this)">0.517</td>
-             </tr>
-             <tr>
-               <td onclick="highlightRowMeanState(this)" class="row-header">S3_noSpit_N_ropt</td>
-               <td onclick="highlightRowMeanState(this)"><a href="Hoffman_S3_noSpit_N_ropt.nc" download>[-]</a></td>
-               <td onclick="highlightRowMeanState(this)">-36.4</td>
-               <td onclick="highlightRowMeanState(this)">-44.5</td>
-               <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">0.739</td>
-               <td onclick="highlightRowMeanState(this)">0.236</td>
-               <td onclick="highlightRowMeanState(this)">0.488</td>
-             </tr>
-             <tr>
-               <td onclick="highlightRowMeanState(this)" class="row-header">S3_noSpit_noN</td>
-               <td onclick="highlightRowMeanState(this)"><a href="Hoffman_S3_noSpit_noN.nc" download>[-]</a></td>
-               <td onclick="highlightRowMeanState(this)">19.9</td>
-               <td onclick="highlightRowMeanState(this)">11.8</td>
-               <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">0.923</td>
-               <td onclick="highlightRowMeanState(this)">0.437</td>
-               <td onclick="highlightRowMeanState(this)">0.680</td>
-             </tr>
-             <tr>
                <td onclick="highlightRowMeanState(this)" class="row-header">S3_Spit_N</td>
                <td onclick="highlightRowMeanState(this)"><a href="Hoffman_S3_Spit_N.nc" download>[-]</a></td>
-               <td onclick="highlightRowMeanState(this)">-13.9</td>
-               <td onclick="highlightRowMeanState(this)">-22.0</td>
+               <td onclick="highlightRowMeanState(this)">-14.1</td>
+               <td onclick="highlightRowMeanState(this)">-22.1</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
                <td onclick="highlightRowMeanState(this)">0.861</td>
-               <td onclick="highlightRowMeanState(this)">0.276</td>
-               <td onclick="highlightRowMeanState(this)">0.569</td>
+               <td onclick="highlightRowMeanState(this)">0.275</td>
+               <td onclick="highlightRowMeanState(this)">0.568</td>
              </tr>
              <tr>
                <td onclick="highlightRowMeanState(this)" class="row-header">S3_Spit_N_ropt</td>
                <td onclick="highlightRowMeanState(this)"><a href="Hoffman_S3_Spit_N_ropt.nc" download>[-]</a></td>
                <td onclick="highlightRowMeanState(this)">-18.6</td>
-               <td onclick="highlightRowMeanState(this)">-26.6</td>
+               <td onclick="highlightRowMeanState(this)">-26.7</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
-               <td onclick="highlightRowMeanState(this)">0.835</td>
-               <td onclick="highlightRowMeanState(this)">0.270</td>
+               <td onclick="highlightRowMeanState(this)">0.834</td>
+               <td onclick="highlightRowMeanState(this)">0.269</td>
                <td onclick="highlightRowMeanState(this)">0.552</td>
              </tr>
              <tr>
                <td onclick="highlightRowMeanState(this)" class="row-header">S3_Spit_noN</td>
                <td onclick="highlightRowMeanState(this)"><a href="Hoffman_S3_Spit_noN.nc" download>[-]</a></td>
-               <td onclick="highlightRowMeanState(this)">27.5</td>
+               <td onclick="highlightRowMeanState(this)">27.6</td>
                <td onclick="highlightRowMeanState(this)">19.5</td>
                <td onclick="highlightRowMeanState(this)" class="divider"></td>
                <td onclick="highlightRowMeanState(this)">0.876</td>
-               <td onclick="highlightRowMeanState(this)">0.440</td>
+               <td onclick="highlightRowMeanState(this)">0.441</td>
                <td onclick="highlightRowMeanState(this)">0.658</td>
              </tr>
              <tr>
@@ -418,27 +373,6 @@
           <center>Benchmark</center>
           <img src="" id="Benchmark" alt="Data not available" ></img>
           <center><img src="legend_Benchmark.png" id="Benchmark_legend"  alt="Data not available" ></img></center>
-          </div>
-        </div>
-        <div class="container" id="S3_noSpit_N_div">
-          <div class="child">
-          <center>S3_noSpit_N</center>
-          <img src="" id="S3_noSpit_N" alt="Data not available" ></img>
-          <center><img src="legend_S3_noSpit_N.png" id="S3_noSpit_N_legend"  alt="Data not available" ></img></center>
-          </div>
-        </div>
-        <div class="container" id="S3_noSpit_N_ropt_div">
-          <div class="child">
-          <center>S3_noSpit_N_ropt</center>
-          <img src="" id="S3_noSpit_N_ropt" alt="Data not available" ></img>
-          <center><img src="legend_S3_noSpit_N_ropt.png" id="S3_noSpit_N_ropt_legend"  alt="Data not available" ></img></center>
-          </div>
-        </div>
-        <div class="container" id="S3_noSpit_noN_div">
-          <div class="child">
-          <center>S3_noSpit_noN</center>
-          <img src="" id="S3_noSpit_noN" alt="Data not available" ></img>
-          <center><img src="legend_S3_noSpit_noN.png" id="S3_noSpit_noN_legend"  alt="Data not available" ></img></center>
           </div>
         </div>
         <div class="container" id="S3_Spit_N_div">
