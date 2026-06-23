@@ -73,31 +73,32 @@ clearly be seen in the N2O plot.
 
 ![firec](img/spitfire/firec.png)
 
-**Mean global fire C (PgC/yr)** — with the boreal-fire fix the runs span
-**~1.5–2.5 PgC/yr** around the GFED4.1s reference (~2.2): S3-spitfire lowest (1.5),
-the S3 nitrogen runs 1.6–2.0, and the S2 runs 1.7–2.5 (S2-spitfire-N-ropt highest,
-above GFED). TRENDYv13 (2.5) shown for context.
+**Mean global fire C (PgC/yr)** — the runs span **~1.5–2.5 PgC/yr**, all **below**
+the GFED5.1 reference (~3.36): S3-spitfire lowest (1.5), the S3 nitrogen runs
+1.6–2.0, and the S2 runs 1.7–2.5 (S2-spitfire-N-ropt highest at 2.5). TRENDYv13
+(2.5) for context. GFED5.1 emits ~1.6× more fire C than GFED4.1s, so the runs that
+bracketed the older GFED4.1s reference now sit consistently low against GFED5.1.
 
-Globally the model burns ~505–680 Mha/yr (run-dependent) vs GFED's ~475 Mha/yr (≈+6% to +43%).
+Globally the model burns ~505–680 Mha/yr (run-dependent) vs GFED5.1's ~759 Mha/yr (≈−11% to −33%).
 
-S3 runs against GFED4.1s annual totals (1997–2016 overlap; GFED mean 2.16 PgC/yr):
-`spitfire-N-ropt` (1.99) tracks GFED's magnitude and interannual swings most
-closely, with `spitfire-N` (1.67) and `spitfire` (1.56) lower.
+S3 runs against GFED5.1 annual totals (2002–2022 overlap; GFED5.1 mean ~3.36 PgC/yr):
+all three — `spitfire-N-ropt` (1.99), `spitfire-N` (1.67) and `spitfire` (1.56) —
+fall well below GFED5.1, `spitfire-N-ropt` closest.
 
 ![S3 firec vs GFED totals](img/spitfire/s3_firec_vs_gfed_line.png)
 
-### Latitudinal fire C vs GFED4.1s
+### Latitudinal fire C vs GFED5.1
 
-Zonal-mean fire C (TgC/yr per 0.5° latitude band, 1997–2016 climatology) for the
-three SPITFIRE S3 runs against GFED4.1s, with TRENDYv13 S3 (grey dashed) as a model
+Zonal-mean fire C (TgC/yr per 0.5° latitude band, 2002–2022 climatology) for the
+three SPITFIRE S3 runs against GFED5.1, with TRENDYv13 S3 (grey dashed) as a model
 reference, showing how the latitudinal distribution of fire emissions compares to
 observations.
 
 ![S3 latitudinal fire C vs GFED](img/spitfire/s3_firec_zonal_vs_gfed.png)
 
-### Burned fraction maps vs GFED4.1s (1996–2016 climatology)
+### Burned fraction maps vs GFED5.1 (2002–2022 climatology)
 
-Per run: model `firef` | GFED4.1s | model − GFED (%).
+Per run: model `firef` | GFED5.1 | model − GFED5.1 (%).
 
 ![firef vs GFED maps](img/spitfire/firef_vs_gfed_maps.png)
 
@@ -107,9 +108,9 @@ Per run: model `firef` | GFED4.1s | model − GFED (%).
 Global stocks and fluxes for all six runs against literature reference values
 (30-yr mean, 1995–2024). Cell colour = % deviation (blue under, red over); the
 composite score is the fire-weighted mean absolute deviation (lower = better).
-Fire C lands **−30% to +14%** of GFED (S2-spitfire-N closest at −5%); burned area
-**+6% to +43%**. The S2-spitfire-N / S3-spitfire-N-ropt runs balance fire C and
-burned area best.
+Fire C lands **−54% to −25%** of GFED5.1 (S2-spitfire-N-ropt closest at −25%); burned
+area **−11% to −33%**. S2-spitfire-N-ropt balances fire C and burned area best, but all
+runs are now low against GFED5.1.
 
 ![global scorecard vs literature](img/spitfire/bench_global_scorecard.png)
 
@@ -119,13 +120,13 @@ burned area best.
 PgC/yr). `r_interann` = global interannual correlation. `spatial r²/NSE/RMSE` =
 across-region pattern skill over the 14 GFED regions (the scatter metric below).
 
-Global burned area sits at/above GFED (S3 runs ~3.7–4.2 %/yr vs 3.5); global fire C sits
-below GFED with the S3 bias narrowing from −0.62 (spitfire) to **−0.19 PgC/yr**
-(spitfire-N-ropt, the best). Across-region pattern skill is captured in the scatter
-panels below; interannual correlation is weak (|r| ≲ 0.27, several negative) — the
+Global burned area sits below GFED5.1 (S3 runs ~3.7–4.3 %/yr vs 5.56); global fire C is
+also below GFED5.1, the S3 bias ranging from −1.79 (spitfire) to **−1.37 PgC/yr**
+(spitfire-N-ropt, the least-biased). Across-region pattern skill is captured in the scatter
+panels below; interannual correlation is weak (|r| ≲ 0.38, several negative) — the
 runs capture *where* and *how much* fire occurs better than *which years*.
 
-### Regional obs-vs-pred (R²) — model vs GFED4.1s
+### Regional obs-vs-pred (R²) — model vs GFED5.1
 
 One panel per run; points are the 14 GFED basis regions, 1:1 line dashed, with
 r²/NSE/RMSE/bias annotated.
@@ -171,7 +172,7 @@ high-latitude emissions closer to the peer than before. See the maps for spatial
 
 ![EOSIM vs LPJ-GUESS vs GFED fire C](img/spitfire/bench_eosim_vs_lpjguess_firec.png)
 
-LPJ-GUESS-SPITFIRE minus GFED4.1s:
+LPJ-GUESS-SPITFIRE minus GFED5.1:
 
 ![LPJ-GUESS minus GFED fire C](img/spitfire/bench_lpjguess_bias_firec.png)
 
