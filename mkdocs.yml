@@ -9,6 +9,7 @@ nav:
   - WIEMIP:
       - Overview: wiemip.md
       - "base-ctrl carbon pools & fluxes": wiemip/base_ctrl_carbon.md
+      - "base-ctrl carbon & N₂O summary": wiemip/base_ctrl_carbon_summary.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
       - "SPITFIRE integration - pr 421": results/spitfire.md
