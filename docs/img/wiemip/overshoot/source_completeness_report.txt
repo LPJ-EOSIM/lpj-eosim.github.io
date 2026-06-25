@@ -1,9 +1,0 @@
-WIEMIP overshoot — source timestep-completeness: VALIDATED (2026-06-25)
-
-Every overshoot source-year (all three drivers — GFDL-ESM4, IPSL-CM6A-LR,
-UKESM1-0-LL — across 2024–2300) was re-synced from the WIEMIP bucket and
-verified to carry the full 1460 6-hourly noleap timesteps. No incomplete
-years, no missing files. Previously flagged years (e.g. the NaN gaps and the
-partial-timestep biases) were fixed upstream and re-downloaded.
-
-The data are good.

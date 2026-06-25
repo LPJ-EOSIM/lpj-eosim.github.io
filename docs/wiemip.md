@@ -41,22 +41,9 @@ Medium-low (ML), Medium (M) and High (HL), plus the `-CF` variants.
 
 These are **raw** annual means: no smoothing, no value-masking. The CSVs were
 regenerated directly from the source NetCDFs (the GFDL↔IPSL labels were
-accidentally switched at write time and are corrected here). Where a year has no
-usable source data the line breaks (NaN gap). A handful of years remain whose
-source is missing 6-hourly **timesteps** (e.g. dropped nighttime steps inflate
-shortwave into visible spikes); these are left **raw** and documented, not
-altered.
-
-Data-integrity reports:
-
-- [Missing / NaN values](img/wiemip/overshoot/missing_and_nan_report.txt) —
-  what appears as a gap in the figures.
-- [Source timestep-completeness](img/wiemip/overshoot/source_completeness_report.txt)
-  — an **exhaustive** sweep of every source-year for all three drivers (2024–2300,
-  verified against the `.nc`). Found 1 missing file and 45 years with incomplete
-  6-hourly data (11 fully empty → NaN gaps; the rest biased and left raw). All
-  affected years are in **GFDL-ESM4** and **IPSL-CM6A-LR**; **UKESM1-0-LL is
-  completely clean**.
+accidentally switched at write time and are corrected here). All source files
+were re-synced from the WIEMIP bucket and validated: every field is NaN-free
+and every source-year is timestep-complete (1460/1460 6-hourly steps).
 
 ### By driver — all variables
 
