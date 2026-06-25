@@ -10,6 +10,7 @@ nav:
       - Overview: wiemip.md
       - "base-ctrl carbon pools & fluxes": wiemip/base_ctrl_carbon.md
       - "base-ctrl carbon & N₂O summary": wiemip/base_ctrl_carbon_summary.md
+      - "1pctCO2 baseline vs nofire": wiemip/1pct_baseline_vs_nofire.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
       - "SPITFIRE integration - pr 421": results/spitfire.md
