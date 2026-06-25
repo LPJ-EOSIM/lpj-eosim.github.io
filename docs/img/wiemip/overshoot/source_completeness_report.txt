@@ -1,69 +1,9 @@
-WIEMIP overshoot — full source-completeness sweep (all 3 drivers)
-  result files read         : 168 / 168 expected
-  MISSING source files      : 1
-  incomplete-timestep years : 45
-A full 6-hourly noleap year = 1460 timesteps. Years below either have no
-source file, or are missing timesteps (biasing the annual mean). Driver
-labels corrected for the GFDL<->IPSL swap (GFDL=GFDL-ESM4, IPSL=IPSL-CM6A-LR,
-UKESM=UKESM1-0-LL).
+WIEMIP overshoot — source timestep-completeness: VALIDATED (2026-06-25)
 
-== MISSING SOURCE FILES ==
-GFDL (GFDL-ESM4)  ML-CF  pre: 1 -> [2136]
+Every overshoot source-year (all three drivers — GFDL-ESM4, IPSL-CM6A-LR,
+UKESM1-0-LL — across 2024–2300) was re-synced from the WIEMIP bucket and
+verified to carry the full 1460 6-hourly noleap timesteps. No incomplete
+years, no missing files. Previously flagged years (e.g. the NaN gaps and the
+partial-timestep biases) were fixed upstream and re-downloaded.
 
-== INCOMPLETE TIMESTEPS ==
-GFDL (GFDL-ESM4)  HL  dlwrf:
-    2071: 1306/1460 (89%)
-    2078: 766/1460 (52%)
-    2138: 1306/1460 (89%)
-GFDL (GFDL-ESM4)  HL  dswrf:
-    2028: 718/1460 (49%)
-    2060: 573/1460 (39%)
-    2063: 1195/1460 (82%)
-    2066: 734/1460 (50%)
-    2076: 902/1460 (62%)
-    2101: 1176/1460 (81%)
-    2122: 702/1460 (48%)
-    2141: 562/1460 (38%)
-GFDL (GFDL-ESM4)  ML-CF  tmp:
-    2035: 1036/1460 (71%)
-    2037: 1283/1460 (88%)
-    2071: 1077/1460 (74%)
-    2094: 1009/1460 (69%)
-    2103: 989/1460 (68%)
-    2123: 1394/1460 (95%)
-GFDL (GFDL-ESM4)  ML-CF  wind:
-    2026: 453/1460 (31%)
-    2036: 600/1460 (41%)
-    2056: 541/1460 (37%)
-    2062: 616/1460 (42%)
-    2077: 510/1460 (35%)
-    2108: 544/1460 (37%)
-    2122: 514/1460 (35%)
-    2142: 530/1460 (36%)
-GFDL (GFDL-ESM4)  VL  dswrf:
-    2105: 569/1460 (39%)
-IPSL (IPSL-CM6A-LR)  HL  pre:
-    2284: 0/1460 (0%)  [EMPTY]
-IPSL (IPSL-CM6A-LR)  HL  spfh:
-    2285: 0/1460 (0%)  [EMPTY]
-    2286: 0/1460 (0%)  [EMPTY]
-    2288: 0/1460 (0%)  [EMPTY]
-    2289: 0/1460 (0%)  [EMPTY]
-    2291: 0/1460 (0%)  [EMPTY]
-    2294: 0/1460 (0%)  [EMPTY]
-    2298: 0/1460 (0%)  [EMPTY]
-    2300: 0/1460 (0%)  [EMPTY]
-IPSL (IPSL-CM6A-LR)  HL  wind:
-    2293: 0/1460 (0%)  [EMPTY]
-    2297: 0/1460 (0%)  [EMPTY]
-IPSL (IPSL-CM6A-LR)  L  pres:
-    2282: 680/1460 (47%)
-    2289: 1425/1460 (98%)
-    2292: 615/1460 (42%)
-IPSL (IPSL-CM6A-LR)  L  spfh:
-    2291: 771/1460 (53%)
-    2295: 648/1460 (44%)
-    2296: 1452/1460 (99%)
-    2297: 1144/1460 (78%)
-IPSL (IPSL-CM6A-LR)  ML-CF  dswrf:
-    2041: 1089/1460 (75%)
+The data are good.
