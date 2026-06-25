@@ -1,17 +1,9 @@
 WIEMIP overshoot data integrity report
-  missing files      : 3
-  NaN values         : 11
+  missing files      : 0
+  NaN values         : 0
   zero values (bad)  : 0  (global mean == 0.0 -> source NaN coerced to 0)
-  affected series    : 4
+  affected series    : 0
 Expected projection years 2024-2300; CRUJRA 1850-2023. Raw data are
 plotted untouched: gaps appear where files are missing/NaN, and zero
 values appear as spikes-to-zero (not removed).
 
-IPSL HL pre  (present: 277)
-    NaN     (1): 2284
-IPSL HL spfh  (present: 277)
-    NaN     (8): 2285-2286, 2288-2289, 2291, 2294, 2298, 2300
-IPSL HL wind  (present: 277)
-    NaN     (2): 2293, 2297
-UKESM HL-CF spfh  (present: 274)
-    MISSING (3): 2287-2288, 2290
