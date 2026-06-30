@@ -8,6 +8,7 @@ nav:
       - Simulations: simulations.md
   - WIEMIP:
       - Overview: wiemip.md
+      - "Drivers: population & N deposition vs WIEMIP": wiemip/overshoot_pop_ndep.md
       - "base-ctrl carbon pools & fluxes": wiemip/base_ctrl_carbon.md
       - "base-ctrl carbon & N₂O summary": wiemip/base_ctrl_carbon_summary.md
       - "1pctCO2 baseline stages vs nofire": wiemip/1pct_baseline_vs_nofire.md
