@@ -140,3 +140,21 @@ pools and fluxes. Pools are in Pg C, carbon fluxes in Pg C yr⁻¹; trace gases 
 kept in their native units (soil N₂O in Tg N yr⁻¹, fire CH₄ in Tg CH₄ yr⁻¹).
 
 ![Historical vs control global carbon & trace-gas budgets](img/wiemip/overshoot_lpj/hist_vs_histctrl_carbon.png)
+
+### Soil carbon — sanity check vs TRENDYv13 LPJwsl
+
+Is the mid-century rise and **~1980 flattening** of the historical soil-carbon
+sink realistic, or an artefact? Comparing against the **TRENDYv13 LPJwsl S2**
+run (an independent LPJ-family model, cSoil integrated the same way) says it's
+real: both models show soil C accumulating strongly through the mid-20th century
+and then **plateauing around 1980** — LPJwsl actually peaks ~1990 and declines
+slightly after, while LPJ-EOSIM holds roughly flat. The S0 control stays at its
+spin-up equilibrium throughout. Absolute pools differ (LPJ-EOSIM ~1610–1627 Pg C
+vs LPJwsl ~1284–1317 Pg C) as expected from different soil-carbon schemes, so the
+right panel shows the anomaly relative to 1901 to compare trends directly.
+
+The signal is the classic split: the **soil/litter sink saturates under warming**
+(decomposition catches up with rising inputs) while the vegetation sink keeps
+growing under CO₂ fertilization.
+
+![Soil C vs TRENDYv13 LPJwsl](img/wiemip/overshoot_lpj/soilc_vs_trendyv13.png)
