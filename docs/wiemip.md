@@ -85,6 +85,25 @@ three drivers are overlaid in each panel.
 #### Wind speed
 ![drivers wind speed](img/wiemip/overshoot/drivers_wind.png)
 
+## SPITFIRE fire drivers — tmin, tmax, wind
+
+Daily **minimum/maximum temperature** and **wind speed** are required by
+SPITFIRE but were missing from the initial overshoot conversion. They were
+generated with the same `format_LPJ` pipeline as the other CRUJRA drivers —
+`tmin`/`tmax` as the daily min/max of the 6-hourly `tmp`, `wind` as the daily
+mean — for the historical CRUJRA record (1850–2024) and the four UKESM overshoot
+scenarios (2024–2300). Shown here as the **global annual mean** (area-weighted
+over land cells); the dotted line marks the 2024 historical→future handoff.
+
+#### Daily minimum temperature
+![tmin global annual mean](img/wiemip/overshoot/tmin_tmax_wind/tmin.png)
+
+#### Daily maximum temperature
+![tmax global annual mean](img/wiemip/overshoot/tmin_tmax_wind/tmax.png)
+
+#### Wind speed
+![wind global annual mean](img/wiemip/overshoot/tmin_tmax_wind/wind.png)
+
 ## LPJ-EOSIM performance
 
 Global stocks & fluxes — WIEMIP CRUJRA (overshoot, S2) vs regular CRUJRA (S3).
