@@ -8,7 +8,10 @@ nav:
       - Simulations: simulations.md
   - WIEMIP:
       - Overview: wiemip.md
-      - Overshoots: overshoots.md
+      - Overshoots:
+          - Driver Data: overshoots/driver_data.md
+          - LPJ Results: overshoots/lpj_results.md
+          - "Archive (older futures)": overshoots/archive.md
       - "Drivers: population & N deposition vs WIEMIP": wiemip/overshoot_pop_ndep.md
       - "base-ctrl carbon pools & fluxes": wiemip/base_ctrl_carbon.md
       - "base-ctrl carbon & N₂O summary": wiemip/base_ctrl_carbon_summary.md

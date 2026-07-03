@@ -34,5 +34,8 @@ CRUJRA covers 1898–2023; WIEMIP CRUJRA covers 1850–2023.
 ## Overshoot experiment
 
 The overshoot drivers, scenario forcing, and LPJ-EOSIM carbon/trace-gas output
-(historical, control, and the future scenarios) have moved to their own page:
-**[WIEMIP Overshoots](overshoots.md)**.
+have moved to their own section, split into
+**[Driver Data](overshoots/driver_data.md)** (scenario forcing and SPITFIRE fire
+drivers) and **[LPJ Results](overshoots/lpj_results.md)** (historical carbon and
+trace-gas analysis). Older future-scenario figures are in the
+**[Archive](overshoots/archive.md)**.
