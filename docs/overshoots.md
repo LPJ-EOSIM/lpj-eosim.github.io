@@ -161,3 +161,19 @@ Absolute soil C is higher without permafrost (~1700 vs ~1610 Pg C). (Historical
 1850–2023 shown; the no-permafrost HL future was still running at plot time.)
 
 ![Soil C permafrost vs no-permafrost](img/wiemip/overshoot_lpj/soilc_perma_vs_noperma.png)
+
+### Soil carbon — N-cycle ablation (what drives the ~1980 plateau)
+
+Rerunning spin-up → historical with the **nitrogen cycle disabled** (and
+permafrost off) settles it: **the ~1980 plateau is an N-limitation effect, not
+permafrost.** Baseline and no-permafrost soil C both flatten/peak ~1980, but with
+the N cycle off soil C rises **monotonically** through 2023 (no knee). Decadal Δ
+soil C (Pg C/decade), baseline / no-perma / no-N: 1970s +4.0 / +3.5 / +7.5, 1980s
+−0.1 / −0.9 / **+4.9**, 2000s −0.7 / −2.2 / **+3.9**.
+
+Interpretation: as warming accelerates decomposition and CO₂ raises productivity,
+**nitrogen becomes limiting and caps the soil-carbon sink around 1980**. Remove N
+limitation and carbon accumulates unconstrained (absolute soil C is also much
+higher without the N cycle, ~2200 vs ~1610 Pg C).
+
+![Soil C N-cycle ablation](img/wiemip/overshoot_lpj/soilc_ablation.png)
