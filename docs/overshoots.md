@@ -143,3 +143,21 @@ The signal is the classic split: the **soil/litter sink saturates under warming*
 growing under CO₂ fertilization.
 
 ![Soil C vs TRENDYv13 LPJwsl](img/wiemip/overshoot_lpj/soilc_vs_trendyv13.png)
+
+### Soil carbon — permafrost ablation
+
+Is the ~1980 soil-carbon plateau a permafrost artefact? To test, the full chain
+(spin-up → historical) was rerun with **PERMAFROST disabled** (`LPJ-noperma-*`,
+otherwise identical flags). **It isn't permafrost**: the plateau is present with
+*and* without permafrost, and is in fact **stronger without** it — the
+no-permafrost soil C peaks ~1980 and then declines, while the permafrost run
+holds roughly flat. Decadal Δ soil C (Pg C/decade): 1970s +4.0 / +3.5, 1980s
+−0.1 / −0.9, 1990s +0.7 / −0.4, 2000s −0.7 / −2.2 (permafrost / no-permafrost).
+
+So permafrost soil dynamics don't drive the plateau; if anything they buffer the
+post-1980 loss. This is consistent with the TRENDYv13 LPJwsl comparison above —
+the signal is warming-driven decomposition catching up with litter inputs.
+Absolute soil C is higher without permafrost (~1700 vs ~1610 Pg C). (Historical
+1850–2023 shown; the no-permafrost HL future was still running at plot time.)
+
+![Soil C permafrost vs no-permafrost](img/wiemip/overshoot_lpj/soilc_perma_vs_noperma.png)
