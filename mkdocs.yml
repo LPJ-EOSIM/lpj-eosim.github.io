@@ -18,8 +18,7 @@ nav:
       - "base-ctrl carbon & N₂O summary": wiemip/base_ctrl_carbon_summary.md
       - "1pctCO2 baseline stages vs nofire": wiemip/1pct_baseline_vs_nofire.md
       - "1pctCO2 baseline vs tuned no_fire (stages)": wiemip/1pct_baseline_vs_tuned_nofire_stages.md
-      - "1pctCO2 baseline vs no_fire+no_Nlim (untuned)": wiemip/1pct_baseline_vs_nofire_nonlim.md
-      - "1pctCO2 baseline vs tuned no_fire+no_Nlim (stages)": wiemip/1pct_baseline_vs_tuned_nofire_nonlim_stages.md
+      - "1pctCO2 baseline vs tuned no_fire+no_Nlim": wiemip/1pct_baseline_vs_tuned_nofire_nonlim.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
       - "SPITFIRE integration - pr 421": results/spitfire.md
