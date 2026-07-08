@@ -33,3 +33,36 @@ stocks into close agreement:
 
 All three stocks are matched to within ~8%, with the soil and litter pools —
 the slow, integrative reservoirs — reproduced almost exactly.
+
+## Full carbon budget
+
+The complete carbon budget — all three stocks plus every carbon flux — over the
+same global control run. Fluxes are annual totals in **Pg C yr⁻¹**
+(Reco = Ra + Rh; NBP = NPP − Rh + flux_estab − fireC).
+
+![1pctCO2 ctrl carbon budget: baseline vs tuned no_n_limitation](../img/wiemip/1pct/baseline_vs_tuned_nolim_fire_budget.png)
+
+Global totals at year 2000 (baseline → tuned):
+
+| Variable | Unit | baseline | tuned | error |
+|----------|------|---------:|------:|------:|
+| VegC       | Pg C      | 528  | 568  | +7.6%  |
+| LitC       | Pg C      | 176  | 177  | +0.6%  |
+| SoilC      | Pg C      | 1607 | 1601 | −0.4%  |
+| GPP        | Pg C yr⁻¹ | 105  | 115  | +9.7%  |
+| NPP        | Pg C yr⁻¹ | 48   | 55   | +14.3% |
+| Ra         | Pg C yr⁻¹ | 57   | 60   | +5.9%  |
+| Rh         | Pg C yr⁻¹ | 47   | 53   | +12.2% |
+| Reco       | Pg C yr⁻¹ | 104  | 113  | +8.7%  |
+| fireC      | Pg C yr⁻¹ | 1.36 | 2.39 | +76.0% |
+| flux_estab | Pg C yr⁻¹ | 0.004| 0.006| +29.6% |
+| NBP        | Pg C yr⁻¹ | −0.65| −0.59| −10.2% |
+
+While the **stocks** are matched to within ~8%, the **fluxes** run a stable
+~6–14% above the baseline — the ecosystem cycles carbon somewhat faster, but the
+pools stay balanced (which is why the stocks agree). The clear outlier is
+**fireC +76%**: on the fire-weighted tuning subset it matched to −8%, but it
+nearly doubles when aggregated globally, since the tuned fire parameters that fit
+the fire-heavy subset cells overshoot across the low-fire majority of the grid.
+NBP oscillates around zero with the same envelope in both runs, as expected for a
+control simulation.
