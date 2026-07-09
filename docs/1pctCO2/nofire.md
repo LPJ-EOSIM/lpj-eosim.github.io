@@ -4,8 +4,8 @@ The **nofire** factorial — SPITFIRE compiled out (fire off), N-limitation on �
 against the 1pctCO2 **baseline**. Three global control runs (S0): **baseline**
 (grey solid), the **untuned** perturbation with default parameters (blue dotted),
 and the CMA-ES **tuned** parameters (red dashed). All values are global,
-area-weighted annual totals, 1850–2000. Panel titles show the tuned run's
-final-year error vs the baseline.
+area-weighted annual totals, 1850–2000. Per-variable final-year errors (tuned
+vs baseline) are in the table below.
 
 ## Carbon stocks
 
