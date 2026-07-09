@@ -14,11 +14,8 @@ nav:
           - "Soil-C plateau recap": overshoots/soilc_plateau_recap.md
           - "Archive (older futures)": overshoots/archive.md
       - 1pctCO2:
-          - "baseline stages vs nofire": 1pctCO2/baseline_vs_nofire.md
-          - "baseline vs tuned no_fire (stages)": 1pctCO2/baseline_vs_tuned_nofire_stages.md
-          - "baseline vs tuned no_fire+no_Nlim": 1pctCO2/baseline_vs_tuned_nofire_nonlim.md
-          - "baseline vs tuned no_n_limitation (carbon)": 1pctCO2/baseline_vs_tuned_nolim_carbon.md
-          - "no_n_limitation: untuned vs tuned vs baseline": 1pctCO2/baseline_vs_untuned_vs_tuned_nolim.md
+          - "nofire": 1pctCO2/nofire.md
+          - "no_n_limitation": 1pctCO2/no_nlim.md
       - "Drivers: population & N deposition vs WIEMIP": wiemip/overshoot_pop_ndep.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
