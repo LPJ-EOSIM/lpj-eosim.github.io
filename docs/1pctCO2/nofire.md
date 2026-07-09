@@ -41,3 +41,44 @@ baseline:
 - The **fluxes** run a stable ~5–14% above baseline (GPP +13.9%, Rh +8.5%): the
   tuned no-fire ecosystem is somewhat more productive, with the carbon pools held
   near the baseline.
+
+## Rising-CO₂ stages: bgc & cou
+
+The parameters were fit against the **ctrl** state only. These panels show how the
+tuned no_fire run behaves under the rising-1pctCO₂ stages — **bgc** (S1, fixed
+recycled climate) and **cou** (S2, transient UKESM climate) — against the baseline.
+Two lines: baseline (black) vs tuned (vermillion); the untuned perturbation was
+ctrl-only so it doesn't appear here.
+
+### bgc (S1, rising CO₂ / fixed climate)
+
+![nofire bgc: baseline vs tuned](../img/wiemip/1pct/nofire_bgc.png)
+
+| Variable | Unit | baseline | tuned | err |
+|----------|------|---------:|------:|----:|
+| VegC  | Pg C      | 1045 | 1337 | +27.9% |
+| SoilC | Pg C      | 1834 | 1883 | +2.7%  |
+| LitC  | Pg C      | 369  | 411  | +11.6% |
+| GPP   | Pg C yr⁻¹ | 199  | 252  | +26.4% |
+| NPP   | Pg C yr⁻¹ | 102  | 117  | +14.9% |
+| Rh    | Pg C yr⁻¹ | 91   | 110  | +20.7% |
+| fireC | Pg C yr⁻¹ | 4.8  | 0    | (no fire) |
+
+### cou (S2, transient UKESM climate)
+
+![nofire cou: baseline vs tuned](../img/wiemip/1pct/nofire_cou.png)
+
+| Variable | Unit | baseline | tuned | err |
+|----------|------|---------:|------:|----:|
+| VegC  | Pg C      | 926  | 1404 | +51.6% |
+| SoilC | Pg C      | 1701 | 1738 | +2.2%  |
+| LitC  | Pg C      | 273  | 325  | +19.2% |
+| GPP   | Pg C yr⁻¹ | 220  | 279  | +26.9% |
+| NPP   | Pg C yr⁻¹ | 108  | 126  | +17.0% |
+| Rh    | Pg C yr⁻¹ | 97   | 117  | +20.7% |
+| NBP   | Pg C yr⁻¹ | 4.2  | 9.2  | +119%  |
+
+**Caveat:** because the tune only constrained the control state, the CO₂-forced
+stages run substantially hot — SoilC stays close (+2–3%) but VegC and productivity
+diverge strongly (VegC +28% bgc / +52% cou, GPP +27%). The ctrl-tuned parameters do
+not constrain the transient CO₂-fertilization response.
