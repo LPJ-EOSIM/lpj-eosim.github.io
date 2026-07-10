@@ -10,7 +10,11 @@ nav:
       - Overview: wiemip.md
       - Overshoots:
           - Driver Data: overshoots/driver_data.md
-          - LPJ Results: overshoots/lpj_results.md
+          - LPJ Results:
+              - Overview: overshoots/lpj_results/index.md
+              - WIEMIP vs regular CRUJRA: overshoots/lpj_results/wiemip_vs_crujra.md
+              - Historical vs control: overshoots/lpj_results/hist_vs_control.md
+              - "Historical + overshoot: stocks & fluxes": overshoots/lpj_results/historical_overshoot.md
           - "Soil-C plateau recap": overshoots/soilc_plateau_recap.md
           - "Archive (older futures)": overshoots/archive.md
       - 1pctCO2:

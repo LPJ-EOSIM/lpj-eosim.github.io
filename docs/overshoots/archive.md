@@ -6,7 +6,7 @@
     `CONSTANT_NDEP`/`CONSTANT_POP`, freezing N deposition and population at 1850
     values). They are kept here for reference only and should **not** be used for
     current analysis. Up-to-date historical results are on the
-    [**LPJ Results**](lpj_results.md) page.
+    [**LPJ Results**](lpj_results/index.md) page.
 
 ## Historical + HL future — full trajectory (global totals)
 

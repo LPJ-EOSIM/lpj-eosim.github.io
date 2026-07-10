@@ -4,7 +4,7 @@ The forcing data behind the WIEMIP **overshoot** experiment: the historical
 WIEMIP-CRUJRA record (1850–2023) and the four future scenarios
 (**HL, M, HL_CF, L**; 2024–2300, UKESM), plus the additional SPITFIRE fire
 drivers. LPJ-EOSIM output built from these drivers lives on the
-[**LPJ Results**](lpj_results.md) page.
+[**LPJ Results**](lpj_results/index.md) page.
 
 ## Overshoot scenario comparison
 
