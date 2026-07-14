@@ -10,9 +10,9 @@ stages:
 - **No-fire (untuned)** — SPITFIRE disabled, default/untuned parameters; a
   ctrl-only ablation reference (no bgc/cou-ukesm stage exists for this run).
 
-Stages: **S0 (ctrl)** — fixed climate and land use, rising CO₂ only;
-**S1 (bgc)** — biogeochemically-coupled (CO₂ fertilization under fixed
-climate); **S2** — fully coupled to a transient climate, driven by one of
+Stages: **ctrl** — fixed climate and land use, rising CO₂ only;
+**bgc** — biogeochemically-coupled (CO₂ fertilization under fixed
+climate); **cou** — fully coupled to a transient climate, driven by one of
 three ESMs: **UKESM1-0-LL** (baseline and no-fire), **IPSL-CM6A-LR** and
 **GFDL-ESM4** (baseline only — no-fire was not run with these two drivers).
 All runs span 1850–2000 (151 years) on the 0.5° global grid.
@@ -32,10 +32,10 @@ stage).
 GPP, NPP, heterotrophic respiration (Rh), NBP, soil/vegetation/litter carbon,
 soil N₂O, fire carbon emission, establishment flux, ecosystem respiration
 (Reco), autotrophic respiration (Ra), biological N fixation (BNF), and
-evapotranspiration — one panel per variable, at the **S1 (bgc-coupled)**
+evapotranspiration — one panel per variable, at the **bgc-coupled**
 stage, the CO₂-only-forced stage where the 1pctCO2 ramp shows up as a clean
-response curve (the S0/ctrl stage holds CO₂ near its mean and only shows
+response curve (the ctrl stage holds CO₂ near its mean and only shows
 interannual noise — see the per-variable pages for that comparison). No-fire
 (untuned) has no bgc stage and so does not appear on this overview.
 
-![1pctCO2: all key stocks & fluxes, S1 bgc-coupled stage](../../../img/wiemip/benchmarking/1pctco2/overview_all_vars.png)
+![1pctCO2: all key stocks & fluxes, bgc-coupled stage](../../../img/wiemip/benchmarking/1pctco2/overview_all_vars.png)
