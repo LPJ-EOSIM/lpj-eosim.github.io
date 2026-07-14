@@ -1,10 +1,13 @@
 # Soil N₂O: 1pctCO2
 
-Line plot: subplots = stage (S0 control, S1 bgc-coupled, S2 fully coupled),
-lines = factorial (baseline, no-fire tuned, no-fire untuned — the latter only
-appears in the S0 panel, since it has no bgc/cou-ukesm stage).
+Line plot: subplots = stage (S0 control, S1 bgc-coupled, S2 fully coupled —
+UKESM1-0-LL, IPSL-CM6A-LR, GFDL-ESM4), lines = factorial (baseline, no-fire
+tuned, no-fire untuned). No-fire (untuned) only appears in the S0 panel
+(its only stage); no-fire (tuned) only appears in S0/S1/S2-UKESM (its only
+ESM driver) — the S2-IPSL and S2-GFDL panels show baseline only, since no
+other factorial was run with those ESM drivers.
 
-![Soil N2O: 1pctCO2 factorials](../../../img/wiemip/benchmarking/1pctco2/lineplot_mn2o_soil.png)
+![Soil N₂O: 1pctCO2 factorials](../../../img/wiemip/benchmarking/1pctco2/lineplot_mn2o_soil.png)
 
 ## Spatial pattern, 1850 vs 2000
 
@@ -13,12 +16,24 @@ sink, red = net source), all other variables use a sequential scale.
 
 ### S0: control
 
-![Soil N2O maps: S0 control](../../../img/wiemip/benchmarking/1pctco2/map_mn2o_soil_ctrl.png)
+![Soil N₂O maps: S0 control](../../../img/wiemip/benchmarking/1pctco2/map_mn2o_soil_ctrl.png)
 
 ### S1: bgc-coupled
 
-![Soil N2O maps: S1 bgc-coupled](../../../img/wiemip/benchmarking/1pctco2/map_mn2o_soil_bgc.png)
+![Soil N₂O maps: S1 bgc-coupled](../../../img/wiemip/benchmarking/1pctco2/map_mn2o_soil_bgc.png)
 
 ### S2: fully coupled (UKESM1-0-LL)
 
-![Soil N2O maps: S2 fully coupled](../../../img/wiemip/benchmarking/1pctco2/map_mn2o_soil_cou-ukesm.png)
+![Soil N₂O maps: S2 fully coupled UKESM](../../../img/wiemip/benchmarking/1pctco2/map_mn2o_soil_cou-ukesm.png)
+
+### S2: fully coupled (IPSL-CM6A-LR)
+
+Baseline only — no-fire has no IPSL-driven stage.
+
+![Soil N₂O maps: S2 fully coupled IPSL](../../../img/wiemip/benchmarking/1pctco2/map_mn2o_soil_cou-ipsl.png)
+
+### S2: fully coupled (GFDL-ESM4)
+
+Baseline only — no-fire has no GFDL-driven stage.
+
+![Soil N₂O maps: S2 fully coupled GFDL](../../../img/wiemip/benchmarking/1pctco2/map_mn2o_soil_cou-gfdl.png)
