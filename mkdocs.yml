@@ -22,8 +22,38 @@ nav:
           - "no_n_limitation": 1pctCO2/no_nlim.md
           - "ESM driver comparison": 1pctCO2/esm_drivers.md
       - Benchmarking:
-          - 1pctCO2: wiemip/benchmarking/1pctco2.md
-          - Overshoot: wiemip/benchmarking/overshoot.md
+          - 1pctCO2:
+              - Overview: wiemip/benchmarking/1pctco2/index.md
+              - GPP: wiemip/benchmarking/1pctco2/gpp.md
+              - NPP: wiemip/benchmarking/1pctco2/npp.md
+              - "Rh": wiemip/benchmarking/1pctco2/rh.md
+              - NBP: wiemip/benchmarking/1pctco2/nbp.md
+              - "Soil carbon": wiemip/benchmarking/1pctco2/soilc.md
+              - "Vegetation carbon": wiemip/benchmarking/1pctco2/vegc.md
+              - "Litter carbon": wiemip/benchmarking/1pctco2/litc.md
+              - "Soil N2O": wiemip/benchmarking/1pctco2/n2o.md
+              - "Fire C emission": wiemip/benchmarking/1pctco2/firec.md
+              - "Establishment flux": wiemip/benchmarking/1pctco2/flux_estab.md
+              - "Reco": wiemip/benchmarking/1pctco2/reco.md
+              - "Ra": wiemip/benchmarking/1pctco2/ra.md
+              - BNF: wiemip/benchmarking/1pctco2/bnf.md
+              - Evapotranspiration: wiemip/benchmarking/1pctco2/evapotrans.md
+          - Overshoot:
+              - Overview: wiemip/benchmarking/overshoot/index.md
+              - GPP: wiemip/benchmarking/overshoot/gpp.md
+              - NPP: wiemip/benchmarking/overshoot/npp.md
+              - "Rh": wiemip/benchmarking/overshoot/rh.md
+              - NBP: wiemip/benchmarking/overshoot/nbp.md
+              - "Soil carbon": wiemip/benchmarking/overshoot/soilc.md
+              - "Vegetation carbon": wiemip/benchmarking/overshoot/vegc.md
+              - "Litter carbon": wiemip/benchmarking/overshoot/litc.md
+              - "Soil N2O": wiemip/benchmarking/overshoot/n2o.md
+              - "Fire C emission": wiemip/benchmarking/overshoot/firec.md
+              - "Establishment flux": wiemip/benchmarking/overshoot/flux_estab.md
+              - "Reco": wiemip/benchmarking/overshoot/reco.md
+              - "Ra": wiemip/benchmarking/overshoot/ra.md
+              - BNF: wiemip/benchmarking/overshoot/bnf.md
+              - Evapotranspiration: wiemip/benchmarking/overshoot/evapotrans.md
       - "Drivers: population & N deposition vs WIEMIP": wiemip/overshoot_pop_ndep.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
