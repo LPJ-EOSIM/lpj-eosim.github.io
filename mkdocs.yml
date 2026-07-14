@@ -21,6 +21,9 @@ nav:
           - "nofire": 1pctCO2/nofire.md
           - "no_n_limitation": 1pctCO2/no_nlim.md
           - "ESM driver comparison": 1pctCO2/esm_drivers.md
+      - Benchmarking:
+          - 1pctCO2: wiemip/benchmarking/1pctco2.md
+          - Overshoot: wiemip/benchmarking/overshoot.md
       - "Drivers: population & N deposition vs WIEMIP": wiemip/overshoot_pop_ndep.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
