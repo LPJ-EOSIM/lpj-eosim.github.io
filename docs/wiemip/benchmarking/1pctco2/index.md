@@ -13,9 +13,9 @@ stages:
 Stages: **ctrl** — fixed climate and land use, rising CO₂ only;
 **bgc** — biogeochemically-coupled (CO₂ fertilization under fixed
 climate); **cou** — fully coupled to a transient climate, driven by one of
-three ESMs: **UKESM1-0-LL** (baseline and no-fire), **IPSL-CM6A-LR** and
-**GFDL-ESM4** (baseline only — no-fire was not run with these two drivers).
-All runs span 1850–2000 (151 years) on the 0.5° global grid.
+three ESMs: **UKESM1-0-LL**, **IPSL-CM6A-LR**, and **GFDL-ESM4** (baseline
+and no-fire both have all three drivers). All runs span 1850–2000
+(151 years) on the 0.5° global grid.
 
 Monthly output is grouped by calendar year and summed to an annual value
 before area-weighting (a no-op for variables already reported annually).

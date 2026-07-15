@@ -1,11 +1,12 @@
 # Establishment flux: 1pctCO2
 
-Line plot: subplots = stage (ctrl, bgc, cou), lines = factorial (baseline, no-fire tuned, no-fire untuned).
-The cou panel merges all three ESM drivers (UKESM1-0-LL, IPSL-CM6A-LR,
-GFDL-ESM4) into one axes: baseline's UKESM-driven line keeps its usual
-color, and its IPSL/GFDL-driven lines (orange / teal) are its only
-other appearances there, since no-fire was only run with UKESM.
-No-fire (untuned) only appears in the ctrl panel (its only stage).
+Line plot: subplots = stage (ctrl, bgc, cou), lines = factorial (baseline,
+no-fire tuned, no-fire untuned). The cou panel merges all three ESM
+drivers (UKESM1-0-LL, IPSL-CM6A-LR, GFDL-ESM4) into one axes: each
+factorial's UKESM-driven line keeps that factorial's usual color, while
+its IPSL/GFDL-driven lines get their own distinct colors - 6 lines total,
+all mutually distinguishable. No-fire (untuned) only appears in the ctrl
+panel (its only stage).
 
 ![Establishment flux: 1pctCO2 factorials](../../../img/wiemip/benchmarking/1pctco2/lineplot_flux_estab.png)
 
@@ -28,12 +29,8 @@ sink, red = net source), all other variables use a sequential scale.
 
 ### cou (IPSL-CM6A-LR)
 
-Baseline only — no-fire has no IPSL-driven stage.
-
 ![Establishment flux maps: cou (IPSL-CM6A-LR)](../../../img/wiemip/benchmarking/1pctco2/map_flux_estab_cou-ipsl.png)
 
 ### cou (GFDL-ESM4)
-
-Baseline only — no-fire has no GFDL-driven stage.
 
 ![Establishment flux maps: cou (GFDL-ESM4)](../../../img/wiemip/benchmarking/1pctco2/map_flux_estab_cou-gfdl.png)
