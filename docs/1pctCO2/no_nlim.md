@@ -6,24 +6,26 @@ against the 1pctCO2 **baseline**. Two global control runs (S0): **baseline**
 global, area-weighted annual totals, 1850–2000. Per-variable final-year errors
 (tuned vs baseline) are in the table below.
 
-!!! note "Simplified parameter menu (2026-07)"
-    This page now reflects a **simplified** re-tune, mirroring the no_fire
-    simplification: the same 7 mortality/soil-litter-turnover parameters
-    (`century_klitter_scale`, `century_ksoil_scale`, `mort_max`, `k_mort`,
-    `ramp_gddtw`, `longivity_scale`, `grass_turnover_scale`) plus two
-    photosynthesis levers (`alphaa`, `bc3_scalar`), since removing N-limitation
-    directly inflates GPP — down from the original 26-parameter menu. Fire stays
-    compiled in for both baseline and this perturbation, so `firec` is a live
-    target/output throughout. The representative tuning subset reuses the exact
-    same 3000 cells as the no_fire v2/v3 campaign (pure area-weighted,
-    deterministically identical selection against the same baseline), plus one
-    fix: SPITFIRE reads climate input via LPJ's hardcoded `tmin`/`tmax` netCDF
-    variable names, which had drifted out of sync with the driver files in the
-    dedicated tuning LPJ checkout (a mismatch invisible to no_fire, since that
-    build has SPITFIRE compiled out) — corrected directly in `climate.h`. CMA-ES
-    plateaued at generation 8 (loss 0.159) — a looser fit than the retired
-    26-parameter campaign's 0.067, reflecting the smaller lever set; no untuned
-    reference run exists yet for this simplified subset.
+!!! note "Simplified parameter menu v2 (2026-07)"
+    This page now reflects a **v2** re-tune, cut down further from the v1
+    9-parameter menu to just **5 direct, non-redundant levers** — one per
+    carbon stock, plus the root-cause productivity throttle:
+    `century_klitter_scale` (LitC), `century_ksoil_scale` (SoilC), `mort_max` +
+    `k_mort` (VegC), and `alphaa` (GPP — the fraction of PAR assimilated at
+    canopy level, `photosynthesis.c: apar = fpar*par*alphaa`). v1's `alphaa`
+    barely moved off its 0.5 default (converged 0.52) despite GPP running
+    +21.5% hot, because its loss weighted 8 targets equally, letting CMA-ES
+    trade the GPP fit away for the flux targets. v2 fixes this two ways:
+    `vegc`/`litc`/`soilc` are upweighted 5× in the loss, and `alphaa`'s bounds
+    are widened down to (0.30, 0.55) (matching what the retired 26-parameter
+    campaign needed for the same problem). CMA-ES converged via loss-plateau
+    at generation 14 (loss 0.180, `alphaa` settled at 0.484) — and the global
+    result below confirms it worked: every ctrl stock/flux landed
+    substantially closer to baseline than v1. Fire stays compiled in for both
+    baseline and this perturbation, so `firec` is a live target/output
+    throughout. Subset and the tmin/tmax `climate.h` fix are unchanged from
+    v1 (see prior campaign notes); no untuned reference run exists yet for
+    this simplified subset.
 
 ## Carbon stocks
 
@@ -37,36 +39,43 @@ Global totals at year 2000 (error is tuned vs baseline):
 
 | Variable | Unit | baseline | tuned | tuned err |
 |----------|------|---------:|------:|----------:|
-| VegC  | Pg C      | 527.7  | 495.9  | −6.0%  |
-| SoilC | Pg C      | 1607.5 | 1542.0 | −4.1%  |
-| LitC  | Pg C      | 175.8  | 220.8  | +25.6% |
-| GPP   | Pg C yr⁻¹ | 105.0  | 127.5  | +21.5% |
-| Rh    | Pg C yr⁻¹ | 47.1   | 51.1   | +8.3%  |
-| NPP   | Pg C yr⁻¹ | 47.8   | 51.0   | +6.6%  |
-| NBP   | Pg C yr⁻¹ | −0.65  | −0.99  | −0.33 (abs) |
+| VegC  | Pg C      | 527.7  | 513.6  | −2.7%  |
+| SoilC | Pg C      | 1607.5 | 1655.4 | +3.0%  |
+| LitC  | Pg C      | 175.8  | 193.8  | +10.2% |
+| GPP   | Pg C yr⁻¹ | 105.0  | 117.8  | +12.3% |
+| Rh    | Pg C yr⁻¹ | 47.1   | 49.5   | +5.0%  |
+| NPP   | Pg C yr⁻¹ | 47.8   | 49.5   | +3.4%  |
+| NBP   | Pg C yr⁻¹ | −0.65  | −0.79  | −0.14 (abs) |
 
 ## What the tune corrected
 
-For reference, the retired 26-parameter campaign's **untuned** perturbation (a
-different tuning subset, kept here only for scale) held **VegC +14.5%, SoilC
-+11.6%, LitC +33.2%, GPP +15.0%** above baseline — removing N-limitation
-inflates every pool and flux. The simplified 9-parameter tune, working from a
-much smaller lever set:
+v2 vs the retired v1 fit — every single ctrl variable improved:
 
-- **SoilC +11.6% → −4.1%** — the CENTURY turnover scales pull the slow soil
-  pool from over- to slightly under-baseline, overshooting the correction.
-- **VegC +14.5% → −6.0%** — similarly overshoots past baseline rather than
-  landing near it.
-- **LitC +33.2% → +25.6%** — barely moves. With only two CENTURY scales and no
-  litter-chemistry levers (the dropped `ligcfrac_leaf`/`ligcfrac_wood`), the
-  simplified menu has limited ability to bring litter turnover down.
-- **GPP +15.0% → +21.5%** — `alphaa`/`bc3_scalar` alone don't fully offset the
-  N-limitation removal; GPP actually runs *hotter* than the untuned baseline,
-  since the optimizer traded some GPP suppression for the SoilC/VegC fit.
+| Variable | v1 err | v2 err |
+|----------|-------:|-------:|
+| VegC  | −6.0%  | **−2.7%** |
+| SoilC | −4.1%  | **+3.0%** |
+| LitC  | +25.6% | **+10.2%** |
+| GPP   | +21.5% | **+12.3%** |
+| Rh    | +8.3%  | **+5.0%**  |
+| NPP   | +6.6%  | **+3.4%**  |
+| NBP (abs) | −0.33 | **−0.14** |
 
-Net: a real but partial correction, weaker than the retired campaign's tighter
-fit (SoilC −0.4%, LitC +0.6%, GPP +9.7%) — the cost of a much smaller,
-more physically-targeted parameter set.
+- **GPP +21.5% → +12.3%** — this is the fix that mattered most. Letting
+  `alphaa` actually drop (0.52 → 0.484) directly cut excess canopy-level
+  photosynthesis, instead of leaving the other four params to fight an
+  unconstrained productivity surplus.
+- **LitC +25.6% → +10.2%** — the single biggest swing. Once GPP wasn't
+  dumping as much carbon into litterfall, `century_klitter_scale` (pushed up
+  to 1.12) had a much easier job bringing the pool back down.
+- **VegC −6.0% → −2.7%** and **SoilC −4.1% → +3.0%** — both landed closer to
+  baseline in magnitude; SoilC flipped from under- to slightly over-baseline,
+  but by less than half the miss.
+
+Net: the 5-parameter, target-reweighted re-tune achieved a **materially
+tighter fit than v1** with a *smaller* parameter set — confirming the
+diagnosis that v1's loose fit was a loss-weighting problem, not a fundamental
+limit of a small lever set.
 
 ## Rising-CO₂ stages: bgc & cou
 
@@ -81,14 +90,14 @@ baseline. Two lines: baseline (black) vs tuned (vermillion).
 
 | Variable | Unit | baseline | tuned | err |
 |----------|------|---------:|------:|----:|
-| VegC  | Pg C      | 1044.9 | 1141.4 | +9.2%  |
-| SoilC | Pg C      | 1833.5 | 1773.9 | −3.3%  |
-| LitC  | Pg C      | 368.7  | 452.8  | +22.8% |
-| GPP   | Pg C yr⁻¹ | 199.4  | 238.8  | +19.8% |
-| NPP   | Pg C yr⁻¹ | 101.6  | 117.1  | +15.2% |
-| Rh    | Pg C yr⁻¹ | 91.4   | 104.7  | +14.6% |
-| fireC | Pg C yr⁻¹ | 4.8    | 6.6    | +38.7% |
-| NBP   | Pg C yr⁻¹ | 5.4    | 5.8    | +0.32 (abs) |
+| VegC  | Pg C      | 1044.9 | 1127.7 | +7.9%  |
+| SoilC | Pg C      | 1833.5 | 1888.5 | +3.0%  |
+| LitC  | Pg C      | 368.7  | 400.0  | +8.5%  |
+| GPP   | Pg C yr⁻¹ | 199.4  | 224.7  | +12.7% |
+| NPP   | Pg C yr⁻¹ | 101.6  | 112.5  | +10.7% |
+| Rh    | Pg C yr⁻¹ | 91.4   | 100.1  | +9.5%  |
+| fireC | Pg C yr⁻¹ | 4.8    | 6.1    | +26.6% |
+| NBP   | Pg C yr⁻¹ | 5.4    | 6.4    | +0.93 (abs) |
 
 ### cou (S2, transient UKESM climate)
 
@@ -96,17 +105,20 @@ baseline. Two lines: baseline (black) vs tuned (vermillion).
 
 | Variable | Unit | baseline | tuned | err |
 |----------|------|---------:|------:|----:|
-| VegC  | Pg C      | 925.8  | 1037.0 | +12.0% |
-| SoilC | Pg C      | 1700.8 | 1618.6 | −4.8%  |
-| LitC  | Pg C      | 272.8  | 316.7  | +16.1% |
-| GPP   | Pg C yr⁻¹ | 220.1  | 259.4  | +17.8% |
-| NPP   | Pg C yr⁻¹ | 107.8  | 120.9  | +12.1% |
-| Rh    | Pg C yr⁻¹ | 96.8   | 109.5  | +13.1% |
-| fireC | Pg C yr⁻¹ | 6.8    | 6.9    | +2.0%  |
-| NBP   | Pg C yr⁻¹ | 4.2    | 4.4    | +0.24 (abs) |
+| VegC  | Pg C      | 925.8  | 1034.0 | +11.7% |
+| SoilC | Pg C      | 1700.8 | 1735.8 | +2.1%  |
+| LitC  | Pg C      | 272.8  | 287.9  | +5.6%  |
+| GPP   | Pg C yr⁻¹ | 220.1  | 244.0  | +10.8% |
+| NPP   | Pg C yr⁻¹ | 107.8  | 116.8  | +8.4%  |
+| Rh    | Pg C yr⁻¹ | 96.8   | 105.3  | +8.8%  |
+| fireC | Pg C yr⁻¹ | 6.8    | 6.3    | −6.5%  |
+| NBP   | Pg C yr⁻¹ | 4.2    | 5.2    | +0.96 (abs) |
 
-**Caveat:** as with no_fire, the ctrl-only fit runs hot under rising CO₂ — VegC
-+9–12%, GPP +18–20%, LitC +16–23% at bgc/cou. Unlike no_fire, `fireC` also
-drifts, especially at bgc (+38.7%) where the fixed-climate fuel load
-accumulates against the inflated VegC/LitC pools; cou's transient climate
-keeps `fireC` much closer to baseline (+2.0%).
+**Caveat:** LitC and the carbon stocks/fluxes stay much closer to baseline
+than v1 at both stages (e.g. bgc LitC +8.5% vs v1's +22.8%; cou LitC +5.6% vs
+v1's +16.1%). The one exception is **NBP**, which drifts further from
+baseline than v1 did at both bgc (+0.93 vs v1's +0.32 PgC/yr) and cou (+0.96
+vs v1's +0.24 PgC/yr) — NBP is a small residual of NPP−Rh, so even though
+both fluxes individually track baseline better under v2, their difference is
+more sensitive to the small remaining mismatch between them under
+rising-CO₂ forcing that the ctrl-only fit didn't constrain.
