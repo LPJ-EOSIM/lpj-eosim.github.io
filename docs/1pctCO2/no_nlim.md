@@ -132,3 +132,17 @@ ctrl-only fit didn't constrain. Notably, the NBP miss actually **shrinks**
 under IPSL and GFDL (+0.79, +0.35) relative to UKESM (+0.96), so this looks
 like ESM-specific noise in the NPP/Rh balance rather than a systematic v2
 regression.
+
+### Spatial pattern, per ESM driver
+
+VegC carries the largest tuned-vs-baseline signal at cou (+6–12%, see above) —
+these maps show *where* that excess sits, for each driving ESM (mean of the
+last 3 simulated years, 1998–2000).
+
+![no_n_limitation VegC maps: baseline / tuned / diff, per ESM](../img/wiemip/1pct/nolim_cou_maps.png)
+
+Unlike no_fire, this excess is smaller in magnitude (locally up to ~10 kg C
+m⁻²) but shows the same **tropical concentration** — Amazon and Congo basin —
+plus a visible diffuse warming band across high-northern-latitude boreal
+forest (Siberia/Canada, ~50–70°N) that's more prominent here than in the
+no_fire maps. Both features repeat consistently across UKESM, IPSL, and GFDL.

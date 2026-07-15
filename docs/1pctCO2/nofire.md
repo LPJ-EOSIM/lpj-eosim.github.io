@@ -113,3 +113,20 @@ driving ESMs**. GFDL's larger NBP miss (+3.72 PgC/yr vs UKESM's +2.55) is mostly
 a small-baseline effect: GFDL's own baseline NBP (1.90 PgC/yr) is under half
 UKESM's (4.21), so the same absolute NPP/Rh mismatch reads as a much bigger
 share of a smaller number.
+
+### Spatial pattern, per ESM driver
+
+VegC carries the largest tuned-vs-baseline signal at cou (+27–36%, see above) —
+these maps show *where* that excess sits, for each driving ESM (mean of the
+last 3 simulated years, 1998–2000).
+
+![no_fire VegC maps: baseline / tuned / diff, per ESM](../img/wiemip/1pct/nofire_cou_maps.png)
+
+The excess is concentrated in the same **tropical forest belt** across all
+three ESMs — the Amazon and Congo basins carry the largest and darkest
+tuned-minus-baseline signal (locally >15 kg C m⁻² over 1998–2000), with only
+a faint, diffuse warming visible at high northern latitudes. This is exactly
+where SPITFIRE burns the most biomass in the baseline, so it's the physically
+expected fingerprint of removing fire — not an artifact of any one climate
+driver, since the pattern and rough magnitude repeat under UKESM, IPSL, and
+GFDL alike.
