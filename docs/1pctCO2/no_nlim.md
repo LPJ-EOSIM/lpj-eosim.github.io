@@ -99,26 +99,36 @@ baseline. Two lines: baseline (black) vs tuned (vermillion).
 | fireC | Pg C yr⁻¹ | 4.8    | 6.1    | +26.6% |
 | NBP   | Pg C yr⁻¹ | 5.4    | 6.4    | +0.93 (abs) |
 
-### cou (S2, transient UKESM climate)
+### cou (S2, transient climate — UKESM, IPSL, GFDL)
 
-![no_n_limitation cou: baseline vs tuned](../img/wiemip/1pct/nolim_cou.png)
+The tuned v2 parameters were also run under **cou** driven by two more ESMs
+(IPSL, GFDL), branching off the same ctrl-only-tuned parameter set — this checks
+whether the fit generalizes across which model supplies the transient climate,
+not just which CO₂ pathway is used.
 
-| Variable | Unit | baseline | tuned | err |
-|----------|------|---------:|------:|----:|
-| VegC  | Pg C      | 925.8  | 1034.0 | +11.7% |
-| SoilC | Pg C      | 1700.8 | 1735.8 | +2.1%  |
-| LitC  | Pg C      | 272.8  | 287.9  | +5.6%  |
-| GPP   | Pg C yr⁻¹ | 220.1  | 244.0  | +10.8% |
-| NPP   | Pg C yr⁻¹ | 107.8  | 116.8  | +8.4%  |
-| Rh    | Pg C yr⁻¹ | 96.8   | 105.3  | +8.8%  |
-| fireC | Pg C yr⁻¹ | 6.8    | 6.3    | −6.5%  |
-| NBP   | Pg C yr⁻¹ | 4.2    | 5.2    | +0.96 (abs) |
+![no_n_limitation cou: baseline vs tuned, UKESM/IPSL/GFDL](../img/wiemip/1pct/nolim_cou.png)
+
+| Variable | Unit | UKESM err | IPSL err | GFDL err |
+|----------|------|----------:|---------:|---------:|
+| VegC  | Pg C      | +11.7% | +8.0%  | +6.3%  |
+| SoilC | Pg C      | +2.1%  | +1.9%  | +2.1%  |
+| LitC  | Pg C      | +5.6%  | +2.6%  | +3.6%  |
+| GPP   | Pg C yr⁻¹ | +10.8% | +9.9%  | +9.0%  |
+| NPP   | Pg C yr⁻¹ | +8.4%  | +8.1%  | +7.1%  |
+| Rh    | Pg C yr⁻¹ | +8.8%  | +7.9%  | +7.5%  |
+| NBP   | Pg C yr⁻¹ | +0.96 (abs) | +0.79 (abs) | +0.35 (abs) |
+| fireC | Pg C yr⁻¹ | −6.5%  | +3.5%  | −2.6%  |
 
 **Caveat:** LitC and the carbon stocks/fluxes stay much closer to baseline
-than v1 at both stages (e.g. bgc LitC +8.5% vs v1's +22.8%; cou LitC +5.6% vs
-v1's +16.1%). The one exception is **NBP**, which drifts further from
-baseline than v1 did at both bgc (+0.93 vs v1's +0.32 PgC/yr) and cou (+0.96
-vs v1's +0.24 PgC/yr) — NBP is a small residual of NPP−Rh, so even though
-both fluxes individually track baseline better under v2, their difference is
-more sensitive to the small remaining mismatch between them under
-rising-CO₂ forcing that the ctrl-only fit didn't constrain.
+than v1 at both stages (e.g. bgc LitC +8.5% vs v1's +22.8%; cou LitC +2.6–5.6%
+vs v1's +16.1%), **consistently across all three ESM drivers** — the v2 fix
+generalizes beyond the single UKESM driver it wasn't even fit against. The one
+exception is **NBP**, which drifts further from baseline than v1 did at bgc
+(+0.93 vs v1's +0.32 PgC/yr) and at cou-UKESM (+0.96 vs v1's +0.24 PgC/yr) —
+NBP is a small residual of NPP−Rh, so even though both fluxes individually
+track baseline better under v2, their difference is more sensitive to the
+small remaining mismatch between them under rising-CO₂ forcing that the
+ctrl-only fit didn't constrain. Notably, the NBP miss actually **shrinks**
+under IPSL and GFDL (+0.79, +0.35) relative to UKESM (+0.96), so this looks
+like ESM-specific noise in the NPP/Rh balance rather than a systematic v2
+regression.

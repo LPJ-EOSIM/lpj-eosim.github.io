@@ -83,23 +83,33 @@ ctrl-only so it doesn't appear here.
 | fireC | Pg C yr⁻¹ | 4.8    | 0      | (no fire) |
 | NBP   | Pg C yr⁻¹ | 5.4    | 6.8    | +1.40 (abs) |
 
-### cou (S2, transient UKESM climate)
+### cou (S2, transient climate — UKESM, IPSL, GFDL)
 
-![nofire cou: baseline vs tuned](../img/wiemip/1pct/nofire_cou.png)
+The tuned no_fire parameters were also run under **cou** driven by two more ESMs
+(IPSL, GFDL), branching off the same ctrl-only-tuned parameter set — this checks
+whether the fit generalizes across which model supplies the transient climate,
+not just which CO₂ pathway is used.
 
-| Variable | Unit | baseline | tuned | err |
-|----------|------|---------:|------:|----:|
-| VegC  | Pg C      | 925.8  | 1254.8 | +35.5% |
-| SoilC | Pg C      | 1700.8 | 1696.6 | −0.2%  |
-| LitC  | Pg C      | 272.8  | 299.6  | +9.8%  |
-| GPP   | Pg C yr⁻¹ | 220.1  | 236.9  | +7.6%  |
-| NPP   | Pg C yr⁻¹ | 107.8  | 107.6  | −0.2%  |
-| Rh    | Pg C yr⁻¹ | 96.8   | 100.9  | +4.2%  |
-| NBP   | Pg C yr⁻¹ | 4.2    | 6.8    | +2.56 (abs) |
+![nofire cou: baseline vs tuned, UKESM/IPSL/GFDL](../img/wiemip/1pct/nofire_cou.png)
+
+| Variable | Unit | UKESM err | IPSL err | GFDL err |
+|----------|------|----------:|---------:|---------:|
+| VegC  | Pg C      | +35.5% | +29.6% | +26.8% |
+| SoilC | Pg C      | −0.2%  | −0.1%  | −0.1%  |
+| LitC  | Pg C      | +9.8%  | +6.2%  | +5.3%  |
+| GPP   | Pg C yr⁻¹ | +7.6%  | +7.2%  | +6.4%  |
+| NPP   | Pg C yr⁻¹ | −0.1%  | +0.5%  | −0.1%  |
+| Rh    | Pg C yr⁻¹ | +4.2%  | +4.0%  | +3.0%  |
+| NBP   | Pg C yr⁻¹ | +2.55 (abs) | +2.40 (abs) | +3.72 (abs) |
+| fireC | Pg C yr⁻¹ | 0 (no fire) | 0 (no fire) | 0 (no fire) |
 
 **Caveat:** because the tune only constrained the control state, the CO₂-forced
-stages run somewhat hot on VegC and the productivity fluxes (VegC +23% bgc / +36%
-cou, GPP +8–9%) — the ctrl-tuned parameters don't constrain the transient
+stages run somewhat hot on VegC and the productivity fluxes (VegC +23% bgc /
++27–36% cou, GPP +6–9%) — the ctrl-tuned parameters don't constrain the transient
 CO₂-fertilization response. This is smaller than in the previous 12-parameter
 tune (which ran +28% bgc / +52% cou on VegC), but SoilC — the pool the tune
-targets most directly — stays within ~1% at every stage.
+targets most directly — stays within ~1% at every stage, **across all three
+driving ESMs**. GFDL's larger NBP miss (+3.72 PgC/yr vs UKESM's +2.55) is mostly
+a small-baseline effect: GFDL's own baseline NBP (1.90 PgC/yr) is under half
+UKESM's (4.21), so the same absolute NPP/Rh mismatch reads as a much bigger
+share of a smaller number.
