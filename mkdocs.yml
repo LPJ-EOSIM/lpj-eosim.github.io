@@ -57,6 +57,7 @@ nav:
       - "Drivers: population & N deposition vs WIEMIP": wiemip/overshoot_pop_ndep.md
   - TRENDYv15:
       - Driver Data: trendyv15/driver_data.md
+      - "Stocks & fluxes vs v14/v13/v12": trendyv15/diagnostics.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
       - "SPITFIRE integration - pr 421": results/spitfire.md
