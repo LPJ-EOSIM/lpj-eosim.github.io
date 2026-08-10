@@ -59,6 +59,7 @@ nav:
       - Driver Data: trendyv15/driver_data.md
       - "Stocks & fluxes vs v14/v13/v12": trendyv15/diagnostics.md
       - "ILAMB benchmarking (S3)": trendyv15/ilamb.md
+      - "NBP & O₂/N₂ constraint": trendyv15/nbp.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
       - "SPITFIRE integration - pr 421": results/spitfire.md
