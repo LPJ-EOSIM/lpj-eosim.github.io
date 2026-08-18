@@ -18,6 +18,7 @@ nav:
           - "Soil-C plateau recap": overshoots/soilc_plateau_recap.md
           - "Archive (older futures)": overshoots/archive.md
       - 1pctCO2:
+          - "Baseline re-run 2026-08-18: C & N stocks + wetlands": 1pctCO2/baseline_20260818.md
           - "nofire": 1pctCO2/nofire.md
           - "no_n_limitation": 1pctCO2/no_nlim.md
           - "ESM driver comparison": 1pctCO2/esm_drivers.md
