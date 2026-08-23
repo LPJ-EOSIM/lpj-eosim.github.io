@@ -13,6 +13,11 @@ differ from each other only by the BNF compile flag in `Makefile.inc`:
 | `NMIP3prod_SH1` | `nmip/NMIP3prod_SH1` | none, pre-`fix_harvest` |
 | `NMIP3_SH1` | `nmip/NMIP3_SH1` | none, pre-`fix_harvest` |
 
+The ILAMB section below carries a sixth run for reference, **TRENDYv15 CRU TS
+4.10 S3** (`trendy/v15/simulations/new_spinup/CRU410/S3`, 1700–2025). It is a
+different driver, spinup and code vintage, not an SH1 run, and it is not in the
+budget figures — only in the benchmarking.
+
 ## Biological N fixation
 
 ![Global annual BNF for the five SH1 runs](../img/nmip/bnf_annual.png)
@@ -94,31 +99,44 @@ totals agree.
 
 ## ILAMB benchmarking
 
-![ILAMB scorecard for the five SH1 runs](../img/nmip/ilamb_scorecard.png)
+![ILAMB scorecard for the five SH1 runs and TRENDYv15 CRU TS](../img/nmip/ilamb_scorecard.png)
 
-Ten scored confrontations. Overall means: **NMIP3_SH1 0.635, NMIP3prod_SH1
-0.632, baseline20260821 0.623, midbnf 0.618, upperbnf 0.617**.
+Ten confrontations are scored for all six runs. Means over those shared rows:
+**NMIP3_SH1 0.635, NMIP3prod_SH1 0.632, TRENDYv15 CRU TS 0.627,
+baseline20260821 0.623, midbnf 0.618, upperbnf 0.617.**
 
-Only three rows separate these runs at all — **NBP (spread 0.123), Soil Carbon
-(0.054) and Leaf Area Index (0.044)**. The BNF pair takes Biomass, GPP and
-Ecosystem Respiration by small margins; the two older runs take NBP, Soil
-Carbon and LAI by larger ones, which is what drives their higher overall mean.
+The overall row averages only rows every model scored. TRENDYv15 CRU TS
+additionally scores **Surface Air Temperature 0.941, Precipitation 0.846** and
+**Soil Carbon Extended 0.770**, because it merged `mtair` and `mppt` and the SH1
+runs did not. Averaging each column over whatever it happens to carry would
+reward it for having more confrontations rather than for agreeing better.
 
-**Two of those three rows are not like-for-like.** NBP was made comparable by
-recomputing it (above). LAI cannot be — `mlai` means a different thing in the
-two code vintages, see below. That leaves **Soil Carbon as the only row that
-cleanly separates these runs**, and the overall-mean ranking should not be read
-as a quality ordering.
+Among the five SH1 runs, only three rows separate them at all — **NBP (spread
+0.123), Soil Carbon (0.054) and Leaf Area Index (0.044)**. The BNF pair takes
+Biomass, GPP and Ecosystem Respiration by small margins; the two older runs take
+NBP, Soil Carbon and LAI by larger ones.
 
-Evapotranspiration, Burned Area and Runoff separate the models by 0.0003–0.0009
-and are shown as ties rather than shaded, so that a spread of essentially zero
-does not render as a large difference. BNF should not move hydrology or fire,
-and it does not.
+**Two of those three rows are not like-for-like.** NBP was made comparable
+across the SH1 five by recomputing it (above). LAI cannot be — `mlai` means a
+different thing in each code vintage, see below. That leaves **Soil Carbon as
+the only row that cleanly separates these runs**, and the overall-mean ranking
+should not be read as a quality ordering. Even Soil Carbon carries the harvest
+caveat: `mharvest` is zero in both older runs, so their advantage there may be
+the harvest routing rather than better physics.
 
-All five NBPs use the single definition above, so that row is a like-for-like
-comparison. It still carries the harvest caveat: `mharvest` is zero in both
-older runs, so their NBP and Soil Carbon advantage may be the harvest routing
-rather than better physics.
+The TRENDYv15 run brings its own two caveats. Its `mnbp` is the pipeline default
+— harvest subtracted, **leaching not** — because it has neither `leachsum_cmass`
+nor `mharvest`, so its NBP is roughly 0.5 Pg C/yr looser than the SH1
+definition and cannot be reconciled after the fact. And it is a third `mlai`
+definition again. Its Burned Area (0.524 against 0.658) and GPP (0.621 against
+0.648–0.654) are genuine differences; its Carbon Dioxide (0.720 against
+0.602–0.610) is the largest gain.
+
+Across the five SH1 runs alone, Evapotranspiration, Burned Area and Runoff agree
+to 0.0003–0.0009 — BNF should not move hydrology or fire, and it does not. Those
+rows only separate once the TRENDYv15 run, with its different driver and code,
+joins the table.
+
 
 ## `mlai` is not the same quantity across these runs
 
@@ -157,14 +175,28 @@ This is what the ILAMB LAI row is measuring. Every run is biased high against
 both satellite products, and the more complete definition is biased higher
 still:
 
-| vs AVH15C1 | midbnf | upperbnf | 20260821 | NMIP3prod_SH1 | NMIP3_SH1 |
-|---|---|---|---|---|---|
-| period mean | 2.366 | 2.281 | 2.397 | 2.216 | 2.230 |
-| bias | +1.148 | +1.063 | +1.179 | +0.998 | +1.012 |
-| LAI score | 0.461 | 0.468 | 0.463 | 0.505 | 0.504 |
+| vs AVH15C1 | midbnf | upperbnf | 20260821 | NMIP3prod_SH1 | NMIP3_SH1 | TRENDYv15 CRU TS |
+|---|---|---|---|---|---|---|
+| period mean | 2.366 | 2.281 | 2.397 | 2.216 | 2.230 | 1.918 |
+| bias | +1.148 | +1.063 | +1.179 | +0.998 | +1.012 | +0.700 |
+| LAI score | 0.461 | 0.468 | 0.463 | 0.505 | 0.504 | 0.541 |
 
-Satellite LAI includes cropland, so the `fix_harvest` definition is the correct
-one — yet it scores worse. Omitting cropland was masking part of a large
+The TRENDYv15 CRU TS run is a **third** definition and it completes the pattern.
+There, `mlai` accumulates inside the `else` branch after `GRASSLAND` and
+`AGRICULTURE` are peeled off, so it counts natural stands only — excluding both.
+The three definitions rank monotonically by how much land they omit:
+
+| stands counted in `mlai` | period mean | bias | LAI score |
+|---|---|---|---|
+| all stands (`fix_harvest`) | 2.37–2.40 | +1.06 … +1.18 | 0.461–0.468 |
+| excluding AGRICULTURE (older SH1) | 2.22–2.23 | +1.00 … +1.01 | 0.504–0.505 |
+| natural only (TRENDYv15 CRU TS) | 1.918 | +0.700 | 0.541 |
+
+The LAI ranking is a ranking of how much land each definition leaves out, not of
+model skill.
+
+Satellite LAI covers the whole grid cell, cropland included, so the
+`fix_harvest` definition is the correct one — yet it scores worst of the three. Omitting cropland was masking part of a large
 pre-existing high bias of roughly +1.0 LAI unit. The old runs' better LAI score
 is a compensating error, not better agreement.
 
@@ -172,11 +204,11 @@ Unlike NBP, this cannot be repaired after the fact: the cropland contribution
 was never written to the older runs' output. **The LAI row should be read as a
 definition difference, not a model difference.**
 
-**Three confrontations scored for no model**, so no run is penalised relative to
-another: Surface Air Temperature and Precipitation need `mtair`/`mppt`, which
-none of these runs merged, and Soil Carbon Extended (Koven) emitted no scalar.
-`mch4e` is also absent, so there is no CH₄ confrontation. Each model formatted
-to an identical 12-variable set.
+**Three confrontations score for the TRENDYv15 run only** — Surface Air
+Temperature, Precipitation and Soil Carbon Extended — because it merged `mtair`
+and `mppt` and the SH1 runs did not. They are excluded from the overall mean.
+`mch4e` is absent everywhere, so there is no CH₄ confrontation. The five SH1
+runs each formatted to an identical 12-variable set; the TRENDYv15 run to 14.
 
 ## Caveats
 

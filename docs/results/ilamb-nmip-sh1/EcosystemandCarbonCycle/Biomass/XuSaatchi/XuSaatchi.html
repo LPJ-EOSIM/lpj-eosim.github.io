@@ -159,6 +159,7 @@
           document.getElementById("midbnf_legend").style.display = 'none';
           document.getElementById("NMIP3_SH1_legend").style.display = 'none';
           document.getElementById("NMIP3prod_SH1_legend").style.display = 'none';
+          document.getElementById("TRENDYv15_CRUTS410_S3_legend").style.display = 'none';
           document.getElementById("upperbnf_legend").style.display = 'none';
         }else{
           document.getElementById("Benchmark_legend").style.display = 'inline';
@@ -166,6 +167,7 @@
           document.getElementById("midbnf_legend").style.display = 'inline';
           document.getElementById("NMIP3_SH1_legend").style.display = 'inline';
           document.getElementById("NMIP3prod_SH1_legend").style.display = 'inline';
+          document.getElementById("TRENDYv15_CRUTS410_S3_legend").style.display = 'inline';
           document.getElementById("upperbnf_legend").style.display = 'inline';
         }
         document.getElementById('Benchmark').src = 'Benchmark_' + RNAME + '_' + PNAME + '.png';
@@ -178,6 +180,8 @@
         document.getElementById('NMIP3_SH1_legend').src = 'legend_' + PNAME + '.png';
         document.getElementById('NMIP3prod_SH1').src = 'NMIP3prod_SH1_' + RNAME + '_' + PNAME + '.png';
         document.getElementById('NMIP3prod_SH1_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('TRENDYv15_CRUTS410_S3').src = 'TRENDYv15_CRUTS410_S3_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('TRENDYv15_CRUTS410_S3_legend').src = 'legend_' + PNAME + '.png';
         document.getElementById('upperbnf').src = 'upperbnf_' + RNAME + '_' + PNAME + '.png';
         document.getElementById('upperbnf_legend').src = 'legend_' + PNAME + '.png';
       }
@@ -254,6 +258,7 @@
         <option value='midbnf'>midbnf</option>
         <option value='NMIP3_SH1'>NMIP3_SH1</option>
         <option value='NMIP3prod_SH1'>NMIP3prod_SH1</option>
+        <option value='TRENDYv15_CRUTS410_S3'>TRENDYv15_CRUTS410_S3</option>
         <option value='upperbnf'>upperbnf</option>
       </select>
       </div>
@@ -351,6 +356,21 @@
                <td onclick="highlightRowMeanState(this)">0.0346</td>
                <td onclick="highlightRowMeanState(this)">0.887</td>
                <td onclick="highlightRowMeanState(this)">0.461</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">TRENDYv15_CRUTS410_S3</td>
+               <td onclick="highlightRowMeanState(this)"><a href="XuSaatchi_TRENDYv15_CRUTS410_S3.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">629.</td>
+               <td onclick="highlightRowMeanState(this)">629.</td>
+               <td onclick="highlightRowMeanState(this)">475.</td>
+               <td onclick="highlightRowMeanState(this)">0.00246</td>
+               <td onclick="highlightRowMeanState(this)">6.86</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">1.18</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.0331</td>
+               <td onclick="highlightRowMeanState(this)">0.895</td>
+               <td onclick="highlightRowMeanState(this)">0.464</td>
              </tr>
              <tr>
                <td onclick="highlightRowMeanState(this)" class="row-header">upperbnf</td>
@@ -480,6 +500,13 @@
           <center>NMIP3prod_SH1</center>
           <img src="" id="NMIP3prod_SH1" alt="Data not available" ></img>
           <center><img src="legend_NMIP3prod_SH1.png" id="NMIP3prod_SH1_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="TRENDYv15_CRUTS410_S3_div">
+          <div class="child">
+          <center>TRENDYv15_CRUTS410_S3</center>
+          <img src="" id="TRENDYv15_CRUTS410_S3" alt="Data not available" ></img>
+          <center><img src="legend_TRENDYv15_CRUTS410_S3.png" id="TRENDYv15_CRUTS410_S3_legend"  alt="Data not available" ></img></center>
           </div>
         </div>
         <div class="container" id="upperbnf_div">

@@ -280,6 +280,7 @@
           document.getElementById("midbnf_legend").style.display = 'none';
           document.getElementById("NMIP3_SH1_legend").style.display = 'none';
           document.getElementById("NMIP3prod_SH1_legend").style.display = 'none';
+          document.getElementById("TRENDYv15_CRUTS410_S3_legend").style.display = 'none';
           document.getElementById("upperbnf_legend").style.display = 'none';
         }else{
           document.getElementById("Benchmark_legend").style.display = 'inline';
@@ -287,6 +288,7 @@
           document.getElementById("midbnf_legend").style.display = 'inline';
           document.getElementById("NMIP3_SH1_legend").style.display = 'inline';
           document.getElementById("NMIP3prod_SH1_legend").style.display = 'inline';
+          document.getElementById("TRENDYv15_CRUTS410_S3_legend").style.display = 'inline';
           document.getElementById("upperbnf_legend").style.display = 'inline';
         }
         document.getElementById('Benchmark').src = 'Benchmark_' + RNAME + '_' + PNAME + '.png';
@@ -299,6 +301,8 @@
         document.getElementById('NMIP3_SH1_legend').src = 'legend_' + PNAME + '.png';
         document.getElementById('NMIP3prod_SH1').src = 'NMIP3prod_SH1_' + RNAME + '_' + PNAME + '.png';
         document.getElementById('NMIP3prod_SH1_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('TRENDYv15_CRUTS410_S3').src = 'TRENDYv15_CRUTS410_S3_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('TRENDYv15_CRUTS410_S3_legend').src = 'legend_' + PNAME + '.png';
         document.getElementById('upperbnf').src = 'upperbnf_' + RNAME + '_' + PNAME + '.png';
         document.getElementById('upperbnf_legend').src = 'legend_' + PNAME + '.png';
       }
@@ -376,6 +380,7 @@
         <option value='midbnf'>midbnf</option>
         <option value='NMIP3_SH1'>NMIP3_SH1</option>
         <option value='NMIP3prod_SH1'>NMIP3prod_SH1</option>
+        <option value='TRENDYv15_CRUTS410_S3'>TRENDYv15_CRUTS410_S3</option>
         <option value='upperbnf'>upperbnf</option>
       </select>
       </div>
@@ -497,6 +502,25 @@
                <td onclick="highlightRowMeanState(this)">0.837</td>
                <td onclick="highlightRowMeanState(this)">0.946</td>
                <td onclick="highlightRowMeanState(this)">0.661</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">TRENDYv15_CRUTS410_S3</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_TRENDYv15_CRUTS410_S3.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">138.</td>
+               <td onclick="highlightRowMeanState(this)">138.</td>
+               <td onclick="highlightRowMeanState(this)">114.</td>
+               <td onclick="highlightRowMeanState(this)">0.315</td>
+               <td onclick="highlightRowMeanState(this)"></td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.548</td>
+               <td onclick="highlightRowMeanState(this)">1.72</td>
+               <td onclick="highlightRowMeanState(this)">1.34</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.492</td>
+               <td onclick="highlightRowMeanState(this)">0.463</td>
+               <td onclick="highlightRowMeanState(this)">0.763</td>
+               <td onclick="highlightRowMeanState(this)">0.916</td>
+               <td onclick="highlightRowMeanState(this)">0.619</td>
              </tr>
              <tr>
                <td onclick="highlightRowMeanState(this)" class="row-header">upperbnf</td>
@@ -658,6 +682,7 @@
         <option value='midbnf' selected="selected">midbnf</option>
         <option value='NMIP3_SH1'>NMIP3_SH1</option>
         <option value='NMIP3prod_SH1'>NMIP3prod_SH1</option>
+        <option value='TRENDYv15_CRUTS410_S3'>TRENDYv15_CRUTS410_S3</option>
         <option value='upperbnf'>upperbnf</option>
       </select>
       </div>
@@ -677,42 +702,50 @@
              <tr>
                <td onclick="highlightRowRelationships(this)" class="row-header">baseline20260821</td>
                <td onclick="highlightRowRelationships(this)"><a href="FLUXCOM_baseline20260821.nc" download>[-]</a></td>
-               <td onclick="highlightRowRelationships(this)">0.606</td>
+               <td onclick="highlightRowRelationships(this)">0.608</td>
                <td onclick="highlightRowRelationships(this)" class="divider"></td>
-               <td onclick="highlightRowRelationships(this)">0.895</td>
-               <td onclick="highlightRowRelationships(this)">0.895</td>
+               <td onclick="highlightRowRelationships(this)">0.897</td>
+               <td onclick="highlightRowRelationships(this)">0.897</td>
              </tr>
              <tr>
                <td onclick="highlightRowRelationships(this)" class="row-header">midbnf</td>
                <td onclick="highlightRowRelationships(this)"><a href="FLUXCOM_midbnf.nc" download>[-]</a></td>
-               <td onclick="highlightRowRelationships(this)">0.601</td>
+               <td onclick="highlightRowRelationships(this)">0.603</td>
                <td onclick="highlightRowRelationships(this)" class="divider"></td>
-               <td onclick="highlightRowRelationships(this)">0.906</td>
-               <td onclick="highlightRowRelationships(this)">0.906</td>
+               <td onclick="highlightRowRelationships(this)">0.908</td>
+               <td onclick="highlightRowRelationships(this)">0.908</td>
              </tr>
              <tr>
                <td onclick="highlightRowRelationships(this)" class="row-header">NMIP3_SH1</td>
                <td onclick="highlightRowRelationships(this)"><a href="FLUXCOM_NMIP3_SH1.nc" download>[-]</a></td>
-               <td onclick="highlightRowRelationships(this)">0.604</td>
+               <td onclick="highlightRowRelationships(this)">0.606</td>
                <td onclick="highlightRowRelationships(this)" class="divider"></td>
-               <td onclick="highlightRowRelationships(this)">0.901</td>
-               <td onclick="highlightRowRelationships(this)">0.901</td>
+               <td onclick="highlightRowRelationships(this)">0.902</td>
+               <td onclick="highlightRowRelationships(this)">0.902</td>
              </tr>
              <tr>
                <td onclick="highlightRowRelationships(this)" class="row-header">NMIP3prod_SH1</td>
                <td onclick="highlightRowRelationships(this)"><a href="FLUXCOM_NMIP3prod_SH1.nc" download>[-]</a></td>
-               <td onclick="highlightRowRelationships(this)">0.602</td>
+               <td onclick="highlightRowRelationships(this)">0.604</td>
                <td onclick="highlightRowRelationships(this)" class="divider"></td>
-               <td onclick="highlightRowRelationships(this)">0.901</td>
-               <td onclick="highlightRowRelationships(this)">0.901</td>
+               <td onclick="highlightRowRelationships(this)">0.902</td>
+               <td onclick="highlightRowRelationships(this)">0.902</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowRelationships(this)" class="row-header">TRENDYv15_CRUTS410_S3</td>
+               <td onclick="highlightRowRelationships(this)"><a href="FLUXCOM_TRENDYv15_CRUTS410_S3.nc" download>[-]</a></td>
+               <td onclick="highlightRowRelationships(this)">0.421</td>
+               <td onclick="highlightRowRelationships(this)" class="divider"></td>
+               <td onclick="highlightRowRelationships(this)">0.715</td>
+               <td onclick="highlightRowRelationships(this)">0.715</td>
              </tr>
              <tr>
                <td onclick="highlightRowRelationships(this)" class="row-header">upperbnf</td>
                <td onclick="highlightRowRelationships(this)"><a href="FLUXCOM_upperbnf.nc" download>[-]</a></td>
-               <td onclick="highlightRowRelationships(this)">0.599</td>
+               <td onclick="highlightRowRelationships(this)">0.601</td>
                <td onclick="highlightRowRelationships(this)" class="divider"></td>
-               <td onclick="highlightRowRelationships(this)">0.905</td>
-               <td onclick="highlightRowRelationships(this)">0.905</td>
+               <td onclick="highlightRowRelationships(this)">0.906</td>
+               <td onclick="highlightRowRelationships(this)">0.906</td>
              </tr>
           </tbody>
         </table>
@@ -798,6 +831,13 @@
           <center>NMIP3prod_SH1</center>
           <img src="" id="NMIP3prod_SH1" alt="Data not available" ></img>
           <center><img src="legend_NMIP3prod_SH1.png" id="NMIP3prod_SH1_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="TRENDYv15_CRUTS410_S3_div">
+          <div class="child">
+          <center>TRENDYv15_CRUTS410_S3</center>
+          <img src="" id="TRENDYv15_CRUTS410_S3" alt="Data not available" ></img>
+          <center><img src="legend_TRENDYv15_CRUTS410_S3.png" id="TRENDYv15_CRUTS410_S3_legend"  alt="Data not available" ></img></center>
           </div>
         </div>
         <div class="container" id="upperbnf_div">
