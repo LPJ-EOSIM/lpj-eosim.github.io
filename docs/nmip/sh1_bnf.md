@@ -123,73 +123,85 @@ snapshot of the state spinup produced.
 
 Every confrontation on the card is scored for **all six runs** — there are no
 grey cells, and the Relationships block and section headers are shown as the
-dashboard shows them. Means over the 10 rows: **NMIP3_SH1 0.655, NMIP3prod_SH1
-0.654, baseline20260821 0.649, midbnf 0.646, upperbnf 0.644, TRENDYv15 CRU TS
-0.618.**
+dashboard shows them. Means over the 9 rows: **baseline20260821 0.662, midbnf
+0.662, NMIP3prod_SH1 0.661, upperbnf 0.660, NMIP3_SH1 0.660, TRENDYv15 CRU TS
+0.623.**
+
+**The five SH1 runs span 0.002.** They are not distinguishable on this card.
+The only robust separation is the TRENDYv15 CRU TS run sitting ~0.04 below them,
+and that is a different driver, spinup and code vintage rather than a BNF
+result.
 
 **Net Ecosystem Exchange is new here.** Every run merges `mnee` and ILAMB-Data
 ships two NEE products, but the shipped config never declared the
 confrontation, so it had been scoring nothing for anyone. It is the weakest row
 on the card for every model (0.411–0.454).
 
-**Leaf Area Index and Carbon Dioxide are excluded.** LAI ranks how much land
-each run's `mlai` definition omits rather than model skill (see below).
-Carbon Dioxide had a single source, `NOAA.Emulated`, which emulates atmospheric
-CO<sub>2</sub> from the model's `nbp` — and the NBP definitions here are not
-consistent, so it was scoring a definition difference through an emulator.
+### What was removed, and why
 
-**Four further confrontations were removed rather than left grey.** Surface Air
-Temperature, Precipitation, Soil Carbon Extended and the two LeafAreaIndex
-relationships all require the model's own `tas` and `pr`. ILAMB's
-`ConfSoilCarbon` calls `extractTimeSeries("tas")` and `("pr")` on the model, and
-the LAI relationships are declared against `Precipitation/GPCPv2.3`, so none of
-them can be computed without those fields. `mtair`, `mppt` and `mch4e` were
-never written to the SH1 runs' **binary** output — this is not a merge that was
-skipped, so it cannot be repaired without re-running LPJ with those variables in
-the output list.
+**NBP.** It was the row carrying the whole result, and it was carrying it for
+the wrong reason. With NBP in, the ordering was NMIP3_SH1 first and
+baseline20260821 third; with it out, NMIP3_SH1 is last and baseline20260821
+first, and the SH1 spread collapses from 0.012 to 0.002. NBP is also the lowest
+score on the card for every run (0.49–0.62). It is a definition difference
+before it is a model difference: the SH1 five only became comparable by
+recomputing NBP from components (above), and the TRENDYv15 run never did — it
+has neither `leachsum_cmass` nor `mharvest`, so its `mnbp` omits leaching and
+runs roughly 0.5 Pg C/yr looser. A single row that reverses the ranking and is
+not measured the same way in every run does not belong on the card. The NBP
+comparison itself is still on this page, above, where the definition is stated.
+
+**Leaf Area Index.** `mlai` covers a different set of stands in each code
+vintage, and the period means and scores order monotonically by how much land
+each definition omits. It ranks definition breadth, not skill. See below.
+
+**Carbon Dioxide.** Its only source was `NOAA.Emulated`, which emulates
+atmospheric CO<sub>2</sub> from the model's `nbp` with `force_emulation = True`.
+With the NBP definitions inconsistent, that row was scoring a definition
+difference through an emulator.
+
+**Surface Air Temperature, Precipitation, Soil Carbon Extended and the two
+LeafAreaIndex relationships** all require the model's own `tas` and `pr`.
+ILAMB's `ConfSoilCarbon` calls `extractTimeSeries("tas")` and `("pr")` on the
+model, and the LAI relationships are declared against `Precipitation/GPCPv2.3`.
+`mtair`, `mppt` and `mch4e` were never written to the SH1 runs' **binary**
+output — not a skipped merge, so it cannot be repaired without re-running LPJ
+with those variables in the output list.
 
 They could in principle be reconstructed from the CRUJRA driver, since `tas` and
-`pr` are pass-through forcing fields and ILAMB only needs 1980–2020 for them.
-That was not done: the driver's `pre` is labelled `mm/6h` on daily records and
-`tmp` carries no units attribute, so a reconstruction risks a silent factor-of-4
-error in Precipitation and in the Koven turnover-time confrontation. Scoring six
-runs on a card where only one can answer four of the rows is worse than scoring
-them on the rows they can all answer.
+`pr` are pass-through forcing and ILAMB only needs 1980–2020. That was not done:
+the driver's `pre` is labelled `mm/6h` on daily records and `tmp` carries no
+units attribute, so a reconstruction risks a silent factor-of-4 error in
+Precipitation and in the Koven turnover-time confrontation.
 
-Among the five SH1 runs the spread is small everywhere. The BNF pair takes
-Biomass, GPP and Ecosystem Respiration by small margins; the two older runs take
-NBP by a larger one.
+### What is left
 
-**None of the separating rows is a clean model-quality signal.**
+Of the nine remaining rows, spread across the five SH1 runs:
 
-- **NBP** was a definition difference; it was made comparable across the SH1
-  five by recomputing it (above). The TRENDYv15 run's NBP still is not — it has
-  neither `leachsum_cmass` nor `mharvest`, so its `mnbp` omits leaching and runs
-  roughly 0.5 Pg C/yr looser.
-- **Leaf Area Index** was a definition difference and cannot be repaired, so it
-  is no longer on the card, see below.
-- **Soil Carbon** is not a dynamic comparison. Global soil C moves by only
-  **0.5–1.2 % across 175 years** in these runs, against 18–22 % for `vegc` and
-  5–8 % for `litc`; the TRENDYv15 run is 2.1 %. ILAMB's `cSoil` confrontation
-  also takes a single year (`selyear,2000`), so it scores a spatial snapshot of
-  whatever state spinup left behind. The between-run differences (1563 to 1702
-  Pg C) are different spinup equilibria, not different responses.
+| row | spread |
+|---|---|
+| Soil Carbon | 0.054 |
+| Net Ecosystem Exchange | 0.026 |
+| Biomass | 0.017 |
+| GPP/FLUXCOM, Ecosystem Respiration | 0.011 |
+| Gross Primary Productivity | 0.007 |
+| Burned Area, Evapotranspiration, Runoff | ≤0.001 |
 
-So the overall-mean ranking should not be read as a quality ordering. On this
-set of confrontations these runs are not meaningfully distinguishable, and the
-rows that look like they distinguish them are measuring definitions and spinup
-states.
+**Soil Carbon is the largest and it is not a dynamic comparison.** Global soil C
+moves by only **0.5–1.2 % across 175 years** in these runs, against 18–22 % for
+`vegc` and 5–8 % for `litc`; the TRENDYv15 run is 2.1 %. ILAMB's `cSoil` takes a
+single year (`selyear,2000`), so it scores a spatial snapshot of whatever state
+spinup left behind, and the 1563–1702 Pg C spread between runs is different
+spinup equilibria rather than different responses. Discount it and the only row
+with real signal is NEE, at 0.026.
+
+Evapotranspiration, Burned Area and Runoff agree across the SH1 five to within
+0.001 — BNF should not move hydrology or fire, and it does not. Those rows
+separate only because the TRENDYv15 run is in the table.
 
 The TRENDYv15 run's differences: Burned Area (0.524 against 0.658), GPP (0.621
 against 0.648–0.654) and the GPP/FLUXCOM relationship (0.715 against
-0.897–0.908). Its two strongest rows on the earlier card, Leaf Area Index and
-Carbon Dioxide, were both among those removed, which is why its overall mean
-now sits below the SH1 five rather than among them.
-
-Across the five SH1 runs alone, Evapotranspiration, Burned Area and Runoff agree
-to 0.0003–0.0009 — BNF should not move hydrology or fire, and it does not. Those
-rows separate only once the TRENDYv15 run, with its different driver and code,
-joins the table.
+0.897–0.908).
 
 ## `mlai` is not the same quantity across these runs
 
