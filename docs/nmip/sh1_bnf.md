@@ -121,24 +121,34 @@ snapshot of the state spinup produced.
 
 ![ILAMB scorecard, all confrontations, six runs](../img/nmip/ilamb_scorecard.png)
 
-Every confrontation on the dashboard is shown, including the Relationships
-block and the section headers. Means over the **12 rows scored for all six
-runs**: **NMIP3_SH1 0.639, NMIP3prod_SH1 0.637, baseline20260821 0.630, midbnf
-0.627, upperbnf 0.626, TRENDYv15 CRU TS 0.620.**
-
-The overall row averages only rows every model scored. TRENDYv15 CRU TS
-additionally scores **Surface Air Temperature 0.941, Precipitation 0.846**,
-**Soil Carbon Extended 0.770** and the two **LeafAreaIndex** relationships
-(0.650, 0.700), because it merged `mtair` and `mppt` and the SH1 runs did not —
-the LAI relationships are declared against `Precipitation/GPCPv2.3`, so they
-cannot be computed without `pr`. `mtair`, `mppt` and `mch4e` were never written
-to the SH1 runs' binary output at all, so this cannot be repaired by re-merging;
-it needs a re-run.
+Every confrontation on the card is scored for **all six runs** — there are no
+grey cells, and the Relationships block and section headers are shown as the
+dashboard shows them. Means over the 12 rows: **NMIP3_SH1 0.639, NMIP3prod_SH1
+0.637, baseline20260821 0.630, midbnf 0.627, upperbnf 0.626, TRENDYv15 CRU TS
+0.620.**
 
 **Net Ecosystem Exchange is new here.** Every run merges `mnee` and ILAMB-Data
 ships two NEE products, but the shipped config never declared the
 confrontation, so it had been scoring nothing for anyone. It is the weakest row
 on the card for every model (0.411–0.454).
+
+**Four confrontations were removed rather than left grey.** Surface Air
+Temperature, Precipitation, Soil Carbon Extended and the two LeafAreaIndex
+relationships all require the model's own `tas` and `pr`. ILAMB's
+`ConfSoilCarbon` calls `extractTimeSeries("tas")` and `("pr")` on the model, and
+the LAI relationships are declared against `Precipitation/GPCPv2.3`, so none of
+them can be computed without those fields. `mtair`, `mppt` and `mch4e` were
+never written to the SH1 runs' **binary** output — this is not a merge that was
+skipped, so it cannot be repaired without re-running LPJ with those variables in
+the output list.
+
+They could in principle be reconstructed from the CRUJRA driver, since `tas` and
+`pr` are pass-through forcing fields and ILAMB only needs 1980–2020 for them.
+That was not done: the driver's `pre` is labelled `mm/6h` on daily records and
+`tmp` carries no units attribute, so a reconstruction risks a silent factor-of-4
+error in Precipitation and in the Koven turnover-time confrontation. Scoring six
+runs on a card where only one can answer four of the rows is worse than scoring
+them on the rows they can all answer.
 
 Among the five SH1 runs the spread is small everywhere. The BNF pair takes
 Biomass, GPP and Ecosystem Respiration by small margins; the two older runs take
@@ -164,10 +174,9 @@ set of confrontations these runs are not meaningfully distinguishable, and the
 rows that look like they distinguish them are measuring definitions and spinup
 states.
 
-The TRENDYv15 run's genuine differences are elsewhere: Burned Area (0.524
-against 0.658), GPP (0.621 against 0.648–0.654), the GPP/FLUXCOM relationship
-(0.715 against 0.897–0.908) and Carbon Dioxide (0.720 against 0.602–0.610),
-which is its largest gain.
+The TRENDYv15 run's differences: Burned Area (0.524 against 0.658), GPP (0.621
+against 0.648–0.654), the GPP/FLUXCOM relationship (0.715 against 0.897–0.908)
+and Carbon Dioxide (0.720 against 0.602–0.610), which is its largest gain.
 
 Across the five SH1 runs alone, Evapotranspiration, Burned Area and Runoff agree
 to 0.0003–0.0009 — BNF should not move hydrology or fire, and it does not. Those
@@ -240,11 +249,10 @@ Unlike NBP, this cannot be repaired after the fact: the cropland contribution
 was never written to the older runs' output. **The LAI row should be read as a
 definition difference, not a model difference.**
 
-**Three confrontations score for the TRENDYv15 run only** — Surface Air
-Temperature, Precipitation and Soil Carbon Extended — because it merged `mtair`
-and `mppt` and the SH1 runs did not. They are excluded from the overall mean.
 `mch4e` is absent everywhere, so there is no CH₄ confrontation. The five SH1
-runs each formatted to an identical 12-variable set; the TRENDYv15 run to 14.
+runs each formatted to an identical 12-variable set; the TRENDYv15 run to 14,
+the extra two being the `tas` and `pr` that made the removed confrontations
+scoreable for it alone.
 
 ## Caveats
 
