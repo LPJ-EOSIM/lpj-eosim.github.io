@@ -123,16 +123,22 @@ snapshot of the state spinup produced.
 
 Every confrontation on the card is scored for **all six runs** — there are no
 grey cells, and the Relationships block and section headers are shown as the
-dashboard shows them. Means over the 12 rows: **NMIP3_SH1 0.639, NMIP3prod_SH1
-0.637, baseline20260821 0.630, midbnf 0.627, upperbnf 0.626, TRENDYv15 CRU TS
-0.620.**
+dashboard shows them. Means over the 10 rows: **NMIP3_SH1 0.655, NMIP3prod_SH1
+0.654, baseline20260821 0.649, midbnf 0.646, upperbnf 0.644, TRENDYv15 CRU TS
+0.618.**
 
 **Net Ecosystem Exchange is new here.** Every run merges `mnee` and ILAMB-Data
 ships two NEE products, but the shipped config never declared the
 confrontation, so it had been scoring nothing for anyone. It is the weakest row
 on the card for every model (0.411–0.454).
 
-**Four confrontations were removed rather than left grey.** Surface Air
+**Leaf Area Index and Carbon Dioxide are excluded.** LAI ranks how much land
+each run's `mlai` definition omits rather than model skill (see below).
+Carbon Dioxide had a single source, `NOAA.Emulated`, which emulates atmospheric
+CO<sub>2</sub> from the model's `nbp` — and the NBP definitions here are not
+consistent, so it was scoring a definition difference through an emulator.
+
+**Four further confrontations were removed rather than left grey.** Surface Air
 Temperature, Precipitation, Soil Carbon Extended and the two LeafAreaIndex
 relationships all require the model's own `tas` and `pr`. ILAMB's
 `ConfSoilCarbon` calls `extractTimeSeries("tas")` and `("pr")` on the model, and
@@ -152,7 +158,7 @@ them on the rows they can all answer.
 
 Among the five SH1 runs the spread is small everywhere. The BNF pair takes
 Biomass, GPP and Ecosystem Respiration by small margins; the two older runs take
-NBP and Leaf Area Index by larger ones.
+NBP by a larger one.
 
 **None of the separating rows is a clean model-quality signal.**
 
@@ -160,8 +166,8 @@ NBP and Leaf Area Index by larger ones.
   five by recomputing it (above). The TRENDYv15 run's NBP still is not — it has
   neither `leachsum_cmass` nor `mharvest`, so its `mnbp` omits leaching and runs
   roughly 0.5 Pg C/yr looser.
-- **Leaf Area Index** is a definition difference and cannot be repaired, see
-  below.
+- **Leaf Area Index** was a definition difference and cannot be repaired, so it
+  is no longer on the card, see below.
 - **Soil Carbon** is not a dynamic comparison. Global soil C moves by only
   **0.5–1.2 % across 175 years** in these runs, against 18–22 % for `vegc` and
   5–8 % for `litc`; the TRENDYv15 run is 2.1 %. ILAMB's `cSoil` confrontation
@@ -175,8 +181,10 @@ rows that look like they distinguish them are measuring definitions and spinup
 states.
 
 The TRENDYv15 run's differences: Burned Area (0.524 against 0.658), GPP (0.621
-against 0.648–0.654), the GPP/FLUXCOM relationship (0.715 against 0.897–0.908)
-and Carbon Dioxide (0.720 against 0.602–0.610), which is its largest gain.
+against 0.648–0.654) and the GPP/FLUXCOM relationship (0.715 against
+0.897–0.908). Its two strongest rows on the earlier card, Leaf Area Index and
+Carbon Dioxide, were both among those removed, which is why its overall mean
+now sits below the SH1 five rather than among them.
 
 Across the five SH1 runs alone, Evapotranspiration, Burned Area and Runoff agree
 to 0.0003–0.0009 — BNF should not move hydrology or fire, and it does not. Those
@@ -246,8 +254,9 @@ pre-existing high bias of roughly +1.0 LAI unit. The old runs' better LAI score
 is a compensating error, not better agreement.
 
 Unlike NBP, this cannot be repaired after the fact: the cropland contribution
-was never written to the older runs' output. **The LAI row should be read as a
-definition difference, not a model difference.**
+was never written to the older runs' output. **The LAI confrontation has
+therefore been removed from the card** — the scores quoted above are from the
+earlier run that still carried it, and are kept here as the evidence for why.
 
 `mch4e` is absent everywhere, so there is no CH₄ confrontation. The five SH1
 runs each formatted to an identical 12-variable set; the TRENDYv15 run to 14,
