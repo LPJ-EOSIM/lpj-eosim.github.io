@@ -104,6 +104,12 @@ Only three rows separate these runs at all — **NBP (spread 0.123), Soil Carbon
 Ecosystem Respiration by small margins; the two older runs take NBP, Soil
 Carbon and LAI by larger ones, which is what drives their higher overall mean.
 
+**Two of those three rows are not like-for-like.** NBP was made comparable by
+recomputing it (above). LAI cannot be — `mlai` means a different thing in the
+two code vintages, see below. That leaves **Soil Carbon as the only row that
+cleanly separates these runs**, and the overall-mean ranking should not be read
+as a quality ordering.
+
 Evapotranspiration, Burned Area and Runoff separate the models by 0.0003–0.0009
 and are shown as ties rather than shaded, so that a spread of essentially zero
 does not render as a large difference. BNF should not move hydrology or fire,
@@ -113,6 +119,58 @@ All five NBPs use the single definition above, so that row is a like-for-like
 comparison. It still carries the harvest caveat: `mharvest` is zero in both
 older runs, so their NBP and Soil Carbon advantage may be the harvest routing
 rather than better physics.
+
+## `mlai` is not the same quantity across these runs
+
+![Global leaf area, showing the mlai definition split](../img/nmip/mlai_definition_split.png)
+
+The older runs compute gridcell LAI over a different set of stands. In
+`update_daily.c`, `update_pft_outputs_daily` early-returns on a negative slot,
+and `mlai` is accumulated *after* that return:
+
+```c
+/* older code (NMIP3prod_SH1, NMIP3_SH1) */
+static int pft_output_slot(const Stand *stand, const Pft *pft, int npft) {
+    if (stand->landusetype == GRASSLAND)
+        return npft + (stand->irrigation ? NGRASS : 0);
+    if (stand->landusetype == AGRICULTURE || pft->par->id >= npft)
+        return -1;                    /* caller: if (slot < 0) return; */
+    return pft->par->id;
+}
+
+/* fix_harvest code — no stand test at all */
+static int pft_output_slot(const Pft *pft, int npft, int month) {
+    return pft->par->id < npft ? (month * npft) + pft->par->id : -1;
+}
+```
+
+So **the older runs omit AGRICULTURE stands from `mlai` entirely, and the
+`fix_harvest` runs count every stand.** The `lai_day` expression and the
+`fpc * stand->frac / ndaysmonth` weighting are byte-identical between the two —
+only the set of stands reaching the accumulation differs.
+
+The data carries the signature: global leaf area agrees to **+0.4 % in 1850**,
+when there is almost no cropland, then diverges monotonically to **+5.7 % by
+1975** as cropland expands, and holds there.
+
+This is what the ILAMB LAI row is measuring. Every run is biased high against
+both satellite products, and the more complete definition is biased higher
+still:
+
+| vs AVH15C1 | midbnf | upperbnf | 20260821 | NMIP3prod_SH1 | NMIP3_SH1 |
+|---|---|---|---|---|---|
+| period mean | 2.366 | 2.281 | 2.397 | 2.216 | 2.230 |
+| bias | +1.148 | +1.063 | +1.179 | +0.998 | +1.012 |
+| LAI score | 0.461 | 0.468 | 0.463 | 0.505 | 0.504 |
+
+Satellite LAI includes cropland, so the `fix_harvest` definition is the correct
+one — yet it scores worse. Omitting cropland was masking part of a large
+pre-existing high bias of roughly +1.0 LAI unit. The old runs' better LAI score
+is a compensating error, not better agreement.
+
+Unlike NBP, this cannot be repaired after the fact: the cropland contribution
+was never written to the older runs' output. **The LAI row should be read as a
+definition difference, not a model difference.**
 
 **Three confrontations scored for no model**, so no run is penalised relative to
 another: Surface Air Temperature and Precipitation need `mtair`/`mppt`, which
@@ -135,6 +193,11 @@ NetCDF attributes. They are nitrogen. They are treated as g N here.
 
 **Per-PFT output was not merged** for these runs, so PFT- and stand-level
 members of the registry groups are absent from the budget figures.
+
+**Two variables mean different things across code vintages** and are not
+comparable between the `fix_harvest` runs and the older two: `mharvest`/
+`mnharvest` (zero in the older runs) and `mlai` (cropland omitted in the older
+runs). Both are documented above.
 
 ## Reproducing
 
