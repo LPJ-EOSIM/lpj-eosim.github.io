@@ -62,6 +62,8 @@ nav:
       - "ILAMB benchmarking (S3)": trendyv15/ilamb.md
       - "NBP & O₂/N₂ constraint": trendyv15/nbp.md
       - "Stocks & fluxes by scenario (S0–S6)": trendyv15/scenarios.md
+  - NMIP:
+      - "SH1: BNF sensitivity, C & N budgets, ILAMB": nmip/sh1_bnf.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
       - "SPITFIRE integration - pr 421": results/spitfire.md
