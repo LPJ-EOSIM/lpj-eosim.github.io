@@ -35,9 +35,9 @@
             head      = head.replace("CNAME",CNAME).replace("RNAME",RNAME).replace("MNAME",MNAME);
             $("#MeanStateHead").text(head);
             
+          document.getElementById('benchmark_timeint').src =  'Benchmark_global_timeint.png'
           document.getElementById('timeint').src =  MNAME + '_global_timeint.png'
           document.getElementById('rel_tas').src =  MNAME + '_' + RNAME + '_rel_tas.png'
-          document.getElementById('benchmark_timeint').src =  'Benchmark_global_timeint.png'
         }
 
         function highlightRowMeanState(cell) {
@@ -45,7 +45,7 @@
             for (var i = 0; i < select.length; i++){
                 var table = document.getElementById("MeanState_table_" + select.options[i].value);
                 var rows  = table.getElementsByTagName("tr");
-                for (var r = 1; r < rows.length; r++) {
+                for (var r = 2; r < rows.length; r++) {
                     for (var c = 0; c < rows[r].cells.length-4; c++) {
                         rows[r].cells[c].style.backgroundColor = "#ffffff";
                     }
@@ -69,21 +69,21 @@
             var rows   = table.getElementsByTagName("tr");
             for (var c = rows[0].cells.length-3; c < rows[0].cells.length; c++) {
                 var scores = [];
-                for (var r = 1; r < rows.length; r++) {
+                for (var r = 2; r < rows.length; r++) {
                     val = rows[r].cells[c].innerHTML;
                     if (val=="") {
-                      scores[r-1] = 0;
+                      scores[r-2] = 0;
                     }else{
-                      scores[r-1] = parseFloat(val);
+                      scores[r-2] = parseFloat(val);
                     }
                 }
                 var mean = math.mean(scores);
                 var std  = math.max(0.02,math.std(scores));
-                for (var r = 1; r < rows.length; r++) {
-                    scores[r-1] = Math.min(+2,Math.max(-2,(scores[r-1]-mean)/std));
+                for (var r = 2; r < rows.length; r++) {
+                    scores[r-2] = Math.min(+2,Math.max(-2,(scores[r-2]-mean)/std));
                 }
-                for (var r = 1; r < rows.length; r++) {
-		    var e  = scores[r-1];
+                for (var r = 2; r < rows.length; r++) {
+		    var e  = scores[r-2];
                     var ae = Math.abs(e);
                     var clr;
                     if(ae >= 0.25){
@@ -113,7 +113,7 @@
                     if(rows[r].cells[0].innerHTML==model) highlightRowMeanState(rows[r].cells[0]);
                 }
             }else{
-                highlightRowMeanState(rows[1]);
+                highlightRowMeanState(rows[2]);
             }
             for (var i = 0; i < select.length; i++){
                 paintScoreCellsMeanState(select.options[i].value);
@@ -149,10 +149,14 @@
           document.getElementById("Benchmark_div").style.display = 'inline';
         }
         if(PNAME == "timeint" || PNAME == "rel_tas"){
+          document.getElementById("Benchmark_legend").style.display = 'none';
           document.getElementById("TRENDYv15_CRUTS410_S3_legend").style.display = 'none';
         }else{
+          document.getElementById("Benchmark_legend").style.display = 'inline';
           document.getElementById("TRENDYv15_CRUTS410_S3_legend").style.display = 'inline';
         }
+        document.getElementById('Benchmark').src = 'Benchmark_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('Benchmark_legend').src = 'legend_' + PNAME + '.png';
         document.getElementById('TRENDYv15_CRUTS410_S3').src = 'TRENDYv15_CRUTS410_S3_' + RNAME + '_' + PNAME + '.png';
         document.getElementById('TRENDYv15_CRUTS410_S3_legend').src = 'legend_' + PNAME + '.png';
       }
@@ -224,7 +228,8 @@
       </select>
       <div style="display:none">
       <select id="MeanStateModel">
-        <option value='TRENDYv15_CRUTS410_S3'>TRENDYv15_CRUTS410_S3</option>
+        <option value='Benchmark'>Benchmark</option>
+        <option value='TRENDYv15_CRUTS410_S3' selected="selected">TRENDYv15_CRUTS410_S3</option>
       </select>
       </div>
         <center>
@@ -244,6 +249,17 @@
            </thead>
            <tbody>
              <tr>
+               <td class="row-header">Benchmark</td>
+               <td><a href="Koven_Benchmark.nc" download>[-]</a></td>
+               <td>3.89</td>
+               <td>1.83</td>
+               <td>1.04</td>
+               <td class="divider"></td>
+               <td></td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
                <td onclick="highlightRowMeanState(this)" class="row-header">TRENDYv15_CRUTS410_S3</td>
                <td onclick="highlightRowMeanState(this)"><a href="Koven_TRENDYv15_CRUTS410_S3.nc" download>[-]</a></td>
                <td onclick="highlightRowMeanState(this)">1.70</td>
@@ -258,16 +274,16 @@
         </table>
         </center>
         <div data-role="collapsible" data-collapsed="false"><h1>Temporally integrated period mean</h1>
-        <div class="container" id="rel_tas_div">
-          <div class="child">
-          <center>MODEL</center>
-          <img src="" id="rel_tas" alt="Data not available" ></img>
-          </div>
-        </div>
         <div class="container" id="benchmark_timeint_div">
           <div class="child">
           <center>BENCHMARK</center>
           <img src="" id="benchmark_timeint" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="rel_tas_div">
+          <div class="child">
+          <center>MODEL</center>
+          <img src="" id="rel_tas" alt="Data not available" ></img>
           </div>
         </div>
         <div class="container" id="timeint_div">
@@ -295,7 +311,14 @@
       <select id="AllModelsPlot" onchange="AllSelect()">
         <option value='timeint' selected="selected">Temporally integrated period mean</option>
         <option value='rel_tas'>Relationship with tas</option>
-      </select><div id="Benchmark_div"></div>
+      </select>
+        <div class="container" id="Benchmark_div">
+          <div class="child">
+          <center>Benchmark</center>
+          <img src="" id="Benchmark" alt="Data not available" ></img>
+          <center><img src="legend_Benchmark.png" id="Benchmark_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
         <div class="container" id="TRENDYv15_CRUTS410_S3_div">
           <div class="child">
           <center>TRENDYv15_CRUTS410_S3</center>

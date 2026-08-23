@@ -97,46 +97,82 @@ NBP curves nearly coincide despite one group missing a 3 Pg C/yr term, and it
 means old-vs-new comparisons are not like-for-like in mechanism even where the
 totals agree.
 
+## Soil carbon barely moves
+
+Global soil carbon is close to inert in all of these runs. Over 1850-2024:
+
+| pool | SH1 runs, range as % of mean | TRENDYv15 CRU TS |
+|---|---|---|
+| `soilc` | **0.5 – 1.2 %** | 2.1 % |
+| `litc` | 5 – 8 % | 6.5 % |
+| `vegc` | 18 – 22 % | 17.7 % |
+
+Vegetation carbon loses ~80 Pg C over the historical period and litter tracks
+it, but soil carbon moves by under 20 Pg C on a ~1600 Pg C pool while land use,
+climate and CO<sub>2</sub> all change. The absolute levels differ a lot between
+runs (1563 to 1702 Pg C for the SH1 five, 1290 for TRENDYv15) but those are
+spinup equilibria rather than responses.
+
+This is why the ILAMB Soil Carbon row should not be read as a discriminator:
+`cSoil` is scored from a single year (`selyear,2000`), so it compares a spatial
+snapshot of the state spinup produced.
+
 ## ILAMB benchmarking
 
-![ILAMB scorecard for the five SH1 runs and TRENDYv15 CRU TS](../img/nmip/ilamb_scorecard.png)
+![ILAMB scorecard, all confrontations, six runs](../img/nmip/ilamb_scorecard.png)
 
-Ten confrontations are scored for all six runs. Means over those shared rows:
-**NMIP3_SH1 0.635, NMIP3prod_SH1 0.632, TRENDYv15 CRU TS 0.627,
-baseline20260821 0.623, midbnf 0.618, upperbnf 0.617.**
+Every confrontation on the dashboard is shown, including the Relationships
+block and the section headers. Means over the **12 rows scored for all six
+runs**: **NMIP3_SH1 0.639, NMIP3prod_SH1 0.637, baseline20260821 0.630, midbnf
+0.627, upperbnf 0.626, TRENDYv15 CRU TS 0.620.**
 
 The overall row averages only rows every model scored. TRENDYv15 CRU TS
-additionally scores **Surface Air Temperature 0.941, Precipitation 0.846** and
-**Soil Carbon Extended 0.770**, because it merged `mtair` and `mppt` and the SH1
-runs did not. Averaging each column over whatever it happens to carry would
-reward it for having more confrontations rather than for agreeing better.
+additionally scores **Surface Air Temperature 0.941, Precipitation 0.846**,
+**Soil Carbon Extended 0.770** and the two **LeafAreaIndex** relationships
+(0.650, 0.700), because it merged `mtair` and `mppt` and the SH1 runs did not —
+the LAI relationships are declared against `Precipitation/GPCPv2.3`, so they
+cannot be computed without `pr`. `mtair`, `mppt` and `mch4e` were never written
+to the SH1 runs' binary output at all, so this cannot be repaired by re-merging;
+it needs a re-run.
 
-Among the five SH1 runs, only three rows separate them at all — **NBP (spread
-0.123), Soil Carbon (0.054) and Leaf Area Index (0.044)**. The BNF pair takes
+**Net Ecosystem Exchange is new here.** Every run merges `mnee` and ILAMB-Data
+ships two NEE products, but the shipped config never declared the
+confrontation, so it had been scoring nothing for anyone. It is the weakest row
+on the card for every model (0.411–0.454).
+
+Among the five SH1 runs the spread is small everywhere. The BNF pair takes
 Biomass, GPP and Ecosystem Respiration by small margins; the two older runs take
-NBP, Soil Carbon and LAI by larger ones.
+NBP and Leaf Area Index by larger ones.
 
-**Two of those three rows are not like-for-like.** NBP was made comparable
-across the SH1 five by recomputing it (above). LAI cannot be — `mlai` means a
-different thing in each code vintage, see below. That leaves **Soil Carbon as
-the only row that cleanly separates these runs**, and the overall-mean ranking
-should not be read as a quality ordering. Even Soil Carbon carries the harvest
-caveat: `mharvest` is zero in both older runs, so their advantage there may be
-the harvest routing rather than better physics.
+**None of the separating rows is a clean model-quality signal.**
 
-The TRENDYv15 run brings its own two caveats. Its `mnbp` is the pipeline default
-— harvest subtracted, **leaching not** — because it has neither `leachsum_cmass`
-nor `mharvest`, so its NBP is roughly 0.5 Pg C/yr looser than the SH1
-definition and cannot be reconciled after the fact. And it is a third `mlai`
-definition again. Its Burned Area (0.524 against 0.658) and GPP (0.621 against
-0.648–0.654) are genuine differences; its Carbon Dioxide (0.720 against
-0.602–0.610) is the largest gain.
+- **NBP** was a definition difference; it was made comparable across the SH1
+  five by recomputing it (above). The TRENDYv15 run's NBP still is not — it has
+  neither `leachsum_cmass` nor `mharvest`, so its `mnbp` omits leaching and runs
+  roughly 0.5 Pg C/yr looser.
+- **Leaf Area Index** is a definition difference and cannot be repaired, see
+  below.
+- **Soil Carbon** is not a dynamic comparison. Global soil C moves by only
+  **0.5–1.2 % across 175 years** in these runs, against 18–22 % for `vegc` and
+  5–8 % for `litc`; the TRENDYv15 run is 2.1 %. ILAMB's `cSoil` confrontation
+  also takes a single year (`selyear,2000`), so it scores a spatial snapshot of
+  whatever state spinup left behind. The between-run differences (1563 to 1702
+  Pg C) are different spinup equilibria, not different responses.
+
+So the overall-mean ranking should not be read as a quality ordering. On this
+set of confrontations these runs are not meaningfully distinguishable, and the
+rows that look like they distinguish them are measuring definitions and spinup
+states.
+
+The TRENDYv15 run's genuine differences are elsewhere: Burned Area (0.524
+against 0.658), GPP (0.621 against 0.648–0.654), the GPP/FLUXCOM relationship
+(0.715 against 0.897–0.908) and Carbon Dioxide (0.720 against 0.602–0.610),
+which is its largest gain.
 
 Across the five SH1 runs alone, Evapotranspiration, Burned Area and Runoff agree
 to 0.0003–0.0009 — BNF should not move hydrology or fire, and it does not. Those
-rows only separate once the TRENDYv15 run, with its different driver and code,
+rows separate only once the TRENDYv15 run, with its different driver and code,
 joins the table.
-
 
 ## `mlai` is not the same quantity across these runs
 
@@ -226,6 +262,10 @@ NetCDF attributes. They are nitrogen. They are treated as g N here.
 **Per-PFT output was not merged** for these runs, so PFT- and stand-level
 members of the registry groups are absent from the budget figures.
 
+**Soil carbon is effectively static** in every run here (see above), so
+neither the budget panels nor the ILAMB Soil Carbon row say much about soil
+carbon response.
+
 **Two variables mean different things across code vintages** and are not
 comparable between the `fix_harvest` runs and the older two: `mharvest`/
 `mnharvest` (zero in the older runs) and `mlai` (cropland omitted in the older
@@ -236,8 +276,8 @@ runs). Both are documented above.
 ILAMB inputs are staged as symlinks per run with a consistently rebuilt `mnbp`,
 so nothing is written into the run directories — `NMIP3prod_SH1` and the
 upperbnf run are registry-published. Scripts live in
-`scratch/tc229954e/ilamb_sh1_20260823/code/`: `prep_ilamb_inputs.py`,
-`run_ilamb.sh`, `plot_ilamb_landing.py` and the patched `ilamb_sh1.cfg`. The
+`scratch/tc229954e/ilamb_sh1_20260823_full/code/`: `prep_ilamb_inputs.py`,
+`run_ilamb.sh`, `plot_ilamb_landing.py` and the local `ilamb_sh1.cfg`, which adds the NEE confrontation and the `vegc,cVeg` fix. The
 budget figures come from `plot_sh1_n2o_nbp.py` and `plot_c_n_budget.py` in the
 midbnf run's `code/` directory.
 
