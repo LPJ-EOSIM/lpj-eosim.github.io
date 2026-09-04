@@ -48,6 +48,33 @@ move; that would need the kind of source-level diff the
 [BNF page](sh1_bnf.md#the-harvest-bug-is-visible-in-these-panels) did for the
 harvest bug.
 
+## Biomass in detail
+
+The composite score (0.647 → 0.685) hides a much bigger move underneath it:
+**global vegetation carbon drops by ~88–90 Pg C (~18%)** with the permafrost
+fix, consistent across all four independent obs products in the
+confrontation. The fix-spitfire step alone only trims ~2%; the permafrost fix
+does essentially all of it, in one step:
+
+| dataset | model, base (Pg C) | model, +spitfire (Pg C) | model, +spitfire+permafrost (Pg C) | bias, base → fixed (kg m⁻²) | spatial score, base → fixed |
+|---|---|---|---|---|---|
+| ESACCI | 495.7 | 486.9 | 407.9 | +0.79 → +0.14 | 0.885 → 0.909 |
+| Saatchi | 486.0 | 476.8 | 398.3 | −0.68 → **−0.90** | 0.880 → 0.879 |
+| Thurner | 488.1 | 479.1 | 400.4 | +0.52 → **−1.08** | 0.663 → **0.879** |
+| XuSaatchi | 495.0 | 486.0 | 407.1 | +0.18 → −0.47 | 0.896 → 0.907 |
+
+Obs values are unchanged between runs — this is a real model shift, not a
+benchmark artifact. It is not a clean bias correction: ESACCI and XuSaatchi
+were overestimating and move toward zero bias, but Saatchi and Thurner
+overshoot *past* zero into underestimate, with Saatchi's bias magnitude
+getting worse. The score improves for all four anyway — most sharply for
+Thurner (+0.14) — because the **Spatial Distribution Score** jumps for every
+dataset. That score component compares the spatial *pattern*, not the global
+total, so the fix is reshaping *where* vegetation carbon sits (pulled out of
+high-latitude/permafrost zones is the natural read, though this page does not
+trace the mechanism) closer to the observed pattern, even as the global total
+now runs low against two of the four products.
+
 ## What's missing from the card
 
 Same three rows as the BNF/budget SH1 page, and for the same reason: **Soil
