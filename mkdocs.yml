@@ -64,6 +64,7 @@ nav:
       - "Stocks & fluxes by scenario (S0–S6)": trendyv15/scenarios.md
   - NMIP:
       - "SH1: BNF sensitivity, C & N budgets, ILAMB": nmip/sh1_bnf.md
+      - "SH1: fix-spitfire / fix-permafrost ILAMB comparison": nmip/sh1_fixes_ilamb.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
       - "SPITFIRE integration - pr 421": results/spitfire.md

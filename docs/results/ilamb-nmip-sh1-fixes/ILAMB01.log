@@ -1,0 +1,395 @@
+[INFO][0][<module>] Linux hggpu9-1 4.18.0-553.8.1.el8_10.x86_64 #1 SMP Tue Jul 2 17:10:26 UTC 2024 x86_64 x86_64
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB (2.7.3)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/numpy (2.4.6)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/matplotlib (3.10.9)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/netCDF4 (1.7.4)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/cf_units (3.3.1)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/sympy (1.14.0)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/mpi4py (4.1.2)
+[INFO][0][<module>] 2026-09-04 14:21:03.382398
+[INFO][4][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][4][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][4][confront][EcosystemRespiration/FLUXNET2015][NMIP3prod_SH1_base] Success
+[INFO][4][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][4][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][4][confront][EcosystemRespiration/FLUXNET2015][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][5][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][5][confront][SoilCarbon/NCSCDV22][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][4][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][4][confront][EcosystemRespiration/FLUXNET2015][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][NMIP3prod_SH1_base] Success
+[INFO][5][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][5][confront][SoilCarbon/NCSCDV22][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][confront][Biomass/XuSaatchi][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][2][confront][GrossPrimaryProductivity/WECANN][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Thurner][NMIP3prod_SH1_base] Success
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][confront][Biomass/XuSaatchi][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][NMIP3prod_SH1_base] Success
+[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Thurner][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXNET2015][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][6][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][6][confront][Evapotranspiration/MOD16A2][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Thurner][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][MakeComparable][Biomass/ESACCI][NMIP3prod_SH1_base] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 281 720]
+[INFO][4][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/ESACCI][NMIP3prod_SH1_base] Success
+[INFO][0][MakeComparable][Biomass/ESACCI][NMIP3prod_SH1_fix_spitfire] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 281 720]
+[INFO][4][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][4][confront][EcosystemRespiration/FLUXCOM][NMIP3prod_SH1_base] Success
+[INFO][7][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/ESACCI][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][MakeComparable][Biomass/ESACCI][NMIP3prod_SH1_fix_spitfire_permafrost] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 281 720]
+[INFO][5][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][7][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][7][confront][Runoff/LORA][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][6][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][6][confront][Evapotranspiration/MOD16A2][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][5][confront][Evapotranspiration/GLEAMv3.3a][NMIP3prod_SH1_base] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
+[INFO][0][confront][Biomass/ESACCI][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][confront][LeafAreaIndex/AVH15C1][NMIP3prod_SH1_base] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXCOM][NMIP3prod_SH1_base] Success
+[INFO][7][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/XuSaatchi][NMIP3prod_SH1_base] Success
+[INFO][7][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][7][confront][Runoff/CLASS][NMIP3prod_SH1_base] Success
+[INFO][4][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][4][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][4][confront][EcosystemRespiration/FLUXCOM][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][6][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][6][confront][BurnedArea/GFED4.1S][NMIP3prod_SH1_base] Success
+[INFO][7][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][7][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][7][confront][Runoff/CLASS][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
+[INFO][2][confront][LeafAreaIndex/AVH15C1][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXCOM][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][5][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][5][confront][Evapotranspiration/GLEAMv3.3a][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][7][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][7][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][7][confront][Runoff/CLASS][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][6][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[DEBUG][7][extractTimeSeries][NMIP3prod_SH1_base] Could not find [tas] in the model results
+[DEBUG][7][WorkConfront][SurfaceAirTemperature/CRU4.02][NMIP3prod_SH1_base]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][4][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][4][confront][EcosystemRespiration/FLUXCOM][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[DEBUG][7][extractTimeSeries][NMIP3prod_SH1_fix_spitfire] Could not find [tas] in the model results
+[DEBUG][7][WorkConfront][SurfaceAirTemperature/CRU4.02][NMIP3prod_SH1_fix_spitfire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][6][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][6][confront][BurnedArea/GFED4.1S][NMIP3prod_SH1_fix_spitfire] Success
+[DEBUG][7][extractTimeSeries][NMIP3prod_SH1_fix_spitfire_permafrost] Could not find [tas] in the model results
+[DEBUG][7][WorkConfront][SurfaceAirTemperature/CRU4.02][NMIP3prod_SH1_fix_spitfire_permafrost]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][4][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][4][confront][SoilCarbon/HWSD][NMIP3prod_SH1_base] Success
+[DEBUG][7][extractTimeSeries][NMIP3prod_SH1_base] Could not find [pr] in the model results
+[DEBUG][7][WorkConfront][Precipitation/GPCPv2.3][NMIP3prod_SH1_base]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][4][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][4][confront][SoilCarbon/HWSD][NMIP3prod_SH1_fix_spitfire] Success
+[DEBUG][7][extractTimeSeries][NMIP3prod_SH1_fix_spitfire] Could not find [pr] in the model results
+[DEBUG][7][WorkConfront][Precipitation/GPCPv2.3][NMIP3prod_SH1_fix_spitfire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][4][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][4][confront][SoilCarbon/HWSD][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[DEBUG][7][extractTimeSeries][NMIP3prod_SH1_fix_spitfire_permafrost] Could not find [pr] in the model results
+[DEBUG][7][WorkConfront][Precipitation/GPCPv2.3][NMIP3prod_SH1_fix_spitfire_permafrost]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][4][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][4][confront][SoilCarbon/NCSCDV22][NMIP3prod_SH1_base] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/FLUXCOM][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
+[INFO][2][confront][LeafAreaIndex/AVH15C1][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][6][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][6][confront][BurnedArea/GFED4.1S][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][5][confront][Evapotranspiration/GLEAMv3.3a][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/WECANN][NMIP3prod_SH1_base] Success
+[INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
+[INFO][2][confront][LeafAreaIndex/MODIS][NMIP3prod_SH1_base] Success
+[INFO][1][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][1][confront][GrossPrimaryProductivity/WECANN][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][5][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
+[INFO][2][confront][LeafAreaIndex/MODIS][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][5][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][5][confront][Evapotranspiration/MODIS][NMIP3prod_SH1_base] Success
+[INFO][2][AnalysisMeanStateSpace][lai] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][lai] RMSE scored using Collier2018
+[INFO][2][confront][LeafAreaIndex/MODIS][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][5][confront][Evapotranspiration/MODIS][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][5][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][5][confront][Evapotranspiration/MODIS][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][5][confront][Evapotranspiration/MOD16A2][NMIP3prod_SH1_base] Success
+[DEBUG][3][extractTimeSeries][NMIP3prod_SH1_base] Could not find [tas,TSA] in the model results
+[DEBUG][3][WorkConfront][SoilCarbonExtended/Koven][NMIP3prod_SH1_base]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfSoilCarbon.py", line 132, in confront
+    m.extractTimeSeries("tas", alt_vars=["TSA"], initial_time=t0, final_time=tf)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][6][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][6][confront][Runoff/LORA][NMIP3prod_SH1_base] Success
+[DEBUG][3][extractTimeSeries][NMIP3prod_SH1_fix_spitfire] Could not find [tas,TSA] in the model results
+[DEBUG][3][WorkConfront][SoilCarbonExtended/Koven][NMIP3prod_SH1_fix_spitfire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfSoilCarbon.py", line 132, in confront
+    m.extractTimeSeries("tas", alt_vars=["TSA"], initial_time=t0, final_time=tf)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][3][extractTimeSeries][NMIP3prod_SH1_fix_spitfire_permafrost] Could not find [tas,TSA] in the model results
+[DEBUG][3][WorkConfront][SoilCarbonExtended/Koven][NMIP3prod_SH1_fix_spitfire_permafrost]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfSoilCarbon.py", line 132, in confront
+    m.extractTimeSeries("tas", alt_vars=["TSA"], initial_time=t0, final_time=tf)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][6][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][6][confront][Runoff/LORA][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][NMIP3prod_SH1_base] Success
+[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][modelPlots][Biomass/Saatchi][NMIP3prod_SH1_base] Success
+[INFO][1][modelPlots][Biomass/XuSaatchi][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][modelPlots][Biomass/Saatchi][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][5][modelPlots][SoilCarbon/NCSCDV22][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXNET2015][NMIP3prod_SH1_base] Success
+[INFO][0][modelPlots][Biomass/Saatchi][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][7][modelPlots][Runoff/LORA][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][modelPlots][GrossPrimaryProductivity/WECANN][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][modelPlots][SoilCarbon/NCSCDV22][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][1][modelPlots][Biomass/XuSaatchi][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][6][modelPlots][Evapotranspiration/MOD16A2][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][modelPlots][Biomass/Thurner][NMIP3prod_SH1_base] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXNET2015][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][modelPlots][Biomass/Thurner][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][NMIP3prod_SH1_base] Success
+[INFO][0][modelPlots][Biomass/Thurner][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][7][modelPlots][Runoff/CLASS][NMIP3prod_SH1_base] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXNET2015][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][modelPlots][Evapotranspiration/GLEAMv3.3a][NMIP3prod_SH1_base] Success
+[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][NMIP3prod_SH1_base] Success
+[INFO][6][modelPlots][Evapotranspiration/MOD16A2][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][modelPlots][Biomass/ESACCI][NMIP3prod_SH1_base] Success
+[INFO][0][modelPlots][Biomass/ESACCI][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][7][modelPlots][Runoff/CLASS][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][modelPlots][Biomass/ESACCI][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][modelPlots][Evapotranspiration/GLEAMv3.3a][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXCOM][NMIP3prod_SH1_base] Success
+[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][6][modelPlots][BurnedArea/GFED4.1S][NMIP3prod_SH1_base] Success
+[INFO][0][modelPlots][Biomass/XuSaatchi][NMIP3prod_SH1_base] Success
+[INFO][7][modelPlots][Runoff/CLASS][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXCOM][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][5][modelPlots][Evapotranspiration/GLEAMv3.3a][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][6][modelPlots][BurnedArea/GFED4.1S][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][NMIP3prod_SH1_base] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXCOM][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][modelPlots][Evapotranspiration/MODIS][NMIP3prod_SH1_base] Success
+[INFO][6][modelPlots][BurnedArea/GFED4.1S][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][modelPlots][LeafAreaIndex/MODIS][NMIP3prod_SH1_base] Success
+[INFO][4][modelPlots][SoilCarbon/HWSD][NMIP3prod_SH1_base] Success
+[INFO][6][modelPlots][Runoff/Dai][NMIP3prod_SH1_base] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][modelPlots][SoilCarbon/HWSD][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][modelPlots][SoilCarbon/HWSD][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][modelPlots][Evapotranspiration/MODIS][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][modelPlots][SoilCarbon/NCSCDV22][NMIP3prod_SH1_base] Success
+[INFO][2][modelPlots][LeafAreaIndex/MODIS][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][modelPlots][Evapotranspiration/MODIS][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][modelPlots][LeafAreaIndex/MODIS][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][NMIP3prod_SH1_base] Success
+[INFO][2][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/WECANN][NMIP3prod_SH1_base] Success
+[INFO][5][modelPlots][Evapotranspiration/MOD16A2][NMIP3prod_SH1_base] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/WECANN][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][6][modelPlots][Runoff/Dai][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][6][modelPlots][Runoff/Dai][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][6][modelPlots][Runoff/LORA][NMIP3prod_SH1_base] Success
+[INFO][6][modelPlots][Runoff/LORA][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][6][<module>][process time] 381.4 s
+[INFO][0][<module>][process time] 83.4 s
+[INFO][7][<module>][process time] 122.3 s
+[INFO][4][<module>][process time] 149.8 s
+[INFO][1][<module>][process time] 203.6 s
+[INFO][2][<module>][process time] 233.6 s
+[INFO][3][<module>][process time] 282.0 s
+[INFO][5][<module>][process time] 267.8 s
+[INFO][0][<module>][total time] 461.7 s
+[INFO][0][<module>][process balance] 4.57
+[INFO][0][<module>][parallel efficiency] 47%
