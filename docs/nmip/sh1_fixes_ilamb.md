@@ -33,8 +33,14 @@ is the same for all three and only the output directory distinguishes them.
 | Evapotranspiration | 0.681 | 0.681 | 0.683 |
 | Burned Area | 0.658 | 0.660 | 0.660 |
 | Runoff | 0.715 | 0.715 | 0.711 |
+| Surface Air Temperature | 0.945 | 0.945 | 0.945 |
 | GPP/FLUXCOM relationship | 0.906 | 0.906 | 0.911 |
-| **Overall (mean of 11 shared rows)** | **0.645** | **0.646** | **0.664** |
+| **Overall (mean of 12 shared rows)** | **0.670** | **0.671** | **0.688** |
+
+Surface Air Temperature is identical to six decimal places across all three
+models. That's expected, not a coincidence: `tas` here is reconstructed once
+from the shared CRUJRA driver (see below) rather than read from each model's
+own output, so all three are scoring the exact same field against CRU4.02.
 
 The fix-spitfire step alone moves the overall mean by +0.001 — essentially
 flat. Adding the permafrost fix on top moves it by +0.018, concentrated in
@@ -75,13 +81,40 @@ high-latitude/permafrost zones is the natural read, though this page does not
 trace the mechanism) closer to the observed pattern, even as the global total
 now runs low against two of the four products.
 
-## What's missing from the card
+## Surface Air Temperature: reconstructed from the CRUJRA driver
 
-Same three rows as the BNF/budget SH1 page, and for the same reason: **Soil
-Carbon Extended, Surface Air Temperature and Precipitation** all require the
-model's own `tas`/`pr`, and these runs — like the rest of the SH1 family —
-never wrote `mtair`/`mppt` to binary output. Not a skipped merge; nothing to
-repair without re-running LPJ with those variables in the output list.
+None of the three runs wrote `mtair` to binary output — same gap as the
+BNF/budget SH1 page. Rather than leave the row gray, `tas` was reconstructed
+from the CRUJRA `tmp` driver these runs were forced with
+(`CRUJRA.0.5.tmp.daily.nc.chunked.nc`, same 0.5° global grid as the model
+output), aggregated daily → monthly. All three runs use the identical driver
+file, so this is computed once and shared across all three "models" — which
+is exactly why the row above is tied to six decimal places.
+
+**The driver's `units` attribute is wrong.** It reads `"Degrees Kelvin"`, but
+the values are already Celsius: 2000 global annual mean is 8.7 (range −64 to
++43), physically impossible for Kelvin. A first attempt trusted the attribute
+and subtracted 273.15, producing a −264°C global mean — caught before it went
+anywhere by checking the raw values directly rather than trusting the
+metadata. The final file applies no conversion.
+
+`format_ilamb.sh`'s `tas` case only relabels the units attribute to `degC`
+without converting the data (`ncatted -a units,tas,o,c,"degC"`), so this only
+works because the reconstructed source is already Celsius, matching how LPJ's
+own `mtair` output is written elsewhere on this cluster.
+
+Nothing was written into the run directories: the reconstructed `mtair.nc` is
+staged via symlinks alongside each run's real `ncdf_outputs/*.nc`, in
+`ilamb_SH1_comparison/staged_inputs/<label>/` — the same convention the
+BNF/budget SH1 page uses.
+
+**Precipitation and Soil Carbon Extended stay gray.** Only `tmp` was
+reconstructed, not `pre`. Precipitation needs `pr` directly. Soil Carbon
+Extended (`ConfSoilCarbon`/Koven) needed `tas` too, but past that it also calls
+`extractTimeSeries("pr", ..., expression="RAIN+SNOW")` — confirmed by
+rerunning after `tas` was added: the traceback moved from the `tas` call to
+the `pr` call in `ConfSoilCarbon.py`. So Koven needs both, and only one was
+rebuilt here.
 
 **The Biomass confrontation needed the same workaround as every other ILAMB
 run on this site.** The pipeline's shipped `ilamb.cfg` looks for
@@ -98,13 +131,16 @@ here reflect spinup equilibria more than model response.
 
 ## Reproducing
 
-`code/run_ilamb_sh1.py` in
-`scratch/tc229954e/nmip-fix-spitfire-fix-permafrost/` submits the three-model
-ILAMB comparison via the pipeline's `submit_ilamb_job`, reading each run's
-`ncdf_outputs/` directly (no restaging into a separate ILAMB-inputs tree).
-`code/plot_ilamb_scorecard.py` in `ilamb_SH1_comparison/code/` renders the
-scorecard above from `build/scalar_database.csv`, adapted from the SH1
-BNF/budget page's `plot_ilamb_landing.py`.
+All scripts live in `scratch/tc229954e/nmip-fix-spitfire-fix-permafrost/`.
+`code/build_tas_from_crujra.py` reads the CRUJRA `tmp` driver and writes the
+shared, monthly, degC `mtair.nc`. `code/run_ilamb_sh1.py` submits the
+three-model ILAMB comparison via the pipeline's `submit_ilamb_job`, reading
+`ilamb_SH1_comparison/staged_inputs/<label>/` — symlinks to each run's real
+`ncdf_outputs/*.nc` plus the shared `mtair.nc` — rather than the run
+directories directly. `code/plot_ilamb_scorecard.py` in
+`ilamb_SH1_comparison/code/` renders the scorecard above from
+`build/scalar_database.csv`, adapted from the SH1 BNF/budget page's
+`plot_ilamb_landing.py`.
 
-The NetCDF ILAMB writes alongside its figures (113 MB) is not committed —
-only the HTML and figures needed to browse the results.
+The NetCDF ILAMB writes alongside its figures is not committed — only the
+HTML and figures needed to browse the results.

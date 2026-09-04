@@ -1,0 +1,242 @@
+[INFO][0][<module>] Linux hggpu9-1 4.18.0-553.8.1.el8_10.x86_64 #1 SMP Tue Jul 2 17:10:26 UTC 2024 x86_64 x86_64
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB (2.7.3)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/numpy (2.4.6)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/matplotlib (3.10.9)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/netCDF4 (1.7.4)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/cf_units (3.3.1)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/sympy (1.14.0)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/mpi4py (4.1.2)
+[INFO][0][<module>] 2026-09-04 15:09:06.820759
+[DEBUG][7][extractTimeSeries][NMIP3prod_SH1_fix_spitfire_permafrost] Could not find [pr] in the model results
+[DEBUG][7][WorkConfront][Precipitation/GPCPv2.3][NMIP3prod_SH1_fix_spitfire_permafrost]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][6][extractTimeSeries][NMIP3prod_SH1_fix_spitfire] Could not find [pr] in the model results
+[DEBUG][6][WorkConfront][Precipitation/GPCPv2.3][NMIP3prod_SH1_fix_spitfire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][5][extractTimeSeries][NMIP3prod_SH1_base] Could not find [pr] in the model results
+[DEBUG][5][WorkConfront][Precipitation/GPCPv2.3][NMIP3prod_SH1_base]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][2][extractTimeSeries][NMIP3prod_SH1_fix_spitfire_permafrost] Could not find [SNOW] in the model results
+[DEBUG][2][WorkConfront][SoilCarbonExtended/Koven][NMIP3prod_SH1_fix_spitfire_permafrost]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfSoilCarbon.py", line 137, in confront
+    m.extractTimeSeries("pr", initial_time=t0, final_time=tf, expression   = "RAIN+SNOW")
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 409, in extractTimeSeries
+    v = self.derivedVariable(
+        variable,
+    ...<4 lines>...
+        final_time=final_time,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 495, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(
+              ~~~~~~~~~~~~~~~~~~~~~~^
+        arg.name,
+        ^^^^^^^^^
+    ...<4 lines>...
+        final_time=final_time,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][0][extractTimeSeries][NMIP3prod_SH1_base] Could not find [RAIN] in the model results
+[DEBUG][0][WorkConfront][SoilCarbonExtended/Koven][NMIP3prod_SH1_base]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfSoilCarbon.py", line 137, in confront
+    m.extractTimeSeries("pr", initial_time=t0, final_time=tf, expression   = "RAIN+SNOW")
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 409, in extractTimeSeries
+    v = self.derivedVariable(
+        variable,
+    ...<4 lines>...
+        final_time=final_time,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 495, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(
+              ~~~~~~~~~~~~~~~~~~~~~~^
+        arg.name,
+        ^^^^^^^^^
+    ...<4 lines>...
+        final_time=final_time,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][1][extractTimeSeries][NMIP3prod_SH1_fix_spitfire] Could not find [SNOW] in the model results
+[DEBUG][1][WorkConfront][SoilCarbonExtended/Koven][NMIP3prod_SH1_fix_spitfire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfSoilCarbon.py", line 137, in confront
+    m.extractTimeSeries("pr", initial_time=t0, final_time=tf, expression   = "RAIN+SNOW")
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 409, in extractTimeSeries
+    v = self.derivedVariable(
+        variable,
+    ...<4 lines>...
+        final_time=final_time,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 495, in derivedVariable
+    Vs[arg] = self.extractTimeSeries(
+              ~~~~~~~~~~~~~~~~~~~~~~^
+        arg.name,
+        ^^^^^^^^^
+    ...<4 lines>...
+        final_time=final_time,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][4][AnalysisMeanStateSpace][tas] Bias scored using Collier2018
+[INFO][3][AnalysisMeanStateSpace][tas] Bias scored using Collier2018
+[INFO][3][AnalysisMeanStateSpace][tas] RMSE scored using Collier2018
+[INFO][3][confront][SurfaceAirTemperature/CRU4.02][NMIP3prod_SH1_base] Success
+[INFO][4][AnalysisMeanStateSpace][tas] RMSE scored using Collier2018
+[INFO][4][confront][SurfaceAirTemperature/CRU4.02][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][AnalysisMeanStateSpace][tas] Bias scored using Collier2018
+[INFO][4][AnalysisMeanStateSpace][tas] RMSE scored using Collier2018
+[INFO][4][confront][SurfaceAirTemperature/CRU4.02][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][NMIP3prod_SH1_base] Success
+[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][3][modelPlots][GlobalNetEcosystemCarbonBalance/Hoffman][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][modelPlots][SoilCarbon/NCSCDV22][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][modelPlots][Biomass/Saatchi][NMIP3prod_SH1_base] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXNET2015][NMIP3prod_SH1_base] Success
+[INFO][5][modelPlots][SoilCarbon/NCSCDV22][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][modelPlots][Biomass/Saatchi][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][modelPlots][Biomass/XuSaatchi][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][2][modelPlots][GrossPrimaryProductivity/WECANN][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][7][modelPlots][Runoff/LORA][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][modelPlots][Biomass/Saatchi][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][6][modelPlots][Evapotranspiration/MOD16A2][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXNET2015][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][modelPlots][Biomass/XuSaatchi][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][modelPlots][Biomass/Thurner][NMIP3prod_SH1_base] Success
+[INFO][0][modelPlots][Biomass/Thurner][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][5][modelPlots][Evapotranspiration/GLEAMv3.3a][NMIP3prod_SH1_base] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXNET2015][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][NMIP3prod_SH1_base] Success
+[INFO][0][modelPlots][Biomass/Thurner][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][NMIP3prod_SH1_base] Success
+[INFO][7][modelPlots][Runoff/CLASS][NMIP3prod_SH1_base] Success
+[INFO][6][modelPlots][Evapotranspiration/MOD16A2][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][modelPlots][Biomass/ESACCI][NMIP3prod_SH1_base] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][5][modelPlots][Evapotranspiration/GLEAMv3.3a][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][modelPlots][Biomass/ESACCI][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXCOM][NMIP3prod_SH1_base] Success
+[INFO][7][modelPlots][Runoff/CLASS][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][6][modelPlots][BurnedArea/GFED4.1S][NMIP3prod_SH1_base] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXNET2015][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][modelPlots][Biomass/ESACCI][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][0][modelPlots][Biomass/XuSaatchi][NMIP3prod_SH1_base] Success
+[INFO][5][modelPlots][Evapotranspiration/GLEAMv3.3a][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXCOM][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][7][modelPlots][Runoff/CLASS][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][6][modelPlots][BurnedArea/GFED4.1S][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][2][modelPlots][LeafAreaIndex/AVH15C1][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][NMIP3prod_SH1_base] Success
+[INFO][4][modelPlots][EcosystemRespiration/FLUXCOM][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][modelPlots][Evapotranspiration/MODIS][NMIP3prod_SH1_base] Success
+[INFO][7][modelPlots][SurfaceAirTemperature/CRU4.02][NMIP3prod_SH1_base] Success
+[INFO][4][modelPlots][SoilCarbon/HWSD][NMIP3prod_SH1_base] Success
+[INFO][6][modelPlots][BurnedArea/GFED4.1S][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][modelPlots][LeafAreaIndex/MODIS][NMIP3prod_SH1_base] Success
+[INFO][4][modelPlots][SoilCarbon/HWSD][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][6][modelPlots][Runoff/Dai][NMIP3prod_SH1_base] Success
+[INFO][4][modelPlots][SoilCarbon/HWSD][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][5][modelPlots][Evapotranspiration/MODIS][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][4][modelPlots][SoilCarbon/NCSCDV22][NMIP3prod_SH1_base] Success
+[INFO][7][modelPlots][SurfaceAirTemperature/CRU4.02][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][2][modelPlots][LeafAreaIndex/MODIS][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][5][modelPlots][Evapotranspiration/MODIS][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][7][modelPlots][SurfaceAirTemperature/CRU4.02][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][modelPlots][LeafAreaIndex/MODIS][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/FLUXCOM][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][2][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][NMIP3prod_SH1_base] Success
+[INFO][5][modelPlots][Evapotranspiration/MOD16A2][NMIP3prod_SH1_base] Success
+[INFO][2][modelPlots][GlobalNetEcosystemCarbonBalance/GCP][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/WECANN][NMIP3prod_SH1_base] Success
+[INFO][6][modelPlots][Runoff/Dai][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][1][modelPlots][GrossPrimaryProductivity/WECANN][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][6][modelPlots][Runoff/Dai][NMIP3prod_SH1_fix_spitfire_permafrost] Success
+[INFO][6][modelPlots][Runoff/LORA][NMIP3prod_SH1_base] Success
+[INFO][6][modelPlots][Runoff/LORA][NMIP3prod_SH1_fix_spitfire] Success
+[INFO][0][<module>][process time] 20.7 s
+[INFO][5][<module>][process time] 43.1 s
+[INFO][1][<module>][process time] 53.0 s
+[INFO][0][<module>][total time] 246.8 s
+[INFO][7][<module>][process time] 39.4 s
+[INFO][0][<module>][process balance] 4.88
+[INFO][2][<module>][process time] 43.8 s
+[INFO][0][<module>][parallel efficiency] 24%
+[INFO][4][<module>][process time] 101.1 s
+[INFO][3][<module>][process time] 90.8 s
+[INFO][6][<module>][process time] 87.6 s
