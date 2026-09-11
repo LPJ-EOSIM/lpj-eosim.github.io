@@ -16,6 +16,7 @@ nav:
               - Historical vs control: overshoots/lpj_results/hist_vs_control.md
               - "Historical + overshoot: stocks & fluxes": overshoots/lpj_results/historical_overshoot.md
           - "Soil-C plateau recap": overshoots/soilc_plateau_recap.md
+          - "Permafrost extent (and the fice_200 artefact)": overshoots/permafrost_extent.md
           - "Archive (older futures)": overshoots/archive.md
       - 1pctCO2:
           - "Baseline re-run 2026-08-18: C & N stocks + wetlands": 1pctCO2/baseline_20260818.md
