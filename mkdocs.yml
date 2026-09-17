@@ -66,6 +66,7 @@ nav:
   - NMIP:
       - "SH1: BNF sensitivity, C & N budgets, ILAMB": nmip/sh1_bnf.md
       - "SH1: fix-spitfire / fix-permafrost ILAMB comparison": nmip/sh1_fixes_ilamb.md
+      - "SH1: SPITFIRE fix-chain ILAMB comparison": nmip/sh1_fire_fixes_ilamb.md
   - Benchmarks:
       - "Incorporating a nitrogen cycle in LPJ-EOSIM": results/pr-412.md
       - "SPITFIRE integration - pr 421": results/spitfire.md
