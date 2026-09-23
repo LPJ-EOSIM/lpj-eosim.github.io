@@ -1,0 +1,896 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.16.5/math.min.js"></script>
+    <script>
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+            }
+            return(false);
+        }
+    </script>
+    <script type='text/javascript'>
+        function pageLoad() {
+           pageLoadMeanState();
+        }
+    </script>
+    <script type='text/javascript'>
+
+        function updateImagesAndHeadersMeanState(){
+            var rsel  = document.getElementById("MeanStateRegion");
+            var msel  = document.getElementById("MeanStateModel");
+            var rid   = rsel.selectedIndex;
+            var mid   = msel.selectedIndex;
+            var RNAME = rsel.options[rid].value;
+            var MNAME = msel.options[mid].value;
+            var CNAME = "EcosystemRespiration / FLUXCOM / 1980-2014";
+            var head  = "CNAME / RNAME / MNAME";
+            head      = head.replace("CNAME",CNAME).replace("RNAME",RNAME).replace("MNAME",MNAME);
+            $("#MeanStateHead").text(head);
+            
+          document.getElementById('timeint').src =  MNAME + '_' + RNAME + '_timeint.png'
+          document.getElementById('benchmark_timeint').src =  'Benchmark_' + RNAME + '_timeint.png'
+          document.getElementById('phase').src =  MNAME + '_' + RNAME + '_phase.png'
+          document.getElementById('benchmark_phase').src =  'Benchmark_' + RNAME + '_phase.png'
+          document.getElementById('shift').src =  MNAME + '_' + RNAME + '_shift.png'
+          document.getElementById('shiftscore').src =  MNAME + '_' + RNAME + '_shiftscore.png'
+          document.getElementById('bias').src =  MNAME + '_' + RNAME + '_bias.png'
+          document.getElementById('biasscore').src =  MNAME + '_' + RNAME + '_biasscore.png'
+          document.getElementById('rmse').src =  MNAME + '_' + RNAME + '_rmse.png'
+          document.getElementById('rmsescore').src =  MNAME + '_' + RNAME + '_rmsescore.png'
+          document.getElementById('spatial_variance').src =  RNAME + '_spatial_variance.png'
+          document.getElementById('legend_spatial_variance').src =  'legend_spatial_variance.png'
+          document.getElementById('cycle').src =  MNAME + '_' + RNAME + '_cycle.png'
+          document.getElementById('dtcycle').src =  MNAME + '_' + RNAME + '_dtcycle.png'
+          document.getElementById('spaceint').src =  MNAME + '_' + RNAME + '_spaceint.png'
+          document.getElementById('compcycle').src =  RNAME + '_compcycle.png'
+          document.getElementById('legend_compcycle').src =  'legend_compcycle.png'
+        }
+
+        function highlightRowMeanState(cell) {
+            var select = document.getElementById("MeanStateRegion");
+            for (var i = 0; i < select.length; i++){
+                var table = document.getElementById("MeanState_table_" + select.options[i].value);
+                var rows  = table.getElementsByTagName("tr");
+                for (var r = 2; r < rows.length; r++) {
+                    for (var c = 0; c < rows[r].cells.length-6; c++) {
+                        rows[r].cells[c].style.backgroundColor = "#ffffff";
+                    }
+                }
+                var r = cell.closest("tr").rowIndex;
+                document.getElementById("MeanStateModel").selectedIndex = r-1;
+                for (var c = 0; c < rows[r].cells.length-6; c++) {
+                    rows[r].cells[c].style.backgroundColor = "#c1c1c1";
+                }
+            }
+            updateImagesAndHeadersMeanState();
+        }
+
+        function paintScoreCellsMeanState(RNAME) {
+
+	    var PuOr = ['#b35806','#e08214','#fdb863','#fee0b6','#f7f7f7','#d8daeb','#b2abd2','#8073ac','#542788'];
+	    var GnRd = ['#b2182b','#d6604d','#f4a582','#fddbc7','#f7f7f7','#d9f0d3','#a6dba0','#5aae61','#1b7837'];
+	    var colors = GnRd;
+            var nc = colors.length;
+            var table  = document.getElementById("MeanState_table_" + RNAME);
+            var rows   = table.getElementsByTagName("tr");
+            for (var c = rows[0].cells.length-5; c < rows[0].cells.length; c++) {
+                var scores = [];
+                for (var r = 2; r < rows.length; r++) {
+                    val = rows[r].cells[c].innerHTML;
+                    if (val=="") {
+                      scores[r-2] = 0;
+                    }else{
+                      scores[r-2] = parseFloat(val);
+                    }
+                }
+                var mean = math.mean(scores);
+                var std  = math.max(0.02,math.std(scores));
+                for (var r = 2; r < rows.length; r++) {
+                    scores[r-2] = Math.min(+2,Math.max(-2,(scores[r-2]-mean)/std));
+                }
+                for (var r = 2; r < rows.length; r++) {
+		    var e  = scores[r-2];
+                    var ae = Math.abs(e);
+                    var clr;
+                    if(ae >= 0.25){
+                      clr = math.round(2*e+4);
+                    }else{
+		      clr = math.round(4*e+4);
+                    }
+                    clr = math.min(math.max(0,clr),8);
+                    rows[r].cells[c].style.backgroundColor = colors[clr];
+                }
+            }
+        }
+
+        function pageLoadMeanState() {
+            var select = document.getElementById("MeanStateRegion");
+            var region = getQueryVariable("region");
+            var model  = getQueryVariable("model");
+            if (region) {
+                for (var i = 0; i < select.length; i++){
+                    if (select.options[i].value == region) select.selectedIndex = i;
+                }
+            }
+            var table = document.getElementById("MeanState_table_" + select.options[select.selectedIndex].value);
+            var rows  = table.getElementsByTagName("tr");
+            if (model) {
+                for (var r = 0; r < rows.length; r++) {
+                    if(rows[r].cells[0].innerHTML==model) highlightRowMeanState(rows[r].cells[0]);
+                }
+            }else{
+                highlightRowMeanState(rows[2]);
+            }
+            for (var i = 0; i < select.length; i++){
+                paintScoreCellsMeanState(select.options[i].value);
+            }
+            changeRegionMeanState();
+        }
+
+        function changeRegionMeanState() {
+            var select = document.getElementById("MeanStateRegion");
+            for (var i = 0; i < select.length; i++){
+                RNAME = select.options[i].value;
+                if (i == select.selectedIndex) {
+                    document.getElementById("MeanState_table_" + RNAME).style.display = "table";
+                }else{
+                    document.getElementById("MeanState_table_" + RNAME).style.display = "none";
+                }
+            }
+            updateImagesAndHeadersMeanState();
+        }
+      function AllSelect() {
+        var header = "CNAME / RNAME / MNAME";
+        var CNAME  = "EcosystemRespiration / FLUXCOM / 1980-2014";
+        header     = header.replace("CNAME",CNAME);
+        var rid    = document.getElementById("AllModelsRegion").selectedIndex;
+        var RNAME  = document.getElementById("AllModelsRegion").options[rid].value;
+        var pid    = document.getElementById("AllModelsPlot").selectedIndex;
+        var PNAME  = document.getElementById("AllModelsPlot").options[pid].value;
+        header     = header.replace("RNAME",RNAME);
+        $("#AllModelsHead").text(header);
+        if(PNAME == "shift" || PNAME == "shiftscore" || PNAME == "bias" || PNAME == "biasscore" || PNAME == "rmse" || PNAME == "rmsescore" || PNAME == "cycle" || PNAME == "dtcycle" || PNAME == "spaceint"){
+          document.getElementById("Benchmark_div").style.display = 'none';
+        }else{
+          document.getElementById("Benchmark_div").style.display = 'inline';
+        }
+        if(PNAME == "cycle" || PNAME == "dtcycle" || PNAME == "spaceint"){
+          document.getElementById("Benchmark_legend").style.display = 'none';
+          document.getElementById("CLM_legend").style.display = 'none';
+          document.getElementById("CLM-FATES_legend").style.display = 'none';
+          document.getElementById("DLEM_legend").style.display = 'none';
+          document.getElementById("DVM-DOS-TEM_legend").style.display = 'none';
+          document.getElementById("JSBACH_legend").style.display = 'none';
+          document.getElementById("JULES-FireP0005_legend").style.display = 'none';
+          document.getElementById("JULES-FireP0249_legend").style.display = 'none';
+          document.getElementById("JULES-FireP0304_legend").style.display = 'none';
+          document.getElementById("JULES-FireP0336_legend").style.display = 'none';
+          document.getElementById("JULES-noFire_legend").style.display = 'none';
+          document.getElementById("LPJ-EOSIM_legend").style.display = 'none';
+          document.getElementById("LPJ-EOSIM-fixspitfire_legend").style.display = 'none';
+          document.getElementById("LPX-Bern_legend").style.display = 'none';
+          document.getElementById("TEM_legend").style.display = 'none';
+        }else{
+          document.getElementById("Benchmark_legend").style.display = 'inline';
+          document.getElementById("CLM_legend").style.display = 'inline';
+          document.getElementById("CLM-FATES_legend").style.display = 'inline';
+          document.getElementById("DLEM_legend").style.display = 'inline';
+          document.getElementById("DVM-DOS-TEM_legend").style.display = 'inline';
+          document.getElementById("JSBACH_legend").style.display = 'inline';
+          document.getElementById("JULES-FireP0005_legend").style.display = 'inline';
+          document.getElementById("JULES-FireP0249_legend").style.display = 'inline';
+          document.getElementById("JULES-FireP0304_legend").style.display = 'inline';
+          document.getElementById("JULES-FireP0336_legend").style.display = 'inline';
+          document.getElementById("JULES-noFire_legend").style.display = 'inline';
+          document.getElementById("LPJ-EOSIM_legend").style.display = 'inline';
+          document.getElementById("LPJ-EOSIM-fixspitfire_legend").style.display = 'inline';
+          document.getElementById("LPX-Bern_legend").style.display = 'inline';
+          document.getElementById("TEM_legend").style.display = 'inline';
+        }
+        document.getElementById('Benchmark').src = 'Benchmark_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('Benchmark_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('CLM').src = 'CLM_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('CLM_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('CLM-FATES').src = 'CLM-FATES_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('CLM-FATES_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('DLEM').src = 'DLEM_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('DLEM_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('DVM-DOS-TEM').src = 'DVM-DOS-TEM_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('DVM-DOS-TEM_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('JSBACH').src = 'JSBACH_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('JSBACH_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('JULES-FireP0005').src = 'JULES-FireP0005_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('JULES-FireP0005_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('JULES-FireP0249').src = 'JULES-FireP0249_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('JULES-FireP0249_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('JULES-FireP0304').src = 'JULES-FireP0304_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('JULES-FireP0304_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('JULES-FireP0336').src = 'JULES-FireP0336_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('JULES-FireP0336_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('JULES-noFire').src = 'JULES-noFire_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('JULES-noFire_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('LPJ-EOSIM').src = 'LPJ-EOSIM_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('LPJ-EOSIM_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('LPJ-EOSIM-fixspitfire').src = 'LPJ-EOSIM-fixspitfire_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('LPJ-EOSIM-fixspitfire_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('LPX-Bern').src = 'LPX-Bern_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('LPX-Bern_legend').src = 'legend_' + PNAME + '.png';
+        document.getElementById('TEM').src = 'TEM_' + RNAME + '_' + PNAME + '.png';
+        document.getElementById('TEM_legend').src = 'legend_' + PNAME + '.png';
+      }
+
+      $(document).on('pageshow', '[data-role="page"]', function(){
+        AllSelect()
+      });
+    </script>
+    <style type="text/css">
+      .container{
+        display:inline;
+      }
+      .break{
+        clear:left;
+      }
+      .child{
+        margin-bottom:10px;
+        display:inline-block;
+        padding:5px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      table.table-header-rotated {
+          border-collapse: collapse;
+      }
+      td {
+          text-align: center;
+          padding: 10px 5px;
+          border: 1px solid #ccc;
+      }
+      th {
+          padding: 5px 10px;
+      }
+      th.rotate {
+          height: 280px;
+          white-space: nowrap;
+      }
+      th.rotate > div {
+          transform: translate(10px, 135px) rotate(-45deg);
+          width: 0px;
+      }
+      th.rotate > div > span {
+      }
+      th.row-header {
+          padding: 0px 10px;
+          text-align: right;
+      }
+      td.divider {
+          width: 0px;
+          border: 0px solid #ccc;
+          padding: 0px 0px
+      }
+    </style>
+  </head>
+  <body onload="pageLoad()">
+    <div data-role="page" id="MeanState">
+      <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <h1 id="MeanStateHead">Mean State</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href='#MeanState' class=ui-btn-active ui-state-persist>Mean State</a></li>
+            <li><a href='#AllModels'>All Models</a></li>
+            <li><a href='#DataInformation'>Data Information</a></li>
+          </ul>
+        </div>
+      </div>
+      <select id="MeanStateRegion" onchange="changeRegionMeanState()">
+        <option value='global' selected="selected">Global - Land</option>
+      </select>
+      <div style="display:none">
+      <select id="MeanStateModel">
+        <option value='Benchmark'>Benchmark</option>
+        <option value='CLM' selected="selected">CLM</option>
+        <option value='CLM-FATES'>CLM-FATES</option>
+        <option value='DLEM'>DLEM</option>
+        <option value='DVM-DOS-TEM'>DVM-DOS-TEM</option>
+        <option value='JSBACH'>JSBACH</option>
+        <option value='JULES-FireP0005'>JULES-FireP0005</option>
+        <option value='JULES-FireP0249'>JULES-FireP0249</option>
+        <option value='JULES-FireP0304'>JULES-FireP0304</option>
+        <option value='JULES-FireP0336'>JULES-FireP0336</option>
+        <option value='JULES-noFire'>JULES-noFire</option>
+        <option value='LPJ-EOSIM'>LPJ-EOSIM</option>
+        <option value='LPJ-EOSIM-fixspitfire'>LPJ-EOSIM-fixspitfire</option>
+        <option value='LPX-Bern'>LPX-Bern</option>
+        <option value='TEM'>TEM</option>
+      </select>
+      </div>
+        <center>
+        <table class="table-header-rotated" id="MeanState_table_global">
+           <thead>
+             <tr>
+               <th></th>
+               <th class="rotate"><div><span>Download Data</span></div></th>
+               <th class="rotate"><div><span>Period Mean (original grids) [Pg yr-1]</span></div></th>
+               <th class="rotate"><div><span>Model Period Mean (intersection) [Pg yr-1]</span></div></th>
+               <th class="rotate"><div><span>Benchmark Period Mean (intersection) [Pg yr-1]</span></div></th>
+               <th class="rotate"><div><span>Model Period Mean (complement) [Pg yr-1]</span></div></th>
+               <th class="rotate"><div><span>Benchmark Period Mean (complement) [Pg yr-1]</span></div></th>
+               <th></th>
+               <th class="rotate"><div><span>Bias [g m-2 d-1]</span></div></th>
+               <th class="rotate"><div><span>RMSE [g m-2 d-1]</span></div></th>
+               <th class="rotate"><div><span>Phase Shift [months]</span></div></th>
+               <th></th>
+               <th class="rotate"><div><span>Bias Score [1]</span></div></th>
+               <th class="rotate"><div><span>RMSE Score [1]</span></div></th>
+               <th class="rotate"><div><span>Seasonal Cycle Score [1]</span></div></th>
+               <th class="rotate"><div><span>Spatial Distribution Score [1]</span></div></th>
+               <th class="rotate"><div><span>Overall Score [1]</span></div></th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td class="row-header">Benchmark</td>
+               <td><a href="FLUXCOM_Benchmark.nc" download>[-]</a></td>
+               <td>27.5</td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td class="divider"></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td class="divider"></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">CLM</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_CLM.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">42.8</td>
+               <td onclick="highlightRowMeanState(this)">36.9</td>
+               <td onclick="highlightRowMeanState(this)">27.8</td>
+               <td onclick="highlightRowMeanState(this)">5.93</td>
+               <td onclick="highlightRowMeanState(this)">0.000984</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.412</td>
+               <td onclick="highlightRowMeanState(this)">1.01</td>
+               <td onclick="highlightRowMeanState(this)">0.444</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.576</td>
+               <td onclick="highlightRowMeanState(this)">0.569</td>
+               <td onclick="highlightRowMeanState(this)">0.966</td>
+               <td onclick="highlightRowMeanState(this)">0.843</td>
+               <td onclick="highlightRowMeanState(this)">0.704</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">CLM-FATES</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_CLM-FATES.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">40.4</td>
+               <td onclick="highlightRowMeanState(this)">36.5</td>
+               <td onclick="highlightRowMeanState(this)">27.6</td>
+               <td onclick="highlightRowMeanState(this)">3.69</td>
+               <td onclick="highlightRowMeanState(this)">0.0837</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.403</td>
+               <td onclick="highlightRowMeanState(this)">0.900</td>
+               <td onclick="highlightRowMeanState(this)">0.491</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.525</td>
+               <td onclick="highlightRowMeanState(this)">0.598</td>
+               <td onclick="highlightRowMeanState(this)">0.962</td>
+               <td onclick="highlightRowMeanState(this)">0.781</td>
+               <td onclick="highlightRowMeanState(this)">0.693</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">DLEM</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_DLEM.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">27.4</td>
+               <td onclick="highlightRowMeanState(this)">27.3</td>
+               <td onclick="highlightRowMeanState(this)">27.5</td>
+               <td onclick="highlightRowMeanState(this)">0.0832</td>
+               <td onclick="highlightRowMeanState(this)">0.000816</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">-0.0105</td>
+               <td onclick="highlightRowMeanState(this)">0.968</td>
+               <td onclick="highlightRowMeanState(this)">0.640</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.507</td>
+               <td onclick="highlightRowMeanState(this)">0.534</td>
+               <td onclick="highlightRowMeanState(this)">0.935</td>
+               <td onclick="highlightRowMeanState(this)">0.692</td>
+               <td onclick="highlightRowMeanState(this)">0.641</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">DVM-DOS-TEM</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_DVM-DOS-TEM.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">11.6</td>
+               <td onclick="highlightRowMeanState(this)">11.5</td>
+               <td onclick="highlightRowMeanState(this)">7.59</td>
+               <td onclick="highlightRowMeanState(this)">0.0818</td>
+               <td onclick="highlightRowMeanState(this)">19.9</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.519</td>
+               <td onclick="highlightRowMeanState(this)">1.31</td>
+               <td onclick="highlightRowMeanState(this)">0.672</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.561</td>
+               <td onclick="highlightRowMeanState(this)">0.460</td>
+               <td onclick="highlightRowMeanState(this)">0.933</td>
+               <td onclick="highlightRowMeanState(this)">0.451</td>
+               <td onclick="highlightRowMeanState(this)">0.573</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">JSBACH</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_JSBACH.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">33.2</td>
+               <td onclick="highlightRowMeanState(this)">32.2</td>
+               <td onclick="highlightRowMeanState(this)">26.4</td>
+               <td onclick="highlightRowMeanState(this)">1.04</td>
+               <td onclick="highlightRowMeanState(this)">1.45</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.275</td>
+               <td onclick="highlightRowMeanState(this)">0.861</td>
+               <td onclick="highlightRowMeanState(this)">0.657</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.604</td>
+               <td onclick="highlightRowMeanState(this)">0.546</td>
+               <td onclick="highlightRowMeanState(this)">0.955</td>
+               <td onclick="highlightRowMeanState(this)">0.852</td>
+               <td onclick="highlightRowMeanState(this)">0.701</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">JULES-FireP0005</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_JULES-FireP0005.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">41.2</td>
+               <td onclick="highlightRowMeanState(this)">35.0</td>
+               <td onclick="highlightRowMeanState(this)">28.1</td>
+               <td onclick="highlightRowMeanState(this)">5.64</td>
+               <td onclick="highlightRowMeanState(this)">0.105</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.315</td>
+               <td onclick="highlightRowMeanState(this)">0.895</td>
+               <td onclick="highlightRowMeanState(this)">0.542</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.526</td>
+               <td onclick="highlightRowMeanState(this)">0.587</td>
+               <td onclick="highlightRowMeanState(this)">0.959</td>
+               <td onclick="highlightRowMeanState(this)">0.641</td>
+               <td onclick="highlightRowMeanState(this)">0.660</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">JULES-FireP0249</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_JULES-FireP0249.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">41.1</td>
+               <td onclick="highlightRowMeanState(this)">35.0</td>
+               <td onclick="highlightRowMeanState(this)">28.1</td>
+               <td onclick="highlightRowMeanState(this)">5.53</td>
+               <td onclick="highlightRowMeanState(this)">0.105</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.313</td>
+               <td onclick="highlightRowMeanState(this)">0.872</td>
+               <td onclick="highlightRowMeanState(this)">0.566</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.540</td>
+               <td onclick="highlightRowMeanState(this)">0.589</td>
+               <td onclick="highlightRowMeanState(this)">0.957</td>
+               <td onclick="highlightRowMeanState(this)">0.663</td>
+               <td onclick="highlightRowMeanState(this)">0.668</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">JULES-FireP0304</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_JULES-FireP0304.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">41.4</td>
+               <td onclick="highlightRowMeanState(this)">35.2</td>
+               <td onclick="highlightRowMeanState(this)">28.1</td>
+               <td onclick="highlightRowMeanState(this)">5.75</td>
+               <td onclick="highlightRowMeanState(this)">0.105</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.319</td>
+               <td onclick="highlightRowMeanState(this)">0.919</td>
+               <td onclick="highlightRowMeanState(this)">0.510</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.517</td>
+               <td onclick="highlightRowMeanState(this)">0.583</td>
+               <td onclick="highlightRowMeanState(this)">0.962</td>
+               <td onclick="highlightRowMeanState(this)">0.629</td>
+               <td onclick="highlightRowMeanState(this)">0.655</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">JULES-FireP0336</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_JULES-FireP0336.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">45.6</td>
+               <td onclick="highlightRowMeanState(this)">38.9</td>
+               <td onclick="highlightRowMeanState(this)">28.1</td>
+               <td onclick="highlightRowMeanState(this)">6.20</td>
+               <td onclick="highlightRowMeanState(this)">0.106</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.488</td>
+               <td onclick="highlightRowMeanState(this)">1.04</td>
+               <td onclick="highlightRowMeanState(this)">0.549</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.469</td>
+               <td onclick="highlightRowMeanState(this)">0.571</td>
+               <td onclick="highlightRowMeanState(this)">0.959</td>
+               <td onclick="highlightRowMeanState(this)">0.574</td>
+               <td onclick="highlightRowMeanState(this)">0.629</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">JULES-noFire</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_JULES-noFire.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">46.8</td>
+               <td onclick="highlightRowMeanState(this)">40.0</td>
+               <td onclick="highlightRowMeanState(this)">28.1</td>
+               <td onclick="highlightRowMeanState(this)">6.23</td>
+               <td onclick="highlightRowMeanState(this)">0.105</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.539</td>
+               <td onclick="highlightRowMeanState(this)">1.07</td>
+               <td onclick="highlightRowMeanState(this)">0.500</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.463</td>
+               <td onclick="highlightRowMeanState(this)">0.560</td>
+               <td onclick="highlightRowMeanState(this)">0.963</td>
+               <td onclick="highlightRowMeanState(this)">0.571</td>
+               <td onclick="highlightRowMeanState(this)">0.624</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">LPJ-EOSIM</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_LPJ-EOSIM.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">37.3</td>
+               <td onclick="highlightRowMeanState(this)">37.2</td>
+               <td onclick="highlightRowMeanState(this)">27.5</td>
+               <td onclick="highlightRowMeanState(this)">0.0954</td>
+               <td onclick="highlightRowMeanState(this)"></td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.447</td>
+               <td onclick="highlightRowMeanState(this)">1.05</td>
+               <td onclick="highlightRowMeanState(this)">0.701</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.564</td>
+               <td onclick="highlightRowMeanState(this)">0.495</td>
+               <td onclick="highlightRowMeanState(this)">0.942</td>
+               <td onclick="highlightRowMeanState(this)">0.874</td>
+               <td onclick="highlightRowMeanState(this)">0.674</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">LPJ-EOSIM-fixspitfire</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_LPJ-EOSIM-fixspitfire.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">37.3</td>
+               <td onclick="highlightRowMeanState(this)">37.2</td>
+               <td onclick="highlightRowMeanState(this)">27.5</td>
+               <td onclick="highlightRowMeanState(this)">0.0955</td>
+               <td onclick="highlightRowMeanState(this)"></td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.446</td>
+               <td onclick="highlightRowMeanState(this)">1.05</td>
+               <td onclick="highlightRowMeanState(this)">0.701</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.565</td>
+               <td onclick="highlightRowMeanState(this)">0.496</td>
+               <td onclick="highlightRowMeanState(this)">0.942</td>
+               <td onclick="highlightRowMeanState(this)">0.875</td>
+               <td onclick="highlightRowMeanState(this)">0.675</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">LPX-Bern</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_LPX-Bern.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">47.9</td>
+               <td onclick="highlightRowMeanState(this)">46.9</td>
+               <td onclick="highlightRowMeanState(this)">27.0</td>
+               <td onclick="highlightRowMeanState(this)">0.974</td>
+               <td onclick="highlightRowMeanState(this)">0.805</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.931</td>
+               <td onclick="highlightRowMeanState(this)">1.55</td>
+               <td onclick="highlightRowMeanState(this)">0.879</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.392</td>
+               <td onclick="highlightRowMeanState(this)">0.444</td>
+               <td onclick="highlightRowMeanState(this)">0.915</td>
+               <td onclick="highlightRowMeanState(this)">0.738</td>
+               <td onclick="highlightRowMeanState(this)">0.587</td>
+             </tr>
+             <tr>
+               <td onclick="highlightRowMeanState(this)" class="row-header">TEM</td>
+               <td onclick="highlightRowMeanState(this)"><a href="FLUXCOM_TEM.nc" download>[-]</a></td>
+               <td onclick="highlightRowMeanState(this)">44.1</td>
+               <td onclick="highlightRowMeanState(this)">41.4</td>
+               <td onclick="highlightRowMeanState(this)">26.3</td>
+               <td onclick="highlightRowMeanState(this)">2.78</td>
+               <td onclick="highlightRowMeanState(this)">1.17</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.721</td>
+               <td onclick="highlightRowMeanState(this)">1.02</td>
+               <td onclick="highlightRowMeanState(this)">0.436</td>
+               <td onclick="highlightRowMeanState(this)" class="divider"></td>
+               <td onclick="highlightRowMeanState(this)">0.522</td>
+               <td onclick="highlightRowMeanState(this)">0.584</td>
+               <td onclick="highlightRowMeanState(this)">0.959</td>
+               <td onclick="highlightRowMeanState(this)">0.774</td>
+               <td onclick="highlightRowMeanState(this)">0.684</td>
+             </tr>
+          </tbody>
+        </table>
+        </center>
+        <div data-role="collapsible" data-collapsed="false"><h1>Temporally integrated period mean</h1>
+        <div class="container" id="benchmark_timeint_div">
+          <div class="child">
+          <center>BENCHMARK&nbsp;MEAN</center>
+          <img src="" id="benchmark_timeint" alt="Data not available" ></img>
+          <center><img src="legend_timeint.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="timeint_div">
+          <div class="child">
+          <center>MODEL&nbsp;MEAN</center>
+          <img src="" id="timeint" alt="Data not available" ></img>
+          <center><img src="legend_timeint.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="bias_div">
+          <div class="child">
+          <center>BIAS</center>
+          <img src="" id="bias" alt="Data not available" ></img>
+          <center><img src="legend_bias.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="biasscore_div">
+          <div class="child">
+          <center>BIAS&nbsp;SCORE</center>
+          <img src="" id="biasscore" alt="Data not available" ></img>
+          <center><img src="legend_biasscore.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="rmse_div">
+          <div class="child">
+          <center>RMSE</center>
+          <img src="" id="rmse" alt="Data not available" ></img>
+          <center><img src="legend_rmse.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="rmsescore_div">
+          <div class="child">
+          <center>RMSE&nbsp;SCORE</center>
+          <img src="" id="rmsescore" alt="Data not available" ></img>
+          <center><img src="legend_rmsescore.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="benchmark_phase_div">
+          <div class="child">
+          <center>BENCHMARK&nbsp;MAX&nbsp;MONTH</center>
+          <img src="" id="benchmark_phase" alt="Data not available" ></img>
+          <center><img src="legend_phase.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="phase_div">
+          <div class="child">
+          <center>MODEL&nbsp;MAX&nbsp;MONTH</center>
+          <img src="" id="phase" alt="Data not available" ></img>
+          <center><img src="legend_phase.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="shift_div">
+          <div class="child">
+          <center>DIFFERENCE&nbsp;IN&nbsp;MAX&nbsp;MONTH</center>
+          <img src="" id="shift" alt="Data not available" ></img>
+          <center><img src="legend_shift.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="shiftscore_div">
+          <div class="child">
+          <center>SEASONAL&nbsp;CYCLE&nbsp;SCORE</center>
+          <img src="" id="shiftscore" alt="Data not available" ></img>
+          <center><img src="legend_shiftscore.png" id="leg"  alt="Data not available" ></img></center>
+          </div>
+        </div><br>
+        <div class="container" id="spatial_variance_div">
+          <div class="child">
+          <center>SPATIAL&nbsp;TAYLOR&nbsp;DIAGRAM</center>
+          <img src="" id="spatial_variance" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="legend_spatial_variance_div">
+          <div class="child">
+          <center>MODEL&nbsp;COLORS</center>
+          <img src="" id="legend_spatial_variance" alt="Data not available" ></img>
+          </div>
+        </div>
+        </div>
+        <div data-role="collapsible" data-collapsed="false"><h1>Spatially integrated regional mean</h1>
+        <div class="container" id="legend_compcycle_div">
+          <div class="child">
+          <center>MODEL&nbsp;COLORS</center>
+          <img src="" id="legend_compcycle" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="spaceint_div">
+          <div class="child">
+          <center>REGIONAL&nbsp;MEAN</center>
+          <img src="" id="spaceint" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="cycle_div">
+          <div class="child">
+          <center>ANNUAL&nbsp;CYCLE</center>
+          <img src="" id="cycle" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="dtcycle_div">
+          <div class="child">
+          <center>MONTHLY&nbsp;ANOMALY</center>
+          <img src="" id="dtcycle" alt="Data not available" ></img>
+          </div>
+        </div>
+        <div class="container" id="compcycle_div">
+          <div class="child">
+          <center>ANNUAL&nbsp;CYCLE</center>
+          <img src="" id="compcycle" alt="Data not available" ></img>
+          </div>
+        </div>
+        </div>
+    </div>
+    <div data-role="page" id="AllModels">
+      <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <h1 id="AllModelsHead">All Models</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href='#MeanState'>Mean State</a></li>
+            <li><a href='#AllModels' class=ui-btn-active ui-state-persist>All Models</a></li>
+            <li><a href='#DataInformation'>Data Information</a></li>
+          </ul>
+        </div>
+      </div>
+      <select id="AllModelsRegion" onchange="AllSelect()">
+        <option value='global' selected="selected">Global - Land</option>
+      </select>
+      <select id="AllModelsPlot" onchange="AllSelect()">
+        <option value='timeint' selected="selected">Temporally integrated period mean</option>
+        <option value='phase'>Temporally integrated period mean max month</option>
+        <option value='shift'>Temporally integrated mean phase shift</option>
+        <option value='shiftscore'>Temporally integrated mean phase shift score</option>
+        <option value='bias'>Temporally integrated period mean bias</option>
+        <option value='biasscore'>Temporally integrated period mean bias score</option>
+        <option value='rmse'>Temporally integrated period mean rmse</option>
+        <option value='rmsescore'>Temporally integrated period mean rmse score</option>
+        <option value='cycle'>Spatially integrated regional mean cycle</option>
+        <option value='dtcycle'>Spatially integrated regional mean detrended cycle</option>
+        <option value='spaceint'>Spatially integrated regional mean</option>
+      </select>
+        <div class="container" id="Benchmark_div">
+          <div class="child">
+          <center>Benchmark</center>
+          <img src="" id="Benchmark" alt="Data not available" ></img>
+          <center><img src="legend_Benchmark.png" id="Benchmark_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="CLM_div">
+          <div class="child">
+          <center>CLM</center>
+          <img src="" id="CLM" alt="Data not available" ></img>
+          <center><img src="legend_CLM.png" id="CLM_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="CLM-FATES_div">
+          <div class="child">
+          <center>CLM-FATES</center>
+          <img src="" id="CLM-FATES" alt="Data not available" ></img>
+          <center><img src="legend_CLM-FATES.png" id="CLM-FATES_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="DLEM_div">
+          <div class="child">
+          <center>DLEM</center>
+          <img src="" id="DLEM" alt="Data not available" ></img>
+          <center><img src="legend_DLEM.png" id="DLEM_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="DVM-DOS-TEM_div">
+          <div class="child">
+          <center>DVM-DOS-TEM</center>
+          <img src="" id="DVM-DOS-TEM" alt="Data not available" ></img>
+          <center><img src="legend_DVM-DOS-TEM.png" id="DVM-DOS-TEM_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="JSBACH_div">
+          <div class="child">
+          <center>JSBACH</center>
+          <img src="" id="JSBACH" alt="Data not available" ></img>
+          <center><img src="legend_JSBACH.png" id="JSBACH_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="JULES-FireP0005_div">
+          <div class="child">
+          <center>JULES-FireP0005</center>
+          <img src="" id="JULES-FireP0005" alt="Data not available" ></img>
+          <center><img src="legend_JULES-FireP0005.png" id="JULES-FireP0005_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="JULES-FireP0249_div">
+          <div class="child">
+          <center>JULES-FireP0249</center>
+          <img src="" id="JULES-FireP0249" alt="Data not available" ></img>
+          <center><img src="legend_JULES-FireP0249.png" id="JULES-FireP0249_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="JULES-FireP0304_div">
+          <div class="child">
+          <center>JULES-FireP0304</center>
+          <img src="" id="JULES-FireP0304" alt="Data not available" ></img>
+          <center><img src="legend_JULES-FireP0304.png" id="JULES-FireP0304_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="JULES-FireP0336_div">
+          <div class="child">
+          <center>JULES-FireP0336</center>
+          <img src="" id="JULES-FireP0336" alt="Data not available" ></img>
+          <center><img src="legend_JULES-FireP0336.png" id="JULES-FireP0336_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="JULES-noFire_div">
+          <div class="child">
+          <center>JULES-noFire</center>
+          <img src="" id="JULES-noFire" alt="Data not available" ></img>
+          <center><img src="legend_JULES-noFire.png" id="JULES-noFire_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="LPJ-EOSIM_div">
+          <div class="child">
+          <center>LPJ-EOSIM</center>
+          <img src="" id="LPJ-EOSIM" alt="Data not available" ></img>
+          <center><img src="legend_LPJ-EOSIM.png" id="LPJ-EOSIM_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="LPJ-EOSIM-fixspitfire_div">
+          <div class="child">
+          <center>LPJ-EOSIM-fixspitfire</center>
+          <img src="" id="LPJ-EOSIM-fixspitfire" alt="Data not available" ></img>
+          <center><img src="legend_LPJ-EOSIM-fixspitfire.png" id="LPJ-EOSIM-fixspitfire_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="LPX-Bern_div">
+          <div class="child">
+          <center>LPX-Bern</center>
+          <img src="" id="LPX-Bern" alt="Data not available" ></img>
+          <center><img src="legend_LPX-Bern.png" id="LPX-Bern_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+        <div class="container" id="TEM_div">
+          <div class="child">
+          <center>TEM</center>
+          <img src="" id="TEM" alt="Data not available" ></img>
+          <center><img src="legend_TEM.png" id="TEM_legend"  alt="Data not available" ></img></center>
+          </div>
+        </div>
+    </div>
+    <div data-role="page" id="DataInformation">
+      <div data-role="header" data-position="fixed" data-tap-toggle="false">
+        <h1 id="DataInformationHead">Data Information</h1>
+        <div data-role="navbar">
+          <ul>
+            <li><a href='#MeanState'>Mean State</a></li>
+            <li><a href='#AllModels'>All Models</a></li>
+            <li><a href='#DataInformation' class=ui-btn-active ui-state-persist>Data Information</a></li>
+          </ul>
+        </div>
+      </div>
+      
+<p><dl><dt><b>&nbsp;&nbsp;Title:</dt></b><dd>FLUXCOM (RS+METEO) Global Land Carbon Fluxes using CRUNCEP climate data</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Version:</dt></b><dd>1</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Institutions:</dt></b><dd>Department Biogeochemical Integration, Max Planck Institute for Biogeochemistry, Germany</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Source:</dt></b><dd>Data generated by Artificial Neural Networks and forced with CRUNCEPv6 meteorological data and MODIS (RS+METEO)
+ftp://ftp.bgc-jena.mpg.de/pub/outgoing/FluxCom/CarbonFluxes_v1_2017/RS+METEO/CRUNCEPv6/raw/monthly/
+ftp://ftp.bgc-jena.mpg.de/pub/outgoing/FluxCom/EnergyFluxes/RS_METEO/member/CRUNCEP_v8/monthly/</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;History:</dt></b><dd>Fri Sep 26 13:06:25 2025: ncatted -a missing_value,lat,d,c, reco.nc
+Fri Sep 26 13:06:18 2025: ncatted -a missing_value,lon,d,c, reco.nc
+
+2024-01-18: downloaded ['TER.ANN.CRUNCEPv6.monthly.1980.nc', 'TER.ANN.CRUNCEPv6.monthly.1981.nc', 'TER.ANN.CRUNCEPv6.monthly.1982.nc', 'TER.ANN.CRUNCEPv6.monthly.1983.nc', 'TER.ANN.CRUNCEPv6.monthly.1984.nc', 'TER.ANN.CRUNCEPv6.monthly.1985.nc', 'TER.ANN.CRUNCEPv6.monthly.1986.nc', 'TER.ANN.CRUNCEPv6.monthly.1987.nc', 'TER.ANN.CRUNCEPv6.monthly.1988.nc', 'TER.ANN.CRUNCEPv6.monthly.1989.nc', 'TER.ANN.CRUNCEPv6.monthly.1990.nc', 'TER.ANN.CRUNCEPv6.monthly.1991.nc', 'TER.ANN.CRUNCEPv6.monthly.1992.nc', 'TER.ANN.CRUNCEPv6.monthly.1993.nc', 'TER.ANN.CRUNCEPv6.monthly.1994.nc', 'TER.ANN.CRUNCEPv6.monthly.1995.nc', 'TER.ANN.CRUNCEPv6.monthly.1996.nc', 'TER.ANN.CRUNCEPv6.monthly.1997.nc', 'TER.ANN.CRUNCEPv6.monthly.1998.nc', 'TER.ANN.CRUNCEPv6.monthly.1999.nc', 'TER.ANN.CRUNCEPv6.monthly.2000.nc', 'TER.ANN.CRUNCEPv6.monthly.2001.nc', 'TER.ANN.CRUNCEPv6.monthly.2002.nc', 'TER.ANN.CRUNCEPv6.monthly.2003.nc', 'TER.ANN.CRUNCEPv6.monthly.2004.nc', 'TER.ANN.CRUNCEPv6.monthly.2005.nc', 'TER.ANN.CRUNCEPv6.monthly.2006.nc', 'TER.ANN.CRUNCEPv6.monthly.2007.nc', 'TER.ANN.CRUNCEPv6.monthly.2008.nc', 'TER.ANN.CRUNCEPv6.monthly.2009.nc', 'TER.ANN.CRUNCEPv6.monthly.2010.nc', 'TER.ANN.CRUNCEPv6.monthly.2011.nc', 'TER.ANN.CRUNCEPv6.monthly.2012.nc', 'TER.ANN.CRUNCEPv6.monthly.2013.nc']</dd><dd>2024-04-09: converted to netCDF, additionally we apply a mask where |var|<1e-15 for all time.</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;References:</dt></b><dd>Jung, M., S. Koirala, U. Weber, K. Ichii, F. Gans, Gustau-Camps-Valls, D. Papale, C. Schwalm, G. Tramontana, and M. Reichstein (2019), The FLUXCOM ensemble of global land-atmosphere energy fluxes, <i>Scientific Data</i>, 74, <a href='https://doi.org/10.1038/s41597-019-0076-8'>doi:10.1038/s41597-019-0076-8</a></dd><br><dd>Tramontana, G., M. Jung, C.R. Schwalm, K. Ichii, G. Camps-Valls, B. Raduly, M. Reichstein, M.A. Arain, A. Cescatti, G. Kiely, L. Merbold, P. Serrano-Ortiz, S. Sickert, S. Wolf, and D. Papale (2016), Predicting carbon dioxide and energy fluxes across global FLUXNET sites with regression algorithms, <i>Biogeosciences</i>, <i>13</i>, 4291-4313, <a href='https://doi.org/10.5194/bg-13-4291-2016'>doi:10.5194/bg-13-4291-2016</a></dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Coordinates:</dt></b><dd>lat_bnds lon_bnds</dd></dl></p><p><dl><dt><b>&nbsp;&nbsp;Nco:</dt></b><dd>netCDF Operators version 5.3.3 (Homepage = <a href='http://nco.sf.net, Code = http://github.com/nco/nco, Citation = 10.1016/j.envsoft.2008.03.004)'>http://nco.sf.net, Code = http://github.com/nco/nco, Citation = 10.1016/j.envsoft.2008.03.004)</a></dd></dl></p>
+    </div>
+  </body>
+</html>

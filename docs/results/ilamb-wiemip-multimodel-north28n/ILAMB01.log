@@ -1,0 +1,2092 @@
+[INFO][0][<module>] Linux hgcpu11-1 4.18.0-553.8.1.el8_10.x86_64 #1 SMP Tue Jul 2 17:10:26 UTC 2024 x86_64 x86_64
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB (2.7.3)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/numpy (2.4.6)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/matplotlib (3.10.9)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/netCDF4 (1.7.4)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/cf_units (3.3.1)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/sympy (1.14.0)
+[INFO][0][<module>] /mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/mpi4py (4.1.2)
+[INFO][0][<module>] 2026-09-23 18:10:36.402012
+[INFO][4][MakeComparable][Biomass/ESACCI][JULES-FireP0005] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][4][MakeComparable][Biomass/ESACCI][JULES-FireP0005] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  42 192]
+[INFO][20][MakeComparable][SoilCarbon/NCSCDV22][LPX-Bern] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][20][MakeComparable][SoilCarbon/NCSCDV22][LPX-Bern] Spatial data was clipped from the comparison:  before: [  1 180 360] after: [  1  62 360]
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JSBACH] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JSBACH] Spatial data was clipped from the comparison:  before: [  1 180 360] after: [  1  62 360]
+[INFO][17][MakeComparable][SoilCarbon/HWSD][CLM-FATES] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][17][MakeComparable][SoilCarbon/HWSD][CLM-FATES] Spatial data was clipped from the comparison:  before: [ 12 192 288] after: [ 12  66 288]
+[INFO][1][MakeComparable][Biomass/Saatchi][JULES-FireP0336] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][1][MakeComparable][Biomass/Saatchi][JULES-FireP0336] Spatial data was clipped from the comparison:  before: [  7 144 192] after: [  7  50 192]
+[INFO][0][MakeComparable][Biomass/Saatchi][CLM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][0][MakeComparable][Biomass/Saatchi][CLM] Spatial data was clipped from the comparison:  before: [  7 180 360] after: [  7  62 360]
+[INFO][18][MakeComparable][SoilCarbon/HWSD][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][18][MakeComparable][SoilCarbon/HWSD][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 123 720]
+[INFO][16][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][16][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][6][MakeComparable][Biomass/XuSaatchi][JULES-FireP0336] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][6][MakeComparable][Biomass/XuSaatchi][JULES-FireP0336] Spatial data was clipped from the comparison:  before: [ 20 144 192] after: [ 20  50 192]
+[INFO][2][MakeComparable][Biomass/Thurner][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][5][MakeComparable][Biomass/XuSaatchi][CLM] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][5][MakeComparable][Biomass/XuSaatchi][CLM] Spatial data was clipped from the comparison:  before: [ 20 180 360] after: [ 20  62 360]
+[INFO][3][MakeComparable][Biomass/Thurner][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][3][MakeComparable][Biomass/Thurner][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [ 11 360 720] after: [ 11 123 720]
+[DEBUG][31][extractTimeSeries][JULES-FireP0249] Could not find [runoff,mrro] in the model results
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][JULES-FireP0304] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][JULES-FireP0304] Spatial data was clipped from the comparison:  before: [ 96 144 192] after: [ 96  50 192]
+[DEBUG][31][WorkConfront][Runoff/CLASS][JULES-FireP0249]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][16][confront][NetEcosystemExchange/FLUXNET2015][JULES-FireP0304] Success
+[DEBUG][28][extractTimeSeries][JULES-noFire] Could not find [runoff,mrro] in the model results
+[DEBUG][28][WorkConfront][Runoff/Dai][JULES-noFire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 144, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 56, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<2 lines>...
+        final_time=obs.time_bnds[-1, 1],
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][31][extractTimeSeries][JULES-FireP0304] Could not find [runoff,mrro] in the model results
+[INFO][16][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][20][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][16][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[DEBUG][31][WorkConfront][Runoff/CLASS][JULES-FireP0304]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][19][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][20][confront][SoilCarbon/NCSCDV22][LPX-Bern] Success
+[INFO][18][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][20][MakeComparable][SoilCarbon/NCSCDV22][TEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][20][MakeComparable][SoilCarbon/NCSCDV22][TEM] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 123 720]
+[INFO][19][confront][SoilCarbon/NCSCDV22][JSBACH] Success
+[INFO][4][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[DEBUG][23][extractTimeSeries][JULES-noFire] Could not find [et,evapotrans] in the model results
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][16][confront][NetEcosystemExchange/FLUXNET2015][JULES-FireP0336] Success
+[INFO][18][confront][SoilCarbon/HWSD][LPJ-EOSIM] Success
+[INFO][2][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JULES-FireP0005] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JULES-FireP0005] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  50 192]
+[INFO][3][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[DEBUG][23][WorkConfront][Evapotranspiration/MODIS][JULES-noFire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][6][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][2][confront][Biomass/Thurner][DVM-DOS-TEM] Success
+[INFO][0][confront][Biomass/Saatchi][CLM] Success
+[INFO][18][MakeComparable][SoilCarbon/HWSD][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][3][confront][Biomass/Thurner][LPJ-EOSIM-fixspitfire] Success
+[INFO][18][MakeComparable][SoilCarbon/HWSD][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 123 720]
+[INFO][4][confront][Biomass/ESACCI][JULES-FireP0005] Success
+[INFO][1][confront][Biomass/Saatchi][JULES-FireP0336] Success
+[INFO][3][MakeComparable][Biomass/Thurner][LPX-Bern] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][2][MakeComparable][Biomass/Thurner][JSBACH] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][3][MakeComparable][Biomass/Thurner][LPX-Bern] Spatial data was clipped from the comparison:  before: [ 11 180 360] after: [ 11  62 360]
+[INFO][2][MakeComparable][Biomass/Thurner][JSBACH] Spatial data was clipped from the comparison:  before: [ 11 180 360] after: [ 11  62 360]
+[INFO][4][MakeComparable][Biomass/ESACCI][JULES-FireP0249] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][4][MakeComparable][Biomass/ESACCI][JULES-FireP0249] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  42 192]
+[INFO][1][MakeComparable][Biomass/Saatchi][JULES-noFire] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][1][MakeComparable][Biomass/Saatchi][JULES-noFire] Spatial data was clipped from the comparison:  before: [  7 144 192] after: [  7  50 192]
+[INFO][0][MakeComparable][Biomass/Saatchi][CLM-FATES] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][0][MakeComparable][Biomass/Saatchi][CLM-FATES] Spatial data was clipped from the comparison:  before: [ 84 192 288] after: [ 84  66 288]
+[INFO][6][confront][Biomass/XuSaatchi][JULES-FireP0336] Success
+[DEBUG][31][extractTimeSeries][JULES-FireP0336] Could not find [runoff,mrro] in the model results
+[DEBUG][31][WorkConfront][Runoff/CLASS][JULES-FireP0336]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][16][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][16][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][22][MakeComparable][Evapotranspiration/MODIS][CLM-FATES] Spatial data was clipped from the reference:  before: [168 360 720] after: [168 123 720]
+[INFO][22][MakeComparable][Evapotranspiration/MODIS][CLM-FATES] Spatial data was clipped from the comparison:  before: [168 192 288] after: [168  66 288]
+[INFO][6][MakeComparable][Biomass/XuSaatchi][JULES-noFire] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][6][MakeComparable][Biomass/XuSaatchi][JULES-noFire] Spatial data was clipped from the comparison:  before: [ 20 144 192] after: [ 20  50 192]
+[INFO][16][confront][NetEcosystemExchange/FLUXNET2015][JULES-noFire] Success
+[INFO][17][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][17][confront][SoilCarbon/HWSD][CLM-FATES] Success
+[INFO][17][MakeComparable][SoilCarbon/HWSD][DLEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][17][MakeComparable][SoilCarbon/HWSD][DLEM] Spatial data was clipped from the comparison:  before: [  1 354 720] after: [  1 120 720]
+[INFO][18][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][5][confront][Biomass/XuSaatchi][CLM] Success
+[INFO][18][confront][SoilCarbon/HWSD][LPJ-EOSIM-fixspitfire] Success
+[INFO][18][MakeComparable][SoilCarbon/HWSD][LPX-Bern] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][18][MakeComparable][SoilCarbon/HWSD][LPX-Bern] Spatial data was clipped from the comparison:  before: [  1 180 360] after: [  1  62 360]
+[DEBUG][31][extractTimeSeries][JULES-noFire] Could not find [runoff,mrro] in the model results
+[DEBUG][31][WorkConfront][Runoff/CLASS][JULES-noFire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][8][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][13][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][8][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][13][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][3][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][8][confront][GrossPrimaryProductivity/FLUXNET2015][LPJ-EOSIM] Success
+[INFO][13][confront][EcosystemRespiration/FLUXNET2015][LPJ-EOSIM] Success
+[INFO][3][confront][Biomass/Thurner][LPX-Bern] Success
+[INFO][19][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][20][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[DEBUG][9][extractTimeSeries][JULES-FireP0005] Could not find [gpp,mgpp] in the model results
+[INFO][3][MakeComparable][Biomass/Thurner][TEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][3][MakeComparable][Biomass/Thurner][TEM] Spatial data was clipped from the comparison:  before: [ 11 360 720] after: [ 11 123 720]
+[INFO][7][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[DEBUG][9][WorkConfront][GrossPrimaryProductivity/FLUXCOM][JULES-FireP0005]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][7][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][20][confront][SoilCarbon/NCSCDV22][TEM] Success
+[INFO][11][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][19][confront][SoilCarbon/NCSCDV22][JULES-FireP0005] Success
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JULES-FireP0249] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JULES-FireP0249] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  50 192]
+[INFO][5][MakeComparable][Biomass/XuSaatchi][CLM-FATES] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][5][MakeComparable][Biomass/XuSaatchi][CLM-FATES] Spatial data was clipped from the comparison:  before: [240 192 288] after: [240  66 288]
+[INFO][25][MakeComparable][Evapotranspiration/MOD16A2][LPX-Bern] Spatial data was clipped from the reference:  before: [180 360 720] after: [180 123 720]
+[INFO][25][MakeComparable][Evapotranspiration/MOD16A2][LPX-Bern] Spatial data was clipped from the comparison:  before: [180 180 360] after: [180  62 360]
+[INFO][4][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][24][MakeComparable][Evapotranspiration/MOD16A2][JSBACH] Spatial data was clipped from the reference:  before: [180 360 720] after: [180 123 720]
+[INFO][24][MakeComparable][Evapotranspiration/MOD16A2][JSBACH] Spatial data was clipped from the comparison:  before: [180 180 360] after: [180  62 360]
+[INFO][7][confront][GrossPrimaryProductivity/FLUXNET2015][DLEM] Success
+[INFO][4][confront][Biomass/ESACCI][JULES-FireP0249] Success
+[INFO][4][MakeComparable][Biomass/ESACCI][JULES-FireP0304] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][4][MakeComparable][Biomass/ESACCI][JULES-FireP0304] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  42 192]
+[INFO][18][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][JULES-FireP0249] Spatial data was clipped from the reference:  before: [240 360 720] after: [240 123 720]
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][JULES-FireP0249] Spatial data was clipped from the comparison:  before: [240 144 192] after: [240  50 192]
+[INFO][17][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][16][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][16][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][17][confront][SoilCarbon/HWSD][DLEM] Success
+[INFO][18][confront][SoilCarbon/HWSD][LPX-Bern] Success
+[INFO][11][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][2][confront][Biomass/Thurner][JSBACH] Success
+[INFO][17][MakeComparable][SoilCarbon/HWSD][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][18][MakeComparable][SoilCarbon/HWSD][TEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][18][MakeComparable][SoilCarbon/HWSD][TEM] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 123 720]
+[INFO][11][confront][GrossPrimaryProductivity/WECANN][JULES-FireP0304] Success
+[INFO][1][confront][Biomass/Saatchi][JULES-noFire] Success
+[INFO][16][confront][NetEcosystemExchange/FLUXNET2015][LPJ-EOSIM] Success
+[INFO][2][MakeComparable][Biomass/Thurner][JULES-FireP0005] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][2][MakeComparable][Biomass/Thurner][JULES-FireP0005] Spatial data was clipped from the comparison:  before: [ 11 144 192] after: [ 11  50 192]
+[INFO][1][MakeComparable][Biomass/Saatchi][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][1][MakeComparable][Biomass/Saatchi][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [  7 360 720] after: [  7 123 720]
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][31][MakeComparable][Runoff/CLASS][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][31][MakeComparable][Runoff/CLASS][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][7][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][7][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][CLM-FATES] Success
+[DEBUG][21][extractTimeSeries][JULES-FireP0304] Could not find [et,evapotrans] in the model results
+[DEBUG][21][WorkConfront][Evapotranspiration/GLEAMv3.3a][JULES-FireP0304]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][6][confront][Biomass/XuSaatchi][JULES-noFire] Success
+[INFO][0][MakeComparable][Biomass/Saatchi][DLEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][0][MakeComparable][Biomass/Saatchi][DLEM] Spatial data was clipped from the comparison:  before: [  7 354 720] after: [  7 120 720]
+[INFO][23][MakeComparable][Evapotranspiration/MODIS][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [168 360 720] after: [168 123 720]
+[INFO][23][MakeComparable][Evapotranspiration/MODIS][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [168 360 720] after: [168 123 720]
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][JULES-FireP0336] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][JULES-FireP0336] Spatial data was clipped from the comparison:  before: [ 96 144 192] after: [ 96  50 192]
+[INFO][7][confront][GrossPrimaryProductivity/FLUXNET2015][DVM-DOS-TEM] Success
+[INFO][3][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][3][confront][Biomass/Thurner][TEM] Success
+[INFO][4][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][6][MakeComparable][Biomass/XuSaatchi][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][6][MakeComparable][Biomass/XuSaatchi][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][3][MakeComparable][Biomass/ESACCI][CLM] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][3][MakeComparable][Biomass/ESACCI][CLM] Spatial data was clipped from the comparison:  before: [  1 180 360] after: [  1  52 360]
+[INFO][4][confront][Biomass/ESACCI][JULES-FireP0304] Success
+[INFO][19][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][4][MakeComparable][Biomass/ESACCI][JULES-FireP0336] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][4][MakeComparable][Biomass/ESACCI][JULES-FireP0336] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  42 192]
+[INFO][8][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][8][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][19][confront][SoilCarbon/NCSCDV22][JULES-FireP0249] Success
+[INFO][10][MakeComparable][GrossPrimaryProductivity/FLUXCOM][TEM] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][10][MakeComparable][GrossPrimaryProductivity/FLUXCOM][TEM] Spatial data was clipped from the comparison:  before: [408 360 720] after: [408 123 720]
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JULES-FireP0304] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JULES-FireP0304] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  50 192]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JSBACH] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JSBACH] Spatial data was clipped from the comparison:  before: [408 180 360] after: [408  62 360]
+[INFO][13][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][8][confront][GrossPrimaryProductivity/FLUXNET2015][LPJ-EOSIM-fixspitfire] Success
+[INFO][13][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][7][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][7][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][13][confront][EcosystemRespiration/FLUXNET2015][LPJ-EOSIM-fixspitfire] Success
+[INFO][7][confront][GrossPrimaryProductivity/FLUXNET2015][JSBACH] Success
+[DEBUG][7][extractTimeSeries][JULES-FireP0005] Could not find [gpp,mgpp] in the model results
+[DEBUG][7][WorkConfront][GrossPrimaryProductivity/FLUXNET2015][JULES-FireP0005]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][7][extractTimeSeries][JULES-FireP0249] Could not find [gpp,mgpp] in the model results
+[DEBUG][7][WorkConfront][GrossPrimaryProductivity/FLUXNET2015][JULES-FireP0249]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][2][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][18][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][2][confront][Biomass/Thurner][JULES-FireP0005] Success
+[INFO][18][confront][SoilCarbon/HWSD][TEM] Success
+[INFO][17][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][18][MakeComparable][SoilCarbon/NCSCDV22][CLM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][18][MakeComparable][SoilCarbon/NCSCDV22][CLM] Spatial data was clipped from the comparison:  before: [  1 180 360] after: [  1  62 360]
+[INFO][8][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][8][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][16][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][16][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][2][MakeComparable][Biomass/Thurner][JULES-FireP0249] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][7][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][7][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][2][MakeComparable][Biomass/Thurner][JULES-FireP0249] Spatial data was clipped from the comparison:  before: [ 11 144 192] after: [ 11  50 192]
+[INFO][17][confront][SoilCarbon/HWSD][DVM-DOS-TEM] Success
+[INFO][1][confront][Biomass/Saatchi][LPJ-EOSIM] Success
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JSBACH] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JSBACH] Spatial data was clipped from the comparison:  before: [  1 180 360] after: [  1  62 360]
+[INFO][8][confront][GrossPrimaryProductivity/FLUXNET2015][LPX-Bern] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][MakeComparable][Biomass/Saatchi][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][1][MakeComparable][Biomass/Saatchi][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [  7 360 720] after: [  7 123 720]
+[INFO][16][confront][NetEcosystemExchange/FLUXNET2015][LPJ-EOSIM-fixspitfire] Success
+[INFO][7][confront][GrossPrimaryProductivity/FLUXNET2015][JULES-FireP0304] Success
+[INFO][0][confront][Biomass/Saatchi][DLEM] Success
+[INFO][12][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][0][MakeComparable][Biomass/Saatchi][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][12][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][3][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][19][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][12][confront][EcosystemRespiration/FLUXNET2015][DLEM] Success
+[INFO][3][confront][Biomass/ESACCI][CLM] Success
+[INFO][7][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][19][confront][SoilCarbon/NCSCDV22][JULES-FireP0304] Success
+[INFO][7][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JULES-FireP0336] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JULES-FireP0336] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  50 192]
+[INFO][4][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][16][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][16][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][4][confront][Biomass/ESACCI][JULES-FireP0336] Success
+[INFO][3][MakeComparable][Biomass/ESACCI][CLM-FATES] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[DEBUG][9][extractTimeSeries][JULES-FireP0249] Could not find [gpp,mgpp] in the model results
+[INFO][3][MakeComparable][Biomass/ESACCI][CLM-FATES] Spatial data was clipped from the comparison:  before: [ 12 192 288] after: [ 12  55 288]
+[DEBUG][9][WorkConfront][GrossPrimaryProductivity/FLUXCOM][JULES-FireP0249]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][7][confront][GrossPrimaryProductivity/FLUXNET2015][JULES-FireP0336] Success
+[INFO][13][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][13][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][4][MakeComparable][Biomass/ESACCI][JULES-noFire] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][4][MakeComparable][Biomass/ESACCI][JULES-noFire] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  42 192]
+[INFO][16][confront][NetEcosystemExchange/FLUXNET2015][LPX-Bern] Success
+[INFO][13][confront][EcosystemRespiration/FLUXNET2015][LPX-Bern] Success
+[INFO][7][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][7][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][7][confront][GrossPrimaryProductivity/FLUXNET2015][JULES-noFire] Success
+[INFO][2][confront][Biomass/Thurner][JULES-FireP0249] Success
+[INFO][2][MakeComparable][Biomass/Thurner][JULES-FireP0304] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][2][MakeComparable][Biomass/Thurner][JULES-FireP0304] Spatial data was clipped from the comparison:  before: [ 11 144 192] after: [ 11  50 192]
+[INFO][5][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][17][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][17][confront][SoilCarbon/HWSD][JSBACH] Success
+[INFO][18][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JULES-FireP0005] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JULES-FireP0005] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  50 192]
+[INFO][18][confront][SoilCarbon/NCSCDV22][CLM] Success
+[INFO][18][MakeComparable][SoilCarbon/NCSCDV22][CLM-FATES] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][18][MakeComparable][SoilCarbon/NCSCDV22][CLM-FATES] Spatial data was clipped from the comparison:  before: [ 12 192 288] after: [ 12  66 288]
+[INFO][5][confront][Biomass/XuSaatchi][CLM-FATES] Success
+[INFO][11][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][3][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][confront][Biomass/Saatchi][LPJ-EOSIM-fixspitfire] Success
+[INFO][8][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][8][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][3][confront][Biomass/ESACCI][CLM-FATES] Success
+[INFO][1][MakeComparable][Biomass/Saatchi][LPX-Bern] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][1][MakeComparable][Biomass/Saatchi][LPX-Bern] Spatial data was clipped from the comparison:  before: [  7 180 360] after: [  7  62 360]
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][19][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][3][MakeComparable][Biomass/ESACCI][DLEM] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][0][confront][Biomass/Saatchi][DVM-DOS-TEM] Success
+[INFO][3][MakeComparable][Biomass/ESACCI][DLEM] Spatial data was clipped from the comparison:  before: [  1 354 720] after: [  1 103 720]
+[INFO][8][confront][GrossPrimaryProductivity/FLUXNET2015][TEM] Success
+[INFO][5][MakeComparable][Biomass/XuSaatchi][DLEM] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][5][MakeComparable][Biomass/XuSaatchi][DLEM] Spatial data was clipped from the comparison:  before: [ 20 354 720] after: [ 20 120 720]
+[INFO][12][confront][EcosystemRespiration/FLUXNET2015][DVM-DOS-TEM] Success
+[INFO][0][MakeComparable][Biomass/Saatchi][JSBACH] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][0][MakeComparable][Biomass/Saatchi][JSBACH] Spatial data was clipped from the comparison:  before: [  7 180 360] after: [  7  62 360]
+[INFO][19][confront][SoilCarbon/NCSCDV22][JULES-FireP0336] Success
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JULES-noFire] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][JULES-noFire] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  50 192]
+[INFO][11][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][11][confront][GrossPrimaryProductivity/WECANN][JULES-FireP0336] Success
+[DEBUG][21][extractTimeSeries][JULES-FireP0336] Could not find [et,evapotrans] in the model results
+[DEBUG][21][WorkConfront][Evapotranspiration/GLEAMv3.3a][JULES-FireP0336]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][6][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][4][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][4][confront][Biomass/ESACCI][JULES-noFire] Success
+[INFO][6][confront][Biomass/XuSaatchi][LPJ-EOSIM] Success
+[INFO][4][MakeComparable][Biomass/ESACCI][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][4][MakeComparable][Biomass/ESACCI][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 103 720]
+[INFO][2][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][JULES-noFire] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][JULES-noFire] Spatial data was clipped from the comparison:  before: [ 96 144 192] after: [ 96  50 192]
+[INFO][16][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][16][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][2][confront][Biomass/Thurner][JULES-FireP0304] Success
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][2][MakeComparable][Biomass/Thurner][JULES-FireP0336] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][2][MakeComparable][Biomass/Thurner][JULES-FireP0336] Spatial data was clipped from the comparison:  before: [ 11 144 192] after: [ 11  50 192]
+[INFO][6][MakeComparable][Biomass/XuSaatchi][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][6][MakeComparable][Biomass/XuSaatchi][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][16][confront][NetEcosystemExchange/FLUXNET2015][TEM] Success
+[INFO][1][confront][Biomass/Saatchi][LPX-Bern] Success
+[INFO][16][MakeComparable][SoilCarbon/HWSD][CLM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][16][MakeComparable][SoilCarbon/HWSD][CLM] Spatial data was clipped from the comparison:  before: [  1 180 360] after: [  1  62 360]
+[INFO][20][MakeComparable][Evapotranspiration/GLEAMv3.3a][CLM] Spatial data was clipped from the reference:  before: [468 360 720] after: [468 123 720]
+[INFO][20][MakeComparable][Evapotranspiration/GLEAMv3.3a][CLM] Spatial data was clipped from the comparison:  before: [468 180 360] after: [468  62 360]
+[INFO][1][MakeComparable][Biomass/Saatchi][TEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][1][MakeComparable][Biomass/Saatchi][TEM] Spatial data was clipped from the comparison:  before: [  7 360 720] after: [  7 123 720]
+[DEBUG][29][extractTimeSeries][DVM-DOS-TEM] Could not find [runoff,mrro] in the model results
+[DEBUG][29][WorkConfront][Runoff/LORA][DVM-DOS-TEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][15][MakeComparable][EcosystemRespiration/FLUXCOM][TEM] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][15][MakeComparable][EcosystemRespiration/FLUXCOM][TEM] Spatial data was clipped from the comparison:  before: [408 360 720] after: [408 123 720]
+[INFO][12][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][18][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][12][confront][EcosystemRespiration/FLUXNET2015][JSBACH] Success
+[INFO][17][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][18][confront][SoilCarbon/NCSCDV22][CLM-FATES] Success
+[INFO][0][confront][Biomass/Saatchi][JSBACH] Success
+[INFO][17][confront][SoilCarbon/HWSD][JULES-FireP0005] Success
+[INFO][18][MakeComparable][SoilCarbon/NCSCDV22][DLEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][18][MakeComparable][SoilCarbon/NCSCDV22][DLEM] Spatial data was clipped from the comparison:  before: [  1 354 720] after: [  1 120 720]
+[INFO][0][MakeComparable][Biomass/Saatchi][JULES-FireP0005] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][0][MakeComparable][Biomass/Saatchi][JULES-FireP0005] Spatial data was clipped from the comparison:  before: [  7 144 192] after: [  7  50 192]
+[INFO][31][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JULES-FireP0249] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JULES-FireP0249] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  50 192]
+[INFO][19][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][19][confront][SoilCarbon/NCSCDV22][JULES-noFire] Success
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 123 720]
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][JULES-FireP0304] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][JULES-FireP0304] Spatial data was clipped from the comparison:  before: [408 144 192] after: [408  50 192]
+[INFO][12][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][12][confront][EcosystemRespiration/FLUXNET2015][JULES-FireP0005] Success
+[INFO][16][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][16][confront][SoilCarbon/HWSD][CLM] Success
+[INFO][31][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][2][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][31][confront][Runoff/CLASS][LPJ-EOSIM] Success
+[INFO][2][confront][Biomass/Thurner][JULES-FireP0336] Success
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][30][MakeComparable][Runoff/LORA][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [396 360 720] after: [396 123 720]
+[INFO][30][MakeComparable][Runoff/LORA][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [372 360 720] after: [372 123 720]
+[INFO][18][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][1][confront][Biomass/Saatchi][TEM] Success
+[INFO][2][MakeComparable][Biomass/Thurner][JULES-noFire] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][2][MakeComparable][Biomass/Thurner][JULES-noFire] Spatial data was clipped from the comparison:  before: [ 11 144 192] after: [ 11  50 192]
+[INFO][12][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][18][confront][SoilCarbon/NCSCDV22][DLEM] Success
+[INFO][18][MakeComparable][SoilCarbon/NCSCDV22][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][1][MakeComparable][Biomass/Thurner][CLM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][1][MakeComparable][Biomass/Thurner][CLM] Spatial data was clipped from the comparison:  before: [ 11 180 360] after: [ 11  62 360]
+[INFO][13][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][13][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][19][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][12][confront][EcosystemRespiration/FLUXNET2015][JULES-FireP0249] Success
+[INFO][19][confront][SoilCarbon/NCSCDV22][LPJ-EOSIM] Success
+[DEBUG][21][extractTimeSeries][JULES-noFire] Could not find [et,evapotrans] in the model results
+[DEBUG][21][WorkConfront][Evapotranspiration/GLEAMv3.3a][JULES-noFire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][0][confront][Biomass/Saatchi][JULES-FireP0005] Success
+[INFO][13][confront][EcosystemRespiration/FLUXNET2015][TEM] Success
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][19][MakeComparable][SoilCarbon/NCSCDV22][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 123 720]
+[INFO][0][MakeComparable][Biomass/Saatchi][JULES-FireP0249] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][0][MakeComparable][Biomass/Saatchi][JULES-FireP0249] Spatial data was clipped from the comparison:  before: [  7 144 192] after: [  7  50 192]
+[INFO][17][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][17][confront][SoilCarbon/HWSD][JULES-FireP0249] Success
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JULES-FireP0304] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JULES-FireP0304] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  50 192]
+[INFO][24][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][3][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][8][MakeComparable][GrossPrimaryProductivity/FLUXCOM][CLM] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][8][MakeComparable][GrossPrimaryProductivity/FLUXCOM][CLM] Spatial data was clipped from the comparison:  before: [408 180 360] after: [408  62 360]
+[INFO][4][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][3][confront][Biomass/ESACCI][DLEM] Success
+[INFO][5][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][4][confront][Biomass/ESACCI][LPJ-EOSIM] Success
+[INFO][3][MakeComparable][Biomass/ESACCI][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][3][MakeComparable][Biomass/ESACCI][DVM-DOS-TEM] Spatial data was clipped from the comparison:  before: [  1 123 720] after: [  1 103 720]
+[INFO][4][MakeComparable][Biomass/ESACCI][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][4][MakeComparable][Biomass/ESACCI][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 103 720]
+[INFO][25][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][31][MakeComparable][Runoff/CLASS][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][31][MakeComparable][Runoff/CLASS][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][12][confront][EcosystemRespiration/FLUXNET2015][JULES-FireP0304] Success
+[INFO][5][confront][Biomass/XuSaatchi][DLEM] Success
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][confront][Biomass/Thurner][CLM] Success
+[INFO][11][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][18][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][17][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][5][MakeComparable][Biomass/XuSaatchi][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][6][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][18][confront][SoilCarbon/NCSCDV22][DVM-DOS-TEM] Success
+[INFO][17][confront][SoilCarbon/HWSD][JULES-FireP0304] Success
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JULES-FireP0336] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JULES-FireP0336] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  50 192]
+[INFO][1][MakeComparable][Biomass/Thurner][CLM-FATES] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][1][MakeComparable][Biomass/Thurner][CLM-FATES] Spatial data was clipped from the comparison:  before: [131 192 288] after: [131  66 288]
+[INFO][19][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][6][confront][Biomass/XuSaatchi][LPJ-EOSIM-fixspitfire] Success
+[INFO][19][confront][SoilCarbon/NCSCDV22][LPJ-EOSIM-fixspitfire] Success
+[INFO][2][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][12][confront][EcosystemRespiration/FLUXNET2015][JULES-FireP0336] Success
+[INFO][11][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][11][confront][GrossPrimaryProductivity/WECANN][JULES-noFire] Success
+[INFO][2][confront][Biomass/Thurner][JULES-noFire] Success
+[INFO][6][MakeComparable][Biomass/XuSaatchi][LPX-Bern] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][6][MakeComparable][Biomass/XuSaatchi][LPX-Bern] Spatial data was clipped from the comparison:  before: [ 20 180 360] after: [ 20  62 360]
+[INFO][24][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][24][confront][Evapotranspiration/MOD16A2][JSBACH] Success
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][JULES-FireP0249] Success
+[INFO][2][MakeComparable][Biomass/Thurner][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][2][MakeComparable][Biomass/Thurner][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [ 11 360 720] after: [ 11 123 720]
+[INFO][23][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][0][MakeComparable][Biomass/Saatchi][JULES-FireP0304] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][0][MakeComparable][Biomass/Saatchi][JULES-FireP0304] Spatial data was clipped from the comparison:  before: [  7 144 192] after: [  7  50 192]
+[INFO][25][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][12][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][25][confront][Evapotranspiration/MOD16A2][LPX-Bern] Success
+[INFO][12][confront][EcosystemRespiration/FLUXNET2015][JULES-noFire] Success
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [ 96 360 720] after: [ 96 123 720]
+[DEBUG][24][extractTimeSeries][JULES-FireP0005] Could not find [et,evapotrans] in the model results
+[DEBUG][24][WorkConfront][Evapotranspiration/MOD16A2][JULES-FireP0005]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][17][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][23][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][17][confront][SoilCarbon/HWSD][JULES-FireP0336] Success
+[INFO][23][confront][Evapotranspiration/MODIS][LPJ-EOSIM] Success
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JULES-noFire] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][17][MakeComparable][SoilCarbon/HWSD][JULES-noFire] Spatial data was clipped from the comparison:  before: [  1 144 192] after: [  1  50 192]
+[INFO][22][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][0][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][0][confront][Biomass/Saatchi][JULES-FireP0304] Success
+[INFO][2][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][2][confront][Biomass/Thurner][LPJ-EOSIM] Success
+[INFO][4][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[DEBUG][25][extractTimeSeries][TEM] Could not find [et,evapotrans] in the model results
+[INFO][3][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[DEBUG][25][WorkConfront][Evapotranspiration/MOD16A2][TEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][1][confront][Biomass/Thurner][CLM-FATES] Success
+[INFO][4][confront][Biomass/ESACCI][LPJ-EOSIM-fixspitfire] Success
+[INFO][4][MakeComparable][Biomass/ESACCI][LPX-Bern] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][4][MakeComparable][Biomass/ESACCI][LPX-Bern] Spatial data was clipped from the comparison:  before: [  1 180 360] after: [  1  52 360]
+[INFO][3][confront][Biomass/ESACCI][DVM-DOS-TEM] Success
+[INFO][1][MakeComparable][Biomass/Thurner][DLEM] Spatial data was clipped from the reference:  before: [  1 360 720] after: [  1 123 720]
+[INFO][1][MakeComparable][Biomass/Thurner][DLEM] Spatial data was clipped from the comparison:  before: [ 11 354 720] after: [ 11 120 720]
+[INFO][3][MakeComparable][Biomass/ESACCI][JSBACH] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][3][MakeComparable][Biomass/ESACCI][JSBACH] Spatial data was clipped from the comparison:  before: [  1 180 360] after: [  1  52 360]
+[INFO][6][confront][Biomass/XuSaatchi][LPX-Bern] Success
+[DEBUG][24][extractTimeSeries][JULES-FireP0249] Could not find [et,evapotrans] in the model results
+[DEBUG][24][WorkConfront][Evapotranspiration/MOD16A2][JULES-FireP0249]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][5][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][13][MakeComparable][EcosystemRespiration/FLUXCOM][CLM] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][13][MakeComparable][EcosystemRespiration/FLUXCOM][CLM] Spatial data was clipped from the comparison:  before: [408 180 360] after: [408  62 360]
+[INFO][6][MakeComparable][Biomass/XuSaatchi][TEM] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][6][MakeComparable][Biomass/XuSaatchi][TEM] Spatial data was clipped from the comparison:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][5][confront][Biomass/XuSaatchi][DVM-DOS-TEM] Success
+[INFO][10][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][5][MakeComparable][Biomass/XuSaatchi][JSBACH] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][5][MakeComparable][Biomass/XuSaatchi][JSBACH] Spatial data was clipped from the comparison:  before: [ 20 180 360] after: [ 20  62 360]
+[INFO][26][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][17][AnalysisMeanStateSpace][cSoilAbove1m] Bias scored using Collier2018
+[INFO][14][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][17][confront][SoilCarbon/HWSD][JULES-noFire] Success
+[INFO][3][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][23][MakeComparable][Evapotranspiration/MODIS][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [168 360 720] after: [168 123 720]
+[INFO][23][MakeComparable][Evapotranspiration/MODIS][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [168 360 720] after: [168 123 720]
+[INFO][21][MakeComparable][Evapotranspiration/GLEAMv3.3a][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [468 360 720] after: [468 123 720]
+[INFO][21][MakeComparable][Evapotranspiration/GLEAMv3.3a][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [468 360 720] after: [468 123 720]
+[INFO][3][confront][Biomass/ESACCI][JSBACH] Success
+[DEBUG][24][extractTimeSeries][JULES-FireP0304] Could not find [et,evapotrans] in the model results
+[DEBUG][24][WorkConfront][Evapotranspiration/MOD16A2][JULES-FireP0304]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][25][MakeComparable][BurnedArea/GFED4.1S][CLM] Spatial data was clipped from the reference:  before: [240 360 720] after: [240 123 720]
+[INFO][25][MakeComparable][BurnedArea/GFED4.1S][CLM] Spatial data was clipped from the comparison:  before: [240 180 360] after: [240  62 360]
+[INFO][4][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][4][confront][Biomass/ESACCI][LPX-Bern] Success
+[INFO][1][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][29][MakeComparable][Runoff/LORA][JSBACH] Spatial data was clipped from the reference:  before: [396 360 720] after: [396 123 720]
+[INFO][29][MakeComparable][Runoff/LORA][JSBACH] Spatial data was clipped from the comparison:  before: [372 180 360] after: [372  62 360]
+[INFO][1][confront][Biomass/Thurner][DLEM] Success
+[INFO][4][MakeComparable][Biomass/ESACCI][TEM] Spatial data was clipped from the reference:  before: [  1 281 721] after: [  1 103 721]
+[INFO][4][MakeComparable][Biomass/ESACCI][TEM] Spatial data was clipped from the comparison:  before: [  1 360 720] after: [  1 103 720]
+[INFO][22][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][22][confront][Evapotranspiration/MODIS][CLM-FATES] Success
+[INFO][31][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][10][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][10][confront][GrossPrimaryProductivity/FLUXCOM][TEM] Success
+[DEBUG][24][extractTimeSeries][JULES-FireP0336] Could not find [et,evapotrans] in the model results
+[INFO][5][confront][Biomass/XuSaatchi][JSBACH] Success
+[DEBUG][24][WorkConfront][Evapotranspiration/MOD16A2][JULES-FireP0336]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][5][MakeComparable][Biomass/XuSaatchi][JULES-FireP0005] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][5][MakeComparable][Biomass/XuSaatchi][JULES-FireP0005] Spatial data was clipped from the comparison:  before: [ 20 144 192] after: [ 20  50 192]
+[INFO][15][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][10][MakeComparable][GrossPrimaryProductivity/WECANN][CLM] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][10][MakeComparable][GrossPrimaryProductivity/WECANN][CLM] Spatial data was clipped from the comparison:  before: [ 96 180 360] after: [ 96  62 360]
+[DEBUG][22][extractTimeSeries][DLEM] Could not find [et,evapotrans] in the model results
+[INFO][26][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[DEBUG][22][WorkConfront][Evapotranspiration/MODIS][DLEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][31][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][26][confront][BurnedArea/GFED4.1S][JULES-FireP0249] Success
+[INFO][31][confront][Runoff/CLASS][LPJ-EOSIM-fixspitfire] Success
+[INFO][14][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][11][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][14][confront][EcosystemRespiration/FLUXCOM][JSBACH] Success
+[DEBUG][24][extractTimeSeries][JULES-noFire] Could not find [et,evapotrans] in the model results
+[DEBUG][24][WorkConfront][Evapotranspiration/MOD16A2][JULES-noFire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][6][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][6][confront][Biomass/XuSaatchi][TEM] Success
+[INFO][31][MakeComparable][Runoff/CLASS][LPX-Bern] Spatial data was clipped from the reference:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][31][MakeComparable][Runoff/CLASS][LPX-Bern] Spatial data was clipped from the comparison:  before: [ 84 180 360] after: [ 84  62 360]
+[INFO][11][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][11][confront][GrossPrimaryProductivity/WECANN][LPJ-EOSIM] Success
+[INFO][6][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][15][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][15][confront][EcosystemRespiration/FLUXCOM][TEM] Success
+[INFO][10][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][6][confront][GrossPrimaryProductivity/FLUXNET2015][CLM] Success
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][JULES-FireP0304] Spatial data was clipped from the reference:  before: [240 360 720] after: [240 123 720]
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][JULES-FireP0304] Spatial data was clipped from the comparison:  before: [240 144 192] after: [240  50 192]
+[INFO][22][MakeComparable][Evapotranspiration/MODIS][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [168 360 720] after: [168 123 720]
+[INFO][5][confront][Biomass/XuSaatchi][JULES-FireP0005] Success
+[INFO][10][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][10][confront][GrossPrimaryProductivity/WECANN][CLM] Success
+[INFO][8][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSites][gpp] Bias scored using Collier2018
+[INFO][6][AnalysisMeanStateSites][gpp] RMSE scored using Collier2018
+[INFO][5][MakeComparable][Biomass/XuSaatchi][JULES-FireP0249] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][5][MakeComparable][Biomass/XuSaatchi][JULES-FireP0249] Spatial data was clipped from the comparison:  before: [ 20 144 192] after: [ 20  50 192]
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [ 96 360 720] after: [ 96 123 720]
+[INFO][6][confront][GrossPrimaryProductivity/FLUXNET2015][CLM-FATES] Success
+[INFO][15][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][15][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][4][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][24][MakeComparable][Evapotranspiration/MOD16A2][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [180 360 720] after: [180 123 720]
+[INFO][24][MakeComparable][Evapotranspiration/MOD16A2][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [180 360 720] after: [180 123 720]
+[INFO][15][confront][NetEcosystemExchange/FLUXNET2015][CLM] Success
+[INFO][4][confront][Biomass/ESACCI][TEM] Success
+[INFO][10][MakeComparable][GrossPrimaryProductivity/WECANN][CLM-FATES] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][10][MakeComparable][GrossPrimaryProductivity/WECANN][CLM-FATES] Spatial data was clipped from the comparison:  before: [ 96 192 288] after: [ 96  66 288]
+[INFO][15][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][15][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][15][confront][NetEcosystemExchange/FLUXNET2015][CLM-FATES] Success
+[INFO][8][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][8][confront][GrossPrimaryProductivity/FLUXCOM][CLM] Success
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JULES-FireP0005] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JULES-FireP0005] Spatial data was clipped from the comparison:  before: [408 144 192] after: [408  50 192]
+[INFO][15][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][15][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][15][confront][NetEcosystemExchange/FLUXNET2015][DLEM] Success
+[DEBUG][15][extractTimeSeries][DVM-DOS-TEM] Could not find [nee] in the model results
+[INFO][9][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[DEBUG][15][WorkConfront][NetEcosystemExchange/FLUXNET2015][DVM-DOS-TEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][5][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][15][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][15][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][15][confront][NetEcosystemExchange/FLUXNET2015][JSBACH] Success
+[INFO][5][confront][Biomass/XuSaatchi][JULES-FireP0249] Success
+[INFO][5][MakeComparable][Biomass/XuSaatchi][JULES-FireP0304] Spatial data was clipped from the reference:  before: [ 20 360 720] after: [ 20 123 720]
+[INFO][5][MakeComparable][Biomass/XuSaatchi][JULES-FireP0304] Spatial data was clipped from the comparison:  before: [ 20 144 192] after: [ 20  50 192]
+[INFO][15][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][15][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][15][confront][NetEcosystemExchange/FLUXNET2015][JULES-FireP0005] Success
+[INFO][23][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][20][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][15][AnalysisMeanStateSites][nee] Bias scored using Collier2018
+[INFO][15][AnalysisMeanStateSites][nee] RMSE scored using Collier2018
+[INFO][15][confront][NetEcosystemExchange/FLUXNET2015][JULES-FireP0249] Success
+[INFO][25][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][30][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][8][MakeComparable][GrossPrimaryProductivity/FLUXCOM][CLM-FATES] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][8][MakeComparable][GrossPrimaryProductivity/FLUXCOM][CLM-FATES] Spatial data was clipped from the comparison:  before: [408 192 288] after: [408  66 288]
+[INFO][13][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][23][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][23][confront][Evapotranspiration/MODIS][LPJ-EOSIM-fixspitfire] Success
+[INFO][31][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][5][AnalysisMeanStateSpace][biomass] Bias scored using Collier2018
+[INFO][5][confront][Biomass/XuSaatchi][JULES-FireP0304] Success
+[INFO][11][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][9][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][9][confront][GrossPrimaryProductivity/FLUXCOM][JULES-FireP0304] Success
+[INFO][25][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][25][confront][BurnedArea/GFED4.1S][CLM] Success
+[INFO][30][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][10][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][30][confront][Runoff/LORA][LPJ-EOSIM-fixspitfire] Success
+[INFO][31][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][13][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][20][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][31][confront][Runoff/CLASS][LPX-Bern] Success
+[INFO][13][confront][EcosystemRespiration/FLUXCOM][CLM] Success
+[INFO][20][confront][Evapotranspiration/GLEAMv3.3a][CLM] Success
+[INFO][23][MakeComparable][Evapotranspiration/MODIS][LPX-Bern] Spatial data was clipped from the reference:  before: [168 360 720] after: [168 123 720]
+[INFO][23][MakeComparable][Evapotranspiration/MODIS][LPX-Bern] Spatial data was clipped from the comparison:  before: [168 180 360] after: [168  62 360]
+[INFO][11][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][11][confront][GrossPrimaryProductivity/WECANN][LPJ-EOSIM-fixspitfire] Success
+[INFO][10][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][10][confront][GrossPrimaryProductivity/WECANN][CLM-FATES] Success
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][LPX-Bern] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][LPX-Bern] Spatial data was clipped from the comparison:  before: [ 96 180 360] after: [ 96  62 360]
+[INFO][31][MakeComparable][Runoff/CLASS][TEM] Spatial data was clipped from the reference:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][31][MakeComparable][Runoff/CLASS][TEM] Spatial data was clipped from the comparison:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][25][MakeComparable][BurnedArea/GFED4.1S][CLM-FATES] Spatial data was clipped from the reference:  before: [240 360 720] after: [240 123 720]
+[INFO][25][MakeComparable][BurnedArea/GFED4.1S][CLM-FATES] Spatial data was clipped from the comparison:  before: [240 192 288] after: [240  66 288]
+[INFO][22][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][10][MakeComparable][GrossPrimaryProductivity/WECANN][DLEM] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][10][MakeComparable][GrossPrimaryProductivity/WECANN][DLEM] Spatial data was clipped from the comparison:  before: [ 96 354 720] after: [ 96 120 720]
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][JULES-FireP0336] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][JULES-FireP0336] Spatial data was clipped from the comparison:  before: [408 144 192] after: [408  50 192]
+[INFO][11][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][24][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][22][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][22][confront][Evapotranspiration/MODIS][DVM-DOS-TEM] Success
+[INFO][11][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][11][confront][GrossPrimaryProductivity/WECANN][LPX-Bern] Success
+[INFO][20][MakeComparable][Evapotranspiration/GLEAMv3.3a][CLM-FATES] Spatial data was clipped from the reference:  before: [468 360 720] after: [468 123 720]
+[INFO][20][MakeComparable][Evapotranspiration/GLEAMv3.3a][CLM-FATES] Spatial data was clipped from the comparison:  before: [468 192 288] after: [468  66 288]
+[INFO][29][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][TEM] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][11][MakeComparable][GrossPrimaryProductivity/WECANN][TEM] Spatial data was clipped from the comparison:  before: [ 96 360 720] after: [ 96 123 720]
+[INFO][24][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][24][confront][Evapotranspiration/MOD16A2][LPJ-EOSIM] Success
+[INFO][21][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][22][MakeComparable][Evapotranspiration/MODIS][JSBACH] Spatial data was clipped from the reference:  before: [168 360 720] after: [168 123 720]
+[INFO][22][MakeComparable][Evapotranspiration/MODIS][JSBACH] Spatial data was clipped from the comparison:  before: [168 180 360] after: [168  62 360]
+[INFO][26][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][13][MakeComparable][EcosystemRespiration/FLUXCOM][CLM-FATES] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][13][MakeComparable][EcosystemRespiration/FLUXCOM][CLM-FATES] Spatial data was clipped from the comparison:  before: [408 192 288] after: [408  66 288]
+[INFO][29][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][29][confront][Runoff/LORA][JSBACH] Success
+[INFO][24][MakeComparable][Evapotranspiration/MOD16A2][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [180 360 720] after: [180 123 720]
+[INFO][24][MakeComparable][Evapotranspiration/MOD16A2][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [180 360 720] after: [180 123 720]
+[INFO][21][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][21][confront][Evapotranspiration/GLEAMv3.3a][LPJ-EOSIM] Success
+[INFO][10][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][23][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][26][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][26][confront][BurnedArea/GFED4.1S][JULES-FireP0304] Success
+[INFO][31][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][14][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][10][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][10][confront][GrossPrimaryProductivity/WECANN][DLEM] Success
+[INFO][23][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][23][confront][Evapotranspiration/MODIS][LPX-Bern] Success
+[INFO][30][MakeComparable][Runoff/LORA][LPX-Bern] Spatial data was clipped from the reference:  before: [396 360 720] after: [396 123 720]
+[INFO][30][MakeComparable][Runoff/LORA][LPX-Bern] Spatial data was clipped from the comparison:  before: [372 180 360] after: [372  62 360]
+[INFO][10][MakeComparable][GrossPrimaryProductivity/WECANN][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][JULES-FireP0336] Spatial data was clipped from the reference:  before: [240 360 720] after: [240 123 720]
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][JULES-FireP0336] Spatial data was clipped from the comparison:  before: [240 144 192] after: [240  50 192]
+[DEBUG][23][extractTimeSeries][TEM] Could not find [et,evapotrans] in the model results
+[DEBUG][23][WorkConfront][Evapotranspiration/MODIS][TEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][31][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][31][confront][Runoff/CLASS][TEM] Success
+[INFO][11][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][21][MakeComparable][Evapotranspiration/GLEAMv3.3a][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [468 360 720] after: [468 123 720]
+[INFO][21][MakeComparable][Evapotranspiration/GLEAMv3.3a][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [468 360 720] after: [468 123 720]
+[INFO][11][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][23][MakeComparable][Evapotranspiration/MOD16A2][CLM] Spatial data was clipped from the reference:  before: [180 360 720] after: [180 123 720]
+[INFO][23][MakeComparable][Evapotranspiration/MOD16A2][CLM] Spatial data was clipped from the comparison:  before: [180 180 360] after: [180  62 360]
+[INFO][11][confront][GrossPrimaryProductivity/WECANN][TEM] Success
+[INFO][14][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][14][confront][EcosystemRespiration/FLUXCOM][JULES-FireP0005] Success
+[INFO][11][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][11][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][11][confront][EcosystemRespiration/FLUXNET2015][CLM] Success
+[DEBUG][29][extractTimeSeries][JULES-FireP0005] Could not find [runoff,mrro] in the model results
+[DEBUG][29][WorkConfront][Runoff/LORA][JULES-FireP0005]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][11][AnalysisMeanStateSites][reco] Bias scored using Collier2018
+[INFO][11][AnalysisMeanStateSites][reco] RMSE scored using Collier2018
+[INFO][22][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][11][confront][EcosystemRespiration/FLUXNET2015][CLM-FATES] Success
+[INFO][10][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][22][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][22][confront][Evapotranspiration/MODIS][JSBACH] Success
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JULES-FireP0249] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JULES-FireP0249] Spatial data was clipped from the comparison:  before: [408 144 192] after: [408  50 192]
+[INFO][24][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][10][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][10][confront][GrossPrimaryProductivity/WECANN][DVM-DOS-TEM] Success
+[DEBUG][22][extractTimeSeries][JULES-FireP0005] Could not find [et,evapotrans] in the model results
+[DEBUG][22][WorkConfront][Evapotranspiration/MODIS][JULES-FireP0005]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][10][MakeComparable][GrossPrimaryProductivity/WECANN][JSBACH] Spatial data was clipped from the reference:  before: [108 180 360] after: [108  62 360]
+[INFO][10][MakeComparable][GrossPrimaryProductivity/WECANN][JSBACH] Spatial data was clipped from the comparison:  before: [ 96 180 360] after: [ 96  62 360]
+[INFO][24][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][24][confront][Evapotranspiration/MOD16A2][LPJ-EOSIM-fixspitfire] Success
+[INFO][9][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][25][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[DEBUG][22][extractTimeSeries][JULES-FireP0249] Could not find [et,evapotrans] in the model results
+[DEBUG][22][WorkConfront][Evapotranspiration/MODIS][JULES-FireP0249]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][10][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][10][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][10][confront][GrossPrimaryProductivity/WECANN][JSBACH] Success
+[DEBUG][22][extractTimeSeries][JULES-FireP0304] Could not find [et,evapotrans] in the model results
+[DEBUG][22][WorkConfront][Evapotranspiration/MODIS][JULES-FireP0304]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][8][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[DEBUG][10][extractTimeSeries][JULES-FireP0005] Could not find [gpp,mgpp] in the model results
+[DEBUG][10][WorkConfront][GrossPrimaryProductivity/WECANN][JULES-FireP0005]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][27][extractTimeSeries][DVM-DOS-TEM] Could not find [runoff,mrro] in the model results
+[DEBUG][27][WorkConfront][Runoff/Dai][DVM-DOS-TEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 144, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 56, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<2 lines>...
+        final_time=obs.time_bnds[-1, 1],
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][10][extractTimeSeries][JULES-FireP0249] Could not find [gpp,mgpp] in the model results
+[DEBUG][10][WorkConfront][GrossPrimaryProductivity/WECANN][JULES-FireP0249]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][23][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[DEBUG][22][extractTimeSeries][JULES-FireP0336] Could not find [et,evapotrans] in the model results
+[DEBUG][22][WorkConfront][Evapotranspiration/MODIS][JULES-FireP0336]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][29][extractTimeSeries][JULES-FireP0249] Could not find [runoff,mrro] in the model results
+[DEBUG][29][WorkConfront][Runoff/LORA][JULES-FireP0249]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][25][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][9][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][25][confront][BurnedArea/GFED4.1S][CLM-FATES] Success
+[INFO][9][confront][GrossPrimaryProductivity/FLUXCOM][JULES-FireP0336] Success
+[INFO][23][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][23][confront][Evapotranspiration/MOD16A2][CLM] Success
+[DEBUG][25][extractTimeSeries][DLEM] Could not find [burntArea] in the model results
+[DEBUG][25][WorkConfront][BurnedArea/GFED4.1S][DLEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][26][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][8][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][8][confront][GrossPrimaryProductivity/FLUXCOM][CLM-FATES] Success
+[DEBUG][25][extractTimeSeries][DVM-DOS-TEM] Could not find [burntArea] in the model results
+[DEBUG][25][WorkConfront][BurnedArea/GFED4.1S][DVM-DOS-TEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][23][MakeComparable][Evapotranspiration/MOD16A2][CLM-FATES] Spatial data was clipped from the reference:  before: [180 360 720] after: [180 123 720]
+[INFO][23][MakeComparable][Evapotranspiration/MOD16A2][CLM-FATES] Spatial data was clipped from the comparison:  before: [180 192 288] after: [180  66 288]
+[INFO][30][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][JULES-noFire] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][JULES-noFire] Spatial data was clipped from the comparison:  before: [408 144 192] after: [408  50 192]
+[INFO][26][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][26][confront][BurnedArea/GFED4.1S][JULES-FireP0336] Success
+[INFO][25][MakeComparable][BurnedArea/GFED4.1S][JSBACH] Spatial data was clipped from the reference:  before: [240 360 720] after: [240 123 720]
+[INFO][25][MakeComparable][BurnedArea/GFED4.1S][JSBACH] Spatial data was clipped from the comparison:  before: [240 180 360] after: [240  62 360]
+[INFO][13][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][30][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][30][confront][Runoff/LORA][LPX-Bern] Success
+[DEBUG][26][extractTimeSeries][JULES-noFire] Could not find [burntArea] in the model results
+[DEBUG][26][WorkConfront][BurnedArea/GFED4.1S][JULES-noFire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][27][extractTimeSeries][JULES-FireP0005] Could not find [runoff,mrro] in the model results
+[DEBUG][27][WorkConfront][Runoff/Dai][JULES-FireP0005]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 144, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 56, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<2 lines>...
+        final_time=obs.time_bnds[-1, 1],
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][27][extractTimeSeries][JULES-FireP0249] Could not find [runoff,mrro] in the model results
+[DEBUG][27][WorkConfront][Runoff/Dai][JULES-FireP0249]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 144, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 56, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<2 lines>...
+        final_time=obs.time_bnds[-1, 1],
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][27][extractTimeSeries][JULES-FireP0304] Could not find [runoff,mrro] in the model results
+[DEBUG][27][WorkConfront][Runoff/Dai][JULES-FireP0304]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 144, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 56, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<2 lines>...
+        final_time=obs.time_bnds[-1, 1],
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][27][extractTimeSeries][JULES-FireP0336] Could not find [runoff,mrro] in the model results
+[DEBUG][27][WorkConfront][Runoff/Dai][JULES-FireP0336]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 144, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ConfRunoff.py", line 56, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<2 lines>...
+        final_time=obs.time_bnds[-1, 1],
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][21][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [240 360 720] after: [240 123 720]
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [240 360 720] after: [240 123 720]
+[INFO][13][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][13][confront][EcosystemRespiration/FLUXCOM][CLM-FATES] Success
+[DEBUG][29][extractTimeSeries][JULES-FireP0304] Could not find [runoff,mrro] in the model results
+[DEBUG][29][WorkConfront][Runoff/LORA][JULES-FireP0304]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][8][MakeComparable][GrossPrimaryProductivity/FLUXCOM][DLEM] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][8][MakeComparable][GrossPrimaryProductivity/FLUXCOM][DLEM] Spatial data was clipped from the comparison:  before: [408 354 720] after: [408 120 720]
+[INFO][20][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][14][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][21][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][21][confront][Evapotranspiration/GLEAMv3.3a][LPJ-EOSIM-fixspitfire] Success
+[INFO][14][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][14][confront][EcosystemRespiration/FLUXCOM][JULES-FireP0249] Success
+[INFO][25][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][21][MakeComparable][Evapotranspiration/GLEAMv3.3a][LPX-Bern] Spatial data was clipped from the reference:  before: [468 360 720] after: [468 123 720]
+[INFO][21][MakeComparable][Evapotranspiration/GLEAMv3.3a][LPX-Bern] Spatial data was clipped from the comparison:  before: [468 180 360] after: [468  62 360]
+[INFO][20][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][20][confront][Evapotranspiration/GLEAMv3.3a][CLM-FATES] Success
+[INFO][25][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][25][confront][BurnedArea/GFED4.1S][JSBACH] Success
+[INFO][30][MakeComparable][Runoff/LORA][TEM] Spatial data was clipped from the reference:  before: [396 360 720] after: [396 123 720]
+[INFO][30][MakeComparable][Runoff/LORA][TEM] Spatial data was clipped from the comparison:  before: [372 360 720] after: [372 123 720]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JULES-FireP0304] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JULES-FireP0304] Spatial data was clipped from the comparison:  before: [408 144 192] after: [408  50 192]
+[INFO][25][MakeComparable][BurnedArea/GFED4.1S][JULES-FireP0005] Spatial data was clipped from the reference:  before: [240 360 720] after: [240 123 720]
+[INFO][25][MakeComparable][BurnedArea/GFED4.1S][JULES-FireP0005] Spatial data was clipped from the comparison:  before: [240 144 192] after: [240  50 192]
+[INFO][9][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[DEBUG][20][extractTimeSeries][DLEM] Could not find [et,evapotrans] in the model results
+[DEBUG][20][WorkConfront][Evapotranspiration/GLEAMv3.3a][DLEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][29][extractTimeSeries][JULES-FireP0336] Could not find [runoff,mrro] in the model results
+[DEBUG][29][WorkConfront][Runoff/LORA][JULES-FireP0336]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][26][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][13][MakeComparable][EcosystemRespiration/FLUXCOM][DLEM] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][13][MakeComparable][EcosystemRespiration/FLUXCOM][DLEM] Spatial data was clipped from the comparison:  before: [408 354 720] after: [408 120 720]
+[INFO][23][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][8][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][26][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][26][confront][BurnedArea/GFED4.1S][LPJ-EOSIM] Success
+[INFO][9][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][9][confront][GrossPrimaryProductivity/FLUXCOM][JULES-noFire] Success
+[INFO][8][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][20][MakeComparable][Evapotranspiration/GLEAMv3.3a][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [468 360 720] after: [468 123 720]
+[INFO][8][confront][GrossPrimaryProductivity/FLUXCOM][DLEM] Success
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [240 360 720] after: [240 123 720]
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [240 360 720] after: [240 123 720]
+[INFO][23][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][23][confront][Evapotranspiration/MOD16A2][CLM-FATES] Success
+[DEBUG][23][extractTimeSeries][DLEM] Could not find [et,evapotrans] in the model results
+[DEBUG][23][WorkConfront][Evapotranspiration/MOD16A2][DLEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][8][MakeComparable][GrossPrimaryProductivity/FLUXCOM][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][23][MakeComparable][Evapotranspiration/MOD16A2][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [180 360 720] after: [180 123 720]
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [408 360 720] after: [408 123 720]
+[DEBUG][29][extractTimeSeries][JULES-noFire] Could not find [runoff,mrro] in the model results
+[DEBUG][29][WorkConfront][Runoff/LORA][JULES-noFire]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][25][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][13][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][14][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][21][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][25][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][25][confront][BurnedArea/GFED4.1S][JULES-FireP0005] Success
+[INFO][13][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][13][confront][EcosystemRespiration/FLUXCOM][DLEM] Success
+[INFO][26][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][30][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][21][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][21][confront][Evapotranspiration/GLEAMv3.3a][LPX-Bern] Success
+[INFO][14][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][30][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][30][confront][Runoff/LORA][TEM] Success
+[INFO][14][confront][EcosystemRespiration/FLUXCOM][JULES-FireP0304] Success
+[INFO][26][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][26][confront][BurnedArea/GFED4.1S][LPJ-EOSIM-fixspitfire] Success
+[INFO][30][MakeComparable][Runoff/CLASS][CLM] Spatial data was clipped from the reference:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][30][MakeComparable][Runoff/CLASS][CLM] Spatial data was clipped from the comparison:  before: [ 84 180 360] after: [ 84  62 360]
+[INFO][23][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[DEBUG][21][extractTimeSeries][TEM] Could not find [et,evapotrans] in the model results
+[DEBUG][21][WorkConfront][Evapotranspiration/GLEAMv3.3a][TEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][LPX-Bern] Spatial data was clipped from the reference:  before: [240 360 720] after: [240 123 720]
+[INFO][26][MakeComparable][BurnedArea/GFED4.1S][LPX-Bern] Spatial data was clipped from the comparison:  before: [240 180 360] after: [240  62 360]
+[INFO][29][MakeComparable][Runoff/LORA][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [396 360 720] after: [396 123 720]
+[INFO][29][MakeComparable][Runoff/LORA][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [372 360 720] after: [372 123 720]
+[INFO][13][MakeComparable][EcosystemRespiration/FLUXCOM][DVM-DOS-TEM] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][23][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][23][confront][Evapotranspiration/MOD16A2][DVM-DOS-TEM] Success
+[INFO][8][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][21][MakeComparable][Evapotranspiration/MODIS][CLM] Spatial data was clipped from the reference:  before: [168 360 720] after: [168 123 720]
+[INFO][21][MakeComparable][Evapotranspiration/MODIS][CLM] Spatial data was clipped from the comparison:  before: [168 180 360] after: [168  62 360]
+[INFO][9][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JULES-FireP0336] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JULES-FireP0336] Spatial data was clipped from the comparison:  before: [408 144 192] after: [408  50 192]
+[INFO][20][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][8][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][8][confront][GrossPrimaryProductivity/FLUXCOM][DVM-DOS-TEM] Success
+[INFO][20][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][20][confront][Evapotranspiration/GLEAMv3.3a][DVM-DOS-TEM] Success
+[INFO][9][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][9][confront][GrossPrimaryProductivity/FLUXCOM][LPJ-EOSIM] Success
+[INFO][30][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][30][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][8][MakeComparable][GrossPrimaryProductivity/FLUXCOM][JSBACH] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][8][MakeComparable][GrossPrimaryProductivity/FLUXCOM][JSBACH] Spatial data was clipped from the comparison:  before: [408 180 360] after: [408  62 360]
+[INFO][30][confront][Runoff/CLASS][CLM] Success
+[INFO][30][MakeComparable][Runoff/CLASS][CLM-FATES] Spatial data was clipped from the reference:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][30][MakeComparable][Runoff/CLASS][CLM-FATES] Spatial data was clipped from the comparison:  before: [ 84 192 288] after: [ 84  66 288]
+[INFO][20][MakeComparable][Evapotranspiration/GLEAMv3.3a][JSBACH] Spatial data was clipped from the reference:  before: [468 360 720] after: [468 123 720]
+[INFO][20][MakeComparable][Evapotranspiration/GLEAMv3.3a][JSBACH] Spatial data was clipped from the comparison:  before: [468 180 360] after: [468  62 360]
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [408 360 720] after: [408 123 720]
+[INFO][26][AnalysisMeanStateSpace][burntArea] Bias scored using Collier2018
+[INFO][21][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][26][AnalysisMeanStateSpace][burntArea] RMSE scored using Collier2018
+[INFO][26][confront][BurnedArea/GFED4.1S][LPX-Bern] Success
+[INFO][13][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][21][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][21][confront][Evapotranspiration/MODIS][CLM] Success
+[DEBUG][26][extractTimeSeries][TEM] Could not find [burntArea] in the model results
+[DEBUG][26][WorkConfront][BurnedArea/GFED4.1S][TEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][13][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][13][confront][EcosystemRespiration/FLUXCOM][DVM-DOS-TEM] Success
+[INFO][29][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][8][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][29][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][29][confront][Runoff/LORA][LPJ-EOSIM] Success
+[INFO][14][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][8][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][8][confront][GrossPrimaryProductivity/FLUXCOM][JSBACH] Success
+[INFO][9][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][30][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][14][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][14][confront][EcosystemRespiration/FLUXCOM][JULES-FireP0336] Success
+[INFO][9][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][9][confront][GrossPrimaryProductivity/FLUXCOM][LPJ-EOSIM-fixspitfire] Success
+[INFO][20][AnalysisMeanStateSpace][et] Bias scored using Collier2018
+[INFO][30][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][30][confront][Runoff/CLASS][CLM-FATES] Success
+[INFO][30][MakeComparable][Runoff/CLASS][DLEM] Spatial data was clipped from the reference:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][30][MakeComparable][Runoff/CLASS][DLEM] Spatial data was clipped from the comparison:  before: [ 84 354 720] after: [ 84 120 720]
+[INFO][20][AnalysisMeanStateSpace][et] RMSE scored using Collier2018
+[INFO][20][confront][Evapotranspiration/GLEAMv3.3a][JSBACH] Success
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][LPX-Bern] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][9][MakeComparable][GrossPrimaryProductivity/FLUXCOM][LPX-Bern] Spatial data was clipped from the comparison:  before: [408 180 360] after: [408  62 360]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JULES-noFire] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][JULES-noFire] Spatial data was clipped from the comparison:  before: [408 144 192] after: [408  50 192]
+[DEBUG][20][extractTimeSeries][JULES-FireP0005] Could not find [et,evapotrans] in the model results
+[DEBUG][20][WorkConfront][Evapotranspiration/GLEAMv3.3a][JULES-FireP0005]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[DEBUG][20][extractTimeSeries][JULES-FireP0249] Could not find [et,evapotrans] in the model results
+[DEBUG][20][WorkConfront][Evapotranspiration/GLEAMv3.3a][JULES-FireP0249]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][28][MakeComparable][Runoff/LORA][CLM] Spatial data was clipped from the reference:  before: [396 360 720] after: [396 123 720]
+[INFO][28][MakeComparable][Runoff/LORA][CLM] Spatial data was clipped from the comparison:  before: [372 180 360] after: [372  62 360]
+[INFO][30][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][30][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][30][confront][Runoff/CLASS][DLEM] Success
+[DEBUG][30][extractTimeSeries][DVM-DOS-TEM] Could not find [runoff,mrro] in the model results
+[DEBUG][30][WorkConfront][Runoff/CLASS][DVM-DOS-TEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][30][MakeComparable][Runoff/CLASS][JSBACH] Spatial data was clipped from the reference:  before: [ 84 360 720] after: [ 84 123 720]
+[INFO][30][MakeComparable][Runoff/CLASS][JSBACH] Spatial data was clipped from the comparison:  before: [ 84 180 360] after: [ 84  62 360]
+[INFO][9][AnalysisMeanStateSpace][gpp] Bias scored using Collier2018
+[INFO][9][AnalysisMeanStateSpace][gpp] RMSE scored using Collier2018
+[INFO][9][confront][GrossPrimaryProductivity/FLUXCOM][LPX-Bern] Success
+[INFO][14][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][30][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][30][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][30][confront][Runoff/CLASS][JSBACH] Success
+[DEBUG][30][extractTimeSeries][JULES-FireP0005] Could not find [runoff,mrro] in the model results
+[DEBUG][30][WorkConfront][Runoff/CLASS][JULES-FireP0005]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 563, in WorkConfront
+    c.confront(m)
+    ~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 433, in confront
+    obs, mod = self.stageData(m)
+               ~~~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 371, in stageData
+    mod = m.extractTimeSeries(
+        self.variable,
+    ...<5 lines>...
+        lons=None if obs.spatial else obs.lon,
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/ModelResult.py", line 433, in extractTimeSeries
+    raise il.VarNotInModel()
+ILAMB.ilamblib.VarNotInModel: VarNotInModel
+
+[INFO][14][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][14][confront][EcosystemRespiration/FLUXCOM][JULES-noFire] Success
+[INFO][28][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][28][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][28][confront][Runoff/LORA][CLM] Success
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][LPJ-EOSIM] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][LPJ-EOSIM] Spatial data was clipped from the comparison:  before: [408 360 720] after: [408 123 720]
+[INFO][28][MakeComparable][Runoff/LORA][CLM-FATES] Spatial data was clipped from the reference:  before: [396 360 720] after: [396 123 720]
+[INFO][28][MakeComparable][Runoff/LORA][CLM-FATES] Spatial data was clipped from the comparison:  before: [372 192 288] after: [372  66 288]
+[INFO][14][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][14][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][14][confront][EcosystemRespiration/FLUXCOM][LPJ-EOSIM] Success
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][LPJ-EOSIM-fixspitfire] Spatial data was clipped from the comparison:  before: [408 360 720] after: [408 123 720]
+[INFO][14][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][14][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][14][confront][EcosystemRespiration/FLUXCOM][LPJ-EOSIM-fixspitfire] Success
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][LPX-Bern] Spatial data was clipped from the reference:  before: [408 360 720] after: [408 123 720]
+[INFO][14][MakeComparable][EcosystemRespiration/FLUXCOM][LPX-Bern] Spatial data was clipped from the comparison:  before: [408 180 360] after: [408  62 360]
+[INFO][28][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][28][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][28][confront][Runoff/LORA][CLM-FATES] Success
+[INFO][14][AnalysisMeanStateSpace][reco] Bias scored using Collier2018
+[INFO][14][AnalysisMeanStateSpace][reco] RMSE scored using Collier2018
+[INFO][14][confront][EcosystemRespiration/FLUXCOM][LPX-Bern] Success
+[INFO][28][MakeComparable][Runoff/LORA][DLEM] Spatial data was clipped from the reference:  before: [396 360 720] after: [396 123 720]
+[INFO][28][MakeComparable][Runoff/LORA][DLEM] Spatial data was clipped from the comparison:  before: [372 354 720] after: [372 120 720]
+[INFO][28][AnalysisMeanStateSpace][runoff] Bias scored using Collier2018
+[INFO][28][AnalysisMeanStateSpace][runoff] RMSE scored using Collier2018
+[INFO][28][confront][Runoff/LORA][DLEM] Success
+[INFO][4][modelPlots][Biomass/ESACCI][JULES-FireP0005] Success
+[INFO][28][modelPlots][Runoff/Dai][LPJ-EOSIM] Success
+[INFO][4][modelPlots][Biomass/ESACCI][JULES-FireP0249] Success
+[INFO][4][modelPlots][Biomass/ESACCI][JULES-FireP0304] Success
+[INFO][4][modelPlots][Biomass/ESACCI][JULES-FireP0336] Success
+[INFO][4][modelPlots][Biomass/ESACCI][JULES-noFire] Success
+[INFO][4][modelPlots][Biomass/ESACCI][LPJ-EOSIM] Success
+[INFO][21][modelPlots][Evapotranspiration/GLEAMv3.3a][LPJ-EOSIM] Success
+[INFO][13][modelPlots][EcosystemRespiration/FLUXNET2015][LPJ-EOSIM] Success
+[INFO][4][modelPlots][Biomass/ESACCI][LPJ-EOSIM-fixspitfire] Success
+[INFO][4][modelPlots][Biomass/ESACCI][LPX-Bern] Success
+[INFO][4][modelPlots][Biomass/ESACCI][TEM] Success
+[INFO][13][modelPlots][EcosystemRespiration/FLUXNET2015][LPJ-EOSIM-fixspitfire] Success
+[INFO][21][modelPlots][Evapotranspiration/GLEAMv3.3a][LPJ-EOSIM-fixspitfire] Success
+[INFO][13][modelPlots][EcosystemRespiration/FLUXNET2015][LPX-Bern] Success
+[INFO][21][modelPlots][Evapotranspiration/GLEAMv3.3a][LPX-Bern] Success
+[INFO][13][modelPlots][EcosystemRespiration/FLUXNET2015][TEM] Success
+[INFO][3][modelPlots][Biomass/Thurner][LPJ-EOSIM-fixspitfire] Success
+[INFO][21][modelPlots][Evapotranspiration/MODIS][CLM] Success
+[INFO][3][modelPlots][Biomass/Thurner][LPX-Bern] Success
+[INFO][3][modelPlots][Biomass/Thurner][TEM] Success
+[INFO][3][modelPlots][Biomass/ESACCI][CLM] Success
+[INFO][3][modelPlots][Biomass/ESACCI][CLM-FATES] Success
+[INFO][3][modelPlots][Biomass/ESACCI][DLEM] Success
+[INFO][13][modelPlots][EcosystemRespiration/FLUXCOM][CLM] Success
+[INFO][3][modelPlots][Biomass/ESACCI][DVM-DOS-TEM] Success
+[INFO][3][modelPlots][Biomass/ESACCI][JSBACH] Success
+[INFO][27][modelPlots][Runoff/Dai][CLM] Success
+[INFO][13][modelPlots][EcosystemRespiration/FLUXCOM][CLM-FATES] Success
+[INFO][0][modelPlots][Biomass/Saatchi][CLM] Success
+[INFO][17][modelPlots][SoilCarbon/HWSD][CLM-FATES] Success
+[INFO][0][modelPlots][Biomass/Saatchi][CLM-FATES] Success
+[INFO][17][modelPlots][SoilCarbon/HWSD][DLEM] Success
+[INFO][0][modelPlots][Biomass/Saatchi][DLEM] Success
+[INFO][17][modelPlots][SoilCarbon/HWSD][DVM-DOS-TEM] Success
+[DEBUG][0][WorkPost][Biomass/Saatchi][DVM-DOS-TEM]
+Traceback (most recent call last):
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/bin/ilamb-run", line 618, in WorkPost
+    c.modelPlots(m)
+    ~~~~~~~~~~~~^^^
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Confrontation.py", line 952, in modelPlots
+    ax = var.plot(
+        None,
+    ...<3 lines>...
+        cmap=self.limits[pname]["cmap"],
+    )
+  File "/mnt/beegfs/hellgate/home/tc229954e/.conda/envs/ilamb/lib/python3.14/site-packages/ILAMB/Variable.py", line 1370, in plot
+    self.lon_bnds[lon_empty[0], 0],
+                  ~~~~~~~~~^^^
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
+[INFO][17][modelPlots][SoilCarbon/HWSD][JSBACH] Success
+[INFO][0][modelPlots][Biomass/Saatchi][JSBACH] Success
+[INFO][17][modelPlots][SoilCarbon/HWSD][JULES-FireP0005] Success
+[INFO][0][modelPlots][Biomass/Saatchi][JULES-FireP0005] Success
+[INFO][13][modelPlots][EcosystemRespiration/FLUXCOM][DLEM] Success
+[INFO][17][modelPlots][SoilCarbon/HWSD][JULES-FireP0249] Success
+[INFO][0][modelPlots][Biomass/Saatchi][JULES-FireP0249] Success
+[INFO][0][modelPlots][Biomass/Saatchi][JULES-FireP0304] Success
+[INFO][17][modelPlots][SoilCarbon/HWSD][JULES-FireP0304] Success
+[INFO][31][modelPlots][Runoff/CLASS][LPJ-EOSIM] Success
+[INFO][17][modelPlots][SoilCarbon/HWSD][JULES-FireP0336] Success
+[INFO][19][modelPlots][SoilCarbon/NCSCDV22][JSBACH] Success
+[INFO][17][modelPlots][SoilCarbon/HWSD][JULES-noFire] Success
+[INFO][19][modelPlots][SoilCarbon/NCSCDV22][JULES-FireP0005] Success
+[INFO][19][modelPlots][SoilCarbon/NCSCDV22][JULES-FireP0249] Success
+[INFO][30][modelPlots][Runoff/LORA][LPJ-EOSIM-fixspitfire] Success
+[INFO][19][modelPlots][SoilCarbon/NCSCDV22][JULES-FireP0304] Success
+[INFO][13][modelPlots][EcosystemRespiration/FLUXCOM][DVM-DOS-TEM] Success
+[INFO][19][modelPlots][SoilCarbon/NCSCDV22][JULES-FireP0336] Success
+[INFO][19][modelPlots][SoilCarbon/NCSCDV22][JULES-noFire] Success
+[INFO][19][modelPlots][SoilCarbon/NCSCDV22][LPJ-EOSIM] Success
+[INFO][19][modelPlots][SoilCarbon/NCSCDV22][LPJ-EOSIM-fixspitfire] Success
+[INFO][31][modelPlots][Runoff/CLASS][LPJ-EOSIM-fixspitfire] Success
+[INFO][1][modelPlots][Biomass/Saatchi][JULES-FireP0336] Success
+[INFO][1][modelPlots][Biomass/Saatchi][JULES-noFire] Success
+[INFO][20][modelPlots][SoilCarbon/NCSCDV22][LPX-Bern] Success
+[INFO][30][modelPlots][Runoff/LORA][LPX-Bern] Success
+[INFO][1][modelPlots][Biomass/Saatchi][LPJ-EOSIM] Success
+[INFO][20][modelPlots][SoilCarbon/NCSCDV22][TEM] Success
+[INFO][1][modelPlots][Biomass/Saatchi][LPJ-EOSIM-fixspitfire] Success
+[INFO][1][modelPlots][Biomass/Saatchi][LPX-Bern] Success
+[INFO][1][modelPlots][Biomass/Saatchi][TEM] Success
+[INFO][1][modelPlots][Biomass/Thurner][CLM] Success
+[INFO][1][modelPlots][Biomass/Thurner][CLM-FATES] Success
+[INFO][12][modelPlots][EcosystemRespiration/FLUXNET2015][DLEM] Success
+[INFO][31][modelPlots][Runoff/CLASS][LPX-Bern] Success
+[INFO][1][modelPlots][Biomass/Thurner][DLEM] Success
+[INFO][8][modelPlots][GrossPrimaryProductivity/FLUXNET2015][LPJ-EOSIM] Success
+[INFO][9][modelPlots][GrossPrimaryProductivity/FLUXCOM][JULES-FireP0304] Success
+[INFO][15][modelPlots][EcosystemRespiration/FLUXCOM][TEM] Success
+[INFO][29][modelPlots][Runoff/LORA][JSBACH] Success
+[INFO][2][modelPlots][Biomass/Thurner][DVM-DOS-TEM] Success
+[INFO][20][modelPlots][Evapotranspiration/GLEAMv3.3a][CLM] Success
+[INFO][2][modelPlots][Biomass/Thurner][JSBACH] Success
+[INFO][30][modelPlots][Runoff/LORA][TEM] Success
+[INFO][2][modelPlots][Biomass/Thurner][JULES-FireP0005] Success
+[INFO][2][modelPlots][Biomass/Thurner][JULES-FireP0249] Success
+[INFO][12][modelPlots][EcosystemRespiration/FLUXNET2015][DVM-DOS-TEM] Success
+[INFO][2][modelPlots][Biomass/Thurner][JULES-FireP0304] Success
+[INFO][8][modelPlots][GrossPrimaryProductivity/FLUXNET2015][LPJ-EOSIM-fixspitfire] Success
+[INFO][2][modelPlots][Biomass/Thurner][JULES-FireP0336] Success
+[INFO][31][modelPlots][Runoff/CLASS][TEM] Success
+[INFO][14][modelPlots][EcosystemRespiration/FLUXCOM][JSBACH] Success
+[INFO][2][modelPlots][Biomass/Thurner][JULES-noFire] Success
+[INFO][9][modelPlots][GrossPrimaryProductivity/FLUXCOM][JULES-FireP0336] Success
+[INFO][2][modelPlots][Biomass/Thurner][LPJ-EOSIM] Success
+[INFO][15][modelPlots][NetEcosystemExchange/FLUXNET2015][CLM] Success
+[INFO][20][modelPlots][Evapotranspiration/GLEAMv3.3a][CLM-FATES] Success
+[INFO][30][modelPlots][Runoff/CLASS][CLM] Success
+[INFO][29][modelPlots][Runoff/LORA][LPJ-EOSIM] Success
+[INFO][5][modelPlots][Biomass/XuSaatchi][CLM] Success
+[INFO][11][modelPlots][GrossPrimaryProductivity/WECANN][JULES-FireP0304] Success
+[INFO][12][modelPlots][EcosystemRespiration/FLUXNET2015][JSBACH] Success
+[INFO][18][modelPlots][SoilCarbon/HWSD][LPJ-EOSIM] Success
+[INFO][8][modelPlots][GrossPrimaryProductivity/FLUXNET2015][LPX-Bern] Success
+[INFO][18][modelPlots][SoilCarbon/HWSD][LPJ-EOSIM-fixspitfire] Success
+[INFO][24][modelPlots][Evapotranspiration/MOD16A2][JSBACH] Success
+[INFO][18][modelPlots][SoilCarbon/HWSD][LPX-Bern] Success
+[INFO][18][modelPlots][SoilCarbon/HWSD][TEM] Success
+[INFO][10][modelPlots][GrossPrimaryProductivity/FLUXCOM][TEM] Success
+[INFO][5][modelPlots][Biomass/XuSaatchi][CLM-FATES] Success
+[INFO][16][modelPlots][NetEcosystemExchange/FLUXNET2015][JULES-FireP0304] Success
+[INFO][14][modelPlots][EcosystemRespiration/FLUXCOM][JULES-FireP0005] Success
+[INFO][18][modelPlots][SoilCarbon/NCSCDV22][CLM] Success
+[INFO][7][modelPlots][GrossPrimaryProductivity/FLUXNET2015][DLEM] Success
+[INFO][18][modelPlots][SoilCarbon/NCSCDV22][CLM-FATES] Success
+[INFO][26][modelPlots][BurnedArea/GFED4.1S][JULES-FireP0249] Success
+[INFO][25][modelPlots][Evapotranspiration/MOD16A2][LPX-Bern] Success
+[INFO][15][modelPlots][NetEcosystemExchange/FLUXNET2015][CLM-FATES] Success
+[INFO][22][modelPlots][Evapotranspiration/MODIS][CLM-FATES] Success
+[INFO][18][modelPlots][SoilCarbon/NCSCDV22][DLEM] Success
+[INFO][9][modelPlots][GrossPrimaryProductivity/FLUXCOM][JULES-noFire] Success
+[INFO][20][modelPlots][Evapotranspiration/GLEAMv3.3a][DVM-DOS-TEM] Success
+[INFO][6][modelPlots][Biomass/XuSaatchi][JULES-FireP0336] Success
+[INFO][12][modelPlots][EcosystemRespiration/FLUXNET2015][JULES-FireP0005] Success
+[INFO][11][modelPlots][GrossPrimaryProductivity/WECANN][JULES-FireP0336] Success
+[INFO][18][modelPlots][SoilCarbon/NCSCDV22][DVM-DOS-TEM] Success
+[INFO][8][modelPlots][GrossPrimaryProductivity/FLUXNET2015][TEM] Success
+[INFO][5][modelPlots][Biomass/XuSaatchi][DLEM] Success
+[INFO][30][modelPlots][Runoff/CLASS][CLM-FATES] Success
+[INFO][24][modelPlots][Evapotranspiration/MOD16A2][LPJ-EOSIM] Success
+[INFO][6][modelPlots][Biomass/XuSaatchi][JULES-noFire] Success
+[INFO][10][modelPlots][GrossPrimaryProductivity/WECANN][CLM] Success
+[INFO][23][modelPlots][Evapotranspiration/MODIS][LPJ-EOSIM] Success
+[INFO][5][modelPlots][Biomass/XuSaatchi][DVM-DOS-TEM] Success
+[INFO][16][modelPlots][NetEcosystemExchange/FLUXNET2015][JULES-FireP0336] Success
+[INFO][7][modelPlots][GrossPrimaryProductivity/FLUXNET2015][DVM-DOS-TEM] Success
+[INFO][14][modelPlots][EcosystemRespiration/FLUXCOM][JULES-FireP0249] Success
+[INFO][6][modelPlots][Biomass/XuSaatchi][LPJ-EOSIM] Success
+[INFO][12][modelPlots][EcosystemRespiration/FLUXNET2015][JULES-FireP0249] Success
+[INFO][22][modelPlots][Evapotranspiration/MODIS][DVM-DOS-TEM] Success
+[INFO][15][modelPlots][NetEcosystemExchange/FLUXNET2015][DLEM] Success
+[INFO][11][modelPlots][GrossPrimaryProductivity/WECANN][JULES-noFire] Success
+[INFO][20][modelPlots][Evapotranspiration/GLEAMv3.3a][JSBACH] Success
+[INFO][28][modelPlots][Runoff/Dai][LPJ-EOSIM-fixspitfire] Success
+[INFO][5][modelPlots][Biomass/XuSaatchi][JSBACH] Success
+[INFO][25][modelPlots][BurnedArea/GFED4.1S][CLM] Success
+[INFO][26][modelPlots][BurnedArea/GFED4.1S][JULES-FireP0304] Success
+[INFO][30][modelPlots][Runoff/CLASS][DLEM] Success
+[INFO][6][modelPlots][Biomass/XuSaatchi][LPJ-EOSIM-fixspitfire] Success
+[INFO][24][modelPlots][Evapotranspiration/MOD16A2][LPJ-EOSIM-fixspitfire] Success
+[INFO][23][modelPlots][Evapotranspiration/MODIS][LPJ-EOSIM-fixspitfire] Success
+[INFO][10][modelPlots][GrossPrimaryProductivity/WECANN][CLM-FATES] Success
+[INFO][5][modelPlots][Biomass/XuSaatchi][JULES-FireP0005] Success
+[INFO][7][modelPlots][GrossPrimaryProductivity/FLUXNET2015][JSBACH] Success
+[INFO][16][modelPlots][NetEcosystemExchange/FLUXNET2015][JULES-noFire] Success
+[INFO][6][modelPlots][Biomass/XuSaatchi][LPX-Bern] Success
+[INFO][14][modelPlots][EcosystemRespiration/FLUXCOM][JULES-FireP0304] Success
+[INFO][12][modelPlots][EcosystemRespiration/FLUXNET2015][JULES-FireP0304] Success
+[INFO][22][modelPlots][Evapotranspiration/MODIS][JSBACH] Success
+[INFO][11][modelPlots][GrossPrimaryProductivity/WECANN][LPJ-EOSIM] Success
+[INFO][9][modelPlots][GrossPrimaryProductivity/FLUXCOM][LPJ-EOSIM] Success
+[INFO][5][modelPlots][Biomass/XuSaatchi][JULES-FireP0249] Success
+[INFO][8][modelPlots][GrossPrimaryProductivity/FLUXCOM][CLM] Success
+[INFO][15][modelPlots][NetEcosystemExchange/FLUXNET2015][JSBACH] Success
+[INFO][6][modelPlots][Biomass/XuSaatchi][TEM] Success
+[INFO][30][modelPlots][Runoff/CLASS][JSBACH] Success
+[INFO][25][modelPlots][BurnedArea/GFED4.1S][CLM-FATES] Success
+[INFO][5][modelPlots][Biomass/XuSaatchi][JULES-FireP0304] Success
+[INFO][23][modelPlots][Evapotranspiration/MODIS][LPX-Bern] Success
+[INFO][26][modelPlots][BurnedArea/GFED4.1S][JULES-FireP0336] Success
+[INFO][10][modelPlots][GrossPrimaryProductivity/WECANN][DLEM] Success
+[INFO][7][modelPlots][GrossPrimaryProductivity/FLUXNET2015][JULES-FireP0304] Success
+[INFO][16][modelPlots][NetEcosystemExchange/FLUXNET2015][LPJ-EOSIM] Success
+[INFO][14][modelPlots][EcosystemRespiration/FLUXCOM][JULES-FireP0336] Success
+[INFO][12][modelPlots][EcosystemRespiration/FLUXNET2015][JULES-FireP0336] Success
+[INFO][11][modelPlots][GrossPrimaryProductivity/WECANN][LPJ-EOSIM-fixspitfire] Success
+[INFO][6][modelPlots][GrossPrimaryProductivity/FLUXNET2015][CLM] Success
+[INFO][15][modelPlots][NetEcosystemExchange/FLUXNET2015][JULES-FireP0005] Success
+[INFO][23][modelPlots][Evapotranspiration/MOD16A2][CLM] Success
+[INFO][25][modelPlots][BurnedArea/GFED4.1S][JSBACH] Success
+[INFO][7][modelPlots][GrossPrimaryProductivity/FLUXNET2015][JULES-FireP0336] Success
+[INFO][10][modelPlots][GrossPrimaryProductivity/WECANN][DVM-DOS-TEM] Success
+[INFO][16][modelPlots][NetEcosystemExchange/FLUXNET2015][LPJ-EOSIM-fixspitfire] Success
+[INFO][12][modelPlots][EcosystemRespiration/FLUXNET2015][JULES-noFire] Success
+[INFO][26][modelPlots][BurnedArea/GFED4.1S][LPJ-EOSIM] Success
+[INFO][11][modelPlots][GrossPrimaryProductivity/WECANN][LPX-Bern] Success
+[INFO][14][modelPlots][EcosystemRespiration/FLUXCOM][JULES-noFire] Success
+[INFO][9][modelPlots][GrossPrimaryProductivity/FLUXCOM][LPJ-EOSIM-fixspitfire] Success
+[INFO][6][modelPlots][GrossPrimaryProductivity/FLUXNET2015][CLM-FATES] Success
+[INFO][8][modelPlots][GrossPrimaryProductivity/FLUXCOM][CLM-FATES] Success
+[INFO][15][modelPlots][NetEcosystemExchange/FLUXNET2015][JULES-FireP0249] Success
+[INFO][10][modelPlots][GrossPrimaryProductivity/WECANN][JSBACH] Success
+[INFO][23][modelPlots][Evapotranspiration/MOD16A2][CLM-FATES] Success
+[INFO][7][modelPlots][GrossPrimaryProductivity/FLUXNET2015][JULES-noFire] Success
+[INFO][16][modelPlots][NetEcosystemExchange/FLUXNET2015][LPX-Bern] Success
+[INFO][25][modelPlots][BurnedArea/GFED4.1S][JULES-FireP0005] Success
+[INFO][11][modelPlots][GrossPrimaryProductivity/WECANN][TEM] Success
+[INFO][26][modelPlots][BurnedArea/GFED4.1S][LPJ-EOSIM-fixspitfire] Success
+[INFO][14][modelPlots][EcosystemRespiration/FLUXCOM][LPJ-EOSIM] Success
+[INFO][8][modelPlots][GrossPrimaryProductivity/FLUXCOM][DLEM] Success
+[INFO][27][modelPlots][Runoff/Dai][CLM-FATES] Success
+[INFO][23][modelPlots][Evapotranspiration/MOD16A2][DVM-DOS-TEM] Success
+[INFO][16][modelPlots][NetEcosystemExchange/FLUXNET2015][TEM] Success
+[INFO][9][modelPlots][GrossPrimaryProductivity/FLUXCOM][LPX-Bern] Success
+[INFO][16][modelPlots][SoilCarbon/HWSD][CLM] Success
+[INFO][11][modelPlots][EcosystemRespiration/FLUXNET2015][CLM] Success
+[INFO][14][modelPlots][EcosystemRespiration/FLUXCOM][LPJ-EOSIM-fixspitfire] Success
+[INFO][26][modelPlots][BurnedArea/GFED4.1S][LPX-Bern] Success
+[INFO][8][modelPlots][GrossPrimaryProductivity/FLUXCOM][DVM-DOS-TEM] Success
+[INFO][11][modelPlots][EcosystemRespiration/FLUXNET2015][CLM-FATES] Success
+[INFO][14][modelPlots][EcosystemRespiration/FLUXCOM][LPX-Bern] Success
+[INFO][8][modelPlots][GrossPrimaryProductivity/FLUXCOM][JSBACH] Success
+[INFO][28][modelPlots][Runoff/Dai][LPX-Bern] Success
+[INFO][27][modelPlots][Runoff/Dai][DLEM] Success
+[INFO][28][modelPlots][Runoff/Dai][TEM] Success
+[INFO][27][modelPlots][Runoff/Dai][JSBACH] Success
+[INFO][28][modelPlots][Runoff/LORA][CLM] Success
+[INFO][28][modelPlots][Runoff/LORA][CLM-FATES] Success
+[INFO][28][modelPlots][Runoff/LORA][DLEM] Success
+[INFO][0][<module>][process time] 30.3 s
+[INFO][16][<module>][process time] 52.8 s
+[INFO][13][<module>][process time] 163.3 s
+[INFO][2][<module>][process time] 31.6 s
+[INFO][21][<module>][process time] 122.0 s
+[INFO][17][<module>][process time] 35.3 s
+[INFO][25][<module>][process time] 124.2 s
+[INFO][18][<module>][process time] 26.6 s
+[INFO][31][<module>][process time] 78.5 s
+[INFO][11][<module>][process time] 98.3 s
+[INFO][8][<module>][process time] 177.4 s
+[INFO][27][<module>][process time] 188.7 s
+[INFO][24][<module>][process time] 70.5 s
+[INFO][10][<module>][process time] 96.4 s
+[INFO][9][<module>][process time] 175.9 s
+[INFO][23][<module>][process time] 129.5 s
+[INFO][22][<module>][process time] 77.0 s
+[INFO][19][<module>][process time] 28.0 s
+[INFO][30][<module>][process time] 188.0 s
+[INFO][3][<module>][process time] 34.0 s
+[INFO][7][<module>][process time] 42.2 s
+[INFO][1][<module>][process time] 34.8 s
+[INFO][29][<module>][process time] 77.4 s
+[INFO][6][<module>][process time] 56.4 s
+[INFO][4][<module>][process time] 43.9 s
+[INFO][26][<module>][process time] 150.7 s
+[INFO][28][<module>][process time] 347.4 s
+[INFO][5][<module>][process time] 62.1 s
+[INFO][12][<module>][process time] 62.4 s
+[INFO][14][<module>][process time] 230.3 s
+[INFO][15][<module>][process time] 78.3 s
+[INFO][0][<module>][total time] 531.8 s
+[INFO][20][<module>][process time] 150.6 s
+[INFO][0][<module>][process balance] 13.06
+[INFO][0][<module>][parallel efficiency] 19%

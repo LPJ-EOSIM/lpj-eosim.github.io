@@ -23,3 +23,5 @@ This section is split into:
   historical and overshoot periods.
 - [**ILAMB: hist vs fix-spitfire hist**](ilamb_hist.md) — ILAMB benchmark
   scores for `LPJ-wie-hist` vs `LPJ-wiemip-fix-spitfire-hist`.
+- [**ILAMB: multi-model historical**](ilamb_multimodel.md) — LPJ-EOSIM vs
+  every other WIEMIP model's historical run in ILAMB.
