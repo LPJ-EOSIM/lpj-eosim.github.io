@@ -63,7 +63,7 @@ land-use fluxes.
 - **JSBACH `hist_dynveg`:** every value in every uploaded file is NaN.
 - **VISIT-UT:** it has no historical run in the bucket, only control and
   futures.
-- **16 model folders** in the bucket are empty.
+- **17 model folders** in the bucket are empty (a single 0-byte folder marker each): BEPS, BiomeE, CARDAMOM-JPL, CLASSIC, CoLM, EDv3, ELM, GDSTEM, IBIS, KG-FM, LPJ-GUESS, LPJmL6, ModelE-SLSM, ORCHIDEE-MICT-CALIPSO, OSCAR, UVIC, VISIT-NIES.
 
 ## Why there are two ILAMB sites
 
