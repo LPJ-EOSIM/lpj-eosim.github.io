@@ -15,6 +15,7 @@ nav:
               - WIEMIP vs regular CRUJRA: overshoots/lpj_results/wiemip_vs_crujra.md
               - Historical vs control: overshoots/lpj_results/hist_vs_control.md
               - "Historical + overshoot: stocks & fluxes": overshoots/lpj_results/historical_overshoot.md
+              - "ILAMB: hist vs fix-spitfire hist": overshoots/lpj_results/ilamb_hist.md
           - "Soil-C plateau recap": overshoots/soilc_plateau_recap.md
           - "Permafrost extent (and the fice_200 artefact)": overshoots/permafrost_extent.md
           - "Archive (older futures)": overshoots/archive.md

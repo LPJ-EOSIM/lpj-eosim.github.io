@@ -21,3 +21,5 @@ This section is split into:
   full historical run continued by all 6 overshoot scenarios (2024–2300) for
   every key stock and flux, plus maps of the spatial pattern at the end of the
   historical and overshoot periods.
+- [**ILAMB: hist vs fix-spitfire hist**](ilamb_hist.md) — ILAMB benchmark
+  scores for `LPJ-wie-hist` vs `LPJ-wiemip-fix-spitfire-hist`.
