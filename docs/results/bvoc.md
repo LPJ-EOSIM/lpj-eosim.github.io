@@ -20,11 +20,14 @@ for isoprene, seasonality. The emitted carbon is subtracted from GPP each day.
 | Tg C/yr, 2005–2014 | no-N | N run | Benchmark | no-N / benchmark |
 |---|---|---|---|---|
 | Isoprene | **291** | **297** | OMI top-down 240 · MEGAN-MOHYCAN 310 | 1.22 · 0.96 |
+| Isoprene, 2013–2020 | 286 | | CrIS top-down 456 | 0.63 |
 | Monoterpenes | **32.3** | **32.5** | MEGAN-MOHYCAN 90 | 0.36 |
 
-- **Isoprene is reasonable.** The total falls between the satellite top-down
-  estimate and the bottom-up inventory. Spatial r = 0.71 vs OMI and 0.82 vs
-  MEGAN. The peak month matches OMI in every region.
+- **Isoprene is reasonable.** The total falls between the OMI top-down
+  estimate and the bottom-up inventory, and at the low end of the three
+  satellite estimates (OMI 240, TROPOMI 453, CrIS 456 Tg C/yr). Spatial r =
+  0.71 vs OMI, 0.76 vs CrIS and 0.82 vs MEGAN. The peak month matches OMI in
+  every region.
 - **Monoterpenes are low**: about a third of MEGAN-MOHYCAN and below every
   published inventory (54–132 Tg C/yr). The total matches LPJ-GUESS
   (Schurgers et al. 2009: 29.6–31.8 Tg C/yr), whose scheme this follows. The
@@ -52,6 +55,7 @@ cover. Literature values in Tg of species are converted to carbon
 | LPJ, before GUESS alignment (`a64008b`) | 381 | different config (N, SPITFIRE, recycled 1850s climate) |
 | OMI top-down (Bauwens et al. 2016) | 240 | 2005–2014 |
 | TROPOMI top-down (Sfendla et al. 2025) | 453 | 2021 only |
+| CrIS top-down (Li et al. 2025) | 456 | 2013–2020 |
 | MEGAN-MOHYCAN / ALBERI (Opacka & Müller 2021) | 310 | 2005–2014 |
 | CAMS-GLOB-BIO v3.0–3.1 (Sindelarova et al. 2022) | 264–388 | 2000–2019 |
 | MEGAN (Guenther et al. 2006) | 440–660 | |
@@ -85,6 +89,13 @@ LPJ is higher than OMI over central Amazonia, the Congo basin and
 Borneo/New Guinea, and lower over eastern Australia and the cerrado. Tropical
 share of the global total: LPJ 75%, OMI 72%, MEGAN 78%.
 
+![Isoprene vs CrIS](../img/bvoc/cris_bench.png)
+
+CrIS comparison on the CrIS grid (LPJ 2010s regridded by cell overlap).
+Largest gaps, 2013–2020 (LPJ vs CrIS, Tg C/yr): Africa 71 vs 107, SE Asia &
+Maritime 38 vs 51, eastern US 10.4 vs 20.6. LPJ does not track CrIS
+year-to-year (r = −0.39).
+
 ![Monoterpenes vs benchmarks](../img/bvoc/mono_bench.png)
 
 Tropical share: LPJ 58%, MEGAN 72%. Boreal and temperate conifer regions are
@@ -98,7 +109,10 @@ Regions are lat/lon boxes (`REGIONS` in `code/process_lpj.py`).
 
 ![Regional totals](../img/bvoc/site_regions.png)
 
+CrIS bars are 2013–2020; the other bars are 2005–2014.
+
 - Australia is 2.6× below OMI (12 vs 31 Tg C/yr).
+- Eastern US is close to OMI (10.6 vs 9.9) but half of CrIS (20.6).
 - Europe is 1.5–2× high (9.7 vs 6.3 OMI, 4.9 MEGAN).
 - Amazonia monoterpenes are 5.6× below MEGAN (4.9 vs 27.5).
 
@@ -242,6 +256,9 @@ No-N run:
     - TROPOMI top-down isoprene, 2021 (doi:10.18758/52E4U9EN), 2°×2.5°.
     - ALBERI MEGAN2.1-MOHYCAN isoprene, 2001–2018 (doi:10.18758/71021062).
     - MEGAN-MOHYCAN monoterpenes, 2005–2016.
+- CrIS top-down isoprene, 2013–2020 (Li et al. 2025, ESSD 17:7035;
+  [doi:10.5281/zenodo.16214776](https://doi.org/10.5281/zenodo.16214776)),
+  1.27°×2.5°, kg C per cell per month.
 - Processing is one slurm array task per variable (`process_lpj.py`,
   `process_obs.py`, `process_pft.py`), then `make_maps.py`, `make_data.py` and
   `make_site_plots.py`.
