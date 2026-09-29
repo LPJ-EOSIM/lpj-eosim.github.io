@@ -76,6 +76,7 @@ nav:
       - "ERA5 low-latency runs": results/era5.md
       - "Tuning a no-fire permutation to the baseline": results/tuned_nofire.md
       - "BVOC benchmark (isoprene & monoterpenes)": results/bvoc.md
+      - "Benchmark runs at 7a1fa06 / fbc7d07: ILAMB": results/benchmark_ilamb.md
   - Publications: publications.md
 
 plugins:
