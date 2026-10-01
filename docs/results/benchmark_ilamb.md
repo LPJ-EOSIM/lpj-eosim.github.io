@@ -2,12 +2,6 @@
 
 [**Open the full ILAMB site →**](ilamb-benchmark-7a1fa06/index.html)
 
-On this run's ILAMB site, each cell of the overview table shows its absolute score, and the highest
-score in each row is colored purple. ILAMB's default coloring is a z-score across these nine runs only,
-`(score − row mean) / max(row std, 0.02)`. Row stds here are 0.014–0.034, so under that coloring the
-whole red-to-green range spans about ±0.035 in score. Those z-scores are still in
-`ilamb-benchmark-7a1fa06/scalars.json`; the absolute scores are in `scalars_score.json`.
-
 Nine runs benchmarked with ILAMB against observations, all from raw LPJ output:
 
 - **This PR's runs:** TRENDY CRU S3 at 7a1fa06 (pre-1901 year sampling back on `rand()`),

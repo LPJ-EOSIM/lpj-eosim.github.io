@@ -65,46 +65,34 @@
 	  colorTable();
       }
 
-      // Edited for this run: cells show the absolute score (scalars_score.json), not ILAMB's
-      // per-row z-score (scalars.json). Only the highest score in each row is colored (purple);
-      // ties at the displayed 3 decimals are all colored.
-      var MAX_CLR = "#542788";
-      var OTHER_CLR = "#f7f7f7";
       function printRow(table,row,array,cmap) {
 	  if(typeof array == 'undefined'){
 	      for(var i = 1, col; col = table.rows[row].cells[i]; i++) {
 		  col.style.backgroundColor = "#808080";
-		  (col.firstChild || col).textContent = "\u00a0";
 	      }
 	      return;
 	  }
-	  var best = null;
-	  for(var col=0;col<array.length;col++){
-	      if(array[col] !== null && (best === null || Number(array[col].toFixed(3)) > best)) best = Number(array[col].toFixed(3));
-	  }
+	  var nc = cmap.length;
 	  for(var col=0;col<array.length;col++){
 	      var clr = "#808080";
-	      var txt = "\u00a0";
-	      var txtclr = "#000";
-	      if(array[col] !== null){
-		  txt = array[col].toFixed(3);
-		  clr = OTHER_CLR;
-		  if(Number(txt) == best){
-		      clr = MAX_CLR;
-		      txtclr = "#fff";
-		  }
+	      if(array[col] > -900){
+                  var ae = Math.abs(array[col]);
+                  var ind;
+                  if(ae>=0.25){
+                     ind = Math.round(2*array[col]+4);
+                  }else{
+                     ind = Math.round(4*array[col]+4);
+                  }
+		  ind = Math.min(Math.max(ind,0),nc-1);
+		  clr = cmap[ind];
 	      }
-	      var cell = table.rows[row].cells[col+1];
-	      var label = cell.firstChild || cell;  // dataset rows hold a link, section/variable rows don't
-	      cell.style.backgroundColor = clr;
-	      label.textContent = txt;
-	      label.style.color = txtclr;
+	      table.rows[row].cells[col+1].style.backgroundColor = clr;
 	  }
       }
 
       function colorTable() {
 
-        $.getJSON("scalars_score.json", function(data) {
+        $.getJSON("scalars.json", function(data) {
           var scalars = data;
 	  var scalar_option = document.getElementById("ScalarOption");
           var region_option = document.getElementById("RegionOption");
@@ -139,9 +127,10 @@
 	  }
 
 	  table = document.getElementById("scoresLegend");
-	  table.rows[0].cells[0].style.backgroundColor = MAX_CLR;
-	  table.rows[0].cells[0].style.color = "#fff";
-	  table.rows[0].cells[1].style.backgroundColor = OTHER_CLR;
+	  row = 0;
+	  for(var col=0;col<cmap.length;col++){
+	      table.rows[row].cells[col].style.backgroundColor = cmap[col];
+	  }
 	});
       }
     </script>
@@ -161,23 +150,18 @@
 	  font-weight: normal;
       }
       th.rotate > div {
-          transform: translate(20px, 88px) rotate(-45deg);
+          transform: translate(10px, 88px) rotate(-45deg);
           width: 0px;
       }
       th.rotate > div > span {
       }
       td {
 	  height: 25px;
-	  width: 44px;
+	  width: 25px;
 	  border: 1px solid;
-	  font-size: 11px;
-	  text-align: center;
-	  font-variant-numeric: tabular-nums;
       }
       td.row-label {
 	  width: 325px;
-	  text-align: left;
-	  font-size: inherit;
       }
       a {
 	  display:block;
@@ -568,16 +552,15 @@
 	</table>
 
 
-	<p>Absolute score
+	<p>Relative Scale
 	<table class="table-header-rotated" id="scoresLegend">
 	  <tbody>
             <tr>
-              <td style="width: 110px">Row maximum</td><td style="width: 110px">Other runs</td>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 	    </tr>
 	  </tbody>
 	</table>
-	<p style="font-size: 12px">This page shows absolute scores. ILAMB's default coloring, a z-score
-	across these nine runs, is still in <a href="scalars.json" style="display:inline">scalars.json</a>.</p>
+	Worse Value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Better Value
 	<table class="table-header-rotated" id="missingLegend">
 	  <tbody>
             <tr>
