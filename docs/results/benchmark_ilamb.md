@@ -1,6 +1,10 @@
 # Benchmark runs at 7a1fa06 / fbc7d07 — ILAMB
 
 [**Open the full ILAMB site →**](ilamb-benchmark-7a1fa06/index.html)
+· [**Dashboard with absolute scores →**](ilamb-benchmark-7a1fa06/dashboard.html)
+
+The ILAMB site colors each row by z-score across these nine runs. The dashboard opens on absolute
+scores; switch back under Menu → Scaling.
 
 Nine runs benchmarked with ILAMB against observations, all from raw LPJ output:
 
