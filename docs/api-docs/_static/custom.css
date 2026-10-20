@@ -1,0 +1,7 @@
+/* Load the same webfont as the LPJ-EOSIM mkdocs-material site. Colors/fonts
+   themselves are set via html_theme_options in conf.py (alabaster theme). */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback');
+
+div.sphinxsidebar ul {
+  word-wrap: break-word;
+}

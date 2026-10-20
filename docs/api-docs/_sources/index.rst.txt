@@ -1,0 +1,19 @@
+Welcome to the *LPJ-EOSIM* documentation.
+=========================================
+
+This site documents the model API, core data structures,
+and scientific logic behind LPJ-EOSIM.
+
+Sections
+--------
+
+- :doc:`functions` - Descriptions of the main functions in LPJ
+- :doc:`structs` - Configuration, bookkeeping, and PFT structs.
+- :ref:`genindex` - Alphabetical index of every documented function and struct.
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+
+   functions
+   structs

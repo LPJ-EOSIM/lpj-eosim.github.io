@@ -1,0 +1,9 @@
+LPJ-EOSIM structs
+=================
+Structs are named sets of values that occupy a contiguous block of memory.
+Useful for grouping related concepts together (e.g., a Config struct, a PFT struct).
+This page contains descriptions of important structs in the codebase
+
+.. doxygengroup:: structs
+   :project: LPJ-EOSIM
+   :members:

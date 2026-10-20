@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>LPJ-EOSIM structs &#8212; LPJ Earth Observation SIMulator</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=a46f2fe7" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9a47a87a" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/fold-breathe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="LPJ-EOSIM functions" href="functions.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LPJ-EOSIM</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="functions.html">LPJ-EOSIM functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LPJ-EOSIM structs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv47Climbuf"><code class="docutils literal notranslate"><span class="pre">Climbuf</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv46Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="functions.html" title="previous chapter">LPJ-EOSIM functions</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="lpj-eosim-structs">
+<h1>LPJ-EOSIM structs<a class="headerlink" href="#lpj-eosim-structs" title="Link to this heading">¶</a></h1>
+<p>Structs are named sets of values that occupy a contiguous block of memory.
+Useful for grouping related concepts together (e.g., a Config struct, a PFT struct).
+This page contains descriptions of important structs in the codebase</p>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__structs"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">LPJ-EOSIM</span> <span class="pre">structs</span></span></dt>
+<dd><dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv47Climbuf">
+<span id="_CPPv37Climbuf"></span><span id="_CPPv27Climbuf"></span><span id="Climbuf"></span><span class="target" id="struct_climbuf"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Climbuf</span></span></span><a class="headerlink" href="#_CPPv47Climbuf" title="Link to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;climate.h&gt;</em></div>
+<p>Struct containing growing degree days, the previous 31 days of temperature, the previous 32 days of daily precipitation, and min/max/mean temperature records. </p>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv46Config">
+<span id="_CPPv36Config"></span><span id="_CPPv26Config"></span><span id="Config"></span><span class="target" id="struct_config"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Config</span></span></span><a class="headerlink" href="#_CPPv46Config" title="Link to this definition">¶</a><br /></dt>
+<dd><div class="docutils container">
+<em>#include &lt;config.h&gt;</em></div>
+<p>Main configuration structure. </p>
+<p>This struct is populated in <code class="docutils literal notranslate"><span class="pre">fscanconfig.c</span></code> and contains references to driver and restart filenames as well as a list of output filenames. It also stores core simulation parameters such as grid dimensions and years. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config15pftpar_filenameE">
+<span id="_CPPv3N6Config15pftpar_filenameE"></span><span id="_CPPv2N6Config15pftpar_filenameE"></span><span id="Config::pftpar_filename__cP"></span><span class="target" id="struct_config_1ae09225f9525ce0837d19a1ddbb0a8035"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">pftpar_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config15pftpar_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Filename for PFT parameters. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config16soilpar_filenameE">
+<span id="_CPPv3N6Config16soilpar_filenameE"></span><span id="_CPPv2N6Config16soilpar_filenameE"></span><span id="Config::soilpar_filename__cP"></span><span class="target" id="struct_config_1af15e9ab693e5ab7f54dd93ddadce8a50"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">soilpar_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config16soilpar_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Filename for soil parameters. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config19countrypar_filenameE">
+<span id="_CPPv3N6Config19countrypar_filenameE"></span><span id="_CPPv2N6Config19countrypar_filenameE"></span><span id="Config::countrypar_filename__cP"></span><span class="target" id="struct_config_1ac5f3f87308d179e89b26f1d6a4ff3055"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">countrypar_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config19countrypar_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Filename for country parameters. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config18regionpar_filenameE">
+<span id="_CPPv3N6Config18regionpar_filenameE"></span><span id="_CPPv2N6Config18regionpar_filenameE"></span><span id="Config::regionpar_filename__cP"></span><span class="target" id="struct_config_1af7d36360cfa612db43c5210404d57038"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">regionpar_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config18regionpar_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Filename for region parameters. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config17drainage_filenameE">
+<span id="_CPPv3N6Config17drainage_filenameE"></span><span id="_CPPv2N6Config17drainage_filenameE"></span><span id="Config::drainage_filename__cP"></span><span class="target" id="struct_config_1a58b3f177c4fd6f3f5f6278aa23d2d823"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">drainage_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config17drainage_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Drainage filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config21neighb_irrig_filenameE">
+<span id="_CPPv3N6Config21neighb_irrig_filenameE"></span><span id="_CPPv2N6Config21neighb_irrig_filenameE"></span><span id="Config::neighb_irrig_filename__cP"></span><span class="target" id="struct_config_1a4423eaedda55639ad5f8276efe79ec9b"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">neighb_irrig_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config21neighb_irrig_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Neighbor irrigation filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config14coord_filenameE">
+<span id="_CPPv3N6Config14coord_filenameE"></span><span id="_CPPv2N6Config14coord_filenameE"></span><span id="Config::coord_filename__cP"></span><span class="target" id="struct_config_1a9c546a64a4b9797cacb9267aa8788513"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">coord_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config14coord_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Coordinate filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config13soil_filenameE">
+<span id="_CPPv3N6Config13soil_filenameE"></span><span id="_CPPv2N6Config13soil_filenameE"></span><span id="Config::soil_filename__cP"></span><span class="target" id="struct_config_1aff343fea9ccba57e13beac1c54f46660"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">soil_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config13soil_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Soil filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config20countrycode_filenameE">
+<span id="_CPPv3N6Config20countrycode_filenameE"></span><span id="_CPPv2N6Config20countrycode_filenameE"></span><span id="Config::countrycode_filename__cP"></span><span class="target" id="struct_config_1a8e66591b5b255d0bed5ab877de2e5f68"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">countrycode_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config20countrycode_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Country code filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config14lakes_filenameE">
+<span id="_CPPv3N6Config14lakes_filenameE"></span><span id="_CPPv2N6Config14lakes_filenameE"></span><span id="Config::lakes_filename__cP"></span><span class="target" id="struct_config_1a13cc7e14fb50fdb9c673b7fc1bfada60"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">lakes_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config14lakes_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Lakes filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config16landuse_filenameE">
+<span id="_CPPv3N6Config16landuse_filenameE"></span><span id="_CPPv2N6Config16landuse_filenameE"></span><span id="Config::landuse_filename__cP"></span><span class="target" id="struct_config_1af6f871f69a2d7a57ed9c3231fa2ecf54"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">landuse_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config16landuse_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Landuse filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config13temp_filenameE">
+<span id="_CPPv3N6Config13temp_filenameE"></span><span id="_CPPv2N6Config13temp_filenameE"></span><span id="Config::temp_filename__cP"></span><span class="target" id="struct_config_1a04d21db6af5d0b0cd3ee35fd67ff28e7"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">temp_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config13temp_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Temperature forcing filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config13prec_filenameE">
+<span id="_CPPv3N6Config13prec_filenameE"></span><span id="_CPPv2N6Config13prec_filenameE"></span><span id="Config::prec_filename__cP"></span><span class="target" id="struct_config_1a8ec90d64a5ead32202200d64bdb328e0"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">prec_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config13prec_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Precipitation forcing filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config14cloud_filenameE">
+<span id="_CPPv3N6Config14cloud_filenameE"></span><span id="_CPPv2N6Config14cloud_filenameE"></span><span id="Config::cloud_filename__cP"></span><span class="target" id="struct_config_1a73fee914f4096811ba5b64d681ddd42a"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">cloud_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config14cloud_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Cloud forcing filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config13tmin_filenameE">
+<span id="_CPPv3N6Config13tmin_filenameE"></span><span id="_CPPv2N6Config13tmin_filenameE"></span><span id="Config::tmin_filename__cP"></span><span class="target" id="struct_config_1a55e6a6e536e70b01e40f7b2dd04de7b9"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">tmin_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config13tmin_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Daily-min temperature forcing filename. Optional; if NULL or empty, update_nesterov falls back to a sun-based DTR estimate. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config13tmax_filenameE">
+<span id="_CPPv3N6Config13tmax_filenameE"></span><span id="_CPPv2N6Config13tmax_filenameE"></span><span id="Config::tmax_filename__cP"></span><span class="target" id="struct_config_1ac62c2e8d60376cb1c0aa78d4cd5b59b1"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">tmax_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config13tmax_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Daily-max temperature forcing filename. Optional (see tmin_filename). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config11sw_filenameE">
+<span id="_CPPv3N6Config11sw_filenameE"></span><span id="_CPPv2N6Config11sw_filenameE"></span><span id="Config::sw_filename__cP"></span><span class="target" id="struct_config_1a9928859d78fcf0de66a26815b54e3f45"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">sw_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config11sw_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Shortwave radiation forcing filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config11lw_filenameE">
+<span id="_CPPv3N6Config11lw_filenameE"></span><span id="_CPPv2N6Config11lw_filenameE"></span><span id="Config::lw_filename__cP"></span><span class="target" id="struct_config_1a4ff785c0426cb74ac52a391ae7912d69"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">lw_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config11lw_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Longwave radiation forcing filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config14ozone_filenameE">
+<span id="_CPPv3N6Config14ozone_filenameE"></span><span id="_CPPv2N6Config14ozone_filenameE"></span><span id="Config::ozone_filename__cP"></span><span class="target" id="struct_config_1af6b2bd7dca0b94efd0b6d07ec8214170"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">ozone_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config14ozone_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Ozone forcing filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config13elev_filenameE">
+<span id="_CPPv3N6Config13elev_filenameE"></span><span id="_CPPv2N6Config13elev_filenameE"></span><span id="Config::elev_filename__cP"></span><span class="target" id="struct_config_1a8861da39135ee72d3cc0f3c5a31b95b2"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">elev_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config13elev_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Elevation filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config13topm_filenameE">
+<span id="_CPPv3N6Config13topm_filenameE"></span><span id="_CPPv2N6Config13topm_filenameE"></span><span id="Config::topm_filename__cP"></span><span class="target" id="struct_config_1a9ddaab010e3ff9e529e1c44631fecd5a"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">topm_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config13topm_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Topography filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config12tsl_filenameE">
+<span id="_CPPv3N6Config12tsl_filenameE"></span><span id="_CPPv2N6Config12tsl_filenameE"></span><span id="Config::tsl_filename__cP"></span><span class="target" id="struct_config_1abe6f649156e3a5fe2019302bd6e9fceb"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">tsl_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config12tsl_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Soil temperature filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config12wet_filenameE">
+<span id="_CPPv3N6Config12wet_filenameE"></span><span id="_CPPv2N6Config12wet_filenameE"></span><span id="Config::wet_filename__cP"></span><span class="target" id="struct_config_1a7813666fbb3922e9063300d398bd8b6f"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">wet_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config12wet_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Wetness filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config17standage_filenameE">
+<span id="_CPPv3N6Config17standage_filenameE"></span><span id="_CPPv2N6Config17standage_filenameE"></span><span id="Config::standage_filename__cP"></span><span class="target" id="struct_config_1a1440f6988d82be63c8afe4253a22771b"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">standage_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config17standage_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Stand age filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config12noy_filenameE">
+<span id="_CPPv3N6Config12noy_filenameE"></span><span id="_CPPv2N6Config12noy_filenameE"></span><span id="Config::noy_filename__cP"></span><span class="target" id="struct_config_1abee7a3b9a12fde0f002bdc34b21194dd"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">noy_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config12noy_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>NOy filename </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config12nhx_filenameE">
+<span id="_CPPv3N6Config12nhx_filenameE"></span><span id="_CPPv2N6Config12nhx_filenameE"></span><span id="Config::nhx_filename__cP"></span><span class="target" id="struct_config_1aa0565ef4a58cbb3cabcdf7f33d87c926"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nhx_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config12nhx_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>NHx filename </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config14nfert_filenameE">
+<span id="_CPPv3N6Config14nfert_filenameE"></span><span id="_CPPv2N6Config14nfert_filenameE"></span><span id="Config::nfert_filename__cPA"></span><span class="target" id="struct_config_1a5cf9e62f77e67cd30199f5d6300a3bf4"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">nfert_filename</span></span></span><span class="p"><span class="pre">[</span></span><span class="n"><span class="pre">NFERT_NSTREAMS</span></span><span class="p"><span class="pre">]</span></span><a class="headerlink" href="#_CPPv4N6Config14nfert_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>HaNi fertilizer/manure N-input filenames, indexed by the stream enum. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config12co2_filenameE">
+<span id="_CPPv3N6Config12co2_filenameE"></span><span id="_CPPv2N6Config12co2_filenameE"></span><span id="Config::co2_filename__cP"></span><span class="target" id="struct_config_1a1871dc033661210583a4096a1aa79cb5"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">co2_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config12co2_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>CO₂ forcing filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config17co2_d13C_filenameE">
+<span id="_CPPv3N6Config17co2_d13C_filenameE"></span><span id="_CPPv2N6Config17co2_d13C_filenameE"></span><span id="Config::co2_d13C_filename__cP"></span><span class="target" id="struct_config_1a6c73e86e9723fc593fa6aa032b884887"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">co2_d13C_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config17co2_d13C_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>CO₂ δ13C forcing filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config17co2_d14C_filenameE">
+<span id="_CPPv3N6Config17co2_d14C_filenameE"></span><span id="_CPPv2N6Config17co2_d14C_filenameE"></span><span id="Config::co2_d14C_filename__cP"></span><span class="target" id="struct_config_1ad5db21b07078bc8a3ea2c572d64b1f0a"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">co2_d14C_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config17co2_d14C_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>CO₂ Δ14C forcing filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config16wetfrac_filenameE">
+<span id="_CPPv3N6Config16wetfrac_filenameE"></span><span id="_CPPv2N6Config16wetfrac_filenameE"></span><span id="Config::wetfrac_filename__cP"></span><span class="target" id="struct_config_1a6cf843469d18e29cd07af208fb1c8851"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">wetfrac_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config16wetfrac_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Wet fraction filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config11sm_filenameE">
+<span id="_CPPv3N6Config11sm_filenameE"></span><span id="_CPPv2N6Config11sm_filenameE"></span><span id="Config::sm_filename__cP"></span><span class="target" id="struct_config_1ad42bcb22041ca655fa92e7bc91bc27ac"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">sm_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config11sm_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Soil moisture filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config16restart_filenameE">
+<span id="_CPPv3N6Config16restart_filenameE"></span><span id="_CPPv2N6Config16restart_filenameE"></span><span id="Config::restart_filename__cP"></span><span class="target" id="struct_config_1a87af63e9e7ab1a4b74a6010a0ff4ab75"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">restart_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config16restart_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Restart filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config22write_restart_filenameE">
+<span id="_CPPv3N6Config22write_restart_filenameE"></span><span id="_CPPv2N6Config22write_restart_filenameE"></span><span id="Config::write_restart_filename__cP"></span><span class="target" id="struct_config_1a742f683a4f8e3d1bebb0f5ca61ce3654"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">write_restart_filename</span></span></span><a class="headerlink" href="#_CPPv4N6Config22write_restart_filenameE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Output restart filename. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config13out_filenamesE">
+<span id="_CPPv3N6Config13out_filenamesE"></span><span id="_CPPv2N6Config13out_filenamesE"></span><span id="Config::out_filenames__cPP"></span><span class="target" id="struct_config_1a659194ce0847f7da5bd7b10ba831cd82"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">out_filenames</span></span></span><a class="headerlink" href="#_CPPv4N6Config13out_filenamesE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Array of output filenames. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config13out_directoryE">
+<span id="_CPPv3N6Config13out_directoryE"></span><span id="_CPPv2N6Config13out_directoryE"></span><span id="Config::out_directory__cP"></span><span class="target" id="struct_config_1a76e71da2bcd51c43575be1e6e9bdc4a9"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">out_directory</span></span></span><a class="headerlink" href="#_CPPv4N6Config13out_directoryE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>The output directory (where the files in conf.h will be saved) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config6suffixE">
+<span id="_CPPv3N6Config6suffixE"></span><span id="_CPPv2N6Config6suffixE"></span><span id="Config::suffix__i"></span><span class="target" id="struct_config_1aa3252613c931e452f9b8baf74efbe9f5"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">suffix</span></span></span><a class="headerlink" href="#_CPPv4N6Config6suffixE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>the suffix to append to the names in conf.h</p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config9ngridcellE">
+<span id="_CPPv3N6Config9ngridcellE"></span><span id="_CPPv2N6Config9ngridcellE"></span><span id="Config::ngridcell__i"></span><span class="target" id="struct_config_1aa1a188d96aa57d5beb15ca95061e39d2"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ngridcell</span></span></span><a class="headerlink" href="#_CPPv4N6Config9ngridcellE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Number of grid cells. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config9startgridE">
+<span id="_CPPv3N6Config9startgridE"></span><span id="_CPPv2N6Config9startgridE"></span><span id="Config::startgrid__i"></span><span class="target" id="struct_config_1a0b335de3dd68c34f8e05f8786cea9eee"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">startgrid</span></span></span><a class="headerlink" href="#_CPPv4N6Config9startgridE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Start grid index. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config7nspinupE">
+<span id="_CPPv3N6Config7nspinupE"></span><span id="_CPPv2N6Config7nspinupE"></span><span id="Config::nspinup__i"></span><span class="target" id="struct_config_1a7610862cb4fff3279906bf212ef72990"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nspinup</span></span></span><a class="headerlink" href="#_CPPv4N6Config7nspinupE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Number of spinup years. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config8lastyearE">
+<span id="_CPPv3N6Config8lastyearE"></span><span id="_CPPv2N6Config8lastyearE"></span><span id="Config::lastyear__i"></span><span class="target" id="struct_config_1a1c4553dd07e4951bc38e36870d2729b4"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lastyear</span></span></span><a class="headerlink" href="#_CPPv4N6Config8lastyearE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Last simulation year. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config13totalgridcellE">
+<span id="_CPPv3N6Config13totalgridcellE"></span><span id="_CPPv2N6Config13totalgridcellE"></span><span id="Config::totalgridcell__i"></span><span class="target" id="struct_config_1a0eaa66f9b5b102bb6bc3d6b549b9ef63"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">totalgridcell</span></span></span><a class="headerlink" href="#_CPPv4N6Config13totalgridcellE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Total number of grid cells in domain. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config9firstyearE">
+<span id="_CPPv3N6Config9firstyearE"></span><span id="_CPPv2N6Config9firstyearE"></span><span id="Config::firstyear__i"></span><span class="target" id="struct_config_1a91c11d5063738603ee47bcce58e38ea6"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">firstyear</span></span></span><a class="headerlink" href="#_CPPv4N6Config9firstyearE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>First simulation year. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config12firstco2yearE">
+<span id="_CPPv3N6Config12firstco2yearE"></span><span id="_CPPv2N6Config12firstco2yearE"></span><span id="Config::firstco2year__i"></span><span class="target" id="struct_config_1a15c62e8bb49fd6f45542fe4c6dd785e4"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">firstco2year</span></span></span><a class="headerlink" href="#_CPPv4N6Config12firstco2yearE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>First CO₂ year. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config23first_climate_data_yearE">
+<span id="_CPPv3N6Config23first_climate_data_yearE"></span><span id="_CPPv2N6Config23first_climate_data_yearE"></span><span id="Config::first_climate_data_year__i"></span><span class="target" id="struct_config_1a43e7e16716ee82753dc714c7c8a47340"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">first_climate_data_year</span></span></span><a class="headerlink" href="#_CPPv4N6Config23first_climate_data_yearE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>First climate data year. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config15startyr_landuseE">
+<span id="_CPPv3N6Config15startyr_landuseE"></span><span id="_CPPv2N6Config15startyr_landuseE"></span><span id="Config::startyr_landuse__i"></span><span class="target" id="struct_config_1ae3983702d3617fe4399bba2ee97a3a47"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">startyr_landuse</span></span></span><a class="headerlink" href="#_CPPv4N6Config15startyr_landuseE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Landuse start year. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config10firstdyearE">
+<span id="_CPPv3N6Config10firstdyearE"></span><span id="_CPPv2N6Config10firstdyearE"></span><span id="Config::firstdyear__i"></span><span class="target" id="struct_config_1adbaf1834349045dbabfb968d6cb15b68"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">firstdyear</span></span></span><a class="headerlink" href="#_CPPv4N6Config10firstdyearE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>First disturbance year. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config17preindustrial_co2E">
+<span id="_CPPv3N6Config17preindustrial_co2E"></span><span id="_CPPv2N6Config17preindustrial_co2E"></span><span id="Config::preindustrial_co2__Real"></span><span class="target" id="struct_config_1a696b7075e2695354fb9bf3676090f165"></span><span class="n"><span class="pre">Real</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">preindustrial_co2</span></span></span><a class="headerlink" href="#_CPPv4N6Config17preindustrial_co2E" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Preindustrial CO₂ concentration. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config15firstyr_landuseE">
+<span id="_CPPv3N6Config15firstyr_landuseE"></span><span id="_CPPv2N6Config15firstyr_landuseE"></span><span id="Config::firstyr_landuse__i"></span><span class="target" id="struct_config_1a1fcb1030e07fdd5b8d03b0abdfbc0b31"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">firstyr_landuse</span></span></span><a class="headerlink" href="#_CPPv4N6Config15firstyr_landuseE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>First landuse year. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config19climate_recycle_yrsE">
+<span id="_CPPv3N6Config19climate_recycle_yrsE"></span><span id="_CPPv2N6Config19climate_recycle_yrsE"></span><span id="Config::climate_recycle_yrs__i"></span><span class="target" id="struct_config_1ae01982f747510c850a41f64e09f89920"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">climate_recycle_yrs</span></span></span><a class="headerlink" href="#_CPPv4N6Config19climate_recycle_yrsE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Climate recycle years. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config5n_outE">
+<span id="_CPPv3N6Config5n_outE"></span><span id="_CPPv2N6Config5n_outE"></span><span id="Config::n_out__i"></span><span class="target" id="struct_config_1a539072f08cc9ed1707d97b33bcce39a4"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">n_out</span></span></span><a class="headerlink" href="#_CPPv4N6Config5n_outE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Number of outputs. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config4seedE">
+<span id="_CPPv3N6Config4seedE"></span><span id="_CPPv2N6Config4seedE"></span><span id="Config::seed__i"></span><span class="target" id="struct_config_1a92ed038fd7676ed62640f59270a60545"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">seed</span></span></span><a class="headerlink" href="#_CPPv4N6Config4seedE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Random seed. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config21restart_climate_indexE">
+<span id="_CPPv3N6Config21restart_climate_indexE"></span><span id="_CPPv2N6Config21restart_climate_indexE"></span><span id="Config::restart_climate_index__i"></span><span class="target" id="struct_config_1a0127a250084204efa1252d73bfaa5419"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">restart_climate_index</span></span></span><a class="headerlink" href="#_CPPv4N6Config21restart_climate_indexE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Climate-sampling accumulator read from the restart file </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config15lambda_binwidthE">
+<span id="_CPPv3N6Config15lambda_binwidthE"></span><span id="_CPPv2N6Config15lambda_binwidthE"></span><span id="Config::lambda_binwidth__i"></span><span class="target" id="struct_config_1a4200a7eb6815816ae90116e54884d052"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lambda_binwidth</span></span></span><a class="headerlink" href="#_CPPv4N6Config15lambda_binwidthE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Lambda bin width. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N6Config10resolutionE">
+<span id="_CPPv3N6Config10resolutionE"></span><span id="_CPPv2N6Config10resolutionE"></span><span id="Config::resolution__Coord"></span><span class="target" id="struct_config_1a1d9592867c3749832e7a6846be21063c"></span><span class="n"><span class="pre">Coord</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">resolution</span></span></span><a class="headerlink" href="#_CPPv4N6Config10resolutionE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Grid resolution. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/structs.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

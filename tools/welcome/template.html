@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/images/favicon.png">  <!-- same icon as the mkdocs pages -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Martian+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;500;700&family=Martian+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
 <style>
 /* Layout: a sticky full-screen stage (canvas globes + svg stock charts) with story cards scrolling
    over it. Wide screens: cards in a left column, visuals to the right. Phones: visuals in the top
@@ -330,13 +330,16 @@ function drawGlobe(g, key, N, B, alpha, pal = PALS[0]) {
     bx[bucket].push(g.cx + t.x[k] * g.R); by[bucket].push(g.cy + t.y[k] * g.R); bg[bucket].push(gch);
   }
   const cw = t.cw * g.R;
-  ctx.font = `500 ${(0.92 * cw / ADV).toFixed(2)}px ${GLYPH_FONT}`;   // regular weight, slightly small: lighter texture
+  const size = 0.92 * cw / ADV;   // regular weight, slightly small: lighter texture
   ctx.textAlign = "center"; ctx.textBaseline = "middle";
-  for (let b = 0; b <= nb; b++) {
-    if (!bx[b].length) continue;
-    ctx.fillStyle = b === nb ? pal.ring : pal.ramp[b];
-    const xs = bx[b], ys = by[b], gs = bg[b];
-    for (let i = 0; i < xs.length; i++) ctx.fillText(gs[i], xs[i], ys[i]);
+  for (const star of [false, true]) {   // "*" gets an extra-light, smaller face: at regular weight it reads heavy
+    ctx.font = star ? `200 ${(0.85 * size).toFixed(2)}px ${GLYPH_FONT}` : `500 ${size.toFixed(2)}px ${GLYPH_FONT}`;
+    for (let b = 0; b <= nb; b++) {
+      if (!bx[b].length) continue;
+      ctx.fillStyle = b === nb ? pal.ring : pal.ramp[b];
+      const xs = bx[b], ys = by[b], gs = bg[b];
+      for (let i = 0; i < xs.length; i++) if ((gs[i] === "*") === star) ctx.fillText(gs[i], xs[i], ys[i]);
+    }
   }
   ctx.globalAlpha = 1;
 }
@@ -591,7 +594,7 @@ function frame(now) {
       let x = hero.cx - total / 2; const y1 = y0 + 18;
       ctx.textAlign = "left";
       parts.forEach((p, i) => {
-        ctx.fillStyle = p.col; ctx.font = `500 12px ${GLYPH_FONT}`; ctx.fillText(p.gch, x, y1);
+        ctx.fillStyle = p.col; ctx.font = p.gch === "*" ? `200 10px ${GLYPH_FONT}` : `500 12px ${GLYPH_FONT}`; ctx.fillText(p.gch, x, y1);
         const gw = ctx.measureText(p.gch).width;
         ctx.fillStyle = "#bdb6a6"; ctx.font = `500 11px ${GLYPH_FONT}`; ctx.fillText(p.txt, x + gw, y1);
         x += widths[i] + gap;
@@ -682,7 +685,7 @@ layout();
 new ResizeObserver(() => layout()).observe(stage);
 requestAnimationFrame(frame);
 load();
-if (document.fonts) document.fonts.load(`500 20px ${GLYPH_FONT}`).then(() => layout()).catch(() => {});
+if (document.fonts) Promise.all([document.fonts.load(`500 20px ${GLYPH_FONT}`), document.fonts.load(`200 20px ${GLYPH_FONT}`)]).then(() => layout()).catch(() => {});
 })();
 </script>
 </body>
