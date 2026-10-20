@@ -3,7 +3,8 @@ site_url: https://lpj-eosim.github.io
 repo_url: https://github.com/LPJ-EOSIM/lpj-eosim.github.io
 
 nav:
-  - Home: index.md
+  - Home: home.md
+  - Ecosystem: ecosystem/index.md
   - Usage:
       - Simulations: simulations.md
   - WIEMIP:
@@ -85,6 +86,7 @@ plugins:
 
 markdown_extensions:
   - admonition  # Adds note/warning/info boxes
+  - attr_list  # explicit heading ids, e.g. ## LPJ-EOSIM {#lpj-eosim} on the ecosystem page
   - toc:  # Table of contents
       permalink: true
       

@@ -1,4 +1,6 @@
-<img src="https://earth.gov/ghgcenter/ch4-wetland--cover.611a718d.jpeg" alt="LPJ-EOSIM" style="max-width: 100%;"><br>
+<!-- image: NASA GHG Center LPJ-EOSIM wetland CH4 cover, https://earth.gov/ghgcenter/ch4-wetland--cover.87313235.webp -->
+![LPJ-EOSIM wetland methane](img/lpj-eosim-wetland-ch4-cover.webp)
+
 # Welcome to LPJ-Earth Observation SIMulator (LPJ-EOSIM)
 
 LPJ-EOSIM is a process-based dynamic global vegetation model (DGVM). It

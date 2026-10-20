@@ -1,0 +1,28 @@
+/* LPJ-EOSIM ecosystem page: full-bleed figure, tilting tiles, anchor flash. */
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+
+.eco-full { width: 100vw; margin: 1.5rem 0 0.5rem calc(50% - 50vw); }
+.eco-full svg { display: block; width: 100%; height: auto; }
+.eco-full > img { display: block; width: 100%; }
+.eco-caption { text-align: center; font-size: 0.75rem; color: var(--md-default-fg-color--light); }
+
+.eco-bg { fill: var(--md-default-bg-color); }  /* figure background = page background */
+
+.eco-wrap { position: relative; }
+.eco-stage { position: absolute; inset: 0; pointer-events: none; }
+.md-typeset .eco-card {
+  position: absolute; display: block; pointer-events: auto; border-radius: 3px;
+  transition: transform 0.12s ease-out, box-shadow 0.25s ease;
+}
+.md-typeset .eco-card:hover { z-index: 2; box-shadow: 0 14px 28px rgba(31, 35, 40, 0.22); }
+.md-typeset .eco-card svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.eco-glare {
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 60%);
+  transition: opacity 0.25s ease;
+}
+.eco-card:hover .eco-glare { opacity: 1; }
+
+.md-typeset :target { scroll-margin-top: 4rem; animation: eco-flash 1.6s ease; }
+@keyframes eco-flash { from { background: rgba(31, 95, 173, 0.18); } to { background: transparent; } }

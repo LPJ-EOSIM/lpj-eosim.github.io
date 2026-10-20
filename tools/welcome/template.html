@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="LPJ-EOSIM is a dynamic global vegetation model that helps us understand how the land carbon cycle responds to a changing climate.">
+<title>Welcome to LPJ-EOSIM</title>
+<link rel="icon" href="assets/images/favicon.png">  <!-- same icon as the mkdocs pages -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Martian+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+/* Layout: a sticky full-screen stage (canvas globes + svg stock charts) with story cards scrolling
+   over it. Wide screens: cards in a left column, visuals to the right. Phones: visuals in the top
+   ~56%, cards along the bottom. One deliberate dark look, after the source.coop ASCII globe. */
+:root {
+  --bg: #19191b;
+  --card: rgba(25, 25, 27, 0.92);
+  --line: #322f33;
+  --ink: #e6dfcf;
+  --ink-2: #bdb6a6;
+  --mute: #8d8778;
+  --gold: #e8b53a;
+  --s1: #c98500;   /* all forcings   */
+  --s2: #3987e5;   /* CO2 fixed      */
+  --s3: #d55181;   /* land cover fixed */
+  --r1: #b8870f; --r2: #1fa38c; --r3: #4f7fe8; --r4: #e0606e;   /* grid rows */
+  --f-display: "Martian Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --f-body: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-data: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 18px/1.6 var(--f-body); }
+
+.story { position: relative; }
+.stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+.stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; }
+.stage svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.steps { position: relative; margin-top: -100vh; margin-top: -100svh; pointer-events: none; }
+.step { box-sizing: border-box; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; }
+.step.spacer { min-height: 70vh; min-height: 70svh; }   /* keeps the charts pinned after the last card */
+.card {
+  pointer-events: auto; box-sizing: border-box;
+  width: min(380px, 34vw); margin-left: clamp(16px, 4vw, 56px);
+  display: grid; gap: 12px;
+}
+.card p { margin: 0; max-width: 62ch; }
+h1 { margin: 0; font: 500 clamp(30px, 4vw, 48px)/1.08 var(--f-display); letter-spacing: -.01em; text-wrap: balance; }
+h2 { margin: 0; font: 500 clamp(19px, 2vw, 23px)/1.3 var(--f-display); letter-spacing: -.005em; text-wrap: balance; }
+.lede { color: var(--ink-2); }
+
+.lg button:focus-visible { outline: 1px dashed var(--gold); outline-offset: 2px; }
+
+.lg { position: absolute; opacity: 0; visibility: hidden; display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; transition: opacity .2s; }
+.lg button {
+  font: 500 11px/1.2 var(--f-data); color: var(--ink-2); background: transparent; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 2px; padding: 5px 8px; display: inline-flex; align-items: center; gap: 7px;
+}
+.lg button[aria-pressed="false"] { opacity: .45; }
+.lg .sw { width: 14px; height: 0; border-top: 2px solid currentColor; display: inline-block; }
+.lg .sw.dash { border-top-style: dashed; }
+
+.tip {
+  position: absolute; pointer-events: none; z-index: 5; max-width: 260px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 2px; padding: 7px 9px;
+  font: 400 11.5px/1.5 var(--f-data); color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.tip b { font-weight: 500; color: var(--gold); }
+.tip .m { color: var(--mute); }
+.tip .row { display: flex; align-items: center; gap: 7px; }
+.tip .row i { width: 10px; height: 2px; display: inline-block; }
+
+footer a, .skip { color: var(--gold); text-underline-offset: 3px; }
+.skip { justify-self: start; font: 400 13px/1.4 var(--f-display); letter-spacing: .04em; }  /* skips the tour, same target as the footer */
+footer { padding: 28px 16px 40px; text-align: center; font: 400 11px/1.5 var(--f-display); color: var(--mute); letter-spacing: .06em; }
+
+@media (max-width: 859px) {
+  body { font-size: 16px; }
+  .step { align-items: flex-end; padding-inline: 12px; padding-block: 0 3vh; }
+  .card {
+    width: 100%; max-width: 560px; margin: 0 auto;
+    background: var(--card); border: 1px solid var(--line); border-radius: 3px; padding: 14px 16px;
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); gap: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) { .lg { transition: none; } }
+</style>
+</head>
+<body>
+
+<section class="story">
+  <div class="stage" id="stage">
+    <canvas id="viz" role="img" aria-label="LPJ-EOSIM output drawn as rotating text-character globes"></canvas>
+    <svg id="charts" aria-label="Global carbon stocks in LPJ-EOSIM, 1850 to 2024, for four experiments"></svg>
+    <div class="lg" id="legend" role="group" aria-label="Experiments shown"></div>
+    <div class="tip" id="tip" hidden></div>
+  </div>
+
+  <div class="steps">
+    <article class="step" id="step-0">
+      <div class="card">
+        <h1>Welcome to LPJ&#8209;EOSIM</h1>
+        <a class="skip" href="home/">Full documentation site here</a>
+        <p class="lede">LPJ-EOSIM is a dynamic global vegetation model that helps us understand how the land carbon cycle responds to a changing climate.</p>
+      </div>
+    </article>
+
+    <article class="step" id="step-1">
+      <div class="card">
+        <h2>Climate inputs</h2>
+        <p>It ingests climate variables, like precipitation, air temperature, incoming radiation, and atmospheric CO&#8322;.</p>
+      </div>
+    </article>
+
+    <article class="step" id="step-2">
+      <div class="card">
+        <h2>Simulated quantities</h2>
+        <p>Using those inputs, it simulates a dynamic world where plants grow, compete, and die from first principles in a coupled soil, water, and biosphere continuum. It models key ecosystem variables, from soil carbon to N&#8322;O emissions.</p>
+      </div>
+    </article>
+
+    <article class="step" id="step-3">
+      <div class="card">
+        <h2>Parameterizations of the Earth system</h2>
+        <p>To do this efficiently, it uses parameterizations of key processes, like photosynthesis, fire disturbance, and the flow of carbon and nitrogen through the soil.</p>
+      </div>
+    </article>
+
+    <article class="step" id="step-4">
+      <div class="card">
+        <h2>Changes over time</h2>
+        <p>Using this model we can try to understand how large-scale processes have shaped our world and will continue to shape it. The impacts of changing land use, increasing CO&#8322;, and warming temperatures are all simulated in the same unified framework.</p>
+      </div>
+    </article>
+
+    <div class="step spacer" aria-hidden="true"></div>
+  </div>
+</section>
+<footer><a href="home/">Full documentation site here</a></footer>
+
+<script>
+(() => {
+"use strict";
+const META = /*META*/null;
+const B64 = "/*B64*/";
+const STOCKS = /*STOCKS*/null;
+
+const VARS = {
+  tair:   { name: "Air temperature", units: "°C", kind: "Climate input" },
+  ppt:    { name: "Precipitation", units: "mm mo⁻¹", kind: "Climate input" },
+  swdown: { name: "Shortwave radiation", units: "W m⁻²", kind: "Climate input" },
+  totc:   { name: "Land carbon", units: "kg C m⁻²", kind: "Model output" },
+  gpp:    { name: "GPP", long: "Gross primary production", units: "g C m⁻² mo⁻¹" },
+  npp:    { name: "NPP", long: "Net primary production", units: "g C m⁻² mo⁻¹" },
+  rh:     { name: "Soil respiration", tiny: "Soil resp.", long: "Heterotrophic respiration", units: "g C m⁻² mo⁻¹" },
+  firec:  { name: "Fire carbon", tiny: "Fire C", long: "Fire carbon emission", units: "g C m⁻² mo⁻¹" },
+  lai:    { name: "Leaf area", tiny: "LAI", long: "Leaf area index", units: "m² m⁻²" },
+  vegc:   { name: "Vegetation C", tiny: "Veg C", long: "Vegetation carbon", units: "kg C m⁻²" },
+  litc:   { name: "Litter C", long: "Litter carbon", units: "kg C m⁻²" },
+  soilc:  { name: "Soil C", long: "Soil carbon", units: "kg C m⁻²" },
+  et:     { name: "Evapotranspiration", tiny: "ET", long: "Evapotranspiration", units: "mm mo⁻¹" },
+  swc:    { name: "Topsoil water", tiny: "Soil water", long: "Topsoil water, fraction of capacity", units: "" },
+  runoff: { name: "Runoff", long: "Runoff", units: "mm mo⁻¹" },
+  snow:   { name: "Snowpack", long: "Snowpack, water equivalent", units: "mm" },
+  burnt:  { name: "Burned area", tiny: "Burned", long: "Burned area", units: "% of cell mo⁻¹" },
+  isopr:  { name: "Isoprene", long: "Isoprene emission", units: "mg C m⁻² mo⁻¹" },
+  n2o:    { name: "Soil N₂O", long: "Soil N₂O emission", units: "mg N m⁻² mo⁻¹" },
+  bnf:    { name: "N fixation", tiny: "N fix", long: "Biological N fixation", units: "mg N m⁻² mo⁻¹" },
+};
+const GRID = ["gpp", "npp", "rh", "firec", "lai", "vegc", "litc", "soilc", "et", "swc", "runoff", "snow", "burnt", "isopr", "n2o", "bnf"];
+const EXPS = [
+  { id: "SH1", name: "All forcings", color: "#c98500" },
+  { id: "SH7", name: "CO₂ fixed at 1850", color: "#3987e5" },
+  { id: "SH6", name: "Land cover fixed at 1850", color: "#d55181" },
+  { id: "SH0", name: "Everything at 1850", color: "#8d8778", dash: "5 4" },
+];
+const PANELS = [
+  { k: "veg", name: "Vegetation carbon" }, { k: "soil", name: "Soil carbon" },
+  { k: "litter", name: "Litter carbon" }, { k: "total", name: "Total land carbon" },
+];
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const D2R = Math.PI / 180, R2D = 180 / Math.PI;
+let TILT = 20 * D2R, SIN_T = Math.sin(TILT), COS_T = Math.cos(TILT);
+function setTilt(deg) {
+  const t = clamp(deg, -75, 75) * D2R;
+  if (t !== TILT) { TILT = t; SIN_T = Math.sin(t); COS_T = Math.cos(t); }
+}
+const SPIN_DEG_S = 7, SEC_PER_MONTH = 0.25;   // 3 s per seasonal cycle
+const CUT = [0.4, 0.7];
+const RAMP = ["#6b5729", "#8d722f", "#b38f33", "#d8aa36", "#f0c247", "#ffe08c"];
+const RING = "rgba(232,181,58,0.42)";
+const PALS = [
+  { ramp: RAMP, ring: RING },                                                                              // carbon fluxes
+  { ramp: ["#1d4a40", "#22665a", "#238573", "#2fa58e", "#5cc8ae", "#a8ecd8"], ring: "rgba(31,163,140,0.45)" },  // leaves, stocks
+  { ramp: ["#28396b", "#334f92", "#3f66bd", "#5582e6", "#80a6f5", "#bcd0ff"], ring: "rgba(79,127,232,0.45)" },  // water
+  { ramp: ["#5e2a33", "#843745", "#ad4657", "#d85a6c", "#ef8592", "#ffc2c8"], ring: "rgba(224,96,110,0.45)" },  // fire, gases, N
+];
+const OCEAN = [27, 30, 36], LAND_LO = [37, 40, 47], LAND_HI = [80, 83, 90];
+const GLYPH_FONT = '"JetBrains Mono", ui-monospace, Menlo, monospace';
+const UI_FONT = '"Martian Mono", ui-monospace, Menlo, monospace';
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const $ = id => document.getElementById(id);
+const stage = $("stage"), canvas = $("viz"), ctx = canvas.getContext("2d");
+const svg = $("charts"), legend = $("legend"), tip = $("tip");
+const steps = [...document.querySelectorAll(".step")];
+const st = { lam: 15, month: 6, s: 0.5, vel: 0, pointer: null, globes: null, shown: new Set(EXPS.map(e => e.id)) };
+let DATA = null, ADV = 0.6;
+
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+const lerp = (a, b, t) => a + (b - a) * t;
+const minus = s => String(s).replace("-", "−");
+function fmt(x) {
+  const a = Math.abs(x);
+  const s = a >= 100 ? x.toFixed(0) : a >= 10 ? x.toFixed(1) : a >= 1 ? x.toFixed(2) : a === 0 ? "0" : x.toPrecision(2);
+  return minus(s);
+}
+const toReal = (m, n) => m.lo + (m.hi - m.lo) * Math.pow(n, 1 / m.gamma);
+
+// ---------------- projection tables (normalized: radius 1, fixed tilt) ----------------
+const cellCache = new Map(), pixCache = new Map();
+function cellTables(N) {
+  const old = cellCache.get(N);
+  if (old && old.tilt === TILT) return old;
+  const cols = N + 2, rows = Math.ceil(N / 2) + 2, cw = 2 / N, ch = 2 * cw, delta = 0.5 * cw, nc = cols * rows;
+  const t = { n: nc, cw, x: new Float32Array(nc), y: new Float32Array(nc),
+    lat: new Float32Array(2 * nc), dlon: new Float32Array(2 * nc), flag: new Uint8Array(2 * nc) };
+  for (let r = 0, k = 0; r < rows; r++) for (let c = 0; c < cols; c++, k++) {
+    const x = (c + 0.5 - cols / 2) * cw, yc = (r + 0.5 - rows / 2) * ch;   // screen-down
+    t.x[k] = x; t.y[k] = yc;
+    for (let s = 0; s < 2; s++) {
+      const i = 2 * k + s, y = -(yc + (s ? 0.5 : -0.5) * cw), rho = Math.hypot(x, y);
+      let f = Math.abs(rho - 1) < delta ? 2 : 0;
+      if (rho <= 1) {
+        const cosc = Math.sqrt(1 - rho * rho);
+        t.lat[i] = Math.asin(clamp(cosc * SIN_T + y * COS_T, -1, 1)) * R2D;
+        t.dlon[i] = Math.atan2(x, cosc * COS_T - y * SIN_T) * R2D;
+        f |= 1;
+      }
+      t.flag[i] = f;
+    }
+  }
+  t.tilt = TILT;
+  cellCache.set(N, t);
+  return t;
+}
+function pixTables(B) {
+  const old = pixCache.get(B);
+  if (old && old.tilt === TILT) return old;
+  const n = B * B, c = old ? old.canvas : document.createElement("canvas");
+  c.width = c.height = B;
+  const t = { B, tilt: TILT, lat: new Float32Array(n), dlon: new Float32Array(n), shade: new Float32Array(n), on: new Uint8Array(n), canvas: c, ctx: c.getContext("2d") };
+  t.img = t.ctx.createImageData(B, B);
+  for (let py = 0, i = 0; py < B; py++) {
+    const y = 1 - (py + 0.5) / B * 2;
+    for (let px = 0; px < B; px++, i++) {
+      const x = (px + 0.5) / B * 2 - 1, r2 = x * x + y * y;
+      if (r2 > 1) continue;
+      const cosc = Math.sqrt(1 - r2);
+      t.on[i] = 1;
+      t.lat[i] = Math.asin(clamp(cosc * SIN_T + y * COS_T, -1, 1)) * R2D;
+      t.dlon[i] = Math.atan2(x, cosc * COS_T - y * SIN_T) * R2D;
+      t.shade[i] = 0.45 + 0.55 * Math.pow(cosc, 0.6);
+    }
+  }
+  pixCache.set(B, t);
+  return t;
+}
+
+// ---------------- sampling ----------------
+// a "field view" binds one variable at the current month: v(lat, dlon) -> normalized value or -1 (ocean)
+function fieldView(key) {
+  const m = META[key], res = m.res, nlon = 360 / res, nlat = 180 / res, plane = nlat * nlon;
+  let m0 = 0, m1 = 0, f = 0;
+  if (m.nt > 1) { m0 = Math.floor(st.month) % 12; m1 = (m0 + 1) % 12; f = st.month - Math.floor(st.month); }
+  const base = m.offset + m0 * plane, off1 = (m1 - m0) * plane, lamPlus = (((st.lam % 360) + 360) % 360) + 540;
+  return (lat, dlon) => {
+    const row = Math.min(nlat - 1, ((90 - lat) / res) | 0);
+    const idx = row * nlon + ((((dlon + lamPlus) % 360) / res) | 0);
+    const a = DATA[base + idx];
+    if (a === 255) return -1;
+    if (f === 0) return a / 254;
+    return (a + (DATA[base + off1 + idx] - a) * f) / 254;
+  };
+}
+
+// ---------------- drawing one globe ----------------
+const bx = [], by = [], bg = [];
+for (let i = 0; i <= RAMP.length; i++) { bx.push([]); by.push([]); bg.push([]); }
+function drawGlobe(g, key, N, B, alpha, pal = PALS[0]) {
+  if (alpha <= 0.003 || g.R < 4) return;
+  const ready = DATA && META;
+  const v = ready ? fieldView(key) : null;
+  const thr = ready ? META[key].thr : 1;
+
+  const pt = pixTables(B), d = pt.img.data, n = B * B;
+  for (let i = 0, q = 0; i < n; i++, q += 4) {
+    if (!pt.on[i]) { d[q + 3] = 0; continue; }
+    const s = pt.shade[i], val = v ? v(pt.lat[i], pt.dlon[i]) : -1;
+    if (val < 0) { d[q] = OCEAN[0] * s; d[q + 1] = OCEAN[1] * s; d[q + 2] = OCEAN[2] * s; }
+    else {
+      d[q] = (LAND_LO[0] + (LAND_HI[0] - LAND_LO[0]) * val) * s;
+      d[q + 1] = (LAND_LO[1] + (LAND_HI[1] - LAND_LO[1]) * val) * s;
+      d[q + 2] = (LAND_LO[2] + (LAND_HI[2] - LAND_LO[2]) * val) * s;
+    }
+    d[q + 3] = 255;
+  }
+  pt.ctx.putImageData(pt.img, 0, 0);
+  ctx.globalAlpha = alpha;
+  ctx.imageSmoothingEnabled = true;
+  ctx.drawImage(pt.canvas, g.cx - g.R, g.cy - g.R, 2 * g.R, 2 * g.R);
+
+  const t = cellTables(N), nb = pal.ramp.length;
+  for (let b = 0; b <= nb; b++) { bx[b].length = 0; by[b].length = 0; bg[b].length = 0; }
+  for (let k = 0; k < t.n; k++) {
+    const ft = t.flag[2 * k], fb = t.flag[2 * k + 1];
+    if (!ft && !fb) continue;
+    const top = v && (ft & 1) ? v(t.lat[2 * k], t.dlon[2 * k]) : -1;
+    const bot = v && (fb & 1) ? v(t.lat[2 * k + 1], t.dlon[2 * k + 1]) : -1;
+    const tOn = top >= thr, bOn = bot >= thr;
+    let gch = "", val = 0, bucket;
+    if (tOn && bOn) { val = (top + bot) / 2; gch = val < CUT[0] ? ":" : val < CUT[1] ? "+" : "*"; }
+    else if (tOn) { val = top; gch = "'"; }
+    else if (bOn) { val = bot; gch = "."; }
+    if (gch) bucket = Math.min(nb - 1, Math.floor(val * nb));
+    else if ((ft | fb) & 2) { bucket = nb; gch = (ft & 2) && (fb & 2) ? ":" : (ft & 2) ? "'" : "."; }
+    else continue;
+    bx[bucket].push(g.cx + t.x[k] * g.R); by[bucket].push(g.cy + t.y[k] * g.R); bg[bucket].push(gch);
+  }
+  const cw = t.cw * g.R;
+  ctx.font = `500 ${(0.92 * cw / ADV).toFixed(2)}px ${GLYPH_FONT}`;   // regular weight, slightly small: lighter texture
+  ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  for (let b = 0; b <= nb; b++) {
+    if (!bx[b].length) continue;
+    ctx.fillStyle = b === nb ? pal.ring : pal.ramp[b];
+    const xs = bx[b], ys = by[b], gs = bg[b];
+    for (let i = 0; i < xs.length; i++) ctx.fillText(gs[i], xs[i], ys[i]);
+  }
+  ctx.globalAlpha = 1;
+}
+
+// ---------------- layout ----------------
+let W = 0, H = 0, DPR = 1, wide = true, viz = null;
+let hero = null, heroN = 64, cells = [], gridN = 24;
+const HERO_B = 300, GRID_B = 72;
+function layout() {
+  W = stage.clientWidth; H = stage.clientHeight; DPR = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = Math.round(W * DPR); canvas.height = Math.round(H * DPR);
+  wide = W >= 860;
+  if (wide) {
+    const left = clamp(0.04 * W, 16, 56) + Math.min(380, 0.34 * W) + 28;
+    viz = { x: left, y: 20, w: W - left - 24, h: H - 40 };
+  } else {
+    viz = { x: 12, y: 10, w: W - 24, h: Math.round(H * 0.56) };
+  }
+  const capH = 46;
+  const R = Math.max(40, Math.min(viz.w, viz.h - capH - 24) / 2 - 4);
+  hero = { cx: viz.x + viz.w / 2, cy: viz.y + 24 + (viz.h - capH - 24) / 2, R };
+  heroN = Math.min(wide ? 64 : 46, Math.floor(2 * R / 6));
+
+  const topH = 26, labelH = 16, cw = viz.w / 4, chh = (viz.h - topH) / 4;
+  const r = Math.max(14, Math.min(cw, chh - labelH) / 2 - 5);
+  cells = GRID.map((key, i) => {
+    const c = i % 4, rr = Math.floor(i / 4);
+    return { key, row: rr, cx: viz.x + cw * (c + 0.5), cy: viz.y + topH + chh * rr + (chh - labelH) / 2, R: r };
+  });
+  gridN = clamp(Math.floor(2 * r / 6), 10, 30);
+
+  ctx.font = `700 100px ${GLYPH_FONT}`;
+  ADV = ctx.measureText("#").width / 100 || 0.6;
+  buildCharts();
+}
+
+// ---------------- scroll position -> story time s ----------------
+function readScroll() {
+  const mid = window.innerHeight * 0.5;
+  let s = 0;
+  for (let i = 0; i < steps.length; i++) {
+    const r = steps[i].getBoundingClientRect();
+    if (r.top <= mid) s = i + Math.min(0.999, (mid - r.top) / r.height);
+  }
+  return s;
+}
+
+// ---------------- stock charts (svg) ----------------
+const NS = "http://www.w3.org/2000/svg";
+const el = (name, attrs, parent) => {
+  const e = document.createElementNS(NS, name);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+};
+let panels = [], chartLast = { draw: -1, show: -1 };
+function niceTicks(lo, hi, n) {
+  const raw = (hi - lo) / n, mag = Math.pow(10, Math.floor(Math.log10(raw))), e = raw / mag;
+  const step = (e >= 7.5 ? 10 : e >= 3.5 ? 5 : e >= 1.5 ? 2 : 1) * mag;
+  const out = [];
+  for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) out.push(v);
+  return out;
+}
+function buildCharts() {
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  panels = []; chartLast = { draw: -1, show: -1 };
+  if (!STOCKS) return;
+  const years = STOCKS.years, y0 = years[0], y1 = years[years.length - 1];
+  legend.style.left = viz.x + "px"; legend.style.top = viz.y + "px"; legend.style.width = viz.w + "px";
+  const legendH = legend.offsetHeight + (wide ? 14 : 10);
+  const top = viz.y + legendH, pw = viz.w / 2, ph = (viz.h - legendH) / 2;
+  const m = wide ? { l: 50, r: 46, t: 28, b: 26 } : { l: 36, r: 34, t: 24, b: 22 };
+  const defs = el("defs", {}, svg);
+  const xticks = wide ? [1850, 1900, 1950, 2000] : [1850, 1950];
+  PANELS.forEach((p, i) => {
+    const ox = viz.x + pw * (i % 2), oy = top + ph * Math.floor(i / 2);
+    const w = pw - m.l - m.r - (wide ? 10 : 4), h = ph - m.t - m.b - 6;
+    const g = el("g", { transform: `translate(${ox + m.l},${oy + m.t})` }, svg);
+    const vis = EXPS.filter(e => st.shown.has(e.id));
+    let lo = Infinity, hi = -Infinity;
+    for (const e of (vis.length ? vis : EXPS)) for (const v of STOCKS[e.id][p.k]) { lo = Math.min(lo, v); hi = Math.max(hi, v); }
+    const pad = (hi - lo) * 0.08 || 1; lo -= pad; hi += pad;
+    const X = yr => (yr - y0) / (y1 - y0) * w, Y = v => h - (v - lo) / (hi - lo) * h;
+    const title = el("text", { x: -m.l + 2, y: -12, fill: "var(--ink)", "font-family": UI_FONT, "font-size": wide ? 11.5 : 10, "font-weight": 500 }, g);
+    title.textContent = p.name;
+    const unit = el("tspan", { fill: "var(--mute)", "font-weight": 400 }, title); unit.textContent = "  PgC";
+    for (const tv of niceTicks(lo, hi, wide ? 4 : 3)) {
+      el("line", { x1: 0, x2: w, y1: Y(tv), y2: Y(tv), stroke: "var(--line)", "stroke-width": 1 }, g);
+      const tl = el("text", { x: -7, y: Y(tv), fill: "var(--mute)", "font-family": GLYPH_FONT, "font-size": wide ? 10.5 : 9.5, "text-anchor": "end", "dominant-baseline": "middle" }, g);
+      tl.textContent = Math.round(tv).toLocaleString("en-US");
+    }
+    for (const yr of [...xticks, y1]) {
+      const xl = el("text", { x: X(yr), y: h + 16, fill: "var(--mute)", "font-family": GLYPH_FONT, "font-size": wide ? 10.5 : 9.5, "text-anchor": yr === y1 ? "end" : yr === y0 ? "start" : "middle" }, g);
+      xl.textContent = yr;
+    }
+    el("line", { x1: 0, x2: w, y1: h, y2: h, stroke: "var(--mute)", "stroke-width": 1, opacity: 0.6 }, g);
+    const clip = el("clipPath", { id: "clip" + i }, defs);
+    const clipRect = el("rect", { x: -2, y: -10, width: 0, height: h + 20 }, clip);
+    const lines = el("g", { "clip-path": `url(#clip${i})` }, g);
+    const ends = el("g", { opacity: 0 }, g);
+    const endItems = [];
+    for (const e of EXPS) {
+      if (!st.shown.has(e.id)) continue;
+      const vals = STOCKS[e.id][p.k];
+      let dstr = "";
+      vals.forEach((v, j) => { dstr += (j ? "L" : "M") + X(years[j]).toFixed(1) + "," + Y(v).toFixed(1); });
+      el("path", { d: dstr, fill: "none", stroke: e.color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round", "stroke-dasharray": e.dash || "none" }, lines);
+      endItems.push({ e, v: vals[vals.length - 1], y: Y(vals[vals.length - 1]) });
+    }
+    // direct end labels, nudged apart
+    endItems.sort((a, b) => a.y - b.y);
+    for (let j = 1; j < endItems.length; j++) if (endItems[j].y - endItems[j - 1].y < 12) endItems[j].y = endItems[j - 1].y + 12;
+    for (const it of endItems) {
+      el("circle", { cx: w, cy: Y(it.v), r: 3, fill: it.e.color, stroke: "var(--bg)", "stroke-width": 2 }, ends);
+      const t = el("text", { x: w + 7, y: it.y, fill: "var(--ink-2)", "font-family": GLYPH_FONT, "font-size": wide ? 10.5 : 9.5, "dominant-baseline": "middle" }, ends);
+      t.textContent = Math.round(it.v).toLocaleString("en-US");
+    }
+    const cross = el("line", { y1: 0, y2: h, stroke: "var(--ink-2)", "stroke-width": 1, opacity: 0 }, g);
+    const hit = el("rect", { x: 0, y: 0, width: w, height: h, fill: "transparent", style: "cursor:crosshair" }, g);
+    const panel = { p, g, w, h, X, Y, clipRect, ends, cross, hit, ox: ox + m.l, oy: oy + m.t };
+    hit.addEventListener("pointermove", ev => chartHover(panel, ev));
+    hit.addEventListener("pointerleave", () => { for (const q of panels) q.cross.setAttribute("opacity", 0); tip.hidden = true; });
+    panels.push(panel);
+  });
+}
+function chartHover(panel, ev) {
+  const r = svg.getBoundingClientRect();
+  const x = ev.clientX - r.left - panel.ox;
+  const years = STOCKS.years, frac = clamp(x / panel.w, 0, 1);
+  const j = Math.round(frac * (years.length - 1)), yr = years[j];
+  for (const q of panels) { const cx = q.X(yr); q.cross.setAttribute("x1", cx); q.cross.setAttribute("x2", cx); q.cross.setAttribute("opacity", 0.5); }
+  let html = `<b>${panel.p.name}</b> <span class="m">${yr}</span>`;
+  for (const e of EXPS) if (st.shown.has(e.id))
+    html += `<div class="row"><i style="background:${e.color}"></i>${e.name} <span style="margin-left:auto">${Math.round(STOCKS[e.id][panel.p.k][j]).toLocaleString("en-US")}</span></div>`;
+  showTip(html, ev.clientX - r.left, ev.clientY - r.top);
+}
+function showTip(html, x, y) {
+  tip.innerHTML = html; tip.hidden = false;
+  const tw = tip.offsetWidth, th = tip.offsetHeight;
+  tip.style.left = clamp(x + 14, 4, W - tw - 4) + "px";
+  tip.style.top = clamp(y - th - 10, 4, H - th - 4) + "px";
+}
+function buildLegend() {
+  legend.innerHTML = "";
+  for (const e of EXPS) {
+    const b = document.createElement("button");
+    b.type = "button"; b.id = "exp-" + e.id; b.setAttribute("aria-pressed", "true");
+    b.innerHTML = `<span class="sw${e.dash ? " dash" : ""}" style="color:${e.color}"></span>${e.name}`;
+    b.addEventListener("click", () => {
+      if (st.shown.has(e.id)) { if (st.shown.size > 1) st.shown.delete(e.id); } else st.shown.add(e.id);
+      for (const o of legend.children) o.setAttribute("aria-pressed", String(st.shown.has(o.id.slice(4))));
+      buildCharts();
+    });
+    legend.appendChild(b);
+  }
+}
+
+// ---------------- hover on globes ----------------
+function globeAt(px, py, list) {
+  for (const g of list) {
+    const x = (px - g.cx) / g.R, y = (g.cy - py) / g.R, r2 = x * x + y * y;
+    if (r2 > 1) continue;
+    const cosc = Math.sqrt(1 - r2);
+    const lat = Math.asin(clamp(cosc * SIN_T + y * COS_T, -1, 1)) * R2D;
+    const dlon = Math.atan2(x, cosc * COS_T - y * SIN_T) * R2D;
+    return { g, lat, dlon };
+  }
+  return null;
+}
+function globeTip(hit) {
+  const key = hit.g.key, m = META[key], info = VARS[key];
+  const n = fieldView(key)(hit.lat, hit.dlon);
+  let lon = hit.dlon + st.lam; lon = ((lon + 540) % 360) - 180;
+  const where = `${Math.abs(hit.lat).toFixed(0)}°${hit.lat >= 0 ? "N" : "S"} ${Math.abs(lon).toFixed(0)}°${lon >= 0 ? "E" : "W"}`;
+  const when = m.nt > 1 ? MONTHS[Math.floor(st.month) % 12] : "annual";
+  const val = n < 0 ? '<span class="m">ocean</span>' : `${n >= 1 && key !== "swc" ? "≥ " : ""}${fmt(toReal(m, n))} <span class="m">${info.units}</span>`;
+  return `<b>${info.long || info.name}</b><br>${val}<br><span class="m">${where} · ${when}</span>`;
+}
+stage.addEventListener("pointermove", e => {
+  const r = stage.getBoundingClientRect();
+  st.pointer = { x: e.clientX - r.left, y: e.clientY - r.top, onChart: e.target !== canvas };
+});
+stage.addEventListener("pointerleave", () => { st.pointer = null; tip.hidden = true; });
+
+// ---------------- drag to rotate ----------------
+// horizontal drag spins every globe, vertical drag tilts them (mouse and pen; touch keeps vertical for page scroll)
+let drag = null;
+function globeUnder(e) {
+  if (!st.globes) return null;
+  const r = canvas.getBoundingClientRect(), px = e.clientX - r.left, py = e.clientY - r.top;
+  return st.globes.find(g => Math.hypot(px - g.cx, py - g.cy) <= g.R) || null;
+}
+canvas.addEventListener("pointerdown", e => {
+  const g = globeUnder(e);
+  if (!g) return;
+  canvas.setPointerCapture(e.pointerId);
+  drag = { x: e.clientX, y: e.clientY, t: performance.now(), R: g.R, touch: e.pointerType === "touch" };
+  st.vel = 0; tip.hidden = true;
+  e.preventDefault();
+});
+canvas.addEventListener("pointermove", e => {
+  if (!drag) return;
+  const now = performance.now(), dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+  const dl = -dx / drag.R * R2D;
+  st.lam += dl;
+  if (!drag.touch) setTilt(TILT * R2D + dy / drag.R * R2D);
+  st.vel = dl / Math.max(8, now - drag.t) * 1000;
+  drag.x = e.clientX; drag.y = e.clientY; drag.t = now;
+});
+const endDrag = () => { drag = null; };
+canvas.addEventListener("pointerup", endDrag);
+canvas.addEventListener("pointercancel", endDrag);
+
+// ---------------- frame ----------------
+let last = performance.now();
+function heroKey(s) { return s < 1.4 ? "tair" : s < 1.65 ? "ppt" : s < 2.5 ? "swdown" : "totc"; }
+function frame(now) {
+  const dt = Math.min(0.1, (now - last) / 1000); last = now;
+  const sr = stage.getBoundingClientRect();
+  if (sr.bottom <= 0) { requestAnimationFrame(frame); return; }
+  if (!drag && Math.abs(st.vel) > 0.5) { st.lam += st.vel * dt; st.vel *= Math.pow(0.03, dt); }
+  else if (!drag) st.vel = 0;
+  if (!reduceMotion && !drag) st.lam -= SPIN_DEG_S * dt;
+  if (!reduceMotion) st.month = (st.month + dt / SEC_PER_MONTH) % 12;
+  const s = st.s = readScroll();
+
+  const split = smooth(1.85, 2.3, s) * (1 - smooth(2.75, 3.2, s));
+  const charts = smooth(3.75, 4.1, s);
+  const draw = clamp((s - 3.9) / 0.55, 0, 1);
+  const heroA = (1 - split) * (1 - charts);
+  const hk = heroKey(s);
+
+  ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+
+  // single globe
+  if (heroA > 0.003) {
+    const g = { cx: hero.cx, cy: hero.cy, R: hero.R * (1 - 0.15 * charts), key: hk };
+    drawGlobe(g, hk, heroN, HERO_B, heroA);
+    if (DATA) {
+      const m = META[hk], info = VARS[hk];
+      ctx.globalAlpha = heroA; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+      const y0 = hero.cy + hero.R + 22;
+      ctx.font = `500 10.5px ${UI_FONT}`; ctx.fillStyle = "#e8b53a";
+      ctx.fillText(`${info.kind.toUpperCase()} · ${info.name.toUpperCase()}`, hero.cx, y0);
+      const a = m.thr, steps3 = [[":", a, CUT[0], RAMP[1]], ["+", CUT[0], CUT[1], RAMP[3]], ["*", CUT[1], 1, RAMP[5]]];
+      const parts = steps3.map(([gch, lo, hi, col]) => ({ gch, col, txt: hi < 1 ? ` ${fmt(toReal(m, lo))} to ${fmt(toReal(m, hi))}` : ` > ${fmt(toReal(m, lo))}` }));
+      ctx.font = `500 11px ${GLYPH_FONT}`;
+      const gap = 16, unitTxt = "  " + info.units;
+      const widths = parts.map(p => ctx.measureText(p.gch + p.txt).width);
+      const total = widths.reduce((x, y) => x + y, 0) + gap * 2 + ctx.measureText(unitTxt).width;
+      let x = hero.cx - total / 2; const y1 = y0 + 18;
+      ctx.textAlign = "left";
+      parts.forEach((p, i) => {
+        ctx.fillStyle = p.col; ctx.font = `500 12px ${GLYPH_FONT}`; ctx.fillText(p.gch, x, y1);
+        const gw = ctx.measureText(p.gch).width;
+        ctx.fillStyle = "#bdb6a6"; ctx.font = `500 11px ${GLYPH_FONT}`; ctx.fillText(p.txt, x + gw, y1);
+        x += widths[i] + gap;
+      });
+      ctx.fillStyle = "#8d8778"; ctx.fillText(unitTxt.trim(), x - gap + 10, y1);
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  // the 4x4 grid
+  if (split > 0.003) {
+    const e = split;
+    const alpha = Math.min(1, e * 2.2);
+    for (const c of cells) {
+      const g = { cx: lerp(hero.cx, c.cx, e), cy: lerp(hero.cy, c.cy, e), R: lerp(hero.R, c.R, e), key: c.key };
+      c.now = g;
+      drawGlobe(g, c.key, gridN, GRID_B, alpha, PALS[c.row]);
+    }
+    if (e > 0.6) {
+      ctx.globalAlpha = smooth(0.6, 1, e);
+      ctx.font = `500 ${wide ? 10.5 : 9}px ${UI_FONT}`; ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+      const narrow = viz.w / 4 < 120;
+      for (const c of cells) {
+        ctx.fillStyle = "#bdb6a6";
+        ctx.fillText(narrow ? (VARS[c.key].tiny || VARS[c.key].name) : VARS[c.key].name, c.cx, c.cy + c.R + 14);
+      }
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  // month stamp
+  const globesA = Math.max(heroA, split);
+  if (globesA > 0.01) {
+    ctx.globalAlpha = globesA; ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+    const monthly = split > 0.5 || META?.[hk]?.nt > 1;
+    ctx.font = `700 13px ${GLYPH_FONT}`; ctx.fillStyle = "#e8b53a";
+    const mtxt = monthly ? MONTHS[Math.round(st.month) % 12].toUpperCase() : "2015–2024";
+    ctx.fillText(mtxt, viz.x, viz.y + 14);
+    const mw = ctx.measureText(mtxt).width;
+    ctx.font = `400 10.5px ${UI_FONT}`; ctx.fillStyle = "#8d8778";
+    ctx.fillText(monthly ? "  monthly mean, 2015–2024" + (split > 0.5 ? " · stocks are annual" : "") : "  annual mean", viz.x + mw, viz.y + 14);
+    ctx.globalAlpha = 1;
+  }
+
+  // charts
+  if (Math.abs(charts - chartLast.show) > 0.001) {
+    svg.style.opacity = charts; legend.style.opacity = charts;
+    const live = charts > 0.6;
+    svg.style.pointerEvents = live ? "auto" : "none"; legend.style.pointerEvents = live ? "auto" : "none";
+    legend.style.visibility = charts > 0.01 ? "visible" : "hidden";
+    chartLast.show = charts;
+  }
+  if (Math.abs(draw - chartLast.draw) > 0.0005) {
+    for (const p of panels) {
+      p.clipRect.setAttribute("width", draw * p.w + 4);
+      p.ends.setAttribute("opacity", smooth(0.92, 1, draw));
+    }
+    chartLast.draw = draw;
+  }
+
+  st.globes = split > 0.97 ? cells : heroA > 0.97 ? [hero] : null;
+  const P = st.pointer;
+  const over = P && !P.onChart && st.globes && st.globes.some(g => Math.hypot(P.x - g.cx, P.y - g.cy) <= g.R);
+  const cur = drag ? "grabbing" : over ? "grab" : "";
+  if (canvas.style.cursor !== cur) canvas.style.cursor = cur;
+
+  // globe tooltip
+  if (drag) tip.hidden = true;
+  else if (P && DATA && !P.onChart) {
+    let hit = null;
+    if (split > 0.97) hit = globeAt(P.x, P.y, cells);
+    else if (heroA > 0.97) hit = globeAt(P.x, P.y, [{ ...hero, key: hk }]);
+    if (hit) showTip(globeTip(hit), P.x, P.y); else tip.hidden = true;
+  } else if (P && !P.onChart) tip.hidden = true;
+
+  requestAnimationFrame(frame);
+}
+
+async function load() {
+  if (!META || typeof DecompressionStream === "undefined") return;
+  const bin = Uint8Array.from(atob(B64), c => c.charCodeAt(0));
+  const stream = new Blob([bin]).stream().pipeThrough(new DecompressionStream("gzip"));
+  DATA = new Uint8Array(await new Response(stream).arrayBuffer());
+}
+
+buildLegend();
+layout();
+new ResizeObserver(() => layout()).observe(stage);
+requestAnimationFrame(frame);
+load();
+if (document.fonts) document.fonts.load(`500 20px ${GLYPH_FONT}`).then(() => layout()).catch(() => {});
+})();
+</script>
+</body>
+</html>
