@@ -45,6 +45,27 @@ S3 − S5 + S0, cumulative 1960–2025, PgC (GCB bands: north > 30°N, tropics 3
 | S3 cumulative NBP 1960–2024 (PgC) | 13.3 | **44.7** | 38.4 | 44.5 |
 | S2 − S1 cumulative NBP 1960–2024 (PgC) | −105.2 | −45.0 | −47.9 | |
 
+### Without nitrogen: run #56
+
+#56 is #55 without NITROGEN (no PERMAFROST either; S0, S3, S5 only).
+
+![GCB metric with #56](img/climate_effect_53_55/gcb_style_S3_S5_S0_with56.png)
+
+| S3 − S5 + S0, 1960–2025 (PgC) | #55 (N on) | **#56 (N off)** |
+|---|---:|---:|
+| Global | −37.2 | **−43.8** |
+| North (> 30°N) | −16.6 | −21.5 |
+| Tropics | −19.7 | −21.4 |
+| S3 cumulative NBP 1960–2024 (TRENDY v14 median 44.5) | 38.4 | 65.1 |
+
+Without N the climate effect is 6.6 PgC worse, mostly in the north (soil + litter), and the S3 sink is
+too large. k_mort 0.2 gains little without N: about 2 PgC over #49 (cap, PERMAFROST, k_mort 0.5).
+The N-mode carbon budget gap (~1 PgC) is 0 in #56, so it does come from the N code.
+
+This is not a pure N on/off test: the decomposition cap acts on a different scheme in each. Without N,
+decomposition runs in `littersom.c` with LPJmL's cap (response ≤ 1 on the Lloyd & Taylor scale); with N,
+it runs in CENTURY with the ported cap (≤ `temperature_modifier(10)` ≈ 0.19).
+
 ### How each change contributed
 
 Each step adds one change; S3 − S5 1960–2024 global, no S0 term (so ≈ 1 PgC off the GCB metric):
