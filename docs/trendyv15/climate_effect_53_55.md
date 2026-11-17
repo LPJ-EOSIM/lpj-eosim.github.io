@@ -113,7 +113,7 @@ changed nothing: the two grasses almost never share a cell.
 
 ## Global stocks and fluxes (S3)
 
-v15 as submitted, #53, #55, LPJ-GUESS and LPJmL (TRENDY v14):
+v15 as submitted, #53, #55, #56, LPJ-GUESS and LPJmL (TRENDY v14):
 
 ![S3 stocks and fluxes 1960–2024](img/climate_effect_53_55/s3_stocks_fluxes_family_1960.png)
 
@@ -125,14 +125,16 @@ v15 as submitted, #53, #55, LPJ-GUESS and LPJmL (TRENDY v14):
 
 ## Climate effect over time (S3 − S5)
 
-v15 as submitted, #49, #51 and #53. Upper rows: S3; lower figure: S3 − S5 for every stock and flux.
+v15 as submitted, #53, #55 and #56. First figure: S3; second: S3 − S5 for every stock and flux.
 
 ![S3 stocks and fluxes](img/climate_effect_53_55/stocks_fluxes_S3.png)
 
 ![S3 − S5 stocks and fluxes](img/climate_effect_53_55/stocks_fluxes_S3_minus_S5.png)
 
-k_mort 0.2 halves the S3 − S5 vegetation loss; litter loses ~3 PgC more (more dead wood). GPP, NPP and Ra
-are unchanged from #51: k_mort changes residence time, not productivity.
+The three fix runs share almost the same S3 − S5 vegetation loss (about −25 PgC by 2024, against −84 for v15
+as submitted). Without N (#56) the soil loss is larger (about −21 vs −14 PgC). Against #51 (k_mort 0.5, not
+shown), k_mort 0.2 halves the vegetation loss and leaves GPP, NPP and Ra unchanged: it changes residence
+time, not productivity.
 
 ## Nitrogen cycle
 
