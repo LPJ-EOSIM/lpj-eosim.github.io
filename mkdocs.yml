@@ -66,6 +66,7 @@ nav:
       - "ILAMB benchmarking (S3)": trendyv15/ilamb.md
       - "NBP & O₂/N₂ constraint": trendyv15/nbp.md
       - "Stocks & fluxes by scenario (S0–S6)": trendyv15/scenarios.md
+      - "Climate-effect fixes: runs #53 and #55": trendyv15/climate_effect_53_55.md
   - NMIP:
       - "SH1: BNF sensitivity, C & N budgets, ILAMB": nmip/sh1_bnf.md
       - "SH1: fix-spitfire / fix-permafrost ILAMB comparison": nmip/sh1_fixes_ilamb.md
