@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Climate effect: runs 60, 61, 62 (RESP_OPT=6 + M10DAYR, no RESPONSE_CAP)</title>
+<style>
+body { font-family: sans-serif; max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+img { max-width: 100%; }
+table { border-collapse: collapse; } td, th { border: 1px solid #ccc; padding: 0.2rem 0.5rem; text-align: right; }
+</style>
+</head>
+<body>
+<h1>Climate effect: runs 60, 61, 62 vs 57, 58, 59</h1>
+<p>PR #441, LPJ <code>c659eed</code>. Runs 60 / 61 / 62 = 57 / 58 / 59 with RESPONSE_CAP removed and RESP_OPT=6 + M10DAYR added. S0 + S3 + S5, CRU TS 4.10, fresh spinup. Solid lines: 57–59; dashed: 60–62 (same colour per pair).</p>
+
+<table>
+<tr><th>S3 − S5 + S0, 1960–2025 (PgC)</th><th>Global</th><th>North (&gt;30°N)</th><th>Tropics</th><th>South (&lt;30°S)</th><th>S3 cum. NBP 1960–2024</th></tr>
+<tr><td>57 → 60 (all PR flags)</td><td>−32.2 → −33.9</td><td>−12.1 → −12.3</td><td>−19.1 → −20.6</td><td>−1.1 → −1.0</td><td>47.2 → 32.2</td></tr>
+<tr><td>58 → 61 (no PERMAFROST)</td><td>−33.1 → −33.9</td><td>−13.0 → −13.7</td><td>−19.0 → −19.3</td><td>−1.1 → −1.0</td><td>41.3 → 26.2</td></tr>
+<tr><td>59 → 62 (no PERMAFROST, no NITROGEN)</td><td>−41.8 → −37.4</td><td>−20.4 → −25.8</td><td>−20.3 → −10.3</td><td>−1.1 → −1.2</td><td>78.0 → 72.0</td></tr>
+</table>
+<p>TRENDY v14 median S3 cumulative NBP 1960–2024: 44.5 PgC. Full table: <a href="climate_effect_table.csv">climate_effect_table.csv</a>.</p>
+
+<h2>Respiration response functions: RESPONSE_CAP vs RESP_OPT=6 + M10DAYR</h2>
+<a href="resp_response_functions.png"><img src="resp_response_functions.png" alt="Respiration response functions"></a>
+<p>Climate ranges used for shading: <a href="temperate_na_jja_ranges.csv">temperate_na_jja_ranges.csv</a>.</p>
+
+<h2>GCB-style climate effect (S3 − S5 + S0)</h2>
+<a href="gcb_style_S3_S5_S0.png"><img src="gcb_style_S3_S5_S0.png" alt="GCB-style climate effect"></a>
+
+<h2>S3 stocks and fluxes vs LPJ-GUESS and LPJmL (TRENDY v14)</h2>
+<a href="s3_stocks_fluxes_family_1960.png"><img src="s3_stocks_fluxes_family_1960.png" alt="S3 vs LPJ family"></a>
+
+<h2>S3 − S5 for every stock and flux</h2>
+<a href="stocks_fluxes_S3_minus_S5.png"><img src="stocks_fluxes_S3_minus_S5.png" alt="S3 minus S5"></a>
+
+<h2>S3 stocks and fluxes, our runs only</h2>
+<a href="stocks_fluxes_S3.png"><img src="stocks_fluxes_S3.png" alt="S3 stocks and fluxes"></a>
+</body>
+</html>
