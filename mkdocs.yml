@@ -79,6 +79,8 @@ nav:
       - "Tuning a no-fire permutation to the baseline": results/tuned_nofire.md
       - "BVOC benchmark (isoprene & monoterpenes)": results/bvoc.md
       - "Benchmark runs at 7a1fa06 / fbc7d07: ILAMB": results/benchmark_ilamb.md
+  - PROSAIL:
+      - "Bryce's code (98892d37): global run vs MODIS": prosail/bryce_98892d37.md
   - Publications: publications.md
 
 plugins:
