@@ -155,6 +155,32 @@ JJA NEP difference maps:
 
 ![NA JJA NEP difference, attribution steps, 2015–2024](img/climate_effect_attribution_57_63_64_60/na_jja_nep_diff_map_2015-2024.png)
 
+## ILAMB: KGO vs runs 57–64
+
+[**ILAMB site →**](https://lpj-eosim.github.io/results/ilamb-pr441-57-64/index.html) · [**dashboard, absolute scores →**](https://lpj-eosim.github.io/results/ilamb-pr441-57-64/dashboard.html)
+
+S3, global region, same `ilamb.cfg` as the runs #53 / #55 page. Bold = best in the row.
+
+| Overall score | 57 fixes | 58 noPF | 59 noPF noN | 60 resp6 | 61 resp6 noPF | 62 resp6 noPF noN | 63 nocap | 64 resp2 | KGO |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Biomass | 0.634 | 0.596 | 0.535 | 0.609 | 0.568 | 0.509 | 0.634 | 0.618 | **0.639** |
+| Gross Primary Productivity | **0.648** | 0.645 | 0.618 | 0.645 | 0.641 | 0.612 | 0.647 | 0.646 | 0.617 |
+| Ecosystem Respiration | **0.588** | 0.582 | 0.560 | 0.568 | 0.563 | 0.557 | 0.565 | 0.570 | 0.561 |
+| Soil Carbon | 0.662 | 0.686 | 0.705 | 0.691 | **0.729** | 0.663 | 0.699 | 0.704 | 0.698 |
+| Evapotranspiration | 0.697 | 0.697 | 0.697 | 0.697 | 0.697 | 0.697 | 0.697 | **0.698** | 0.697 |
+| Burned Area | 0.517 | 0.517 | 0.522 | 0.519 | 0.520 | **0.529** | 0.516 | 0.519 | 0.520 |
+| Runoff | 0.691 | 0.693 | 0.694 | 0.692 | 0.694 | **0.694** | 0.691 | 0.692 | 0.694 |
+
+- **57 fixes**: run 57: all six fixes + `PERMAFROST` + `NITROGEN`
+- **58 noPF**: run 58: 57 without `PERMAFROST`
+- **59 noPF noN**: run 59: 58 without `NITROGEN`
+- **60 resp6**: run 60: 57 − `RESPONSE_CAP` + `RESP_OPT=6` + `M10DAYR`
+- **61 resp6 noPF**: run 61: 58 − `RESPONSE_CAP` + `RESP_OPT=6` + `M10DAYR`
+- **62 resp6 noPF noN**: run 62: 59 − `RESPONSE_CAP` + `RESP_OPT=6` + `M10DAYR`
+- **63 nocap**: run 63: 57 − `RESPONSE_CAP`
+- **64 resp2**: run 64: 63 + `RESP_OPT=2` + `M10DAYR`
+- **KGO**: main CI known-good S3 (c71b641, no PR flags)
+
 ## CI: S3 KGO vs runs 57–62, all variables
 
 ![1/9](img/pr441_kgo_vs_57_62/global_annual_00.png)
